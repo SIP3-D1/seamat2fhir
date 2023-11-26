@@ -11,7 +11,7 @@ Description: "このプロファイルはPractitionerリソースに対して、
 * ^date = "2023-11-13"
 * meta.lastUpdated 1.. MS
 * meta.profile 1.. MS
-* meta.profile = $JP_Practitioner_SEAMAT_Authenticator
+//* meta.profile = $JP_Practitioner_SEAMAT_Authenticator
 
 * identifier ^definition = "An identifier that applies to this person in this role.\r\n\r\nある役割の人に適用される識別子。\r\n
 【CDA項目】/ClinicalDocument/authenticator/assignedEntity/id"

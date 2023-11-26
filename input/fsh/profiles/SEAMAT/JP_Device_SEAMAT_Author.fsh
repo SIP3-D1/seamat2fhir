@@ -11,7 +11,7 @@ Description: "このプロファイルはDeviceリソースに対して、SEAMAT
 * ^date = "2023-11-13"
 * meta.lastUpdated 1.. MS
 * meta.profile 1.. MS
-* meta.profile = $JP_Device_SEAMAT_Author
+//* meta.profile = $JP_Device_SEAMAT_Author
 
 * identifier ^definition = "Unique instance identifiers assigned to a device by manufacturers other organizations or owners.\r\n
 【CDA項目】/ClinicalDocument/author/assignedAuthor/id"

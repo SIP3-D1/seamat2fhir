@@ -13,7 +13,7 @@ Description: "このプロファイルはObservationリソースに対して、S
 * . ^definition = "SEAMATの測定結果／解析結果の格納に使用する。"
 * meta.lastUpdated 1.. MS
 * meta.profile 1.. MS
-* meta.profile = $JP_Observation_SEAMAT
+//* meta.profile = $JP_Observation_SEAMAT
 
 * identifier ..0
 * basedOn ..0

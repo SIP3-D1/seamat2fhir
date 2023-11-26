@@ -63,6 +63,7 @@ parameters:  # see https://confluence.hl7.org/display/FHIR/Implementation+Guide+
     - fsh-generated/resources
   path-pages:
     - input/pagecontent
+    - input/pagecontent/images
     - input/intro-notes
     - fsh-generated/includes
     #- input/summaries

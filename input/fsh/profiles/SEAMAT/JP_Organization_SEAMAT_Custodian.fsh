@@ -11,7 +11,7 @@ Description: "このプロファイルはOrganizationリソースに対して、
 * ^date = "2023-11-13"
 * meta.lastUpdated 1.. MS
 * meta.profile 1.. MS
-* meta.profile = $JP_Organization_SEAMAT_Custodian
+//* meta.profile = $JP_Organization_SEAMAT_Custodian
 
 //* identifier ^short = "Identifies this organization  across multiple systems/複数のシステムでこの組織を識別【詳細参照】"
 * identifier ^definition = "Identifier for the organization that is used to identify the organization across multiple disparate systems.\r\n\r\n複数の異種システムにまたがって組織を識別するための識別子\r\n

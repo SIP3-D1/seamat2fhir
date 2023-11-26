@@ -12,7 +12,7 @@ Description: "SEAMAT心電図検査レポートのための文書 Bundleリソ�
 * . ^definition = "SEAMAT心電図検査レポートのための文書 Bundleリソース"
 * meta.lastUpdated 1.. MS
 * meta.profile 1.. MS
-* meta.profile = $JP_Bundle_EKGReport
+//* meta.profile = $JP_Bundle_EKGReport
 
 * identifier 1.. MS
 * identifier ^short = "この文書Bundleの固定識別番号。Bundle作成時にシステムが設定し、サーバ間で移動、コピーされても変更されないID。"
