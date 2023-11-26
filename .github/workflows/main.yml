@@ -2,14 +2,14 @@ name: building Seamt2fhir IG
 on:
   push:
     branches: 
-      - develop1.0
+      - main1.0
     paths:
       - 'sushi-config.yaml'
       - 'input/**'
       - 'custom-template/**'
       - '.github/workflows/main.yml'
   pull_request:
-    branches: [ develop1.0 ]
+    branches: [ main1.0 ]
 env:
   release_version : 0.1.1
 jobs:
