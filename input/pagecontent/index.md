@@ -13,18 +13,17 @@
 
 ## 心電図レポート用FHIRドキュメントの概要
 
-![心電図レポート用FHIRドキュメントの構造](images/ecgReportStructure.png)
+<img src="images/ecgReportStructure.png" width="60%"><br clear="all">
 
+### 心電図レポート用FHIRドキュメントのトピック
 
-## 心電図レポート用FHIRドキュメントのトピック
-
-### 各リソースのプロファイルのURLの命名規則を下記とする
+#### 各リソースのプロファイルのURLの命名規則を下記とする
   
     http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_<リソース名>_SEAMAT_<用途>（SEAMAT共通）
   
     http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_<リソース名>_EKGReport（心電図固有）
 
-### Bundle.identifierにSS-MIX2拡張ストレージのコンテンツフォルダ名を持たせる
+#### Bundle.identifierにSS-MIX2拡張ストレージのコンテンツフォルダ名を持たせる
   
   「<患者ID>_<診療日>_<データ種別>_<特定キー>_<発生日時>_<診療科コード>_<コンディションフラグ>」
   
@@ -32,15 +31,14 @@
  - <データ種別>=<データ種別コード><レポート/データフラグ>
  - <特定キー>=<ファイル作成日時>.<データ管理番号>.<オーダ番号>.<部門管理番号>
 
-### SS-MIX2拡張ストレージのコンテンツフォルダ名からSEAMATのキー情報を抽出して、Procedureリソースに個別にマッピングする
+#### SS-MIX2拡張ストレージのコンテンツフォルダ名からSEAMATのキー情報を抽出して、Procedureリソースに個別にマッピングする
 
-### Observationリソースは、血液型/測定値/解析値用のプロファイルを用意する
+#### Observationリソースは、血液型/測定値/解析値用のプロファイルを用意する
 
-### 外部参照については、FHIRサーバーへの登録のため、外部ファイルの内容をDocumentReferenceないしBinaryリソース内に内包する
+#### 外部参照については、FHIRサーバーへの登録のため、外部ファイルの内容をDocumentReferenceないしBinaryリソース内に内包する
 
 ## FSHファイルの構成
 
-![FSHファイルの構成](images/fsh_fileList.png)
-
+<img src="images/fsh_fileList.png" width="60%"><br clear="all">
 
 {% include markdown-link-references.md %}
