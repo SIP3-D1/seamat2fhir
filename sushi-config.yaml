@@ -1,0 +1,113 @@
+# ╭─────────────────────────Commonly Used ImplementationGuide Properties───────────────────────────╮
+# │  The properties below are used to create the ImplementationGuide resource. The most commonly   │
+# │  used properties are included. For a list of all supported properties and their functions,     │
+# │  see: https://fshschool.org/docs/sushi/configuration/.                                         │
+# │  see: https://fshschool.org/docs/sushi/configuration/.                                         │
+# ╰────────────────────────────────────────────────────────────────────────────────────────────────╯
+id: jpfhir.jp.seamat2fhir
+canonical: http://jpfhir.jp/fhir/seamat2fhir
+name: "SEAMAT2FHIR ドラフト版"
+title: "SEAMAT2FHIR  ドラフト版"
+description: "SEAMAT2FHIR  ImplementationGuide ドラフト版"
+status: draft # draft | active | retired | unknown 
+version: 0.1.1
+date: 2023-11-27
+fhirVersion: 4.0.1 # https://www.hl7.org/fhir/valueset-FHIR-version.html 
+copyrightYear: 2023+
+releaseLabel: draft # ci-build | draft | qa-preview | ballot | trial-use | release | update | normative+trial-use
+# license: CC BY-ND  #  https://www.hl7.org/fhir/valueset-spdx-license.html
+# https://www.hl7.org/fhir/valueset-jurisdiction.html 
+publisher:
+  name: SIP D1 SEAMAT2FHIR WG
+  url: http://jpfhir.jp/fhir/seamat2fhir
+  email: office@hlfhir.jp
+copyright: Copyright (temporaly) by SIP D1 SEAMAT2FHIR WG, CC(Creative Commons license) BY-ND CC表示・改変禁止
+jurisdiction: 'urn:iso:std:iso:3166-2#JP'
+dependencies:
+  jp-core.r4:
+# to avoid warning message "The canonical URL for an Implementation Guide must point directly to the implementation guide resource, not to the Implementation Guide as a whole"
+    uri: http://jpfhir.jp/fhir/core/1.1.2/ImplementationGuide/
+    version: 1.1.2
+  jpfhir-terminology.r4:
+    uri: http://jpfhir.jp/fhir//jpfhir-terminology.r4/ImplementationGuide/
+    version: 1.1.1
+
+#----------------------------------------
+# ページタイトル名称設定
+#----------------------------------------
+pages:
+  index.md:
+    title: SEAMAT2FHIR仕様  　JP-SEAMAT2FHIR
+  history.md:
+    title: 改訂履歴
+  
+#-------------------------------------
+# メニュー設定
+#-------------------------------------
+menu:
+  Home:
+    本文: index.html
+    改訂履歴: history.html
+  Artifacts: 
+    Artifacts: artifacts.html
+  パッケージDownload:
+    標準(diff)版: https://jpfhir.jp/fhir/seamat2fhir/jp-seamat2fhir.r4-0.1.1.tgz
+    snapshot版: https://jpfhir.jp/fhir/seamat2fhir/jp-seamat2fhir.r4-0.1.1-snap.tgz
+    
+#-----------------------------------------
+# IG 外部パラメータ設定
+#-----------------------------------------
+parameters:  # see https://confluence.hl7.org/display/FHIR/Implementation+Guide+Parameters
+  path-resource:
+    - input/resources
+    - fsh-generated/resources
+  path-pages:
+    - input/pagecontent
+    - input/intro-notes
+    - fsh-generated/includes
+    #- input/summaries
+  path-expansion-params: '../../input/_resources/exp-params.json'
+  no-narrative: 
+    - CodeSystem/*
+  active-tables: 'false'
+  apply-version: 'true'
+  apply-copyright: 'true'
+  apply-publisher: 'true'
+  apply-contact: 'true'
+  apply-license: 'true'
+  apply-jurisdiction: 'true'
+  show-inherited-invariants: 'true'
+  usage-stats-opt-out: 'true'
+  display-warnings: 'true'
+  excludexml: 'true'
+  excludejson: 'false'
+  excludettl: 'true'
+  excludemap: 'true'
+#  excludeexample: 'false'
+  generate: #what does this do - todo: remove and see
+    - json
+  no-validate:
+    - '*/hl7.fhir.jp.core'
+  special-url:
+    - http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Bundle_EKGReport
+    - http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Composition_EKGReport
+    - http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Binary_SEAMAT
+    - http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Device_SEAMAT_Author
+    - http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Device_SEAMAT_Measurer
+    - http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_DocumentReference_SEAMAT
+    - http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Observation_SEAMAT
+    - http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Organization_SEAMAT_Author
+    - http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Organization_SEAMAT_Custodian
+    - http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Organization_SEAMAT_Department
+    - http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Patient_SEAMAT
+    - http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Practitioner_SEAMAT_Authenticator
+    - http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Practitioner_SEAMAT_Author
+    - http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Practitioner_SEAMAT_Measurer
+    - http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Practitioner_SEAMAT_Performer
+    - http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_PractitionerRole_SEAMAT_Performer
+    - http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Procedure_SEAMAT
+    - http://jpfhir.jp/fhir/SEAMAT/CodeSystem/JP_Composition_SEAMAT_DocumentType_CS
+    - http://jpfhir.jp/fhir/SEAMAT/CodeSystem/JP_Composition_SEAMAT_SectionCode_CS
+    - http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Composition_EKGReport_DocumentType_CS
+    - http://jpfhir.jp/fhir/SEAMAT/CodeSystem/JP_Composition_EKGReport_SectionCode_VS
+  

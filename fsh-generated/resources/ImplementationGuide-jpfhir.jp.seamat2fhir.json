@@ -1,0 +1,351 @@
+{
+  "resourceType": "ImplementationGuide",
+  "id": "jpfhir.jp.seamat2fhir",
+  "url": "http://jpfhir.jp/fhir/seamat2fhir/ImplementationGuide/jpfhir.jp.seamat2fhir",
+  "version": "0.1.1",
+  "name": "SEAMAT2FHIR",
+  "title": "SEAMAT2FHIR  ドラフト版",
+  "status": "draft",
+  "date": "2023-11-27",
+  "publisher": "SIP D1 SEAMAT2FHIR WG",
+  "contact": [
+    {
+      "name": "SIP D1 SEAMAT2FHIR WG",
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://jpfhir.jp/fhir/seamat2fhir"
+        },
+        {
+          "system": "email",
+          "value": "office@hlfhir.jp"
+        }
+      ]
+    }
+  ],
+  "description": "SEAMAT2FHIR  ImplementationGuide ドラフト版",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "code": "JP",
+          "system": "urn:iso:std:iso:3166-2"
+        }
+      ]
+    }
+  ],
+  "copyright": "Copyright (temporaly) by SIP D1 SEAMAT2FHIR WG, CC(Creative Commons license) BY-ND CC表示・改変禁止",
+  "packageId": "jpfhir.jp.seamat2fhir",
+  "fhirVersion": [
+    "4.0.1"
+  ],
+  "dependsOn": [
+    {
+      "packageId": "jp-core.r4",
+      "uri": "http://jpfhir.jp/fhir/core/1.1.2/ImplementationGuide/",
+      "version": "1.1.2",
+      "id": "jp_core_r4"
+    },
+    {
+      "packageId": "jpfhir-terminology.r4",
+      "uri": "http://jpfhir.jp/fhir//jpfhir-terminology.r4/ImplementationGuide/",
+      "version": "1.1.1",
+      "id": "jpfhir_terminology_r4"
+    }
+  ],
+  "definition": {
+    "resource": [
+      {
+        "reference": {
+          "reference": "StructureDefinition/JP-Bundle-ekgreport"
+        },
+        "name": "JP_Bundle_EKGReport",
+        "description": "SEAMAT心電図検査レポートのための文書 Bundleリソース",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/JP-Composition-ekgreport"
+        },
+        "name": "JP_Composition_EKGReport",
+        "description": "心電図検査レポート情報のリソース構成情報と文書日付に関するCompositionの派生プロファイル",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/jp-practitioner-seamat-authenticator"
+        },
+        "name": "SEAMAT Common Authenticator Practitioner Profile",
+        "description": "このプロファイルはPractitionerリソースに対して、SEAMAT共通の文書内容責任者のデータを送受信するための基礎となる制約と拡張を定めたものである。",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/jp-device-seamat-author"
+        },
+        "name": "SEAMAT Common Author Device Profile",
+        "description": "このプロファイルはDeviceリソースに対して、SEAMAT共通の作成システムのデータを送受信するための基礎となる制約と拡張を定めたものである。",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/jp-organization-seamat-author"
+        },
+        "name": "SEAMAT Common Author Organization Profile",
+        "description": "このプロファイルはOrganizationリソースに対して、SEAMAT共通の作成医療機関のデータを送受信するための基礎となる制約と拡張を定めたものである。",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/jp-practitioner-seamat-author"
+        },
+        "name": "SEAMAT Common Author Practitioner Profile",
+        "description": "このプロファイルはPractitionerリソースに対して、SEAMAT共通の作成者のデータを送受信するための基礎となる制約と拡張を定めたものである。",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/jp-binary-seamat"
+        },
+        "name": "SEAMAT Common Binary Profile",
+        "description": "このプロファイルはBinaryリソースに対して、外部参照のバイナリデータを送受信するための共通の制約と拡張を定めたものである。",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/jp-organization-seamat-custodian"
+        },
+        "name": "SEAMAT Common Custodian Organization Profile",
+        "description": "このプロファイルはOrganizationリソースに対して、SEAMAT共通の管理医療機関のデータを送受信するための基礎となる制約と拡張を定めたものである。",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/jp-organization-seamat-department"
+        },
+        "name": "SEAMAT Common Department Organization Profile",
+        "description": "このプロファイルはOrganizationリソースに対して、SEAMAT共通の診療科情報のデータを送受信するための基礎となる制約と拡張を定めたものである。",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/jp-composition-seamat-documenttype-cs"
+        },
+        "name": "SEAMAT Common Document Type CodeSystem",
+        "description": "SEAMAT共通文書タイプコードシステム",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/jp-documentreference-seamat"
+        },
+        "name": "SEAMAT Common DocumentReference Profile",
+        "description": "このプロファイルはDocumentReferenceリソースに対して、SEAMAT共通の外部参照のドキュメントデータを送受信するための共通の制約と拡張を定めたものである。",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/jp-device-seamat-measurer"
+        },
+        "name": "SEAMAT Common Measurer Device Profile",
+        "description": "このプロファイルはDeviceリソースに対して、SEAMAT共通の測定システムのデータを送受信するための基礎となる制約と拡張を定めたものである。",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/jp-practitioner-seamat-measurer"
+        },
+        "name": "SEAMAT Common Measurer Practitioner Profile",
+        "description": "このプロファイルはPractitionerリソースに対して、SEAMAT共通の測定者のデータを送受信するための基礎となる制約と拡張を定めたものである。",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/jp-observation-seamat"
+        },
+        "name": "SEAMAT Common Observation Profile",
+        "description": "このプロファイルはObservationリソースに対して、SEAMAT共通の測定結果／解析結果のデータを送受信するための制約と拡張を定めたものである。",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/jp-practitioner-seamat-performer"
+        },
+        "name": "SEAMAT Common Performer Practitioner Profile",
+        "description": "このプロファイルはPractitionerリソースに対して、SEAMAT共通の検査実施者のデータを送受信するための基礎となる制約と拡張を定めたものである。",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/jp-practitionerrole-seamat-performer"
+        },
+        "name": "SEAMAT Common Performer PractitionerRole Profile",
+        "description": "このプロファイルはPractitionerRoleリソースに対して、SEAMAT共通の検査実施者の役割データを送受信するための基礎となる制約と拡張を定めたものである。",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/jp-procedure-seamat"
+        },
+        "name": "SEAMAT Common Procedure Profile",
+        "description": "このプロファイルはProcedureリソースに対して、検査実施データを送受信するための共通の制約と拡張を定めたものである。",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/jp-composition-seamat-sectioncode-cs"
+        },
+        "name": "SEAMAT Common Section Code CodeSystem",
+        "description": "SEAMAT共通セクションコードコードシステム",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/jp-composition-ekgreport-documenttype-vs"
+        },
+        "name": "SEAMAT EKG Report Document Type ValueSet",
+        "description": "SEAMAT心電図検査レポート文書タイプ値セット",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "ValueSet/jp-composition-ekgreport-sectioncode-vs"
+        },
+        "name": "SEAMAT EKG Report Section Code ValueSet",
+        "description": "SEAMAT心電図検査レポートセクションコード値セット",
+        "exampleBoolean": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/jp-patient-seamat"
+        },
+        "name": "SEMAAT Common Patient Profile",
+        "description": "このプロファイルはPatientリソースに対して、SEAMAT共通の患者のデータを送受信するための基礎となる制約と拡張を定めたものである。",
+        "exampleBoolean": false
+      }
+    ],
+    "page": {
+      "nameUrl": "toc.html",
+      "title": "Table of Contents",
+      "generation": "html",
+      "page": [
+        {
+          "nameUrl": "index.html",
+          "title": "SEAMAT2FHIR仕様  　JP-SEAMAT2FHIR",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "history.html",
+          "title": "改訂履歴",
+          "generation": "markdown"
+        }
+      ]
+    },
+    "parameter": [
+      {
+        "code": "copyrightyear",
+        "value": "2023+"
+      },
+      {
+        "code": "releaselabel",
+        "value": "draft"
+      },
+      {
+        "code": "path-resource",
+        "value": "input/resources"
+      },
+      {
+        "code": "path-resource",
+        "value": "fsh-generated/resources"
+      },
+      {
+        "code": "path-pages",
+        "value": "input/pagecontent"
+      },
+      {
+        "code": "path-pages",
+        "value": "input/intro-notes"
+      },
+      {
+        "code": "path-pages",
+        "value": "fsh-generated/includes"
+      },
+      {
+        "code": "path-expansion-params",
+        "value": "../../input/_resources/exp-params.json"
+      },
+      {
+        "code": "no-narrative",
+        "value": "CodeSystem/*"
+      },
+      {
+        "code": "active-tables",
+        "value": "false"
+      },
+      {
+        "code": "apply-version",
+        "value": "true"
+      },
+      {
+        "code": "apply-copyright",
+        "value": "true"
+      },
+      {
+        "code": "apply-publisher",
+        "value": "true"
+      },
+      {
+        "code": "apply-contact",
+        "value": "true"
+      },
+      {
+        "code": "apply-license",
+        "value": "true"
+      },
+      {
+        "code": "apply-jurisdiction",
+        "value": "true"
+      },
+      {
+        "code": "show-inherited-invariants",
+        "value": "true"
+      },
+      {
+        "code": "usage-stats-opt-out",
+        "value": "true"
+      },
+      {
+        "code": "display-warnings",
+        "value": "true"
+      },
+      {
+        "code": "excludexml",
+        "value": "true"
+      },
+      {
+        "code": "excludejson",
+        "value": "false"
+      },
+      {
+        "code": "excludettl",
+        "value": "true"
+      },
+      {
+        "code": "excludemap",
+        "value": "true"
+      },
+      {
+        "code": "generate",
+        "value": "json"
+      },
+      {
+        "code": "no-validate",
+        "value": "*/hl7.fhir.jp.core"
+      },
+      {
+        "code": "special-url",
+        "value": "http://jpfhir.jp/fhir/clins/StructureDefinition/JP_AllergyIntolerance_eCS"
+      }
+    ]
+  }
+}

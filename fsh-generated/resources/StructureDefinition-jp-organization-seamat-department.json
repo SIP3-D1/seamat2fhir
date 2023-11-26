@@ -1,0 +1,105 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "jp-organization-seamat-department",
+  "url": "http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Organization_SEAMAT_Department",
+  "name": "JP_Organization_SEAMAT_Department",
+  "title": "SEAMAT Common Department Organization Profile",
+  "status": "active",
+  "date": "2023-11-12",
+  "description": "このプロファイルはOrganizationリソースに対して、SEAMAT共通の診療科情報のデータを送受信するための基礎となる制約と拡張を定めたものである。",
+  "fhirVersion": "4.0.1",
+  "mapping": [
+    {
+      "identity": "v2",
+      "uri": "http://hl7.org/v2",
+      "name": "HL7 v2 Mapping"
+    },
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    },
+    {
+      "identity": "servd",
+      "uri": "http://www.omg.org/spec/ServD/1.0/",
+      "name": "ServD"
+    },
+    {
+      "identity": "w5",
+      "uri": "http://hl7.org/fhir/fivews",
+      "name": "FiveWs Pattern Mapping"
+    }
+  ],
+  "kind": "resource",
+  "abstract": false,
+  "type": "Organization",
+  "baseDefinition": "http://jpfhir.jp/fhir/core/StructureDefinition/JP_Organization",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Organization.meta.lastUpdated",
+        "path": "Organization.meta.lastUpdated",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Organization.meta.profile",
+        "path": "Organization.meta.profile",
+        "min": 1,
+        "patternCanonical": "http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Organization_SEAMAT_Department",
+        "mustSupport": true
+      },
+      {
+        "id": "Organization.active",
+        "path": "Organization.active",
+        "fixedBoolean": true
+      },
+      {
+        "id": "Organization.type.coding.system",
+        "path": "Organization.type.coding.system",
+        "fixedUri": "http://terminology.hl7.org/CodeSystem/organization-type"
+      },
+      {
+        "id": "Organization.type.coding.code",
+        "path": "Organization.type.coding.code",
+        "fixedCode": "dept"
+      },
+      {
+        "id": "Organization.type.coding.display",
+        "path": "Organization.type.coding.display",
+        "fixedString": "Hospital Department"
+      },
+      {
+        "id": "Organization.name",
+        "path": "Organization.name",
+        "definition": "A name associated with the organization.\r\n\r\n組織に関連付けられた名前。\r\n\r\n【CDA項目】/ClinicalDocument/recordTarget/patientRole/providerOrganization/name"
+      },
+      {
+        "id": "Organization.alias",
+        "path": "Organization.alias",
+        "max": "0"
+      },
+      {
+        "id": "Organization.telecom",
+        "path": "Organization.telecom",
+        "max": "0"
+      },
+      {
+        "id": "Organization.address",
+        "path": "Organization.address",
+        "max": "0"
+      },
+      {
+        "id": "Organization.partOf",
+        "path": "Organization.partOf",
+        "max": "0"
+      },
+      {
+        "id": "Organization.endpoint",
+        "path": "Organization.endpoint",
+        "max": "0"
+      }
+    ]
+  }
+}

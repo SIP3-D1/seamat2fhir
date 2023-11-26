@@ -1,0 +1,153 @@
+name: building Seamt2fhir IG
+on:
+  push:
+    branches: 
+      - develop1.0
+    paths:
+      - 'sushi-config.yaml'
+      - 'input/**'
+      - 'custom-template/**'
+      - '.github/workflows/main.yml'
+  pull_request:
+    branches: [ develop1.0 ]
+env:
+  release_version : 0.1.1
+jobs:
+  turn1:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        ruby-version: ['3.0']
+    environment: SSH_PORT_JPFHIR  # JAMI WG アップロードサイトに関するアクセス情報の環境名
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup npm
+      uses: actions/setup-node@v2
+      with:
+        check-latest: true
+    - name: Setup Sushi
+      run: |
+        sudo npm install -g fsh-sushi
+    - name: Install Jekyll
+      run: |
+        sudo apt-get install jekyll
+
+    - name: Download IG Publisher
+      uses: Legion2/download-release-action@v2.1.0
+      with:
+        repository: HL7/fhir-ig-publisher
+        tag: 'latest'
+        path: .
+        file: publisher.jar
+
+    - name: Download the file
+      uses: suisei-cn/actions-download-file@v1.4.0
+      id: downloadfile1
+      with:
+        url: "https://jpfhir.jp/fhir/fhir_dotFHIR_packages.tgz"
+        target: .
+  
+    - name: Download the file
+      uses: suisei-cn/actions-download-file@v1.4.0
+      id: downloadfile2
+      with:
+        url: "https://jpfhir.jp/fhir/core/terminology/jpfhir-terminology.r4-1.1.1.tgz"
+        target: .    
+    
+    - name: Prepare for using all dependent packages including Jp modified version of hl7.fhir.r4.core Package 
+      env:
+        JPPACKAGECOREtgz: fhir_dotFHIR_packages.tgz
+        JPTerminologyCOREdir: jpfhir-terminology.r4#1.1.1
+        JPTerminologyCOREPtgz: jpfhir-terminology.r4-1.1.1.tgz
+        JPCOREtgzjp: jp-core.r4-1.1.2.tgz
+        JPCOREdir: jp-core.r4#1.1.2
+      run: |
+        ls -l .
+        pwd
+        echo '--1-'
+        mkdir -p /home/runner/.fhir
+        mv $JPPACKAGECOREtgz /home/runner/.fhir/
+        mkdir -p /home/runner/.fhir/work
+        mv $JPTerminologyCOREPtgz /home/runner/.fhir/work/$JPTerminologyCOREPtgz
+        cd /home/runner/.fhir
+        tar xzf $JPPACKAGECOREtgz
+        cd /home/runner/.fhir/work
+        tar xzf $JPTerminologyCOREPtgz
+        cd /home/runner/.fhir
+        mkdir -p packages/$JPTerminologyCOREdir
+        mv /home/runner/.fhir/work/package /home/runner/.fhir/packages/$JPTerminologyCOREdir
+        mv /home/runner/work/clinical-core/clinical-core/packages_snapshot/$JPCOREtgzjp /home/runner/.fhir/work/
+        cd /home/runner/.fhir/work
+        tar xzf $JPCOREtgzjp
+        mkdir -p /home/runner/.fhir/packages/$JPCOREdir
+        ls -l /home/runner/.fhir/packages/
+        mv /home/runner/.fhir/work/package /home/runner/.fhir/packages/$JPCOREdir/
+
+    - name: apply the version of sushi-config.yaml
+      run: |
+        sed 's/version: 1.0.0-temp/version: ${{ env.release_version }}/g' sushi-config.yaml > sushi-config-temp.yaml
+        mv sushi-config-temp.yaml sushi-config.yaml
+        cd forPackageRelease
+        sed 's/1.0.0-temp/${{ env.release_version }}/g' package-diff.json >package-diff-temp.json
+        sed 's/1.0.0-temp/${{ env.release_version }}/g' package-snap.json >package-snap-temp.json
+        mv package-diff-temp.json package-diff.json
+        mv package-snap-temp.json package-snap.json
+        cd ..
+
+    - name: Run IG Publisher
+      run: | 
+        mkdir -p input-cache
+        mv ./publisher.jar ./input-cache
+        unset DISPLAY
+        java -Xmx4G -Djava.awt.headless=true -jar ./input-cache/publisher.jar -ig ig.ini  -tx n/a
+
+    - name: replace url of html files referring simplifier.net package
+      run:  |
+        : # https://simplifier.net/resolve?scope=jp-core.r4@1.1.1-snap&amp;canonical=http://jpfhir.jp/fhir/core/StructureDefinition/JP_Observation_Common"
+        : #   ↓
+        : # https://jpfhir.jp/fhir/core/1.1.1/StructureDefinition-jp-observation-common.html
+        : # https://simplifier.net/resolve?canonical=http%3A%2F%2Fjpfhir.jp%2Ffhir%2Fcore%2FValueSet%2FJP_MedicationSubstitutionNotAllowedReason_VS&scope=jpfhir-terminology@1.1.1
+        cd output
+        for file in *.html
+        do
+          python ../script/replaceUrls.py $file >$file".2.html"
+          cp $file".2.html" $file
+        done
+        cd ..
+    - name: prepare gtz files for upload to remote site
+      run: | 
+        tar czf output.tgz output
+
+    - name:  create differential package 
+      run: | 
+        cd fsh-generated
+        mv resources package
+        cp ../forPackageRelease/package-diff.json package/package.json
+        tar czf jp-seamat2fhir-package-diff.tgz package
+        cp jp-seamat2fhir-package-diff.tgz ../forPackageRelease/jp-seamat2fhir.r4-${{ env.release_version }}.tgz
+        
+    - name: generate snapshot package using sushi -s command       
+      run: |
+        rm -rf fsh-generated
+        sushi -s .
+        mv fsh-generated fsh-generated-snap
+        mkdir -p forPackageRelease/snapshot/package/
+        cp fsh-generated-snap/resources/*.json forPackageRelease/snapshot/package/
+        cp forPackageRelease/package-snap.json forPackageRelease/snapshot/package/package.json
+        cd forPackageRelease/snapshot
+        tar czf jp-seamat2fhir-package-snap.tgz package
+        cd ..
+        cp snapshot/jp-seamat2fhir-package-snap.tgz jp-seamat2fhir.r4-${{ env.release_version }}-snap.tgz
+        cd ..
+
+    - name: ssh key generate
+      run: echo "$SSH_PRIVATE_KEY" > key && chmod 600 key; ls -l key
+      env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY_TO_JPFHIR }}
+
+    - name: rsync remote-site-deploy
+      run: |
+        rsync -auzrv -e "ssh -i key -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -p ${{ secrets.SSH_PORT_JPFHIR }}" --delete output.tgz  forPackageRelease/jp-seamat2fhir.r4-${{ env.release_version }}.tgz forPackageRelease/jp-seamat2fhir.r4-${{ env.release_version }}-snap.tgz ${{ secrets.JAMIWG_USERID_AT_WEBHOST }}:${{ secrets.JAMIWG_WEBPATH }}/jpfhir.jp/fhir/seamat2fhir/ --exclude .htaccess
+        ssh -i key  -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no  -p ${{ secrets.SSH_PORT_JPFHIR }} ${{ secrets.JAMIWG_USERID_AT_WEBHOST }}   'cd ${{ secrets.JAMIWG_WEBPATH }}/jpfhir.jp/fhir/seamat2fhir/ ; tar xzf output.tgz ; rm -rf ig ; cp -r output ig'
+
+

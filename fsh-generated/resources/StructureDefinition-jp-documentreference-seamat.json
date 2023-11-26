@@ -1,0 +1,182 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "jp-documentreference-seamat",
+  "url": "http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_DocumentReference_SEAMAT",
+  "name": "JP_DocumentReference_SEAMAT",
+  "title": "SEAMAT Common DocumentReference Profile",
+  "status": "active",
+  "date": "2023-11-13",
+  "description": "このプロファイルはDocumentReferenceリソースに対して、SEAMAT共通の外部参照のドキュメントデータを送受信するための共通の制約と拡張を定めたものである。",
+  "fhirVersion": "4.0.1",
+  "mapping": [
+    {
+      "identity": "workflow",
+      "uri": "http://hl7.org/fhir/workflow",
+      "name": "Workflow Pattern"
+    },
+    {
+      "identity": "fhircomposition",
+      "uri": "http://hl7.org/fhir/composition",
+      "name": "FHIR Composition"
+    },
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    },
+    {
+      "identity": "cda",
+      "uri": "http://hl7.org/v3/cda",
+      "name": "CDA (R2)"
+    },
+    {
+      "identity": "w5",
+      "uri": "http://hl7.org/fhir/fivews",
+      "name": "FiveWs Pattern Mapping"
+    },
+    {
+      "identity": "v2",
+      "uri": "http://hl7.org/v2",
+      "name": "HL7 v2 Mapping"
+    },
+    {
+      "identity": "xds",
+      "uri": "http://ihe.net/xds",
+      "name": "XDS metadata equivalent"
+    }
+  ],
+  "kind": "resource",
+  "abstract": false,
+  "type": "DocumentReference",
+  "baseDefinition": "http://jpfhir.jp/fhir/core/StructureDefinition/JP_DocumentReference",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "DocumentReference.meta.lastUpdated",
+        "path": "DocumentReference.meta.lastUpdated",
+        "min": 1
+      },
+      {
+        "id": "DocumentReference.meta.profile",
+        "path": "DocumentReference.meta.profile",
+        "min": 1,
+        "patternCanonical": "http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_DocumentReference_SEAMAT",
+        "mustSupport": true
+      },
+      {
+        "id": "DocumentReference.masterIdentifier",
+        "path": "DocumentReference.masterIdentifier",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.identifier",
+        "path": "DocumentReference.identifier",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.status",
+        "path": "DocumentReference.status",
+        "fixedCode": "current"
+      },
+      {
+        "id": "DocumentReference.docStatus",
+        "path": "DocumentReference.docStatus",
+        "fixedCode": "final"
+      },
+      {
+        "id": "DocumentReference.type",
+        "path": "DocumentReference.type",
+        "definition": "Specifies the particular kind of document referenced (e.g. History and Physical, Discharge Summary, Progress Note). This usually equates to the purpose of making the document referenced.\r\n\r\n【CDA項目】/ClinicalDocument/component/structuredBody/component/section/entry/observation/code",
+        "mustSupport": true
+      },
+      {
+        "id": "DocumentReference.category",
+        "path": "DocumentReference.category",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.subject",
+        "path": "DocumentReference.subject",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Patient_SEAMAT"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DocumentReference.date",
+        "path": "DocumentReference.date",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.author",
+        "path": "DocumentReference.author",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.authenticator",
+        "path": "DocumentReference.authenticator",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.custodian",
+        "path": "DocumentReference.custodian",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.relatesTo",
+        "path": "DocumentReference.relatesTo",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.description",
+        "path": "DocumentReference.description",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.securityLabel",
+        "path": "DocumentReference.securityLabel",
+        "max": "0"
+      },
+      {
+        "id": "DocumentReference.content.attachment.contentType",
+        "path": "DocumentReference.content.attachment.contentType",
+        "definition": "Mime type of the content, with charset etc.\r\n\r\n【CDA項目】/ClinicalDocument/component/structuredBody/component/section/entry/observation/reference/externalDocument/text/@mediaType",
+        "mustSupport": true
+      },
+      {
+        "id": "DocumentReference.content.attachment.data",
+        "path": "DocumentReference.content.attachment.data",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "DocumentReference.content.attachment.url",
+        "path": "DocumentReference.content.attachment.url",
+        "definition": "Uri where the data can be found\r\n\r\n【CDA項目】/ClinicalDocument/component/structuredBody/component/section/entry/observation/reference/externalDocument/reference/@value",
+        "mustSupport": true
+      },
+      {
+        "id": "DocumentReference.content.attachment.hash",
+        "path": "DocumentReference.content.attachment.hash",
+        "definition": "Hash of the data (sha-1, base64ed)\r\n\r\n【CDA項目】/ClinicalDocument/component/structuredBody/component/section/entry/observation/reference/externalDocument/text/@integrityCheck",
+        "mustSupport": true
+      },
+      {
+        "id": "DocumentReference.content.format",
+        "path": "DocumentReference.content.format",
+        "definition": "An identifier of the document encoding, structure, and template that the document conforms to beyond the base format indicated in the mimeType.\r\n\r\n【CDA項目】/ClinicalDocument/component/structuredBody/component/section/entry/observation/reference/externalDocument/code",
+        "mustSupport": true
+      },
+      {
+        "id": "DocumentReference.context",
+        "path": "DocumentReference.context",
+        "max": "0"
+      }
+    ]
+  }
+}

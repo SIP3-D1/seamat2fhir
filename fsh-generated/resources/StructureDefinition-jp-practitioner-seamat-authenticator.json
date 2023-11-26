@@ -1,0 +1,86 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "jp-practitioner-seamat-authenticator",
+  "url": "http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Practitioner_SEAMAT_Authenticator",
+  "name": "JP_Practitioner_SEAMAT_Authenticator",
+  "title": "SEAMAT Common Authenticator Practitioner Profile",
+  "status": "active",
+  "date": "2023-11-13",
+  "description": "このプロファイルはPractitionerリソースに対して、SEAMAT共通の文書内容責任者のデータを送受信するための基礎となる制約と拡張を定めたものである。",
+  "fhirVersion": "4.0.1",
+  "mapping": [
+    {
+      "identity": "v2",
+      "uri": "http://hl7.org/v2",
+      "name": "HL7 v2 Mapping"
+    },
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    },
+    {
+      "identity": "servd",
+      "uri": "http://www.omg.org/spec/ServD/1.0/",
+      "name": "ServD"
+    },
+    {
+      "identity": "w5",
+      "uri": "http://hl7.org/fhir/fivews",
+      "name": "FiveWs Pattern Mapping"
+    }
+  ],
+  "kind": "resource",
+  "abstract": false,
+  "type": "Practitioner",
+  "baseDefinition": "http://jpfhir.jp/fhir/core/StructureDefinition/JP_Practitioner",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Practitioner.meta.lastUpdated",
+        "path": "Practitioner.meta.lastUpdated",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Practitioner.meta.profile",
+        "path": "Practitioner.meta.profile",
+        "min": 1,
+        "patternCanonical": "http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Practitioner_SEAMAT_Authenticator",
+        "mustSupport": true
+      },
+      {
+        "id": "Practitioner.identifier",
+        "path": "Practitioner.identifier",
+        "definition": "An identifier that applies to this person in this role.\r\n\r\nある役割の人に適用される識別子。\r\n\r\n【CDA項目】/ClinicalDocument/authenticator/assignedEntity/id"
+      },
+      {
+        "id": "Practitioner.active",
+        "path": "Practitioner.active",
+        "fixedBoolean": true
+      },
+      {
+        "id": "Practitioner.name",
+        "path": "Practitioner.name",
+        "definition": "The name(s) associated with the practitioner.\r\n\r\n医療従事者の氏名（複数の場合もある）\r\n\r\n【CDA項目】/ClinicalDocument/authenticator/assignedEntity/assignedPerson/name",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Practitioner.telecom",
+        "path": "Practitioner.telecom",
+        "definition": "A contact detail for the practitioner, e.g. a telephone number or an email address.\r\n\r\n電話番号やメールアドレスなど、従事者への詳細な連絡先。\r\n\r\n【CDA項目】/ClinicalDocument/authenticator/assignedEntity/telecom",
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Practitioner.address",
+        "path": "Practitioner.address",
+        "definition": "Address(es) of the practitioner that are not role specific (typically home address). \rWork addresses are not typically entered in this property as they are usually role dependent.\r\n\r\n役割が特定されていない従事者の住所（通常は自宅の住所）。\r\n勤務先の住所は通常、役割に依存するため、このプロパティには入力されない。\r\n\r\n【CDA項目】/ClinicalDocument/authenticator/assignedEntity/addr",
+        "max": "1",
+        "mustSupport": true
+      }
+    ]
+  }
+}

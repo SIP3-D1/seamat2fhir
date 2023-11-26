@@ -1,0 +1,141 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "jp-practitionerrole-seamat-performer",
+  "url": "http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_PractitionerRole_SEAMAT_Performer",
+  "name": "JP_PractitionerRole_SEAMAT_Performer",
+  "title": "SEAMAT Common Performer PractitionerRole Profile",
+  "status": "active",
+  "date": "2023-11-13",
+  "description": "このプロファイルはPractitionerRoleリソースに対して、SEAMAT共通の検査実施者の役割データを送受信するための基礎となる制約と拡張を定めたものである。",
+  "fhirVersion": "4.0.1",
+  "mapping": [
+    {
+      "identity": "v2",
+      "uri": "http://hl7.org/v2",
+      "name": "HL7 v2 Mapping"
+    },
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    },
+    {
+      "identity": "servd",
+      "uri": "http://www.omg.org/spec/ServD/1.0/",
+      "name": "ServD"
+    },
+    {
+      "identity": "w5",
+      "uri": "http://hl7.org/fhir/fivews",
+      "name": "FiveWs Pattern Mapping"
+    }
+  ],
+  "kind": "resource",
+  "abstract": false,
+  "type": "PractitionerRole",
+  "baseDefinition": "http://jpfhir.jp/fhir/core/StructureDefinition/JP_PractitionerRole",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "PractitionerRole.meta.lastUpdated",
+        "path": "PractitionerRole.meta.lastUpdated",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "PractitionerRole.meta.profile",
+        "path": "PractitionerRole.meta.profile",
+        "min": 1,
+        "patternCanonical": "http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_PractitionerRole_SEAMAT_Performer",
+        "mustSupport": true
+      },
+      {
+        "id": "PractitionerRole.identifier",
+        "path": "PractitionerRole.identifier",
+        "max": "0"
+      },
+      {
+        "id": "PractitionerRole.active",
+        "path": "PractitionerRole.active",
+        "fixedBoolean": true
+      },
+      {
+        "id": "PractitionerRole.period",
+        "path": "PractitionerRole.period",
+        "definition": "The period during which the person is authorized to act as a practitioner in these role(s) for the organization.\r\n\r\nその人が、組織のためにこれらの役割（複数可）の医療従事者として行動することを許可されている期間。\r\n\r\n【CDA項目】/ClinicalDocument/documentationOf/serviceEvent/effectiveTime",
+        "mustSupport": true
+      },
+      {
+        "id": "PractitionerRole.practitioner",
+        "path": "PractitionerRole.practitioner",
+        "definition": "Practitioner that is able to provide the defined services for the organization.\r\n\r\n組織に定義されたサービスを提供できる医療従事者。\r\n\r\n【CDA項目】/ClinicalDocument/documentationOf/serviceEvent/performer/assignedEntity",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Practitioner_SEAMAT_Performer"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "PractitionerRole.organization",
+        "path": "PractitionerRole.organization",
+        "max": "0"
+      },
+      {
+        "id": "PractitionerRole.code",
+        "path": "PractitionerRole.code",
+        "definition": "Roles which this practitioner is authorized to perform for the organization.\r\n\r\nこの医療従事者が組織のために実行することを許可されている役割。\r\n\r\n【CDA項目】/ClinicalDocument/documentationOf/serviceEvent/performer/functionCode",
+        "max": "1",
+        "mustSupport": true,
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://terminology.hl7.org/ValueSet/v3-ParticipationFunction"
+        }
+      },
+      {
+        "id": "PractitionerRole.specialty",
+        "path": "PractitionerRole.specialty",
+        "max": "0"
+      },
+      {
+        "id": "PractitionerRole.location",
+        "path": "PractitionerRole.location",
+        "max": "0"
+      },
+      {
+        "id": "PractitionerRole.healthcareService",
+        "path": "PractitionerRole.healthcareService",
+        "max": "0"
+      },
+      {
+        "id": "PractitionerRole.telecom",
+        "path": "PractitionerRole.telecom",
+        "max": "0"
+      },
+      {
+        "id": "PractitionerRole.availableTime",
+        "path": "PractitionerRole.availableTime",
+        "max": "0"
+      },
+      {
+        "id": "PractitionerRole.notAvailable",
+        "path": "PractitionerRole.notAvailable",
+        "max": "0"
+      },
+      {
+        "id": "PractitionerRole.availabilityExceptions",
+        "path": "PractitionerRole.availabilityExceptions",
+        "max": "0"
+      },
+      {
+        "id": "PractitionerRole.endpoint",
+        "path": "PractitionerRole.endpoint",
+        "max": "0"
+      }
+    ]
+  }
+}

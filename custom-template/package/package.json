@@ -1,0 +1,12 @@
+{
+    "name": "jpfhir.seamat2fhir.ig-template",
+    "type": "fhir.template",
+    "license": "CC0-1.0",
+    "description": "jp.fhir IG Template",
+    "author": "https://jpfhir.jp",
+    "canonical": "https://jpfhir.jp/fhir/templates/jpfhir.seamat2fhir.ig-template",
+    "base": "fhir.base.template",
+    "dependencies": {
+        "fhir.base.template": "current"
+    }
+}

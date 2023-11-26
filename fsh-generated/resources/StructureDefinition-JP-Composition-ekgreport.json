@@ -1,0 +1,1169 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "JP-Composition-ekgreport",
+  "url": "http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Composition_EKGReport",
+  "name": "JP_Composition_EKGReport",
+  "status": "active",
+  "date": "2023-11-12",
+  "description": "心電図検査レポート情報のリソース構成情報と文書日付に関するCompositionの派生プロファイル",
+  "fhirVersion": "4.0.1",
+  "mapping": [
+    {
+      "identity": "workflow",
+      "uri": "http://hl7.org/fhir/workflow",
+      "name": "Workflow Pattern"
+    },
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    },
+    {
+      "identity": "cda",
+      "uri": "http://hl7.org/v3/cda",
+      "name": "CDA (R2)"
+    },
+    {
+      "identity": "fhirdocumentreference",
+      "uri": "http://hl7.org/fhir/documentreference",
+      "name": "FHIR DocumentReference"
+    },
+    {
+      "identity": "w5",
+      "uri": "http://hl7.org/fhir/fivews",
+      "name": "FiveWs Pattern Mapping"
+    }
+  ],
+  "kind": "resource",
+  "abstract": false,
+  "type": "Composition",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Composition",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Composition.meta.lastUpdated",
+        "path": "Composition.meta.lastUpdated",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.meta.profile",
+        "path": "Composition.meta.profile",
+        "min": 1,
+        "patternCanonical": "http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Composition_EKGReport",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.language",
+        "path": "Composition.language",
+        "short": "リソース コンテンツの言語",
+        "definition": "リソースが記述される基本言語\r\n\r\n【CDA項目】/ClinicalDocument/languageCode",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.extension",
+        "path": "Composition.extension",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "url"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 1
+      },
+      {
+        "id": "Composition.extension:version",
+        "path": "Composition.extension",
+        "sliceName": "version",
+        "short": "文書バージョンを表す拡張",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/composition-clinicaldocument-versionNumber"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.extension:version.url",
+        "path": "Composition.extension.url",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.extension:version.value[x]",
+        "path": "Composition.extension.value[x]",
+        "short": "文書のバージョン番号を表す文字列。",
+        "definition": "文書のバージョン番号を表す文字列。\r\n例 : 第１版は  \"1\" とする。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.identifier",
+        "path": "Composition.identifier",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.identifier.system",
+        "path": "Composition.identifier.system",
+        "short": "文書リソースIDの名前空間を表すURI。",
+        "definition": "文書リソースIDの名前空間を表すURI。",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.identifier.value",
+        "path": "Composition.identifier.value",
+        "short": "文書リソースID",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.status",
+        "path": "Composition.status",
+        "short": "この文書のステータス。",
+        "definition": "この文書のステータス。\r\n仕様上は、preliminary | final | amended | entered_in_error　のいずれかを設定できるが、医療機関から登録される段階では、\"final\" でなければならない。",
+        "fixedCode": "final"
+      },
+      {
+        "id": "Composition.type",
+        "path": "Composition.type",
+        "short": "文書区分コード",
+        "definition": "documentタイプのうち文書種別",
+        "mustSupport": true,
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Composition_EKGReport_DocumentType_CS"
+        }
+      },
+      {
+        "id": "Composition.type.coding",
+        "path": "Composition.type.coding",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.type.coding.system",
+        "path": "Composition.type.coding.system",
+        "definition": "文書区分コードのコード体系を識別するURI。固定値",
+        "fixedUri": "http://jpfhir.jp/fhir/SEAMAT/CodeSystem/JP_Composition_SEAMAT_DocumentType_CS",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.type.coding.code",
+        "path": "Composition.type.coding.code",
+        "definition": "EKG Report\"28010-7\"を指定。固定値。",
+        "min": 1,
+        "fixedCode": "28010-7",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.type.coding.display",
+        "path": "Composition.type.coding.display",
+        "short": "文書区分コードの表示名。",
+        "definition": "文書区分コードの表示名。",
+        "fixedString": "EKG Report",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.category",
+        "path": "Composition.category",
+        "short": "文書カテゴリーコード",
+        "definition": "文書カテゴリーコード。　心電図検査レポートではtype.coding.codeに記述される文書区分コードと同一。",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true,
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Composition_EKGReport_DocumentType_CS"
+        }
+      },
+      {
+        "id": "Composition.category.coding",
+        "path": "Composition.category.coding",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.category.coding.system",
+        "path": "Composition.category.coding.system",
+        "short": "文書カテゴリコードのコード体系",
+        "definition": "文書カテゴリコードのコード体系を識別するURI。固定値。",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/SEAMAT/CodeSystem/JP_Composition_SEAMAT_DocumentType_CS",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.category.coding.code",
+        "path": "Composition.category.coding.code",
+        "short": "文書カテゴリコード",
+        "definition": "文書カテゴリコード",
+        "min": 1,
+        "fixedCode": "28010-7",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.category.coding.display",
+        "path": "Composition.category.coding.display",
+        "short": "文書カテゴリコードの表示名",
+        "definition": "文書カテゴリ",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.subject",
+        "path": "Composition.subject",
+        "short": "患者情報を表すPatientリソースへの参照。",
+        "definition": "患者情報を表すPatientリソースへの参照。\r\n\r\n【CDA項目】/ClinicalDocument/recordTraget",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.subject.reference",
+        "path": "Composition.subject.reference",
+        "short": "PatientリソースのfullUrl要素に指定されるUUIDを指定。",
+        "definition": "Bundleリソースに記述されるPatientリソースのfullUrl要素に指定されるUUIDを指定。\r\n例：\"urn:uuid:11f0a9a6_a91d_3aef_fc4e_069995b89c4f\"",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.date",
+        "path": "Composition.date",
+        "definition": "このリソースを作成または最後に編集した日時。ISO8601に準拠し、秒の精度まで記録し、タイムゾーンも付記する。\r\n午前0時を\"24:00\"と記録することはできないため\"00:00\"と記録すること。　\r\n例：\"2020_08_21T12:28:21+09:00\"\r\n\r\n【CDA項目】/ClinicalDocument/effectiveTimeないし/ClinicalDocument/author/time",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.author",
+        "path": "Composition.author",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "profile",
+              "path": "resolve()"
+            }
+          ],
+          "rules": "open"
+        },
+        "short": "文書作成責任者と文書作成機関とへの参照。",
+        "definition": "文書作成責任者を表すPractitionerリソースへの参照、および,文書作成機関か、または文書作成機関の診療科と文書作成機関を表すOrganizationリソースへの参照の2つのReferenceを繰り返す。\r\n【CDA項目】/ClinicalDocument/author"
+      },
+      {
+        "id": "Composition.author:authoringPractitioner",
+        "path": "Composition.author",
+        "sliceName": "authoringPractitioner",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Practitioner_SEAMAT_Author"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.author:authoringDevice",
+        "path": "Composition.author",
+        "sliceName": "authoringDevice",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Device_SEAMAT_Author"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.author:authoringOrganization",
+        "path": "Composition.author",
+        "sliceName": "authoringOrganization",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Organization_SEAMAT_Author"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.title",
+        "path": "Composition.title",
+        "definition": "文書の人間が読めるタイトル\r\n\r\n【CDA項目】/ClinicalDocument/title",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.confidentiality",
+        "path": "Composition.confidentiality",
+        "definition": "【CDA項目】/ClinicalDocument/confidentialityCode",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.attester",
+        "path": "Composition.attester",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.attester.mode",
+        "path": "Composition.attester.mode",
+        "fixedCode": "official"
+      },
+      {
+        "id": "Composition.attester.time",
+        "path": "Composition.attester.time",
+        "definition": "【CDA項目】/ClinicalDocument/authenticator/time",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.attester.party",
+        "path": "Composition.attester.party",
+        "definition": "【CDA項目】/ClinicalDocument/authenticator/assignedEntity",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Practitioner_SEAMAT_Authenticator"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.custodian",
+        "path": "Composition.custodian",
+        "short": "文書の作成・修正を行い、文書の管理責任を持つ医療機関（Organizationリソース）への参照",
+        "definition": "文書作成機関と同一の組織の場合、custodian要素からは文書作成機関を表すOrganizationリソースへの参照となる。文書作成機関とは異なる組織である場合は、文書作成機関とは別のOrganizationリソースで表現し、custodian要素からはそのOrganizationリソースを参照する。\r\n\r\n【CDA項目】/ClinicalDocument/custodian",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Organization_SEAMAT_Custodian"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.custodian.reference",
+        "path": "Composition.custodian.reference",
+        "short": "custodianに対応するOrganizationリソースのfullUrl要素に指定されるUUIDを指定。",
+        "definition": "custodianに対応するOrganizationリソースのfullUrl要素に指定されるUUIDを指定。\r\n例：\"urn:uuid:179f9f7f_e546_04c2_6888_a9e0b24e5720\"",
+        "min": 1
+      },
+      {
+        "id": "Composition.event",
+        "path": "Composition.event",
+        "short": "検査実施日時",
+        "definition": "心電図検査レポートの対象の検査を実施した日時の情報",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.event.code",
+        "path": "Composition.event.code",
+        "definition": "【CDA項目】/ClinicalDocument/documentationOf/serviceEvent/code",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.event.code.coding",
+        "path": "Composition.event.code.coding",
+        "max": "0"
+      },
+      {
+        "id": "Composition.event.code.text",
+        "path": "Composition.event.code.text",
+        "min": 1,
+        "fixedString": "心電図検査実施日時",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.event.period",
+        "path": "Composition.event.period",
+        "short": "心電図検査実施日時",
+        "definition": "心電図検査レポートの対象の検査を実施した日時。ISO8601に準拠yyyy-mm-dd形式で記述する。\r\n\r\n【CDA項目】/ClinicalDocument/documentationOf/serviceEvent/effectiveTime",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.event.period.start",
+        "path": "Composition.event.period.start",
+        "short": "検査開始日時",
+        "definition": "心電図検査を開始した日時。ISO8601に準拠yyyy-mm-ddTHH:MM:SS+09:00形式で記述する。",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.event.period.end",
+        "path": "Composition.event.period.end",
+        "short": "検査終了日時",
+        "definition": "心電図検査を終了した日時。"
+      },
+      {
+        "id": "Composition.section",
+        "path": "Composition.section",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "code.coding.code"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "Composition.section.author",
+        "path": "Composition.section.author",
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Practitioner_SEAMAT_Measurer",
+              "http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Device_SEAMAT_Measurer"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:loinc",
+        "path": "Composition.section",
+        "sliceName": "loinc",
+        "min": 0,
+        "max": "*",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:loinc.title",
+        "path": "Composition.section.title",
+        "short": "セクションタイトル",
+        "definition": "セクションタイトル。固定値。",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:loinc.code",
+        "path": "Composition.section.code",
+        "short": "セクション区分コード",
+        "definition": "セクション区分コード",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:loinc.code.coding",
+        "path": "Composition.section.code.coding",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true,
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://jpfhir.jp/fhir/SEAMAT/CodeSystem/JP_Composition_EKGReport_SectionCode_VS"
+        }
+      },
+      {
+        "id": "Composition.section:loinc.code.coding.system",
+        "path": "Composition.section.code.coding.system",
+        "short": "セクション区分コードのコード体系",
+        "definition": "セクション区分コードのコード体系を識別するURI。固定値。",
+        "min": 1,
+        "fixedUri": "http://jpfhir.jp/fhir/SEAMAT/CodeSystem/JP_Composition_SEAMAT_SectionCode_CS",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:loinc.code.coding.code",
+        "path": "Composition.section.code.coding.code",
+        "short": "セクション区分のコード値",
+        "definition": "セクション区分のコード値。\r\n固定値。",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:loinc.code.coding.display",
+        "path": "Composition.section.code.coding.display",
+        "short": "セクション区分コードの表示名",
+        "definition": "セクション区分コードの表示名。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:loinc.code.coding.userSelected",
+        "path": "Composition.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:loinc.text",
+        "path": "Composition.section.text",
+        "short": "このセクションに含められるすべてのテキスト（叙述的記述）表現",
+        "definition": "本セクションの内容をテキストで表現した文字列。内容を省略しても構わない。 このデータは人がこのセクションの内容の概略をひと目で把握するためだけに使われるものであり、データ処理対象としてはならない。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:loinc.text.status",
+        "path": "Composition.section.text.status",
+        "short": "セクションの内容作成状態コード",
+        "definition": "generated | extensions | additional | empty　から　\"additional\" の固定値。このセクションに含められるすべてのentry要素による情報に加えて、それらで表現し尽くせていない情報も含めた完全な叙述表現であることを示す。",
+        "fixedCode": "additional",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:loinc.text.div",
+        "path": "Composition.section.text.div",
+        "short": "xhtml簡略形式に従った叙述記述データ",
+        "definition": "本セクションの内容を xhtml 形式のテキストで表現した文字列。内容を省略しても構わない。 \r\nこのデータは人がこのセクションの内容の概略をひと目で把握するためだけに使われるものであり、データ処理対象としてはならない。\r\nテキストは構造化された情報から自動的にシステムが生成したものとし、それ以上に情報を追加してはならない。"
+      },
+      {
+        "id": "Composition.section:loinc.mode",
+        "path": "Composition.section.mode",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:loinc.orderedBy",
+        "path": "Composition.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:loinc/additional",
+        "path": "Composition.section",
+        "sliceName": "loinc/additional",
+        "short": "患者付帯情報セクション",
+        "definition": "患者付帯情報セクション",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:loinc/additional.title",
+        "path": "Composition.section.title",
+        "fixedString": "患者付帯情報"
+      },
+      {
+        "id": "Composition.section:loinc/additional.code.coding.code",
+        "path": "Composition.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "52460-3"
+      },
+      {
+        "id": "Composition.section:loinc/additional.code.coding.display",
+        "path": "Composition.section.code.coding.display",
+        "patternString": "患者付帯情報セクション"
+      },
+      {
+        "id": "Composition.section:loinc/additional.entry",
+        "path": "Composition.section.entry",
+        "short": "患者付帯情報の構造化情報",
+        "definition": "患者付帯情報の構造化情報",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Observation_SEAMAT"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:loinc/history",
+        "path": "Composition.section",
+        "sliceName": "loinc/history",
+        "short": "既往歴セクション",
+        "definition": "既往歴セクション",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:loinc/history.title",
+        "path": "Composition.section.title",
+        "fixedString": "既往歴"
+      },
+      {
+        "id": "Composition.section:loinc/history.code.coding.code",
+        "path": "Composition.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "11348-0"
+      },
+      {
+        "id": "Composition.section:loinc/history.code.coding.display",
+        "path": "Composition.section.code.coding.display",
+        "patternString": "既往歴情報セクション"
+      },
+      {
+        "id": "Composition.section:loinc/history.entry",
+        "path": "Composition.section.entry",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:loinc/subjective",
+        "path": "Composition.section",
+        "sliceName": "loinc/subjective",
+        "short": "自覚症状セクション",
+        "definition": "自覚症状セクション",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:loinc/subjective.title",
+        "path": "Composition.section.title",
+        "fixedString": "自覚症状"
+      },
+      {
+        "id": "Composition.section:loinc/subjective.code.coding.code",
+        "path": "Composition.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "61150-9"
+      },
+      {
+        "id": "Composition.section:loinc/subjective.code.coding.display",
+        "path": "Composition.section.code.coding.display",
+        "patternString": "自覚症状セクション"
+      },
+      {
+        "id": "Composition.section:loinc/subjective.entry",
+        "path": "Composition.section.entry",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:loinc/usedDrug",
+        "path": "Composition.section",
+        "sliceName": "loinc/usedDrug",
+        "short": "検査時使用薬セクション",
+        "definition": "検査時使用薬セクション",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:loinc/usedDrug.title",
+        "path": "Composition.section.title",
+        "fixedString": "検査時使用薬"
+      },
+      {
+        "id": "Composition.section:loinc/usedDrug.code.coding.code",
+        "path": "Composition.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "15334-6"
+      },
+      {
+        "id": "Composition.section:loinc/usedDrug.code.coding.display",
+        "path": "Composition.section.code.coding.display",
+        "patternString": "検査時使用薬セクション"
+      },
+      {
+        "id": "Composition.section:loinc/usedDrug.entry",
+        "path": "Composition.section.entry",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:loinc/examDescription",
+        "path": "Composition.section",
+        "sliceName": "loinc/examDescription",
+        "short": "検査記述セクション",
+        "definition": "検査記述セクション",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:loinc/examDescription.title",
+        "path": "Composition.section.title",
+        "fixedString": "検査記述"
+      },
+      {
+        "id": "Composition.section:loinc/examDescription.code.coding.code",
+        "path": "Composition.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "70004-7"
+      },
+      {
+        "id": "Composition.section:loinc/examDescription.code.coding.display",
+        "path": "Composition.section.code.coding.display",
+        "patternString": "検査記述セクション"
+      },
+      {
+        "id": "Composition.section:loinc/examDescription.entry",
+        "path": "Composition.section.entry",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:loinc/ekgComment",
+        "path": "Composition.section",
+        "sliceName": "loinc/ekgComment",
+        "short": "心電図コメントセクション",
+        "definition": "心電図コメントセクション",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:loinc/ekgComment.title",
+        "path": "Composition.section.title",
+        "fixedString": "心電図コメント"
+      },
+      {
+        "id": "Composition.section:loinc/ekgComment.code.coding.code",
+        "path": "Composition.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "11524-6"
+      },
+      {
+        "id": "Composition.section:loinc/ekgComment.code.coding.display",
+        "path": "Composition.section.code.coding.display",
+        "patternString": "心電図コメントセクション"
+      },
+      {
+        "id": "Composition.section:loinc/ekgComment.entry",
+        "path": "Composition.section.entry",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:loinc/measurement",
+        "path": "Composition.section",
+        "sliceName": "loinc/measurement",
+        "short": "計測値（生理検査）セクション",
+        "definition": "計測値（生理検査）セクション",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:loinc/measurement.title",
+        "path": "Composition.section.title",
+        "fixedString": "計測値（生理検査）"
+      },
+      {
+        "id": "Composition.section:loinc/measurement.code.coding.code",
+        "path": "Composition.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "29273-0"
+      },
+      {
+        "id": "Composition.section:loinc/measurement.code.coding.display",
+        "path": "Composition.section.code.coding.display",
+        "patternString": "計測値（生理検査）セクション"
+      },
+      {
+        "id": "Composition.section:loinc/measurement.entry",
+        "path": "Composition.section.entry",
+        "short": "計測値（生理検査）の構造化情報",
+        "definition": "計測値（生理検査）の構造化情報",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Observation_SEAMAT"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:loinc/analysis",
+        "path": "Composition.section",
+        "sliceName": "loinc/analysis",
+        "short": "解析結果（生理検査）セクション",
+        "definition": "解析結果（生理検査）セクション",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:loinc/analysis.title",
+        "path": "Composition.section.title",
+        "fixedString": "解析結果（生理検査）"
+      },
+      {
+        "id": "Composition.section:loinc/analysis.code.coding.code",
+        "path": "Composition.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "64110-0"
+      },
+      {
+        "id": "Composition.section:loinc/analysis.code.coding.display",
+        "path": "Composition.section.code.coding.display",
+        "patternString": "解析結果（生理検査）セクション"
+      },
+      {
+        "id": "Composition.section:loinc/analysis.entry",
+        "path": "Composition.section.entry",
+        "short": "解析結果（生理検査）の構造化情報",
+        "definition": "解析結果（生理検査）の構造化情報",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Observation_SEAMAT"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:loinc/ekgFinding",
+        "path": "Composition.section",
+        "sliceName": "loinc/ekgFinding",
+        "short": "超音波所見セクション",
+        "definition": "超音波所見セクション",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:loinc/ekgFinding.title",
+        "path": "Composition.section.title",
+        "fixedString": "超音波所見"
+      },
+      {
+        "id": "Composition.section:loinc/ekgFinding.code.coding.code",
+        "path": "Composition.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "12131-9"
+      },
+      {
+        "id": "Composition.section:loinc/ekgFinding.code.coding.display",
+        "path": "Composition.section.code.coding.display",
+        "patternString": "超音波所見セクション"
+      },
+      {
+        "id": "Composition.section:loinc/ekgFinding.entry",
+        "path": "Composition.section.entry",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:loinc/examFinding",
+        "path": "Composition.section",
+        "sliceName": "loinc/examFinding",
+        "short": "検査所見セクション",
+        "definition": "検査所見セクション",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:loinc/examFinding.title",
+        "path": "Composition.section.title",
+        "fixedString": "検査所見"
+      },
+      {
+        "id": "Composition.section:loinc/examFinding.code.coding.code",
+        "path": "Composition.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "47045-0"
+      },
+      {
+        "id": "Composition.section:loinc/examFinding.code.coding.display",
+        "path": "Composition.section.code.coding.display",
+        "patternString": "検査所見セクション"
+      },
+      {
+        "id": "Composition.section:loinc/examFinding.entry",
+        "path": "Composition.section.entry",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:loinc/doctorFinding",
+        "path": "Composition.section",
+        "sliceName": "loinc/doctorFinding",
+        "short": "医師所見セクション",
+        "definition": "医師所見セクション",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:loinc/doctorFinding.title",
+        "path": "Composition.section.title",
+        "fixedString": "医師所見"
+      },
+      {
+        "id": "Composition.section:loinc/doctorFinding.code.coding.code",
+        "path": "Composition.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "29308-4"
+      },
+      {
+        "id": "Composition.section:loinc/doctorFinding.code.coding.display",
+        "path": "Composition.section.code.coding.display",
+        "patternString": "医師所見セクション"
+      },
+      {
+        "id": "Composition.section:loinc/doctorFinding.entry",
+        "path": "Composition.section.entry",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:loinc/external",
+        "path": "Composition.section",
+        "sliceName": "loinc/external",
+        "short": "外部参照セクション",
+        "definition": "外部参照セクション",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:loinc/external.title",
+        "path": "Composition.section.title",
+        "fixedString": "外部参照"
+      },
+      {
+        "id": "Composition.section:loinc/external.code.coding.code",
+        "path": "Composition.section.code.coding.code",
+        "min": 1,
+        "fixedCode": "78239-1"
+      },
+      {
+        "id": "Composition.section:loinc/external.code.coding.display",
+        "path": "Composition.section.code.coding.display",
+        "patternString": "外部参照セクション"
+      },
+      {
+        "id": "Composition.section:loinc/external.entry",
+        "path": "Composition.section.entry",
+        "short": "外部参照の構造化情報",
+        "definition": "外部参照の構造化情報",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_DocumentReference_SEAMAT",
+              "http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Binary_SEAMAT"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Composition.section:jlac10",
+        "path": "Composition.section",
+        "sliceName": "jlac10",
+        "short": "検査項目セクション(JLAC10)",
+        "definition": "検査項目セクション(JLAC10)",
+        "min": 0,
+        "max": "*",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:jlac10.title",
+        "path": "Composition.section.title",
+        "short": "セクションタイトル",
+        "definition": "セクションタイトル。固定値。",
+        "min": 1,
+        "fixedString": "検査項目",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:jlac10.code",
+        "path": "Composition.section.code",
+        "short": "セクション区分コード",
+        "definition": "セクション区分コード",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:jlac10.code.coding",
+        "path": "Composition.section.code.coding",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:jlac10.code.coding.system",
+        "path": "Composition.section.code.coding.system",
+        "short": "セクション区分コードのコード体系",
+        "definition": "セクション区分コードのコード体系を識別するURI。固定値。",
+        "min": 1,
+        "fixedUri": "urn:oid:1.2.392.200119.4.1005",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:jlac10.code.coding.code",
+        "path": "Composition.section.code.coding.code",
+        "short": "セクション区分のコード値",
+        "definition": "セクション区分のコード値。\r\n固定値。",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:jlac10.code.coding.display",
+        "path": "Composition.section.code.coding.display",
+        "short": "セクション区分コードの表示名",
+        "definition": "セクション区分コードの表示名。",
+        "patternString": "検査項目セクション",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:jlac10.code.coding.userSelected",
+        "path": "Composition.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:jlac10.code.text",
+        "path": "Composition.section.code.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:jlac10.text",
+        "path": "Composition.section.text",
+        "short": "このセクションに含められるすべてのテキスト（叙述的記述）表現",
+        "definition": "本セクションの内容をテキストで表現した文字列。内容を省略しても構わない。 このデータは人がこのセクションの内容の概略をひと目で把握するためだけに使われるものであり、データ処理対象としてはならない。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:jlac10.text.status",
+        "path": "Composition.section.text.status",
+        "short": "セクションの内容作成状態コード",
+        "definition": "generated | extensions | additional | empty　から　\"additional\" の固定値。このセクションに含められるすべてのentry要素による情報に加えて、それらで表現し尽くせていない情報も含めた完全な叙述表現であることを示す。",
+        "fixedCode": "additional",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:jlac10.text.div",
+        "path": "Composition.section.text.div",
+        "short": "xhtml簡略形式に従った叙述記述データ",
+        "definition": "本セクションの内容を xhtml 形式のテキストで表現した文字列。内容を省略しても構わない。 \r\nこのデータは人がこのセクションの内容の概略をひと目で把握するためだけに使われるものであり、データ処理対象としてはならない。\r\nテキストは構造化された情報から自動的にシステムが生成したものとし、それ以上に情報を追加してはならない。"
+      },
+      {
+        "id": "Composition.section:jlac10.mode",
+        "path": "Composition.section.mode",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:jlac10.orderedBy",
+        "path": "Composition.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:jlac10.entry",
+        "path": "Composition.section.entry",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:jj1017",
+        "path": "Composition.section",
+        "sliceName": "jj1017",
+        "short": "検査項目セクション(JJ1017)",
+        "definition": "検査項目セクション(JJ1017)",
+        "min": 0,
+        "max": "*",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:jj1017.title",
+        "path": "Composition.section.title",
+        "short": "セクションタイトル",
+        "definition": "セクションタイトル。固定値。",
+        "min": 1,
+        "fixedString": "検査項目",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:jj1017.code",
+        "path": "Composition.section.code",
+        "short": "セクション区分コード",
+        "definition": "セクション区分コード",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:jj1017.code.coding",
+        "path": "Composition.section.code.coding",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:jj1017.code.coding.system",
+        "path": "Composition.section.code.coding.system",
+        "short": "セクション区分コードのコード体系",
+        "definition": "セクション区分コードのコード体系を識別するURI。固定値。",
+        "min": 1,
+        "fixedUri": "urn:oid:1.2.392.200119.4.1201",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:jj1017.code.coding.code",
+        "path": "Composition.section.code.coding.code",
+        "short": "セクション区分のコード値",
+        "definition": "セクション区分のコード値。\r\n固定値。",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:jj1017.code.coding.display",
+        "path": "Composition.section.code.coding.display",
+        "short": "セクション区分コードの表示名",
+        "definition": "セクション区分コードの表示名。",
+        "patternString": "検査項目セクション",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:jj1017.code.coding.userSelected",
+        "path": "Composition.section.code.coding.userSelected",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:jj1017.code.text",
+        "path": "Composition.section.code.text",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:jj1017.text",
+        "path": "Composition.section.text",
+        "short": "このセクションに含められるすべてのテキスト（叙述的記述）表現",
+        "definition": "本セクションの内容をテキストで表現した文字列。内容を省略しても構わない。 このデータは人がこのセクションの内容の概略をひと目で把握するためだけに使われるものであり、データ処理対象としてはならない。",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:jj1017.text.status",
+        "path": "Composition.section.text.status",
+        "short": "セクションの内容作成状態コード",
+        "definition": "generated | extensions | additional | empty　から　\"additional\" の固定値。このセクションに含められるすべてのentry要素による情報に加えて、それらで表現し尽くせていない情報も含めた完全な叙述表現であることを示す。",
+        "fixedCode": "additional",
+        "mustSupport": true
+      },
+      {
+        "id": "Composition.section:jj1017.text.div",
+        "path": "Composition.section.text.div",
+        "short": "xhtml簡略形式に従った叙述記述データ",
+        "definition": "本セクションの内容を xhtml 形式のテキストで表現した文字列。内容を省略しても構わない。 \r\nこのデータは人がこのセクションの内容の概略をひと目で把握するためだけに使われるものであり、データ処理対象としてはならない。\r\nテキストは構造化された情報から自動的にシステムが生成したものとし、それ以上に情報を追加してはならない。"
+      },
+      {
+        "id": "Composition.section:jj1017.mode",
+        "path": "Composition.section.mode",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:jj1017.orderedBy",
+        "path": "Composition.section.orderedBy",
+        "max": "0"
+      },
+      {
+        "id": "Composition.section:jj1017.entry",
+        "path": "Composition.section.entry",
+        "max": "0"
+      }
+    ]
+  }
+}

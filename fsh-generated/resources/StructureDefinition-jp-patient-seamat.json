@@ -1,0 +1,159 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "jp-patient-seamat",
+  "url": "http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Patient_SEAMAT",
+  "name": "JP_Patient_SEAMAT",
+  "title": "SEMAAT Common Patient Profile",
+  "status": "active",
+  "date": "2023-11-12",
+  "description": "このプロファイルはPatientリソースに対して、SEAMAT共通の患者のデータを送受信するための基礎となる制約と拡張を定めたものである。",
+  "fhirVersion": "4.0.1",
+  "mapping": [
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    },
+    {
+      "identity": "cda",
+      "uri": "http://hl7.org/v3/cda",
+      "name": "CDA (R2)"
+    },
+    {
+      "identity": "w5",
+      "uri": "http://hl7.org/fhir/fivews",
+      "name": "FiveWs Pattern Mapping"
+    },
+    {
+      "identity": "v2",
+      "uri": "http://hl7.org/v2",
+      "name": "HL7 v2 Mapping"
+    },
+    {
+      "identity": "loinc",
+      "uri": "http://loinc.org",
+      "name": "LOINC code for the element"
+    }
+  ],
+  "kind": "resource",
+  "abstract": false,
+  "type": "Patient",
+  "baseDefinition": "http://jpfhir.jp/fhir/core/StructureDefinition/JP_Patient",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Patient.meta.lastUpdated",
+        "path": "Patient.meta.lastUpdated",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Patient.meta.profile",
+        "path": "Patient.meta.profile",
+        "min": 1,
+        "patternCanonical": "http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Patient_SEAMAT",
+        "mustSupport": true
+      },
+      {
+        "id": "Patient.identifier",
+        "path": "Patient.identifier",
+        "short": "An identifier for this patient",
+        "definition": "An identifier for this patient.\r\n\r\nこの患者の識別子。\r\n\r\n【CDA項目】/ClinicalDocument/recordTarget/patientRole/id"
+      },
+      {
+        "id": "Patient.active",
+        "path": "Patient.active",
+        "fixedBoolean": true
+      },
+      {
+        "id": "Patient.name",
+        "path": "Patient.name",
+        "definition": "A name associated with the individual.\r\n\r\n個人に関連付けられた名前。\r\n\r\n【CDA項目】/ClinicalDocument/recordTarget/patientRole/patient/name"
+      },
+      {
+        "id": "Patient.telecom",
+        "path": "Patient.telecom",
+        "definition": "A contact detail (e.g. a telephone number or an email address) by which the individual may be contacted.\r\n\r\n個人に連絡するための連絡先の詳細（電話番号や電子メールアドレスなど）。\r\n\r\n【CDA項目】/ClinicalDocument/recordTarget/patientRole/telecom"
+      },
+      {
+        "id": "Patient.gender",
+        "path": "Patient.gender",
+        "definition": "Administrative Gender - the gender that the patient is considered to have for administration and record keeping purposes.\r\n管理上の性別-患者が管理および記録管理の目的で持つと見なされる性別。\r\n\r\n【CDA項目】/ClinicalDocument/recordTarget/patientRole/patient/administrativeGenderCode"
+      },
+      {
+        "id": "Patient.birthDate",
+        "path": "Patient.birthDate",
+        "definition": "The date of birth for the individual.\r\n個人の生年月日\r\n\r\n【CDA項目】/ClinicalDocument/recordTarget/patientRole/patient/birthTime"
+      },
+      {
+        "id": "Patient.deceased[x]",
+        "path": "Patient.deceased[x]",
+        "max": "0"
+      },
+      {
+        "id": "Patient.address",
+        "path": "Patient.address",
+        "definition": "An address for the individual.\r\n個人の住所。\r\n\r\n【CDA項目】/ClinicalDocument/recordTarget/patientRole/address"
+      },
+      {
+        "id": "Patient.maritalStatus",
+        "path": "Patient.maritalStatus",
+        "max": "0"
+      },
+      {
+        "id": "Patient.multipleBirth[x]",
+        "path": "Patient.multipleBirth[x]",
+        "max": "0"
+      },
+      {
+        "id": "Patient.photo",
+        "path": "Patient.photo",
+        "max": "0"
+      },
+      {
+        "id": "Patient.contact.relationship",
+        "path": "Patient.contact.relationship",
+        "max": "0"
+      },
+      {
+        "id": "Patient.contact.name",
+        "path": "Patient.contact.name",
+        "max": "0"
+      },
+      {
+        "id": "Patient.contact.telecom",
+        "path": "Patient.contact.telecom",
+        "max": "0"
+      },
+      {
+        "id": "Patient.contact.gender",
+        "path": "Patient.contact.gender",
+        "max": "0"
+      },
+      {
+        "id": "Patient.contact.organization",
+        "path": "Patient.contact.organization",
+        "definition": "Organization on behalf of which the contact is acting or for which the contact is working.\r\n連絡先が主として活動する、または勤務している組織。\r\n\r\n【CDA項目】/ClinicalDocument/recordTarget/patientRole/providerOrganization",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Organization_SEAMAT_Department"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Patient.contact.period",
+        "path": "Patient.contact.period",
+        "max": "0"
+      },
+      {
+        "id": "Patient.link",
+        "path": "Patient.link",
+        "max": "0"
+      }
+    ]
+  }
+}

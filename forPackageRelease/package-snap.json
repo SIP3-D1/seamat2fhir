@@ -1,0 +1,14 @@
+{
+  "name": "jp-seamat2fhir.r4",
+  "version": "1.0.0-temp",
+  "description": "jp-jp-seamat2fhir-snap 1.0.0-temp",
+  "author": "SIP D1",
+  "fhirVersions": [
+    "4.0.1"
+  ],
+  "dependencies": {
+    "hl7.fhir.r4.core": "4.0.1"
+  },
+  "url": "http://jpfhir.jp/fhir/jp-seamat2fhir",
+  "canonical": "http://jpfhir.jp/fhir/jp-seamat2fhir"
+}

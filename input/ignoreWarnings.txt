@@ -1,0 +1,25 @@
+== Suppressed Messages ==
+
+# Add warning and/or information messages here after you've confirmed that they aren't really a problem
+# (And include comments like this justifying why)
+# See https://github.com/FHIR/sample-ig/blob/master/input/ignoreWarnings.txt for examples
+
+# Example Existence Warnings
+%The Implementation Guide contains no examples%
+
+# External Terminologies Existence Warnings
+# 下記のurn:iso:std:iso:3166関連警告はなぜ出るかわからないが実害はない
+The definition for the Code System with URI 'urn:iso:std:iso:3166' doesnt provide any codes so the code cannot be validated
+
+# Uniform Reource Locator はValidation不要
+Code System URI 'urn:ietf:rfc:3986' is unknown so the code cannot be validated
+
+# Publisherの不適切なmarkdown チェック 
+The markdown contains content that appears to be an embedded HTML tag starting at 'HT'
+
+# PublisherのHTMLタグ チェック 
+The string value contains text that looks like embedded HTML tags
+
+# PublisherのNarative チェック 
+%should have narrative%
+

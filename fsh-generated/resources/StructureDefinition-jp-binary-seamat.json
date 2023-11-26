@@ -1,0 +1,57 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "jp-binary-seamat",
+  "url": "http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Binary_SEAMAT",
+  "name": "JP_Binary_SEAMAT",
+  "title": "SEAMAT Common Binary Profile",
+  "status": "active",
+  "date": "2023-11-13",
+  "description": "このプロファイルはBinaryリソースに対して、外部参照のバイナリデータを送受信するための共通の制約と拡張を定めたものである。",
+  "fhirVersion": "4.0.1",
+  "mapping": [
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    }
+  ],
+  "kind": "resource",
+  "abstract": false,
+  "type": "Binary",
+  "baseDefinition": "http://jpfhir.jp/fhir/core/StructureDefinition/JP_Binary",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Binary.meta.lastUpdated",
+        "path": "Binary.meta.lastUpdated",
+        "min": 1
+      },
+      {
+        "id": "Binary.meta.profile",
+        "path": "Binary.meta.profile",
+        "min": 1,
+        "patternCanonical": "http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Binary_SEAMAT",
+        "mustSupport": true
+      },
+      {
+        "id": "Binary.contentType",
+        "path": "Binary.contentType",
+        "definition": "MimeType of the binary content represented as a standard MimeType (BCP 13).\r\n\r\n【CDA項目】/ClinicalDocument/component/structuredBody/component/section/entry/observationMedia/value/@mediaType",
+        "mustSupport": true
+      },
+      {
+        "id": "Binary.securityContext",
+        "path": "Binary.securityContext",
+        "max": "0"
+      },
+      {
+        "id": "Binary.data",
+        "path": "Binary.data",
+        "definition": "The actual content, base64 encoded.\r\n\r\n【CDA項目】/ClinicalDocument/component/structuredBody/component/section/entry/observationMedia/value/@representation",
+        "min": 1,
+        "mustSupport": true
+      }
+    ]
+  }
+}

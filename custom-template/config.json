@@ -1,0 +1,4 @@
+{
+  "includeHeadings" :  false,
+  "template-parameters": ["copyrightyear", "excludelogbinaryformat", "excludejson", "excludemap", "excludettl", "excludexml", "fmm-definition", "globals-in-artifacts", "releaselabel", "shownav"]
+}
