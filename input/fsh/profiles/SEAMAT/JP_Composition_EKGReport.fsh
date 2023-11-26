@@ -84,6 +84,7 @@ Description:  "心電図検査レポート情報のリソース構成情報と�
 * subject.reference 1..1 MS
 * subject.reference ^short = "PatientリソースのfullUrl要素に指定されるUUIDを指定。"
 * subject.reference ^definition = "Bundleリソースに記述されるPatientリソースのfullUrl要素に指定されるUUIDを指定。\r\n例：\"urn:uuid:11f0a9a6_a91d_3aef_fc4e_069995b89c4f\""
+* subject.reference only Reference(JP_Patient_SEAMAT)
 
 * date ^definition = "このリソースを作成または最後に編集した日時。ISO8601に準拠し、秒の精度まで記録し、タイムゾーンも付記する。\r\n午前0時を\"24:00\"と記録することはできないため\"00:00\"と記録すること。　\r\n例：\"2020_08_21T12:28:21+09:00\"\r\n
 【CDA項目】/ClinicalDocument/effectiveTimeないし/ClinicalDocument/author/time"
@@ -145,6 +146,10 @@ and authoringOrganization 1..1 MS
 * event.period.start ^definition = "心電図検査を開始した日時。ISO8601に準拠yyyy-mm-ddTHH:MM:SS+09:00形式で記述する。"
 * event.period.end ^short = "検査終了日時"
 * event.period.end ^definition = "心電図検査を終了した日時。"
+* event.detail 1.. MS
+* event.detail ^short = "心電図検査実施情報"
+* event.detail ^definition = "心電図レポートの対象の検査の実施情報。SS-MIX2拡張ストレージのコンテンツフォルダ名に含まれるキー情報を記述する。"
+* event.detail only Reference(JP_Procedure_SEAMAT)
 
 * section.author ..1 MS
 * section.author only Reference(JP_Practitioner_SEAMAT_Measurer or JP_Device_SEAMAT_Measurer)
