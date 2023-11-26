@@ -151,3 +151,6 @@ jobs:
         ssh -i key  -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no  -p ${{ secrets.SSH_PORT_JPFHIR }} ${{ secrets.JAMIWG_USERID_AT_WEBHOST }}   'cd ${{ secrets.JAMIWG_WEBPATH }}/jpfhir.jp/fhir/seamat2fhir/ ; tar xzf output.tgz ; rm -rf ig ; cp -r output ig'
 
 
+
+
+        
