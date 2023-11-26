@@ -81,10 +81,10 @@ Description:  "心電図検査レポート情報のリソース構成情報と�
 * subject ^short = "患者情報を表すPatientリソースへの参照。"
 * subject ^definition = "患者情報を表すPatientリソースへの参照。\r\n
 【CDA項目】/ClinicalDocument/recordTraget"
+* subject only Reference(JP_Patient_SEAMAT)
 * subject.reference 1..1 MS
 * subject.reference ^short = "PatientリソースのfullUrl要素に指定されるUUIDを指定。"
 * subject.reference ^definition = "Bundleリソースに記述されるPatientリソースのfullUrl要素に指定されるUUIDを指定。\r\n例：\"urn:uuid:11f0a9a6_a91d_3aef_fc4e_069995b89c4f\""
-* subject.reference only Reference(JP_Patient_SEAMAT)
 
 * date ^definition = "このリソースを作成または最後に編集した日時。ISO8601に準拠し、秒の精度まで記録し、タイムゾーンも付記する。\r\n午前0時を\"24:00\"と記録することはできないため\"00:00\"と記録すること。　\r\n例：\"2020_08_21T12:28:21+09:00\"\r\n
 【CDA項目】/ClinicalDocument/effectiveTimeないし/ClinicalDocument/author/time"
