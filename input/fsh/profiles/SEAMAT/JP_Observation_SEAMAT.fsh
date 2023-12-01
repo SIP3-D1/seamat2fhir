@@ -19,7 +19,9 @@ Description: "このプロファイルはObservationリソースに対して、S
 * identifier ^slicing.discriminator.type = #value
 * identifier ^slicing.discriminator.path = "system"
 * identifier ^slicing.rules = #open
-* identifier contains resourceId and bundleId
+* identifier contains 
+     resourceId 1..1 MS
+ and bundleId 1..1 MS
 
 * identifier[resourceId] 1..1 MS
 * identifier[resourceId] ^definition = "Unique instance identifiers assigned to a device by manufacturers other organizations or owners."

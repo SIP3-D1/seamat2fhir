@@ -17,10 +17,18 @@ Description: "このプロファイルはProcedureリソースに対して、検
 * identifier ^slicing.discriminator.path = "system"
 * identifier ^slicing.rules = #open
 * identifier contains
-        placerOrderNo 1..1 MS    // オーダ番号
+        resourceId 1..1 MS
+    and placerOrderNo 1..1 MS    // オーダ番号
     and fillerOrderNo 1..1 MS    // 部門管理番号
     and fillerDataNo 1..1 MS     // データ管理番号
     and bundleId 1..1 MS
+
+* identifier[resourceId] 1..1 MS
+* identifier[resourceId] ^short = "External Identifiers for this procedure" 
+* identifier[resourceId] ^definition = "これは、ビジネスプロセスによって定義され、リソース自体への直接のURL参照が適切でない場合に参照するために使用される、このProcedureに関連する識別子を記録する。"
+* identifier[resourceId].system 1.. MS
+* identifier[resourceId].system $resource_identifier (exactly)
+* identifier[resourceId].value 1.. MS
 
 * identifier[placerOrderNo].type.coding.system = $v2-0203 (exactly)
 * identifier[placerOrderNo].type.coding.code = #PLAC (exactly)

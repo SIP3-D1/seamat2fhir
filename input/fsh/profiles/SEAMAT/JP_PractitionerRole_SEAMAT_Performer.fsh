@@ -17,7 +17,9 @@ Description: "このプロファイルはPractitionerRoleリソースに対し�
 * identifier ^slicing.discriminator.type = #value
 * identifier ^slicing.discriminator.path = "system"
 * identifier ^slicing.rules = #open
-* identifier contains resourceId and bundleId
+* identifier contains 
+     resourceId 1..1 MS
+ and bundleId 1..1 MS
 
 * identifier[resourceId] 1..1 MS
 * identifier[resourceId] ^short = "役割/場所に固有のビジネス識別子" 

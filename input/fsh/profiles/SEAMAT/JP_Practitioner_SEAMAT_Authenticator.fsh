@@ -17,7 +17,9 @@ Description: "このプロファイルはPractitionerリソースに対して、
 * identifier ^slicing.discriminator.type = #value
 * identifier ^slicing.discriminator.path = "system"
 * identifier ^slicing.rules = #open
-* identifier contains resourceId and bundleId
+* identifier contains 
+     resourceId 1..1 MS
+ and bundleId 1..1 MS
 
 * identifier[resourceId] 1..1 MS
 * identifier[resourceId] ^short = "ある役割の人に適用される識別子。" 
