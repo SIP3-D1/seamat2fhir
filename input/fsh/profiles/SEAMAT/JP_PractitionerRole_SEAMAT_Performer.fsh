@@ -21,19 +21,15 @@ Description: "このプロファイルはPractitionerRoleリソースに対し�
      resourceId 1..1 MS
  and bundleId 1..1 MS
 
-* identifier[resourceId] 1..1 MS
 * identifier[resourceId] ^short = "役割/場所に固有のビジネス識別子" 
 * identifier[resourceId] ^definition = "役割/場所に固有のビジネス識別子。"
-* identifier[resourceId].system 1.. MS
-* identifier[resourceId].system $resource_identifier (exactly)
-* identifier[resourceId].value 1.. MS
+* identifier[resourceId].system = $resource_identifier (exactly)
+* identifier[resourceId].value 1..1 MS
 
-* identifier[bundleId] 1..1 MS
 * identifier[bundleId] ^short = "文書Bundleの固定識別番号。"
 * identifier[bundleId] ^definition = "文書Bundleの固定識別番号。Bundle.identifier と同じ値を指定する。"
-* identifier[bundleId].system 1.. MS
-* identifier[bundleId].system $document_identifier (exactly)
-* identifier[bundleId].value 1.. MS
+* identifier[bundleId].system = $document_identifier (exactly)
+* identifier[bundleId].value 1..1 MS
 
 * active = true (exactly)
 

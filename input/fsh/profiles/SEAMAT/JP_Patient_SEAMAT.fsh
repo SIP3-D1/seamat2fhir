@@ -21,20 +21,16 @@ Description: "このプロファイルはPatientリソースに対して、SEAMA
      resourceId 1..1 MS
  and bundleId 1..1 MS
 
-* identifier[resourceId] 1..1 MS
 * identifier[resourceId] ^short = "An identifier for this patient" 
 * identifier[resourceId] ^definition = "An identifier for this patient.\r\n\r\nこの患者の識別子。\r\n
 【CDA項目】/ClinicalDocument/recordTarget/patientRole/id"
-* identifier[resourceId].system 1.. MS
-* identifier[resourceId].system $resource_identifier (exactly)
-* identifier[resourceId].value 1.. MS
+* identifier[resourceId].system = $resource_identifier (exactly)
+* identifier[resourceId].value 1..1 MS
 
-* identifier[bundleId] 1..1 MS
 * identifier[bundleId] ^short = "文書Bundleの固定識別番号。"
 * identifier[bundleId] ^definition = "文書Bundleの固定識別番号。Bundle.identifier と同じ値を指定する。"
-* identifier[bundleId].system 1.. MS
-* identifier[bundleId].system $document_identifier (exactly)
-* identifier[bundleId].value 1.. MS
+* identifier[bundleId].system = $document_identifier (exactly)
+* identifier[bundleId].value 1..1 MS
 
 * active = true (exactly)
 

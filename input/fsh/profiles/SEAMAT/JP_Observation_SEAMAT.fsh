@@ -23,18 +23,14 @@ Description: "このプロファイルはObservationリソースに対して、S
      resourceId 1..1 MS
  and bundleId 1..1 MS
 
-* identifier[resourceId] 1..1 MS
 * identifier[resourceId] ^definition = "Unique instance identifiers assigned to a device by manufacturers other organizations or owners."
-* identifier[resourceId].system 1.. MS
-* identifier[resourceId].system $resource_identifier (exactly)
-* identifier[resourceId].value 1.. MS
+* identifier[resourceId].system = $resource_identifier (exactly)
+* identifier[resourceId].value 1..1 MS
 
-* identifier[bundleId] 1..1 MS
 * identifier[bundleId] ^short = "文書Bundleの固定識別番号。"
 * identifier[bundleId] ^definition = "文書Bundleの固定識別番号。Bundle.identifier と同じ値を指定する。"
-* identifier[bundleId].system 1.. MS
-* identifier[bundleId].system $document_identifier (exactly)
-* identifier[bundleId].value 1.. MS
+* identifier[bundleId].system = $document_identifier (exactly)
+* identifier[bundleId].value 1..1 MS
 
 * basedOn ..0
 * partOf ..0

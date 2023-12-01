@@ -23,12 +23,10 @@ Description: "このプロファイルはProcedureリソースに対して、検
     and fillerDataNo 1..1 MS     // データ管理番号
     and bundleId 1..1 MS
 
-* identifier[resourceId] 1..1 MS
 * identifier[resourceId] ^short = "External Identifiers for this procedure" 
 * identifier[resourceId] ^definition = "これは、ビジネスプロセスによって定義され、リソース自体への直接のURL参照が適切でない場合に参照するために使用される、このProcedureに関連する識別子を記録する。"
-* identifier[resourceId].system 1.. MS
-* identifier[resourceId].system $resource_identifier (exactly)
-* identifier[resourceId].value 1.. MS
+* identifier[resourceId].system = $resource_identifier (exactly)
+* identifier[resourceId].value 1..1 MS
 
 * identifier[placerOrderNo].type.coding.system = $v2-0203 (exactly)
 * identifier[placerOrderNo].type.coding.code = #PLAC (exactly)
@@ -51,12 +49,10 @@ Description: "このプロファイルはProcedureリソースに対して、検
 * identifier[fillerDataNo].value ^short = "<データ管理番号>"
 * identifier[fillerDataNo].value ^definition = "SS-MIX2拡張ストレージのコンテンツフォルダ名の特定キーに含まれる<データ管理番号>をセットする。"
 
-* identifier[bundleId] 1..1 MS
 * identifier[bundleId] ^short = "文書Bundleの固定識別番号。"
 * identifier[bundleId] ^definition = "文書Bundleの固定識別番号。Bundle.identifier と同じ値を指定する。"
-* identifier[bundleId].system 1.. MS
-* identifier[bundleId].system $document_identifier (exactly)
-* identifier[bundleId].value 1.. MS
+* identifier[bundleId].system = $document_identifier (exactly)
+* identifier[bundleId].value 1..1 MS
 
 * instantiatesUri ..0
 * basedOn ..0
