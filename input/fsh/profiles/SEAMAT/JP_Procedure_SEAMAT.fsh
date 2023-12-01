@@ -20,6 +20,7 @@ Description: "このプロファイルはProcedureリソースに対して、検
         placerOrderNo 1..1 MS    // オーダ番号
     and fillerOrderNo 1..1 MS    // 部門管理番号
     and fillerDataNo 1..1 MS     // データ管理番号
+    and bundleId 1..1 MS
 
 * identifier[placerOrderNo].type.coding.system = $v2-0203 (exactly)
 * identifier[placerOrderNo].type.coding.code = #PLAC (exactly)
@@ -41,6 +42,13 @@ Description: "このプロファイルはProcedureリソースに対して、検
 * identifier[fillerDataNo].system = $JP_Procedure_SEAMAT_Filler_DataNo
 * identifier[fillerDataNo].value ^short = "<データ管理番号>"
 * identifier[fillerDataNo].value ^definition = "SS-MIX2拡張ストレージのコンテンツフォルダ名の特定キーに含まれる<データ管理番号>をセットする。"
+
+* identifier[bundleId] 1..1 MS
+* identifier[bundleId] ^short = "文書Bundleの固定識別番号。"
+* identifier[bundleId] ^definition = "文書Bundleの固定識別番号。Bundle.identifier と同じ値を指定する。"
+* identifier[bundleId].system 1.. MS
+* identifier[bundleId].system $document_identifier (exactly)
+* identifier[bundleId].value 1.. MS
 
 * instantiatesUri ..0
 * basedOn ..0
@@ -65,6 +73,7 @@ Description: "このプロファイルはProcedureリソースに対して、検
 //* category[dataSubType].coding.code ^definition = "SS-MIX2拡張ストレージのコンテンツフォルダ名のデータ種別に含まれる<レポート/データフラグ>をセットする。"
 
 * category 1..1 MS
+* category from $JP_Procedure_EKGReport_Category_VS
 * category.coding.system = $JP_Procedure_SEAMAT_Category_CS (exactly)
 * category.coding.code ^short = "<データ種別コード><レポート/データフラグ>"
 * category.coding.code ^definition = "SS-MIX2拡張ストレージのコンテンツフォルダ名のデータ種別に含まれる<データ種別コード><レポート/データフラグ>をセットする。\r\n例：LJCS-100D"

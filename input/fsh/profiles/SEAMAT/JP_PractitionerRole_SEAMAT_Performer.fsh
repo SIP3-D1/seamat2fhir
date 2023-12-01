@@ -13,7 +13,26 @@ Description: "このプロファイルはPractitionerRoleリソースに対し�
 * meta.profile 1.. MS
 * meta.profile = $JP_PractitionerRole_SEAMAT_Performer
 
-* identifier ..0
+* identifier 2.. MS
+* identifier ^slicing.discriminator.type = #value
+* identifier ^slicing.discriminator.path = "system"
+* identifier ^slicing.rules = #open
+* identifier contains resourceId and bundleId
+
+* identifier[resourceId] 1..1 MS
+* identifier[resourceId] ^short = "役割/場所に固有のビジネス識別子" 
+* identifier[resourceId] ^definition = "役割/場所に固有のビジネス識別子。"
+* identifier[resourceId].system 1.. MS
+* identifier[resourceId].system $resource_identifier (exactly)
+* identifier[resourceId].value 1.. MS
+
+* identifier[bundleId] 1..1 MS
+* identifier[bundleId] ^short = "文書Bundleの固定識別番号。"
+* identifier[bundleId] ^definition = "文書Bundleの固定識別番号。Bundle.identifier と同じ値を指定する。"
+* identifier[bundleId].system 1.. MS
+* identifier[bundleId].system $document_identifier (exactly)
+* identifier[bundleId].value 1.. MS
+
 * active = true (exactly)
 
 * period ..1 MS

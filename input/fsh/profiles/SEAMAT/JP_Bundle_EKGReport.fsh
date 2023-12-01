@@ -20,7 +20,7 @@ Description: "SEAMAT心電図検査レポートのための文書 Bundleリソ�
 変換元のCDA文書が置かれたSS-MIX2拡張ストレージのコンテンツフォルダ名をセットする。\r\n
 書式：<患者ID>_<診療日>_<データ種別>_<特定キー>_<発生日時>_<診療科コード>_<コンディションフラグ>"
 * identifier.system 1.. MS
-* identifier.system = "http://jpfhir.jp/fhir/core/IdSystem/documentInstance-identifier" (exactly)
+* identifier.system = $document_identifier (exactly)
 * identifier.value 1.. MS
 
 * type = #document (exactly)

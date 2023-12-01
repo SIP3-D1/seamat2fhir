@@ -13,6 +13,25 @@ Description: "このプロファイルはOrganizationリソースに対して、
 * meta.profile 1.. MS
 * meta.profile = $JP_Organization_SEAMAT_Department
 
+* identifier 2.. MS
+* identifier ^slicing.discriminator.type = #value
+* identifier ^slicing.discriminator.path = "system"
+* identifier ^slicing.rules = #open
+* identifier contains resourceId and bundleId
+
+* identifier[resourceId] 1..1 MS
+* identifier[resourceId] ^definition = "Identifier for the organization that is used to identify the organization across multiple disparate systems.\r\n\r\n複数の異種システムにまたがって組織を識別するための識別子"
+* identifier[resourceId].system 1.. MS
+* identifier[resourceId].system $resource_identifier (exactly)
+* identifier[resourceId].value 1.. MS
+
+* identifier[bundleId] 1..1 MS
+* identifier[bundleId] ^short = "文書Bundleの固定識別番号。"
+* identifier[bundleId] ^definition = "文書Bundleの固定識別番号。Bundle.identifier と同じ値を指定する。"
+* identifier[bundleId].system 1.. MS
+* identifier[bundleId].system $document_identifier (exactly)
+* identifier[bundleId].value 1.. MS
+
 * active = true (exactly)
 
 * type.coding.system = $organization-type (exactly)

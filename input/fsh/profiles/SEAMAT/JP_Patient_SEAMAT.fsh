@@ -13,10 +13,26 @@ Description: "このプロファイルはPatientリソースに対して、SEAMA
 * meta.profile 1.. MS
 * meta.profile = $JP_Patient_SEAMAT
 
-* identifier 1..
-* identifier ^short = "An identifier for this patient" 
-* identifier ^definition = "An identifier for this patient.\r\n\r\nこの患者の識別子。\r\n
+* identifier 2.. MS
+* identifier ^slicing.discriminator.type = #value
+* identifier ^slicing.discriminator.path = "system"
+* identifier ^slicing.rules = #open
+* identifier contains resourceId and bundleId
+
+* identifier[resourceId] 1..1 MS
+* identifier[resourceId] ^short = "An identifier for this patient" 
+* identifier[resourceId] ^definition = "An identifier for this patient.\r\n\r\nこの患者の識別子。\r\n
 【CDA項目】/ClinicalDocument/recordTarget/patientRole/id"
+* identifier[resourceId].system 1.. MS
+* identifier[resourceId].system $resource_identifier (exactly)
+* identifier[resourceId].value 1.. MS
+
+* identifier[bundleId] 1..1 MS
+* identifier[bundleId] ^short = "文書Bundleの固定識別番号。"
+* identifier[bundleId] ^definition = "文書Bundleの固定識別番号。Bundle.identifier と同じ値を指定する。"
+* identifier[bundleId].system 1.. MS
+* identifier[bundleId].system $document_identifier (exactly)
+* identifier[bundleId].value 1.. MS
 
 * active = true (exactly)
 
