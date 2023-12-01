@@ -11,7 +11,7 @@ Description: "このプロファイルはOrganizationリソースに対して、
 * ^date = "2023-11-12"
 * meta.lastUpdated 1.. MS
 * meta.profile 1.. MS
-* meta.profile = $JP_Organization_SEAMAT_Department
+//* meta.profile = $JP_Organization_SEAMAT_Department
 
 * identifier 2.. MS
 * identifier ^slicing.discriminator.type = #value

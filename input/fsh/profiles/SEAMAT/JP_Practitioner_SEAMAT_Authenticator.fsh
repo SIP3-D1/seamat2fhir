@@ -11,7 +11,7 @@ Description: "このプロファイルはPractitionerリソースに対して、
 * ^date = "2023-11-13"
 * meta.lastUpdated 1.. MS
 * meta.profile 1.. MS
-* meta.profile = $JP_Practitioner_SEAMAT_Authenticator
+//* meta.profile = $JP_Practitioner_SEAMAT_Authenticator
 
 * identifier 2.. MS
 * identifier ^slicing.discriminator.type = #value

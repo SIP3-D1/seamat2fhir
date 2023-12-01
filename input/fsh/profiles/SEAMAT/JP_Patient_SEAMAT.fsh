@@ -11,7 +11,7 @@ Description: "このプロファイルはPatientリソースに対して、SEAMA
 * ^date = "2023-11-12"
 * meta.lastUpdated 1.. MS
 * meta.profile 1.. MS
-* meta.profile = $JP_Patient_SEAMAT
+//* meta.profile = $JP_Patient_SEAMAT
 
 * identifier 2.. MS
 * identifier ^slicing.discriminator.type = #value

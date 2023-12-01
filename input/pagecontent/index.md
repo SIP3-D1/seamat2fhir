@@ -13,7 +13,7 @@
 
 ## 心電図レポート用FHIRドキュメントの概要
 
-<img src="images/ecgReportStructure.png" width="60%"><br clear="all">
+<img src="ecgReportStructure.png" width="60%"><br clear="all">
 
 ### 心電図レポート用FHIRドキュメントのトピック
 
@@ -59,6 +59,6 @@ SEAMATでは、これらの要素に、以下のような項目を組み合わ�
 
 ## FSHファイルの構成
 
-<img src="images/fsh_fileList.png" width="60%"><br clear="all">
+<img src="fsh_fileList.png" width="60%"><br clear="all">
 
 {% include markdown-link-references.md %}

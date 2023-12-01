@@ -10,7 +10,7 @@ Description:  "心電図検査レポート情報のリソース構成情報と�
 * ^date = "2023-11-12"
 * meta.lastUpdated 1.. MS
 * meta.profile 1.. MS
-* meta.profile = $JP_Composition_EKGReport
+//* meta.profile = $JP_Composition_EKGReport
 
 * extension ^slicing.discriminator.type = #value
 * extension ^slicing.discriminator.path = "url"

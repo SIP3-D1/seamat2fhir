@@ -11,7 +11,7 @@ Description: "このプロファイルはProcedureリソースに対して、検
 * ^date = "2023-11-13"
 * meta.lastUpdated 1.. MS
 * meta.profile 1.. MS
-* meta.profile = $JP_Procedure_SEAMAT
+//* meta.profile = $JP_Procedure_SEAMAT
 
 * identifier ^slicing.discriminator.type = #pattern
 * identifier ^slicing.discriminator.path = "system"
