@@ -36,7 +36,7 @@ Alias: $JP_Procedure_SEAMAT_Category_CS = http://jpfhir.jp/fhir/SEAMAT/CodeSyste
 // ValueSet
 Alias: $JP_Composition_EKGReport_DocumentType_VS = http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Composition_EKGReport_DocumentType_CS
 Alias: $JP_Composition_EKGReport_SectionCode_VS = http://jpfhir.jp/fhir/SEAMAT/CodeSystem/JP_Composition_EKGReport_SectionCode_VS
-Alias: $JP_Proecdure_EKGReport_Category_VS = http://jpfhir.jp/fhir/SEAMAT/CodeSystem/JP_Procedure_EKGReport_Category_VS
+Alias: $JP_Procedure_EKGReport_Category_VS = http://jpfhir.jp/fhir/SEAMAT/CodeSystem/JP_Procedure_EKGReport_Category_VS
 
 // IdSystem
 Alias: $document_identifier = http://jpfhir.jp/fhir/core/IdSystem/documentInstance-identifier
