@@ -49,7 +49,7 @@ Description: "このプロファイルはObservationリソースに対して、S
 * issued ..0
 * performer ..0
 
-* value[x] 1..1 MS
+* value[x] 0..1 MS
 * value[x] ^definition = "The information determined as a result of making the observation, if the information has a simple value.\r\n\r\n検体検査の結果として決定された情報。\r\n
 【CDA項目】/ClinicalDocument/component/structuredBody/component/section/entry/observation/value"
 
