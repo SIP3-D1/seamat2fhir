@@ -321,7 +321,7 @@ and authoringOrganization 1..1 MS
 * section[loinc/examDescription].title = "検査記述" (exactly)
 * section[loinc/examDescription].code.coding.code = #70004-7 (exactly)
 * section[loinc/examDescription].code.coding.display = "検査記述セクション"
-* section[loinc/examDescription].entry ..0
+//* section[loinc/examDescription].entry ..0
 
 //　心電図コメント
 * section[loinc/ekgComment] ^short = "心電図コメントセクション"
