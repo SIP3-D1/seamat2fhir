@@ -51,6 +51,7 @@ and authoringDevice 0..1 MS // 作成システム
 and authoringOrganization 0..1 MS // 作成機関
 and custodian 1..1 MS // 管理医療機関
 and authenticator 0..1 MS // 文書内容責任者
+and procedure 1..1 MS // 検査実施情報
 and performerRole 0..1 MS // 検査実施者役割
 and performingPractitioner 0..1 MS // 検査実施者
 and measuringPractitioner 0.. MS // 測定者
@@ -174,6 +175,21 @@ and binaryData 0..* MS  // 外部参照データ
 * entry[authenticator].search ..0
 * entry[authenticator].request ..0
 * entry[authenticator].response ..0
+
+// 検査実施情報
+* entry[procedure] ^short = "検査実施応報"
+* entry[procedure] ^definition = "検査実施者の役割をPractitionerRoleリソースで記述する。\r\n
+【SEAMAT項目】<検査日><データ種別コード><レポート/データフラグ><データ管理番号><オーダ番号><部門管理番号>"
+* entry[procedure].fullUrl 1.. MS
+* entry[procedure].fullUrl ^short = "埋め込まれているProcedureリソースを一意に識別するためのUUID"
+* entry[procedure].fullUrl ^definition = "埋め込まれているProcedureリソースを一意に識別するためのUUID。"
+* entry[procedure].resource 1.. MS
+* entry[procedure].resource only JP_Procedure_SEAMAT
+* entry[procedure].resource ^short = "Procedureリソースのインスタンス本体"
+* entry[procedure].resource ^definition = "Procedureリソースのインスタンス本体。"
+* entry[procedure].search ..0
+* entry[procedure].request ..0
+* entry[procedure].response ..0
 
 // 検査実施者役割
 * entry[performerRole] ^short = "検査実施者の役割情報"
