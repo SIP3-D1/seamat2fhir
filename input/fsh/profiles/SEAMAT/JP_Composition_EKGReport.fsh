@@ -130,7 +130,7 @@ and authoringOrganization 1..1 MS
 * event 1..1 MS
 * event ^short = "検査実施日時"
 * event ^definition = "心電図検査レポートの対象の検査を実施した日時の情報"
-* event.code 1..1 MS
+* event.code 0..1 MS
 * event.code ^definition = "【CDA項目】/ClinicalDocument/documentationOf/serviceEvent/code"
 * event.code.coding ..0
 * event.code.text 1.. MS
