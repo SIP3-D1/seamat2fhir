@@ -4,6 +4,7 @@
 Profile: JP_Composition_EKGReport
 Parent: Composition
 Id: JP-Composition-ekgreport
+Title: "SEAMAT EKG Report Composition Profile"
 Description:  "心電図検査レポート情報のリソース構成情報と文書日付に関するCompositionの派生プロファイル"
 * ^url = $JP_Composition_EKGReport
 * ^status = #active
@@ -209,6 +210,7 @@ and authoringOrganization 0..1 MS
 * section[loinc/additional] ^short = "患者付帯情報セクション"
 * section[loinc/additional] ^definition = "患者付帯情報セクション"
 * section[loinc/additional].title = "患者付帯情報" (exactly)
+* section[loinc/additional].code.coding.system = $JP_Composition_SEAMAT_SectionCode_CS (exactly)
 * section[loinc/additional].code.coding.code = #52460-3 (exactly)
 * section[loinc/additional].code.coding.display = "患者付帯情報セクション"
 * section[loinc/additional].entry 1..

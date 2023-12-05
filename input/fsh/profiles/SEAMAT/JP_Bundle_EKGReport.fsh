@@ -10,6 +10,7 @@ Expression: "meta.profile.where($this = 'http://jpfhir.jp/fhir/SEAMAT/StructureD
 Profile: JP_Bundle_EKGReport
 Parent: Bundle
 Id: JP-Bundle-ekgreport
+Title: "SEAMAT EKG Report Bundle Profile"
 Description: "SEAMAT心電図検査レポートのための文書 Bundleリソース"
 * ^url = $JP_Bundle_EKGReport
 * ^status = #active
