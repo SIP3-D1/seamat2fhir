@@ -336,7 +336,7 @@ and authoringOrganization 1..1 MS
 * section[loinc/measurement] ^definition = "計測値（生理検査）セクション"
 * section[loinc/measurement].title = "計測値" (exactly)
 * section[loinc/measurement].code.coding.code = #29273-0 (exactly)
-* section[loinc/measurement].code.coding.display = "計測値（生理検査）セクション"
+* section[loinc/measurement].code.coding.display = "計測値セクション"
 * section[loinc/measurement].entry 1..
 * section[loinc/measurement].entry ^short = "計測値（生理検査）の構造化情報"
 * section[loinc/measurement].entry ^definition = "計測値（生理検査）の構造化情報"
@@ -348,7 +348,7 @@ and authoringOrganization 1..1 MS
 * section[loinc/analysis] ^definition = "解析結果（生理検査）セクション"
 * section[loinc/analysis].title = "解析結果" (exactly)
 * section[loinc/analysis].code.coding.code = #64110-0 (exactly)
-* section[loinc/analysis].code.coding.display = "解析結果（生理検査）セクション"
+* section[loinc/analysis].code.coding.display = "解析結果セクション"
 * section[loinc/analysis].entry 1..
 * section[loinc/analysis].entry ^short = "解析結果（生理検査）の構造化情報"
 * section[loinc/analysis].entry ^definition = "解析結果（生理検査）の構造化情報"
