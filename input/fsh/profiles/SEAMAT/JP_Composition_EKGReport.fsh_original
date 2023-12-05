@@ -295,7 +295,7 @@ and authoringOrganization 1..1 MS
 * section[loinc][history] ^definition = "既往歴セクション"
 * section[loinc][history].title = "既往歴" (exactly)
 * section[loinc][history].code.coding.code = #11348-0 (exactly)
-* section[loinc][history].code.coding.display = "既往歴情報セクション"
+* section[loinc][history].code.coding.display = "既往歴セクション"
 * section[loinc][history].entry ..0
 
 //　自覚症状
