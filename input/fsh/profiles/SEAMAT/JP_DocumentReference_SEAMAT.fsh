@@ -14,12 +14,12 @@ Description: "このプロファイルはDocumentReferenceリソースに対し�
 //* meta.profile = $JP_DocumentReference_SEAMAT
 
 * masterIdentifier ..0
-* identifier 2.. MS
+* identifier 1.. MS
 * identifier ^slicing.discriminator.type = #value
 * identifier ^slicing.discriminator.path = "system"
 * identifier ^slicing.rules = #open
 * identifier contains 
-     resourceId 1..1 MS
+     resourceId 0..1 MS
  and bundleId 1..1 MS
 
 * identifier[resourceId] ^definition = "Unique instance identifiers assigned to a device by manufacturers other organizations or owners."

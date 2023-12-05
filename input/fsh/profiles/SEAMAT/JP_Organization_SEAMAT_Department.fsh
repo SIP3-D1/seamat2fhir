@@ -13,12 +13,12 @@ Description: "このプロファイルはOrganizationリソースに対して、
 * meta.profile 1.. MS
 //* meta.profile = $JP_Organization_SEAMAT_Department
 
-* identifier 2.. MS
+* identifier 1.. MS
 * identifier ^slicing.discriminator.type = #value
 * identifier ^slicing.discriminator.path = "system"
 * identifier ^slicing.rules = #open
 * identifier contains 
-     resourceId 1..1 MS
+     resourceId 0..1 MS
  and bundleId 1..1 MS
 
 * identifier[resourceId] ^definition = "Identifier for the organization that is used to identify the organization across multiple disparate systems.\r\n\r\n複数の異種システムにまたがって組織を識別するための識別子"

@@ -17,7 +17,7 @@ Description: "このプロファイルはProcedureリソースに対して、検
 * identifier ^slicing.discriminator.path = "system"
 * identifier ^slicing.rules = #open
 * identifier contains
-        resourceId 1..1 MS
+        resourceId 0..1 MS
     and placerOrderNo 1..1 MS    // オーダ番号
     and fillerOrderNo 1..1 MS    // 部門管理番号
     and fillerDataNo 1..1 MS     // データ管理番号

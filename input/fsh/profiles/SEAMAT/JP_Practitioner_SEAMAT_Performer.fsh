@@ -13,12 +13,12 @@ Description: "このプロファイルはPractitionerリソースに対して、
 * meta.profile 1.. MS
 //* meta.profile = $JP_Practitioner_SEAMAT_Performer
 
-* identifier 2.. MS
+* identifier 1.. MS
 * identifier ^slicing.discriminator.type = #value
 * identifier ^slicing.discriminator.path = "system"
 * identifier ^slicing.rules = #open
 * identifier contains 
-     resourceId 1..1 MS
+     resourceId 0..1 MS
  and bundleId 1..1 MS
 
 * identifier[resourceId] ^short = "ある役割の人に適用される識別子。" 

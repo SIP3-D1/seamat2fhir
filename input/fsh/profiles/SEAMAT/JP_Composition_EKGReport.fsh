@@ -15,7 +15,7 @@ Description:  "心電図検査レポート情報のリソース構成情報と�
 * extension ^slicing.discriminator.type = #value
 * extension ^slicing.discriminator.path = "url"
 * extension ^slicing.rules = #open
-* extension contains $composition-clinicaldocument-versionNumber named version 1..1
+* extension contains $composition-clinicaldocument-versionNumber named version 0..1
 * extension[version] ^short = "文書バージョンを表す拡張"
 * extension[version] 1..1 MS
 * extension[version].url 1..1 MS
@@ -334,7 +334,7 @@ and authoringOrganization 1..1 MS
 // 計測値（生理検査）
 * section[loinc/measurement] ^short = "計測値（生理検査）セクション"
 * section[loinc/measurement] ^definition = "計測値（生理検査）セクション"
-* section[loinc/measurement].title = "計測値（生理検査）" (exactly)
+* section[loinc/measurement].title = "計測値" (exactly)
 * section[loinc/measurement].code.coding.code = #29273-0 (exactly)
 * section[loinc/measurement].code.coding.display = "計測値（生理検査）セクション"
 * section[loinc/measurement].entry 1..
@@ -346,7 +346,7 @@ and authoringOrganization 1..1 MS
 // 解析結果（生理検査）
 * section[loinc/analysis] ^short = "解析結果（生理検査）セクション"
 * section[loinc/analysis] ^definition = "解析結果（生理検査）セクション"
-* section[loinc/analysis].title = "解析結果（生理検査）" (exactly)
+* section[loinc/analysis].title = "解析結果" (exactly)
 * section[loinc/analysis].code.coding.code = #64110-0 (exactly)
 * section[loinc/analysis].code.coding.display = "解析結果（生理検査）セクション"
 * section[loinc/analysis].entry 1..
