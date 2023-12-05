@@ -12,7 +12,7 @@ This material contains content from LOINC (http://loinc.org). LOINC is copyright
 // 心電図検査レポート
 * $JP_Composition_SEAMAT_SectionCode_CS#52460-3 "患者付帯情報セクション"
 //* $JP_Composition_SEAMAT_SectionCode_CS#74728-7 "バイタルサインセクション"
-* $JP_Composition_SEAMAT_SectionCode_CS#11348-0 "既往歴情報セクション"
+* $JP_Composition_SEAMAT_SectionCode_CS#11348-0 "既往歴セクション"
 * $JP_Composition_SEAMAT_SectionCode_CS#61150-9 "自覚症状セクション"
 * $JP_Composition_SEAMAT_SectionCode_CS#15334-6 "検査時使用薬セクション"
 * $JP_Composition_SEAMAT_SectionCode_CS#70004-7 "検査記述セクション"
