@@ -98,7 +98,7 @@ Description:  "心電図検査レポート情報のリソース構成情報と�
 * author contains
     authoringPractitioner 0..1 MS 
 and authoringDevice 0..1 MS
-and authoringOrganization 1..1 MS
+and authoringOrganization 0..1 MS
 * author[authoringPractitioner] only  Reference(JP_Practitioner_SEAMAT_Author)
 * author[authoringDevice] only  Reference(JP_Device_SEAMAT_Author)
 * author[authoringOrganization] only  Reference(JP_Organization_SEAMAT_Author)
