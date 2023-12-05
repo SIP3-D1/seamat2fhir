@@ -11,7 +11,7 @@ Description: "このプロファイルはDeviceリソースに対して、SEAMAT
 * ^date = "2023-11-13"
 * meta.lastUpdated 1.. MS
 * meta.profile 1.. MS
-//* meta.profile = $JP_Device_SEAMAT_Measurer
+* meta.profile = $JP_Device_SEAMAT_Measurer
 
 * identifier 1.. MS
 * identifier ^slicing.discriminator.type = #value
