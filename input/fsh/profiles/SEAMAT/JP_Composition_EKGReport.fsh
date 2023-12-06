@@ -154,9 +154,9 @@ and authoringOrganization 0..1 MS
 * section.author only Reference(JP_Practitioner_SEAMAT_Measurer or JP_Device_SEAMAT_Measurer)
 
 * section ^slicing.discriminator.type = #value
-* section ^slicing.discriminator.path = "code.coding.system"
-* section ^slicing.discriminator.type = #value
 * section ^slicing.discriminator.path = "code.coding.code"
+* section ^slicing.discriminator.type = #value
+* section ^slicing.discriminator.path = "code.coding.system"
 * section ^slicing.rules = #open
 * section contains
         loinc 0..* MS // LOINC
@@ -384,7 +384,7 @@ and authoringOrganization 0..1 MS
 // 外部参照
 * section[loinc/external] ^short = "外部参照セクション"
 * section[loinc/external] ^definition = "外部参照セクション"
-* section[loinc/external].title = "外部参照" (exactly)
+//* section[loinc/external].title = "外部参照" (exactly)
 * section[loinc/external].code.coding.code = #78239-1 (exactly)
 * section[loinc/external].code.coding.display = "外部参照セクション"
 * section[loinc/external].entry 1..
