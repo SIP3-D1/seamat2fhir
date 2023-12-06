@@ -154,9 +154,9 @@ and authoringOrganization 0..1 MS
 * section.author only Reference(JP_Practitioner_SEAMAT_Measurer or JP_Device_SEAMAT_Measurer)
 
 * section ^slicing.discriminator.type = #value
-* section ^slicing.discriminator.path = "code.coding.code"
-* section ^slicing.discriminator.type = #value
 * section ^slicing.discriminator.path = "code.coding.system"
+* section ^slicing.discriminator.type = #value
+* section ^slicing.discriminator.path = "code.coding.code"
 * section ^slicing.rules = #open
 * section contains
         loinc 0..* MS // LOINC
