@@ -157,7 +157,7 @@ and authoringOrganization 0..1 MS
 * section ^slicing.discriminator.path = "code.coding.code"
 * section ^slicing.rules = #open
 * section contains
-    and additional 0..1 MS    // 患者付帯情報
+        additional 0..1 MS    // 患者付帯情報
     and history 0..1 MS // 既往歴
     and subjective 0..1 MS // 自覚症状
 	and usedDrug 0..1 MS  // 検査時使用薬
@@ -170,31 +170,31 @@ and authoringOrganization 0..1 MS
     and doctorFinding 0..1 MS // 医師所見
     and external 0..1 MS // 外部参照
 
-// * section.title ^short = "セクションタイトル"
-// * section.title ^definition = "セクションタイトル。固定値。"
-// * section.code 1.. MS
-// * section.code ^short = "セクション区分コード"
-// * section.code ^definition = "セクション区分コード"
-// * section.code.coding 1..1 MS
-// * section.code.coding.system ^short = "セクション区分コードのコード体系"
-// * section.code.coding.system ^definition = "セクション区分コードのコード体系を識別するURI。固定値。"
-// * section.code.coding.code 1.. MS
-// * section.code.coding.code ^short = "セクション区分のコード値"
-// * section.code.coding.code ^definition = "セクション区分のコード値。\r\n固定値。"
-// * section.code.coding.display ^short = "セクション区分コードの表示名"
-// * section.code.coding.display ^definition = "セクション区分コードの表示名。"
-// * section.code.coding.display MS
-// * section.code.coding.userSelected ..0
-// * section.text ^short = "このセクションに含められるすべてのテキスト（叙述的記述）表現"
-// * section.text ^definition = "本セクションの内容をテキストで表現した文字列。内容を省略しても構わない。 このデータは人がこのセクションの内容の概略をひと目で把握するためだけに使われるものであり、データ処理対象としてはならない。"
-// * section.text MS
-// * section.text.status MS
-// * section.text.status ^short = "セクションの内容作成状態コード"
-// * section.text.status ^definition = "generated | extensions | additional | empty　から　\"additional\" の固定値。このセクションに含められるすべてのentry要素による情報に加えて、それらで表現し尽くせていない情報も含めた完全な叙述表現であることを示す。"
-// * section.text.div ^short = "xhtml簡略形式に従った叙述記述データ"
-// * section.text.div ^definition = "本セクションの内容を xhtml 形式のテキストで表現した文字列。内容を省略しても構わない。 \r\nこのデータは人がこのセクションの内容の概略をひと目で把握するためだけに使われるものであり、データ処理対象としてはならない。\r\nテキストは構造化された情報から自動的にシステムが生成したものとし、それ以上に情報を追加してはならない。"
-// * section.mode ..0
-// * section.orderedBy ..0
+* section.title ^short = "セクションタイトル"
+* section.title ^definition = "セクションタイトル。固定値。"
+* section.code 1.. MS
+* section.code ^short = "セクション区分コード"
+* section.code ^definition = "セクション区分コード"
+* section.code.coding 1..1 MS
+* section.code.coding.system ^short = "セクション区分コードのコード体系"
+* section.code.coding.system ^definition = "セクション区分コードのコード体系を識別するURI。固定値。"
+* section.code.coding.code 1.. MS
+* section.code.coding.code ^short = "セクション区分のコード値"
+* section.code.coding.code ^definition = "セクション区分のコード値。\r\n固定値。"
+* section.code.coding.display ^short = "セクション区分コードの表示名"
+* section.code.coding.display ^definition = "セクション区分コードの表示名。"
+* section.code.coding.display MS
+* section.code.coding.userSelected ..0
+* section.text ^short = "このセクションに含められるすべてのテキスト（叙述的記述）表現"
+* section.text ^definition = "本セクションの内容をテキストで表現した文字列。内容を省略しても構わない。 このデータは人がこのセクションの内容の概略をひと目で把握するためだけに使われるものであり、データ処理対象としてはならない。"
+* section.text MS
+* section.text.status MS
+* section.text.status ^short = "セクションの内容作成状態コード"
+* section.text.status ^definition = "generated | extensions | additional | empty　から　\"additional\" の固定値。このセクションに含められるすべてのentry要素による情報に加えて、それらで表現し尽くせていない情報も含めた完全な叙述表現であることを示す。"
+* section.text.div ^short = "xhtml簡略形式に従った叙述記述データ"
+* section.text.div ^definition = "本セクションの内容を xhtml 形式のテキストで表現した文字列。内容を省略しても構わない。 \r\nこのデータは人がこのセクションの内容の概略をひと目で把握するためだけに使われるものであり、データ処理対象としてはならない。\r\nテキストは構造化された情報から自動的にシステムが生成したものとし、それ以上に情報を追加してはならない。"
+* section.mode ..0
+* section.orderedBy ..0
 
 // 患者付帯情報
 * section[additional] ^short = "患者付帯情報セクション"
