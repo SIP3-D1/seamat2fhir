@@ -1,3 +1,8 @@
+Invariant: binary-metaprofile
+Description: "meta.profileには、指定したプロファイルのURLの記述が存在しなければならない。"
+Severity: #error
+Expression: "meta.profile.where($this = 'http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Binary_SEAMAT').exists()"
+
 // ==============================
 //   Profile 定義
 // ==============================
@@ -11,7 +16,9 @@ Description: "このプロファイルはBinaryリソースに対して、外部
 * ^date = "2023-11-13"
 * meta.lastUpdated 1.. MS
 * meta.profile 1.. MS
-* meta.profile = $JP_Binary_SEAMAT
+//* meta.profile = $JP_Binary_SEAMAT
+
+* obeys binary-metaprofile
 
 * contentType 1..1 MS
 * contentType ^definition = "MimeType of the binary content represented as a standard MimeType (BCP 13).\r\n

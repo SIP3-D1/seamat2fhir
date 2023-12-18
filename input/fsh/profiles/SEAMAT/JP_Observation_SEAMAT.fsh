@@ -1,3 +1,8 @@
+Invariant: observation-metaprofile
+Description: "meta.profileには、指定したプロファイルのURLの記述が存在しなければならない。"
+Severity: #error
+Expression: "meta.profile.where($this = 'http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Observation_SEAMAT').exists()"
+
 // ==============================
 //   Profile 定義
 // ==============================
@@ -13,7 +18,9 @@ Description: "このプロファイルはObservationリソースに対して、S
 * . ^definition = "SEAMATの測定結果／解析結果の格納に使用する。"
 * meta.lastUpdated 1.. MS
 * meta.profile 1.. MS
-* meta.profile = $JP_Observation_SEAMAT
+//* meta.profile = $JP_Observation_SEAMAT
+
+* obeys observation-metaprofile
 
 * identifier 1.. MS
 * identifier ^slicing.discriminator.type = #value

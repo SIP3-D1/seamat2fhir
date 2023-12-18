@@ -1,3 +1,8 @@
+Invariant: device-measurer-metaprofile
+Description: "meta.profileには、指定したプロファイルのURLの記述が存在しなければならない。"
+Severity: #error
+Expression: "meta.profile.where($this = 'http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Device_SEAMAT_Measurer').exists()"
+
 // ==============================
 //   Profile 定義
 // ==============================
@@ -11,7 +16,9 @@ Description: "このプロファイルはDeviceリソースに対して、SEAMAT
 * ^date = "2023-11-13"
 * meta.lastUpdated 1.. MS
 * meta.profile 1.. MS
-* meta.profile = $JP_Device_SEAMAT_Measurer
+//* meta.profile = $JP_Device_SEAMAT_Measurer
+
+* obeys device-measurer-metaprofile
 
 * identifier 1.. MS
 * identifier ^slicing.discriminator.type = #value

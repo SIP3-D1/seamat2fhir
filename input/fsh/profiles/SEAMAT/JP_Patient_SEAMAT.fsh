@@ -1,3 +1,8 @@
+Invariant: patient-metaprofile
+Description: "meta.profileには、指定したプロファイルのURLの記述が存在しなければならない。"
+Severity: #error
+Expression: "meta.profile.where($this = 'http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Patient_SEAMAT').exists()"
+
 // ==============================
 //   Profile 定義
 // ==============================
@@ -11,7 +16,9 @@ Description: "このプロファイルはPatientリソースに対して、SEAMA
 * ^date = "2023-11-12"
 * meta.lastUpdated 1.. MS
 * meta.profile 1.. MS
-* meta.profile = $JP_Patient_SEAMAT
+//* meta.profile = $JP_Patient_SEAMAT
+
+* obeys patient-metaprofile
 
 * identifier 2.. MS
 * identifier ^slicing.discriminator.type = #value

@@ -1,3 +1,8 @@
+Invariant: practitioner-measurer-metaprofile
+Description: "meta.profileには、指定したプロファイルのURLの記述が存在しなければならない。"
+Severity: #error
+Expression: "meta.profile.where($this = 'http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Practitioner_SEAMAT_Measurer').exists()"
+
 // ==============================
 //   Profile 定義
 // ==============================
@@ -11,7 +16,9 @@ Description: "このプロファイルはPractitionerリソースに対して、
 * ^date = "2023-11-12"
 * meta.lastUpdated 1.. MS
 * meta.profile 1.. MS
-* meta.profile = $JP_Practitioner_SEAMAT_Measurer
+//* meta.profile = $JP_Practitioner_SEAMAT_Measurer
+
+* obeys practitioner-measurer-metaprofile
 
 * identifier 1.. MS
 * identifier ^slicing.discriminator.type = #value

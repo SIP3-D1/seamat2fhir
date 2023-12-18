@@ -1,3 +1,8 @@
+Invariant: practitionerrole-metaprofile
+Description: "meta.profileには、指定したプロファイルのURLの記述が存在しなければならない。"
+Severity: #error
+Expression: "meta.profile.where($this = 'http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_PractitionerRole_SEAMAT').exists()"
+
 // ==============================
 //   Profile 定義
 // ==============================
@@ -11,7 +16,9 @@ Description: "このプロファイルはPractitionerRoleリソースに対し�
 * ^date = "2023-11-13"
 * meta.lastUpdated 1.. MS
 * meta.profile 1.. MS
-* meta.profile = $JP_PractitionerRole_SEAMAT_Performer
+//* meta.profile = $JP_PractitionerRole_SEAMAT_Performer
+
+* obeys practitionerrole-metaprofile
 
 * identifier 1.. MS
 * identifier ^slicing.discriminator.type = #value

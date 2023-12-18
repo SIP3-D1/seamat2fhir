@@ -1,3 +1,8 @@
+Invariant: organization-author-metaprofile
+Description: "meta.profileには、指定したプロファイルのURLの記述が存在しなければならない。"
+Severity: #error
+Expression: "meta.profile.where($this = 'http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Organization_SEAMAT_Author').exists()"
+
 // ==============================
 //   Profile 定義
 // ==============================
@@ -11,7 +16,9 @@ Description: "このプロファイルはOrganizationリソースに対して、
 * ^date = "2023-11-13"
 * meta.lastUpdated 1.. MS
 * meta.profile 1.. MS
-* meta.profile = $JP_Organization_SEAMAT_Author
+//* meta.profile = $JP_Organization_SEAMAT_Author
+
+* obeys organization-author-metaprofile
 
 //* identifier ^short = "Identifies this organization  across multiple systems/複数のシステムでこの組織を識別【詳細参照】"
 * identifier 1.. MS

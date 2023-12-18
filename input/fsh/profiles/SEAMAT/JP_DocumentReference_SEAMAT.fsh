@@ -1,3 +1,8 @@
+Invariant: documentreference-metaprofile
+Description: "meta.profileには、指定したプロファイルのURLの記述が存在しなければならない。"
+Severity: #error
+Expression: "meta.profile.where($this = 'http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_DocumentReference_SEAMAT').exists()"
+
 // ==============================
 //   Profile 定義
 // ==============================
@@ -11,7 +16,9 @@ Description: "このプロファイルはDocumentReferenceリソースに対し�
 * ^date = "2023-11-13"
 * meta.lastUpdated 1.. MS
 * meta.profile 1.. MS
-* meta.profile = $JP_DocumentReference_SEAMAT
+//* meta.profile = $JP_DocumentReference_SEAMAT
+
+* obeys documentreference-metaprofile
 
 * masterIdentifier ..0
 * identifier 1.. MS
