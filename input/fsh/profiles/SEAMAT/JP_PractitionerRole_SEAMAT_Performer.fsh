@@ -1,7 +1,7 @@
 Invariant: practitionerrole-metaprofile
 Description: "meta.profileには、指定したプロファイルのURLの記述が存在しなければならない。"
 Severity: #error
-Expression: "meta.profile.where($this = 'http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_PractitionerRole_SEAMAT').exists()"
+Expression: "meta.profile.where($this = 'http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_PractitionerRole_SEAMAT_Performer').exists()"
 
 // ==============================
 //   Profile 定義
