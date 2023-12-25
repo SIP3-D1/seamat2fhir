@@ -1,4 +1,4 @@
-Instance: SEAMAT EKG Report Bundle Example
+Instance: GOFSH-GENERATED-ID-0
 InstanceOf: Bundle
 Usage: #example
 * meta.lastUpdated = "2023-12-05T11:22:33+09:00"
