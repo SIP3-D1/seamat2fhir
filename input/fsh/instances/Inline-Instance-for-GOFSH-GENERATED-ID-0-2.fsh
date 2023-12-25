@@ -1,7 +1,7 @@
 Instance: Inline-Instance-for-GOFSH-GENERATED-ID-0-2
 InstanceOf: Patient
 Usage: #inline
-* meta.lastUpdated = "2023-12-25T17:49:15+09:00"
+* meta.lastUpdated = "2023-12-25T20:21:32+09:00"
 * meta.profile = "http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Patient_SEAMAT"
 * identifier[0].system = "http://jpfhir.jp/fhir/core/IdSystem/resourceInstance-identifier"
 * identifier[=].value = "1234567890"
@@ -25,4 +25,4 @@ Usage: #inline
 * address.state = "東京都"
 * address.postalCode = "134-0085"
 * address.country = "JP"
-* managingOrganization = Reference(urn:uuid:d4bdbb71-9591-4e8c-ab28-66d54cb38a2e)
+* managingOrganization = Reference(urn:uuid:86ca4d7f-f7d1-4185-8f51-10f40e95189c)
