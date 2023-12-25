@@ -32,6 +32,7 @@ Alias: $JJ1017 = urn:oid:1.2.392.200119.4.1201
 Alias: $JP_Composition_SEAMAT_DocumentType_CS = http://jpfhir.jp/fhir/SEAMAT/CodeSystem/JP_Composition_SEAMAT_DocumentType_CS
 Alias: $JP_Composition_SEAMAT_SectionCode_CS = http://jpfhir.jp/fhir/SEAMAT/CodeSystem/JP_Composition_SEAMAT_SectionCode_CS
 Alias: $JP_Procedure_SEAMAT_Category_CS = http://jpfhir.jp/fhir/SEAMAT/CodeSystem/JP_Procedure_SEAMAT_Category_CS
+Alias: $JP_SimpleObservationCategory_CS = http://jpfhir.jp/fhir/core/CodeSystem/JP_SimpleObservationCategory_CS
 
 // ValueSet
 Alias: $JP_Composition_EKGReport_DocumentType_VS = http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Composition_EKGReport_DocumentType_CS
