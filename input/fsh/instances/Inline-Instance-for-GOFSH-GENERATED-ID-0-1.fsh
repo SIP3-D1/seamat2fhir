@@ -1,70 +1,64 @@
 Instance: Inline-Instance-for-GOFSH-GENERATED-ID-0-1
 InstanceOf: Composition
 Usage: #inline
-* meta.lastUpdated = "2023-12-25T20:21:32+09:00"
+* meta.lastUpdated = "2023-12-08T13:44:06+09:00"
 * meta.profile = "http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Composition_EKGReport"
 * identifier.system = "http://jpfhir.jp/fhir/core/IdSystem/documentInstance-identifier"
-* identifier.value = "1234567890_20231205_LJCS-100D_20231205101112.94.14239.1002_20231205112233_200_1"
+* identifier.value = "1234567890_20231205_LJCS-100D_20231205101112...1002_20231205112233_100_1"
 * status = #final
 * type = $JP_Composition_SEAMAT_DocumentType_CS#28010-7 "EKG Report"
 * category = $JP_Composition_SEAMAT_DocumentType_CS#28010-7 "EKG Report"
-* subject = Reference(urn:uuid:77fbc1a7-8e7e-494c-9763-6545a73afcc4)
-* date = "2019-03-26T00:43:30+09:00"
-* author = Reference(urn:uuid:a78efb38-13d1-448a-ad68-5e28dfbdc306)
+* subject = Reference(urn:uuid:308717bd-34a0-459f-9a1a-88367ab1e92c)
+* date = "2019-04-03T02:08:53+09:00"
+* author = Reference(urn:uuid:e6597c74-c7e0-46ba-85fd-826eab41b01f)
 * title = "心電図検査レポート"
 * confidentiality = #N
-* custodian = Reference(urn:uuid:6cd03543-6a5b-4396-ab12-cd3b78171e0c)
-* event.period.start = "2023-12-05T13:49:04+09:00"
-* event.period.end = "2023-12-05T13:49:04+09:00"
-* event.detail = Reference(urn:uuid:fa0c6541-aec6-483f-9b6d-175b5e838bf4)
+* custodian = Reference(urn:uuid:72a73fb7-c725-4d83-b79c-7d1f395eee22)
+* event.period.start = "2023-12-05T11:49:07+09:00"
+* event.period.end = "2023-12-05T11:49:07+09:00"
+* event.detail = Reference(urn:uuid:9f78b571-a3ff-4230-9d4a-5865089fe2d4)
 * section[0].code = $JP_Composition_SEAMAT_SectionCode_CS#52460-3 "患者付帯情報セクション"
-* section[=].entry = Reference(urn:uuid:b3ff3f90-182f-41a8-b6dc-c8a8b5bab4e3)
+* section[=].entry = Reference(urn:uuid:23963f1b-f4fe-4029-a0f7-858adc4530be)
 * section[+].title = "バイタルサイン"
 * section[=].code = $JP_Composition_SEAMAT_SectionCode_CS#74728-7 "バイタルサインセクション"
 * section[=].text.status = #additional
-* section[=].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table><tbody><tr>   <td>身長/体重</td>   <td>151.5cm/66.1kg</td></tr></tbody><tbody><tr>   <td>血圧</td>   <td/></tr></tbody></table></div>"
-* section[=].entry[0] = Reference(urn:uuid:5dc0d4d4-d291-45d4-8f83-e20d6a991680)
-* section[=].entry[+] = Reference(urn:uuid:f2bd4ddc-c324-4bcd-8e7f-194e80c55086)
-* section[=].entry[+] = Reference(urn:uuid:7009c440-079f-4775-b281-7e754b9f382e)
+* section[=].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table><tbody><tr>   <td>身長/体重</td>   <td>150.5cm/75.0kg</td></tr></tbody><tbody><tr>   <td>血圧</td>   <td/></tr></tbody></table></div>"
+* section[=].entry[0] = Reference(urn:uuid:84028424-d9b9-423c-9cf3-173c2aa22bbd)
+* section[=].entry[+] = Reference(urn:uuid:7a818ab3-a730-4a08-b70d-a4add9fcc186)
+* section[=].entry[+] = Reference(urn:uuid:c2aaf206-1127-4303-a262-cd776a14da52)
 * section[+].title = "検査記述"
 * section[=].code = $JP_Composition_SEAMAT_SectionCode_CS#70004-7 "検査記述セクション"
 * section[=].text.status = #additional
 * section[=].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table><tbody><tr>   <td>安静時</td></tr></tbody></table></div>"
-* section[=].entry = Reference(urn:uuid:58672cea-9be2-4095-84d1-711661f8e8b4)
+* section[=].entry = Reference(urn:uuid:9682d3e6-df7d-4649-9b7b-69b1ce2b7ddb)
 * section[+].title = "計測値"
 * section[=].code = $JP_Composition_SEAMAT_SectionCode_CS#29273-0 "計測値セクション"
-* section[=].author = Reference(urn:uuid:fa0a5511-9e07-4fe0-9505-ebf7c9067e57)
+* section[=].author = Reference(urn:uuid:1028d7a5-979a-45ab-a0df-8a626a461da3)
 * section[=].text.status = #additional
-* section[=].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table><tbody><tr>   <td>心拍数</td>   <td>93bpm</td></tr><tr>   <td>RR間隔</td>   <td>644ms</td></tr><tr>   <td>PR間隔</td>   <td>216ms</td></tr><tr>   <td>QRS間隔</td>   <td>87ms</td></tr><tr>   <td>QT間隔</td>   <td>373ms</td></tr><tr>   <td>QTc(B/F)間隔</td>   <td>464/431ms</td></tr><tr>   <td>P/QRS/T軸</td>   <td>0/5/36°</td></tr><tr>   <td>SV1</td>   <td>0.42mV</td></tr><tr>   <td>RV5</td>   <td>1.50mV</td></tr><tr>   <td>RV6</td>   <td>0.91mV</td></tr><tr>   <td>RV5+SV1</td>   <td>1.92mV</td></tr><tr>   <td>RV6+SV1</td>   <td>1.33mV</td></tr></tbody></table></div>"
-* section[=].entry[0] = Reference(urn:uuid:0321ce31-8088-4ffc-a26c-a707c0b06f57)
-* section[=].entry[+] = Reference(urn:uuid:b98bd02e-fda9-4879-80cf-496c996fcb02)
-* section[=].entry[+] = Reference(urn:uuid:412b0149-ee6c-4d64-b611-c91ede4702d4)
-* section[=].entry[+] = Reference(urn:uuid:a5b48819-9ac4-4e6c-b2ad-f92bccedb4fd)
-* section[=].entry[+] = Reference(urn:uuid:b835ed8b-7f23-408e-808c-5eb5a873f235)
-* section[=].entry[+] = Reference(urn:uuid:a4fc63b2-a75a-43d9-9a6f-09e884fa732d)
-* section[=].entry[+] = Reference(urn:uuid:5ad466f2-c753-4370-987e-92f27902725f)
-* section[=].entry[+] = Reference(urn:uuid:3df47d0c-4087-4f5a-8556-514612d04f21)
-* section[=].entry[+] = Reference(urn:uuid:d2641241-0358-4d6e-ab25-2523647d35df)
-* section[=].entry[+] = Reference(urn:uuid:77e7da2d-ab5b-4328-9d20-bb282604ce9c)
-* section[=].entry[+] = Reference(urn:uuid:c388d74b-a320-48ad-a6dd-81e8104fe4c5)
-* section[=].entry[+] = Reference(urn:uuid:5cd87d97-1464-4e5b-9c8b-4a0681b998af)
-* section[=].entry[+] = Reference(urn:uuid:39a417f1-5e85-4cae-95ad-2220e725eee7)
-* section[=].entry[+] = Reference(urn:uuid:7b55ed63-6afc-4701-a250-bbbe6f96f8ba)
+* section[=].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table><tbody><tr>   <td>心拍数</td>   <td>89bpm</td></tr><tr>   <td>RR間隔</td>   <td>667ms</td></tr><tr>   <td>PR間隔</td>   <td>133ms</td></tr><tr>   <td>QRS間隔</td>   <td>85ms</td></tr><tr>   <td>QT間隔</td>   <td>352ms</td></tr><tr>   <td>QTc(B/F)間隔</td>   <td>431/402ms</td></tr><tr>   <td>P/QRS/T軸</td>   <td>-5/34/0°</td></tr><tr>   <td>SV1</td>   <td>0.74mV</td></tr><tr>   <td>RV5</td>   <td>0.96mV</td></tr><tr>   <td>RV6</td>   <td>0.89mV</td></tr><tr>   <td>RV5+SV1</td>   <td>1.70mV</td></tr><tr>   <td>RV6+SV1</td>   <td>1.63mV</td></tr></tbody></table></div>"
+* section[=].entry[0] = Reference(urn:uuid:30a78563-9c9a-4281-bf04-6a78bb2dce59)
+* section[=].entry[+] = Reference(urn:uuid:23808d90-03fa-43e4-b308-6dbc48390aad)
+* section[=].entry[+] = Reference(urn:uuid:d6c13e7c-c716-4507-826d-64ba558ef4f8)
+* section[=].entry[+] = Reference(urn:uuid:77d57c2b-ad2d-48ea-b572-3e180ba2d23d)
+* section[=].entry[+] = Reference(urn:uuid:624c1f7f-5506-4eae-8f33-5d21108258e2)
+* section[=].entry[+] = Reference(urn:uuid:54854c8f-46e5-40d5-9781-1bfac77ab2e7)
+* section[=].entry[+] = Reference(urn:uuid:26b39906-565d-482d-8fb6-93f6b33d11ee)
+* section[=].entry[+] = Reference(urn:uuid:5ce059be-7913-41fd-9e4f-0c62cd872968)
+* section[=].entry[+] = Reference(urn:uuid:fb4bafa6-d095-4d20-b313-a9b711af1594)
+* section[=].entry[+] = Reference(urn:uuid:0ace0582-ae64-496d-bef3-1d2f313f9bdf)
+* section[=].entry[+] = Reference(urn:uuid:5c62a13b-ff3c-4ef5-a938-06b938611845)
+* section[=].entry[+] = Reference(urn:uuid:7c8f3786-baa4-43b1-9f61-8f634084e99f)
+* section[=].entry[+] = Reference(urn:uuid:a2e76433-d9fe-46a1-93c1-a177c6a872de)
+* section[=].entry[+] = Reference(urn:uuid:939ec48f-4091-4958-9328-4b3ea8713ad5)
 * section[+].title = "解析結果"
 * section[=].code = $JP_Composition_SEAMAT_SectionCode_CS#64110-0 "解析結果セクション"
 * section[=].text.status = #additional
-* section[=].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table><tbody><tr>   <td>所見</td></tr><tr>   <td>871-6</td>   <td/></tr><tr>   <td>632-6</td>   <td>:Ⅱ</td></tr><tr>   <td>701-4</td>   <td>:V2,V3</td></tr></tbody><tbody><tr>   <td>ミネソタコード</td></tr><tr>   <td>8-3-2</td>   <td>7-5</td>   <td>1-2-8</td>   <td>4-2</td>   <td>9-4-2</td></tr></tbody><tbody><tr>   <td>グレード</td></tr><tr>   <td>異常の心電図</td></tr></tbody><tbody><tr>   <td>負荷判定</td></tr><tr>   <td>負荷－不可</td></tr></tbody></table></div>"
-* section[=].entry[0] = Reference(urn:uuid:19be5fcf-9dba-40cf-8286-e5335cc10915)
-* section[=].entry[+] = Reference(urn:uuid:991820c5-1efa-4e4f-9294-2748c1251aef)
-* section[=].entry[+] = Reference(urn:uuid:dee6ad4e-0f9b-47e8-af7f-0e6404e3b183)
-* section[=].entry[+] = Reference(urn:uuid:68f4f925-6cd3-4406-8571-5fe322ec5835)
-* section[=].entry[+] = Reference(urn:uuid:27806987-462b-475c-9a2b-2ad4ff954d20)
-* section[=].entry[+] = Reference(urn:uuid:186149a8-cb3f-4c05-b3b4-7d54dead70a3)
-* section[=].entry[+] = Reference(urn:uuid:b777d302-2501-4a5b-9067-b9182e66661d)
-* section[=].entry[+] = Reference(urn:uuid:daf0acc5-b7cc-4315-a1da-0d1e72ec4dbf)
-* section[=].entry[+] = Reference(urn:uuid:4f4d3acf-95be-4c11-94ce-41a75f2725d0)
-* section[=].entry[+] = Reference(urn:uuid:c6890f0b-8fcb-4274-9685-87aad77dcb43)
+* section[=].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table><tbody><tr>   <td>所見</td></tr><tr>   <td>101-0</td>   <td/></tr></tbody><tbody><tr>   <td>ミネソタコード</td></tr><tr>   <td>9-4-1</td></tr></tbody><tbody><tr>   <td>グレード</td></tr><tr>   <td>正常範囲内</td></tr></tbody><tbody><tr>   <td>負荷判定</td></tr><tr>   <td>負荷－可</td></tr></tbody></table></div>"
+* section[=].entry[0] = Reference(urn:uuid:2046c473-337e-4825-ad55-ddacc4370b28)
+* section[=].entry[+] = Reference(urn:uuid:48afa0d6-11c8-44e3-8958-f8ebcdcaef19)
+* section[=].entry[+] = Reference(urn:uuid:8682bc84-0a41-473c-b4f9-878678b8602f)
+* section[=].entry[+] = Reference(urn:uuid:1aa76bee-68c9-4263-9d82-77314fcf9eae)
 * section[+].title = "標準12誘導心電図"
 * section[=].code = $JP_Composition_SEAMAT_SectionCode_CS#78239-1 "外部参照セクション"
-* section[=].entry[0] = Reference(urn:uuid:d4d71934-e535-4029-a4c8-a4d098359e4d)
-* section[=].entry[+] = Reference(urn:uuid:b87c03cd-6303-4312-95a1-df21f2fe8974)
+* section[=].entry[0] = Reference(urn:uuid:f73353be-1de5-4208-89d6-e492d23af817)
+* section[=].entry[+] = Reference(urn:uuid:ad984ebc-626c-418c-8bde-d17ab9b45220)

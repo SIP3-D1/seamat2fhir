@@ -1,11 +1,11 @@
 Instance: Inline-Instance-for-GOFSH-GENERATED-ID-0-7
 InstanceOf: PractitionerRole
 Usage: #inline
-* meta.lastUpdated = "2023-12-25T20:21:32+09:00"
+* meta.lastUpdated = "2023-12-08T13:44:06+09:00"
 * meta.profile = "http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_PractitionerRole_SEAMAT_Performer"
 * identifier.system = "http://jpfhir.jp/fhir/core/IdSystem/documentInstance-identifier"
-* identifier.value = "1234567890_20231205_LJCS-100D_20231205101112.94.14239.1002_20231205112233_200_1"
+* identifier.value = "1234567890_20231205_LJCS-100D_20231205101112...1002_20231205112233_100_1"
 * active = true
-* period.start = "2023-12-05T13:49:04+09:00"
-* period.end = "2023-12-05T13:49:04+09:00"
-* practitioner = Reference(urn:uuid:4a59093e-b1c3-4c1d-a70c-0b968fac0747)
+* period.start = "2023-12-05T11:49:07+09:00"
+* period.end = "2023-12-05T11:49:07+09:00"
+* practitioner = Reference(urn:uuid:a9ae935e-f1d2-4fcf-8a77-81b180492e68)
