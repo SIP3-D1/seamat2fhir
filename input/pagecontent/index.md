@@ -13,38 +13,38 @@
 
 #### 参照する仕様等
 本仕様書は、以下の仕様等を参照して作成されている。
- - HL7 FHIR R4 [http://hl7.org/fhir/R4/index.html]　本仕様書ではFHIR基底仕様という。
- - JCSデータ出力標準フォーマットガイドライン SEAMAT: Standard Export datA forMAT ～技術文書～ ver.1.1 [https://www.j-circ.or.jp/itdata/guideline_v11.pdf] (一般社団法人 日本循環器学会)
- - JAHIS 生理機能検査レポート構造化記述規約 Ver.1.0 [https://www.jahis.jp/files/user/04_JAHIS standard/15-004_JAHIS生理機能検査レポート構造化記述規約Ver.1.0.pdf] (一般社団法人 日本保健医療福祉情報システム工業会)
- - JAHIS 診療文書構造化記述規約共通編 Ver.2.0 [https://www.jahis.jp/files/user/04_JAHIS standard/20-002_JAHIS診療文書構造化記述規約共通編Ver.2.0.pdf] (一般社団法人 日本保健医療福祉情報システム工業会) 
- - SS-MIX2 拡張ストレージ 構成の説明と構築ガイドライン Ver.1.2h [https://www.jami.jp/wp-content/uploads/2023/11/SS-MIX2_kakuchoStrgGuidelinesVer.1.2h.pdf] (一般社団法人 日本医療情報学会)
+ - HL7 FHIR R4 [http://hl7.org/fhir/R4/index.html](http://hl7.org/fhir/R4/index.html)　本仕様書ではFHIR基底仕様という。
+ - JCSデータ出力標準フォーマットガイドライン SEAMAT: Standard Export datA forMAT ～技術文書～ ver.1.1 [https://www.j-circ.or.jp/itdata/guideline_v11.pdf](https://www.j-circ.or.jp/itdata/guideline_v11.pdf) (一般社団法人 日本循環器学会)
+ - JAHIS 生理機能検査レポート構造化記述規約 Ver.1.0 [https://www.jahis.jp/files/user/04_JAHIS standard/15-004_JAHIS生理機能検査レポート構造化記述規約Ver.1.0.pdf](https://www.jahis.jp/files/user/04_JAHIS standard/15-004_JAHIS生理機能検査レポート構造化記述規約Ver.1.0.pdf) (一般社団法人 日本保健医療福祉情報システム工業会)
+ - JAHIS 診療文書構造化記述規約共通編 Ver.2.0 [https://www.jahis.jp/files/user/04_JAHIS standard/20-002_JAHIS診療文書構造化記述規約共通編Ver.2.0.pdf](https://www.jahis.jp/files/user/04_JAHIS standard/20-002_JAHIS診療文書構造化記述規約共通編Ver.2.0.pdf) (一般社団法人 日本保健医療福祉情報システム工業会) 
+ - SS-MIX2 拡張ストレージ 構成の説明と構築ガイドライン Ver.1.2h [https://www.jami.jp/wp-content/uploads/2023/11/SS-MIX2_kakuchoStrgGuidelinesVer.1.2h.pdf](https://www.jami.jp/wp-content/uploads/2023/11/SS-MIX2_kakuchoStrgGuidelinesVer.1.2h.pdf) (一般社団法人 日本医療情報学会)
 
-## 文書データの表現形式
-### ファイル形式
+### 文書データの表現形式
+#### ファイル形式
 ファイル形式は、JSON形式（JavaScriptObjectNotation：RFC8259、IETFSTD90、ECMA-4042ndedition）とする。 ファイル名を有するファイルを作成する場合には、特に送受信施設間で別の取り決めがない限り、.jsonの拡張子を末尾に付与するものとする。 
 
-### 文字集合 
+#### 文字集合 
 文字集合はUnicode文字セットとする。これはISO/IEC10646：2017（JIS　X0221国際符号化文字集合）と同一である。 
 
-### 符号化形式 
+#### 符号化形式 
 文字符号化形式は、UTF-8（ISO/IEC10646　UCSTransformationFormat8）とする。ネットワーク上で直接データを送受信することを想定し、バイト順マーク（BOM：byteordermark：UTF-8では0xEF0xBB0xBF）を先頭に付与しないものとする。
 
-## 心電図レポート用FHIRドキュメントの全体構造
-### 全体構造
+### 心電図レポート用FHIRドキュメントの全体構造
+#### 全体構造
 本実装ガイドでは、SS-MIX2拡張ストレージにSEAMATに準拠したフォルダ構成で保存されたHL7 CDA形式の心電図レポートをレポートごとに「FHIRドキュメント」という形式のFHIRリソースに変換して記述する。
 FHIRドキュメントは、複数のFHIRリソースをまとめるためのBundleリソースのtype要素の値を”document”としたもので、先頭に内包しているCompositionリソースで文書の構造とテキストコンテンツを記述し、その後に内包されたPatient, Organization, Practitioner等のリソースで構造化されたコンテンツを記述することができる。
-[http://hl7.org/fhir/documents.html]
+[http://hl7.org/fhir/documents.html](http://hl7.org/fhir/documents.html)
 
-### 心電図レポート用FHIRドキュメントのトピック
+#### 心電図レポート用FHIRドキュメントのトピック
 
-#### 各リソースのプロファイルのURLの命名規則を下記とする
+##### 各リソースのプロファイルのURLの命名規則を下記とする
 本実装ガイドでは、下記のような命名規則により各リソースのプロファイルURLを生成することとする。
 
     http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_<リソース名>_SEAMAT_<用途>（SEAMAT共通）
   
     http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_<リソース名>_EKGReport（心電図固有）
 
-#### Bundle.identifierにSS-MIX2拡張ストレージのコンテンツフォルダ名を持たせる
+##### Bundle.identifierにSS-MIX2拡張ストレージのコンテンツフォルダ名を持たせる
 
 SS-MIX2では、拡張ストレージのコンテンツフォルダ名は、以下のような書式で記載することが求められている。
 
@@ -65,7 +65,7 @@ SEAMATでは、これらの要素に、以下のような項目を組み合わ�
 
 本実装ガイドでは、上記の<検査日><データ種別コード><レポート/データフラグ><ファイル作成日時><データ管理番号><オーダ番号><部門管理番号>の計7項目を、SEAMATのキー情報と呼ぶ。
 
-#### SS-MIX2拡張ストレージのコンテンツフォルダ名からSEAMATのキー情報を抽出して、Procedureリソースに個別にマッピングする
+##### SS-MIX2拡張ストレージのコンテンツフォルダ名からSEAMATのキー情報を抽出して、Procedureリソースに個別にマッピングする
 本実装ガイドでは、SEAMATのキー情報のうち、<検査日><データ種別コード><レポート/データフラグ><データ管理番号><オーダ番号><部門管理番号>の6項目をProcedureリソースを使用して個別にマッピングする。マッピング先の要素は以下の通り。
   - <検査日> : performedDateTime要素
   - <データ種別コード><レポート/データフラグ> : category要素
@@ -102,7 +102,7 @@ SEAMATでは、これらの要素に、以下のような項目を組み合わ�
 ### Compositionリソース
 Compositionリソースは、心電図レポート用FHIRドキュメントにentryとして格納される複数のリソースのうちの最初に出現するもので、この文書全体の構成目次に相当する情報や、セクションの構成を記述したものである。 心電図レポート用FHIRドキュメントでのCompositionリソースの仕様を次の表に示す。
 
-＜表1 Compositionリソースの仕様> [JP_Composition_EKGReport_table]
+＜表1 Compositionリソースの仕様> [JP_Composition_EKGReport_table](JP_Composition_EKGReport_table)
 
 心電図レポートは、あとで説明するように14つのセクションから構成されている。 Compositionリソースは患者や作成者など文書情報管理用の情報を記述するいわゆるヘッダ部、および診療情報提供書文書の本体内容を記述するボディー部から構成される。 ヘッダ部はCompositionリソースの要素により記述され、ボディー部の情報は複数のセクションから構成される。 なお、ヘッダ部、ボディー部という表現は、ここでCDA診療情報提供書規約（本仕様書ではCDA規約と略すこともある）との対比をわかりやすくするために便宜上用いているが、Compositionリソース内で明示的に区別されるわけではない。
 

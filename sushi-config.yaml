@@ -38,6 +38,8 @@ dependencies:
 pages:
   index.md:
     title: SEAMAT2FHIR仕様  　JP-SEAMAT2FHIR
+  tables.md:
+    title: 表一覧
   history.md:
     title: 改訂履歴
   
@@ -47,6 +49,7 @@ pages:
 menu:
   Home:
     本文: index.html
+    表一覧: tables.html
     改訂履歴: history.html
   Artifacts: 
     Artifacts: artifacts.html
