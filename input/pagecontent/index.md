@@ -13,11 +13,11 @@
 
 #### 参照する仕様等
 本仕様書は、以下の仕様等を参照して作成されている。
- - HL7 FHIR R4 [http://hl7.org/fhir/R4/index.html](http://hl7.org/fhir/R4/index.html)　本仕様書ではFHIR基底仕様という。
- - JCSデータ出力標準フォーマットガイドライン SEAMAT: Standard Export datA forMAT ～技術文書～ ver.1.1 [https://www.j-circ.or.jp/itdata/guideline_v11.pdf](https://www.j-circ.or.jp/itdata/guideline_v11.pdf) (一般社団法人 日本循環器学会)
- - JAHIS 生理機能検査レポート構造化記述規約 Ver.1.0 [https://www.jahis.jp/files/user/04_JAHIS standard/15-004_JAHIS生理機能検査レポート構造化記述規約Ver.1.0.pdf](https://www.jahis.jp/files/user/04_JAHIS standard/15-004_JAHIS生理機能検査レポート構造化記述規約Ver.1.0.pdf) (一般社団法人 日本保健医療福祉情報システム工業会)
- - JAHIS 診療文書構造化記述規約共通編 Ver.2.0 [https://www.jahis.jp/files/user/04_JAHIS standard/20-002_JAHIS診療文書構造化記述規約共通編Ver.2.0.pdf](https://www.jahis.jp/files/user/04_JAHIS standard/20-002_JAHIS診療文書構造化記述規約共通編Ver.2.0.pdf) (一般社団法人 日本保健医療福祉情報システム工業会) 
- - SS-MIX2 拡張ストレージ 構成の説明と構築ガイドライン Ver.1.2h [https://www.jami.jp/wp-content/uploads/2023/11/SS-MIX2_kakuchoStrgGuidelinesVer.1.2h.pdf](https://www.jami.jp/wp-content/uploads/2023/11/SS-MIX2_kakuchoStrgGuidelinesVer.1.2h.pdf) (一般社団法人 日本医療情報学会)
+ - HL7 FHIR R4 ([http://hl7.org/fhir/R4/index.html](http://hl7.org/fhir/R4/index.html))　本仕様書ではFHIR基底仕様という。
+ - JCSデータ出力標準フォーマットガイドライン SEAMAT: Standard Export datA forMAT ～技術文書～ ver.1.1 ([https://www.j-circ.or.jp/itdata/guideline_v11.pdf](https://www.j-circ.or.jp/itdata/guideline_v11.pdf)) (一般社団法人 日本循環器学会)
+ - JAHIS 生理機能検査レポート構造化記述規約 Ver.1.0 ([https://www.jahis.jp/files/user/04_JAHIS standard/15-004_JAHIS生理機能検査レポート構造化記述規約Ver.1.0.pdf](https://www.jahis.jp/files/user/04_JAHIS standard/15-004_JAHIS生理機能検査レポート構造化記述規約Ver.1.0.pdf)) (一般社団法人 日本保健医療福祉情報システム工業会)
+ - JAHIS 診療文書構造化記述規約共通編 Ver.2.0 ([https://www.jahis.jp/files/user/04_JAHIS standard/20-002_JAHIS診療文書構造化記述規約共通編Ver.2.0.pdf](https://www.jahis.jp/files/user/04_JAHIS standard/20-002_JAHIS診療文書構造化記述規約共通編Ver.2.0.pdf)) (一般社団法人 日本保健医療福祉情報システム工業会) 
+ - SS-MIX2 拡張ストレージ 構成の説明と構築ガイドライン Ver.1.2h ([https://www.jami.jp/wp-content/uploads/2023/11/SS-MIX2_kakuchoStrgGuidelinesVer.1.2h.pdf](https://www.jami.jp/wp-content/uploads/2023/11/SS-MIX2_kakuchoStrgGuidelinesVer.1.2h.pdf)) (一般社団法人 日本医療情報学会)
 
 ### 文書データの表現形式
 #### ファイル形式
@@ -33,7 +33,7 @@
 #### 全体構造
 本実装ガイドでは、SS-MIX2拡張ストレージにSEAMATに準拠したフォルダ構成で保存されたHL7 CDA形式の心電図レポートをレポートごとに「FHIRドキュメント」という形式のFHIRリソースに変換して記述する。
 FHIRドキュメントは、複数のFHIRリソースをまとめるためのBundleリソースのtype要素の値を”document”としたもので、先頭に内包しているCompositionリソースで文書の構造とテキストコンテンツを記述し、その後に内包されたPatient, Organization, Practitioner等のリソースで構造化されたコンテンツを記述することができる。
-[http://hl7.org/fhir/documents.html](http://hl7.org/fhir/documents.html)
+([http://hl7.org/fhir/documents.html](http://hl7.org/fhir/documents.html))
 
 #### 心電図レポート用FHIRドキュメントのトピック
 
@@ -102,7 +102,7 @@ SEAMATでは、これらの要素に、以下のような項目を組み合わ�
 ### Compositionリソース
 Compositionリソースは、心電図レポート用FHIRドキュメントにentryとして格納される複数のリソースのうちの最初に出現するもので、この文書全体の構成目次に相当する情報や、セクションの構成を記述したものである。 心電図レポート用FHIRドキュメントでのCompositionリソースの仕様を次の表に示す。
 
-＜表1 Compositionリソースの仕様> [JP_Composition_EKGReport_table](JP_Composition_EKGReport_table)
+[＜表1 Compositionリソースの仕様＞](tables.html#表1-compositionリソースの仕様)
 
 心電図レポートは、あとで説明するように14つのセクションから構成されている。 Compositionリソースは患者や作成者など文書情報管理用の情報を記述するいわゆるヘッダ部、および診療情報提供書文書の本体内容を記述するボディー部から構成される。 ヘッダ部はCompositionリソースの要素により記述され、ボディー部の情報は複数のセクションから構成される。 なお、ヘッダ部、ボディー部という表現は、ここでCDA診療情報提供書規約（本仕様書ではCDA規約と略すこともある）との対比をわかりやすくするために便宜上用いているが、Compositionリソース内で明示的に区別されるわけではない。
 
@@ -136,15 +136,21 @@ Compositionリソースは、心電図レポート用FHIRドキュメントにen
 | 29308-4	| 医師所見セクション | 任意 | － |  － |
 | 78239-1	| 外部参照セクション | 任意 | Binary/DocumentReference | 0..* |	
 
+Composition.section共通の仕様を次の表で示す。
+
+[＜表2 Compositionリソースのsectionの仕様＞](tables.html#表2-Compositionリソースのsectionの仕様)
+
 ### Compositionリソースから各リソースへの参照
 以下では、内部の各FHIRリソースインスタンスを参照するCompositionの要素について概説する。
 
 #### Composition.subject要素
 この心電図レポートを作成する対象となる患者のPatientリソースを、そのPatientリソースのリソースIDである”urn:uuid:…..”　を記述することにより内部参照する。 必須要素である。 Patientリソースの仕様は次の表で示す。
 
+[＜表3 Patientリソースの仕様＞](tables.html#表3-Patientリソースの仕様)
+
 また、対象患者の所属診療科のOrganizationリソースを、Patient.managingOrganization要素でそのOrganizationリソースのリソースIDである”urn:uuid:…..”　を記述することにより内部参照する。 任意要素である。 Organizationリソースの仕様は次の表で示す。
 
-**TODO**
+[＜表4 診療科Organizationリソースの仕様＞](tables.html#表4-診療科Organizationリソースの仕様)
 
 #### Composition.author要素
 この心電図レポートの作成責任者を表すPractionerリソースないし作成システムを表すDeviceリソースを、そのPractionerリソースないしDeviceリソースのリソースIDである”urn:uuid:…..”　を記述することにより内部参照する。 さらに同じ要素に、続けて文書作成機関を表すOrganizationリソースを、そのOrganizationリソースのリソースIDである”urn:uuid:…..”　を記述することにより内部参照する。
@@ -152,6 +158,10 @@ Compositionリソースは、心電図レポート用FHIRドキュメントにen
 作成責任者（Practitionerリソース）ないし作成システム（Deviceリソース）のいずれかは必須である。文書作成医療機関情報（Organizationリソース）は任意である。
 
 Practionerリソース、Deviceリソース、Organizationリソースの仕様をそれぞれ次の表で示す。
+
+[＜表5 作成責任者Practitionerリソースの仕様＞](tables.html#表5-作成責任者Practitionerリソースの仕様)
+[＜表6 作成システムDeviceリソースの仕様＞](tables.html#表6-作成システムDeviceリソースの仕様)
+[＜表7 作成医療機関Organizationリソースの仕様＞](tables.html#表7-作成医療機関Organizationリソースの仕様)
 
 **TODO**
 
@@ -180,82 +190,85 @@ Compositionの直下に、全てのセクションを配置する。以下では
 
 #### 患者付帯情報セクション
 対象患者の検査時の年齢をObservationリソースを使用して記述する。
+<br>セクションコード：52460-3
+<br>このセクションは任意である。
 
-セクションコード：52460-3
-このセクションは任意である。
 Observationリソースの仕様を次の表で示す。
 
 **TODO**
 
 #### バイタルサインセクション
 身長、体重、収縮期血圧、拡張期血圧の値をObservationリソースを使用して記述する。
+<br>セクションコード：74728-7
+<br>このセクションは任意である。
 
-セクションコード：74728-7
-このセクションは任意である。
 Observationリソースの仕様を次の表で示す。
 
 **TODO**
 
 #### 検査項目セクション
 生理機能検査において実施される検査項目を記述する。JLAC、JJ1017、LOINCのいずれかを使用する。
-セクションコード：未定義（JLAC10/JJ1017/LOINCコードを指定する）
-このセクションは任意である。
+<br>セクションコード：未定義（JLAC10/JJ1017/LOINCコードを指定する）
+<br>このセクションは任意である。
 
 #### 既往歴セクション
 過去の病歴、プロブレム、診断の経歴、現疾患あるいは治療を探るために直接可能性のあることの詳細を記述する。
-セクションコード：11348-0
-このセクションは任意である。
+<br>セクションコード：11348-0
+<br>このセクションは任意である。
 
 #### 自覚症状セクション
 患者本人が知覚する症状（痛み・吐き気・倦怠感など）の記述に使用する。
-セクションコード：61150-9
-このセクションは任意である。
+<br>セクションコード：61150-9
+<br>このセクションは任意である。
 
 #### 検査時使用薬セクション
 検査時に患者に投薬された薬剤情報を記述するのに使用する。
-セクションコード：15334-6
-このセクションは任意である。
+<br>セクションコード：15334-6
+<br>このセクションは任意である。
 
 #### 検査記述セクション
 検査結果に対し、「負荷後 00’43”」や所見ではないコメントなどの補足情報を付加するために使用する。
-セクションコード：70004-7
-このセクションは任意である。
+<br>セクションコード：70004-7
+<br>このセクションは任意である。
 
 #### 心電図コメントセクション
 心電図検査時のコメント情報を記述するのに使用する。検査所見と異なり、検査に補足したいコメントを記述する。
-セクションコード：11524-6
-このセクションは任意である。
+<br>セクションコード：11524-6
+<br>このセクションは任意である。
 
 #### 計測値セクション
 検査時に計測した情報や解析結果などをObservationリソースを使用して記述する。多くの場合、計測はモダリティで行われるため、Deviceリソースを使用してモダリティ情報を記述し、section.author要素からはDeviceリソースのリソースIDである”urn:uuid: ….. “　を記述することにより内部参照する。
-セクションコード：29273-0
-このセクションは任意である。
+<br>セクションコード：29273-0
+<br>このセクションは任意である。
+
 Observationリソース、Deviceリソースの仕様をそれぞれ次の表で示す。
 
 **TODO**
 
 #### 解析結果セクション
 計測値や解析により得られた数値類ではなく自動解析コードなどのデータ分析結果の分類コードをObservationリソースを使用して記述する。
-セクションコード：64110-0
-このセクションは任意である。
+<br>セクションコード：64110-0
+<br>このセクションは任意である。
+
 Observationリソースの仕様を次の表で示す。
 
 **TODO**
 
 #### 検査所見セクション
 心電図検査における検査所見を記述するのに使用する。
-セクションコード：47045-0
-このセクションは任意である。
+<br>セクションコード：47045-0
+<br>このセクションは任意である。
 
 #### 医師所見セクション
 医師所見を記述するのに使用する。各検査データの判読結果として記述を想定している。
-セクションコード：29308-4
-このセクションは任意である。
+<br>セクションコード：29308-4
+<br>このセクションは任意である。
 
 #### 外部参照セクション
 心電図レポートに付加される検査データ（波形、画像、結果PDFなど）、レポート（HTML形式など）、添付ファイル（シェーマや描画ファイル）への外部参照情報を記述する。画像データについてはBinaryリソースを使用して記述し、それ以外の文書データについてはDocumentResourceリソースを使用して記述する。
-セクションコード：78239-1
-このセクションは任意である。
+<br>セクションコード：78239-1
+<br>このセクションは任意である。
+
 Binaryリソース、DocumentReferenceリソースの仕様をそれぞれ次の表で示す。
 
 **TODO**
