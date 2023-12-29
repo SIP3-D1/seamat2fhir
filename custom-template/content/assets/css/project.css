@@ -950,5 +950,5 @@ table, th, td {
 }
 
 table {
-  word-wrap: break-word;
+  word-wrap: break-all;
 }
