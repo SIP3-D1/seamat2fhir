@@ -12,12 +12,12 @@
 #### 想定する運用形態
 
 #### 参照する仕様等
-本仕様書は、以下の仕様等を参照して作成されている。
+本実装ガイドは、以下の仕様等を参照して作成されている。
  - HL7 FHIR R4 ([http://hl7.org/fhir/R4/index.html](http://hl7.org/fhir/R4/index.html))　本仕様書ではFHIR基底仕様という。
- - JCSデータ出力標準フォーマットガイドライン SEAMAT: Standard Export datA forMAT ～技術文書～ ver.1.1 ([https://www.j-circ.or.jp/itdata/guideline_v11.pdf](https://www.j-circ.or.jp/itdata/guideline_v11.pdf)) (一般社団法人 日本循環器学会)
- - JAHIS 生理機能検査レポート構造化記述規約 Ver.1.0 ([https://www.jahis.jp/files/user/04_JAHIS standard/15-004_JAHIS生理機能検査レポート構造化記述規約Ver.1.0.pdf](https://www.jahis.jp/files/user/04_JAHIS standard/15-004_JAHIS生理機能検査レポート構造化記述規約Ver.1.0.pdf)) (一般社団法人 日本保健医療福祉情報システム工業会)
- - JAHIS 診療文書構造化記述規約共通編 Ver.2.0 ([https://www.jahis.jp/files/user/04_JAHIS standard/20-002_JAHIS診療文書構造化記述規約共通編Ver.2.0.pdf](https://www.jahis.jp/files/user/04_JAHIS standard/20-002_JAHIS診療文書構造化記述規約共通編Ver.2.0.pdf)) (一般社団法人 日本保健医療福祉情報システム工業会) 
- - SS-MIX2 拡張ストレージ 構成の説明と構築ガイドライン Ver.1.2h ([https://www.jami.jp/wp-content/uploads/2023/11/SS-MIX2_kakuchoStrgGuidelinesVer.1.2h.pdf](https://www.jami.jp/wp-content/uploads/2023/11/SS-MIX2_kakuchoStrgGuidelinesVer.1.2h.pdf)) (一般社団法人 日本医療情報学会)
+ - JCSデータ出力標準フォーマットガイドライン SEAMAT: Standard Export datA forMAT ～技術文書～ ver.1.1 <br>([https://www.j-circ.or.jp/itdata/guideline_v11.pdf](https://www.j-circ.or.jp/itdata/guideline_v11.pdf)) (一般社団法人 日本循環器学会)
+ - JAHIS 生理機能検査レポート構造化記述規約 Ver.1.0 <br>([https://www.jahis.jp/files/user/04_JAHIS standard/15-004_JAHIS生理機能検査レポート構造化記述規約Ver.1.0.pdf](https://www.jahis.jp/files/user/04_JAHIS standard/15-004_JAHIS生理機能検査レポート構造化記述規約Ver.1.0.pdf)) (一般社団法人 日本保健医療福祉情報システム工業会)
+ - JAHIS 診療文書構造化記述規約共通編 Ver.2.0 <br>([https://www.jahis.jp/files/user/04_JAHIS standard/20-002_JAHIS診療文書構造化記述規約共通編Ver.2.0.pdf](https://www.jahis.jp/files/user/04_JAHIS standard/20-002_JAHIS診療文書構造化記述規約共通編Ver.2.0.pdf)) (一般社団法人 日本保健医療福祉情報システム工業会) 
+ - SS-MIX2 拡張ストレージ 構成の説明と構築ガイドライン Ver.1.2h <br>([https://www.jami.jp/wp-content/uploads/2023/11/SS-MIX2_kakuchoStrgGuidelinesVer.1.2h.pdf](https://www.jami.jp/wp-content/uploads/2023/11/SS-MIX2_kakuchoStrgGuidelinesVer.1.2h.pdf)) (一般社団法人 日本医療情報学会)
 
 ### 文書データの表現形式
 #### ファイル形式
@@ -32,7 +32,7 @@
 ### 心電図レポート用FHIRドキュメントの全体構造
 #### 全体構造
 本実装ガイドでは、SS-MIX2拡張ストレージにSEAMATに準拠したフォルダ構成で保存されたHL7 CDA形式の心電図レポートをレポートごとに「FHIRドキュメント」という形式のFHIRリソースに変換して記述する。
-FHIRドキュメントは、複数のFHIRリソースをまとめるためのBundleリソースのtype要素の値を”document”としたもので、先頭に内包しているCompositionリソースで文書の構造とテキストコンテンツを記述し、その後に内包されたPatient, Organization, Practitioner等のリソースで構造化されたコンテンツを記述することができる。
+FHIRドキュメントは、複数のFHIRリソースをまとめるためのBundleリソースのtype要素の値を”document”としたもので、先頭に内包しているCompositionリソースで文書の構造とテキストコンテンツを記述し、その後に内包しているPatient, Organization, Practitioner等のリソースで構造化されたコンテンツを記述することができる。
 ([http://hl7.org/fhir/documents.html](http://hl7.org/fhir/documents.html))
 
 #### 心電図レポート用FHIRドキュメントのトピック
@@ -101,14 +101,14 @@ SEAMATでは、これらの要素に、以下のような項目を組み合わ�
 
 心電図レポート用FHIRドキュメントの全体像を下図に示す。
 
-<img src="ecgReportStructure.png" width="60%"><br clear="all">
+<img src="ecgReportStructure.png" width="80%"><br clear="all">
 
 ### Compositionリソース
 Compositionリソースは、心電図レポート用FHIRドキュメントにentryとして格納される複数のリソースのうちの最初に出現するもので、この文書全体の構成目次に相当する情報や、セクションの構成を記述したものである。 心電図レポート用FHIRドキュメントでのCompositionリソースの仕様を次の表に示す。
 
 [＜表2 Compositionリソースの仕様＞](tables.html#表2-compositionリソースの仕様)
 
-心電図レポートは、あとで説明するように14つのセクションから構成されている。 Compositionリソースは患者や作成者など文書情報管理用の情報を記述するいわゆるヘッダ部、および診療情報提供書文書の本体内容を記述するボディー部から構成される。 ヘッダ部はCompositionリソースの要素により記述され、ボディー部の情報は複数のセクションから構成される。 なお、ヘッダ部、ボディー部という表現は、ここでCDA診療情報提供書規約（本仕様書ではCDA規約と略すこともある）との対比をわかりやすくするために便宜上用いているが、Compositionリソース内で明示的に区別されるわけではない。
+心電図レポートは、あとで説明するように13種類のセクションから構成されている。 Compositionリソースは患者や作成者など文書情報管理用の情報を記述するいわゆるヘッダ部、および診療情報提供書文書の本体内容を記述するボディー部から構成される。 ヘッダ部はCompositionリソースの要素により記述され、ボディー部の情報は複数のセクションから構成される。 なお、ヘッダ部、ボディー部という表現は、ここでCDA診療情報提供書規約（本仕様書ではCDA規約と略すこともある）との対比をわかりやすくするために便宜上用いているが、Compositionリソース内で明示的に区別されるわけではない。
 
 **文書管理情報（ヘッダ部）**
 

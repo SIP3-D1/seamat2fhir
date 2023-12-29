@@ -943,3 +943,12 @@ code[class*="language-"] {
   white-space: pre-wrap;
   overflow-wrap:  break-word;
 }
+
+/* リソーステーブル用CSS */
+.resource-table table, th, td {
+  border:1px solid;
+}
+
+.resource-table table {
+  width: 100%;
+}
