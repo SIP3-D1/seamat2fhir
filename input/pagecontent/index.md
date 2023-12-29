@@ -114,11 +114,11 @@ Compositionリソースは、心電図レポート用FHIRドキュメントにen
 
 |No. | 情報名称  | Composition<br>リソースの要素 | 必須/任意 | 参照先のFHIR<br>リソース種別 |
 |----|----------|----------------------------|----------|------------------------|
-| 1	 | 患者情報  | subject | 必須 |	Patient/Device |
+| 1	 | 患者情報  | subject | 必須 |	Patient |
 | 2  | 作成・編集日時 |	date |	必須 | ― |
-| 3	 | 文書作成責任者 |	author |	必須 | Practitioner |
-| 4	 | 文書法的責任者 | attester(.mode=legal) | 任意 |Practitioner |
-| 5	 | 文書作成機関	| author |	任意 |	Organization |
+| 3	 | 文書作成責任者/文書作成システム |	author |	必須 | Practitioner/Device |
+| 4	 | 文書作成機関	| author |	任意 |	Organization |
+| 5	 | 文書法的責任者 | attester(.mode=legal) | 任意 |Practitioner |
 | 6	 | 文書管理責任機関 | custodian | 必須 | Organization |
 | 7  | 検査実施情報 | event |	必須 | Procedure |
 
@@ -257,12 +257,12 @@ Observationリソースの仕様を次の表で示す。
 <br>セクションコード：29273-0
 <br>このセクションは任意である。
 
-Observationリソース、Deviceリソースの仕様をそれぞれ次の表で示す。
+Observationリソースの仕様を次の表で示す。
 
 [＜表16 測定値／解析結果Observationリソースの仕様＞](tables.html#表16-測定値解析結果observationリソースの仕様)
 
 #### 解析結果セクション
-計測値や解析により得られた数値類ではなく自動解析コードなどのデータ分析結果の分類コードをObservationリソースを使用して記述する。
+計測値や解析により得られた数値類ではなく自動解析コードなどのデータ分析結果をObservationリソースを使用して記述する。
 <br>セクションコード：64110-0
 <br>このセクションは任意である。
 
