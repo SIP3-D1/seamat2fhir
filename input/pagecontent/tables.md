@@ -8,8 +8,7 @@
 |  | profile |  | 1..1 | canonical(StructureDefinition) | "http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/<BR>JP_Bundle_EKGReport" |  | 本リソースのプロファイルを識別するURLを指定する。値は固定。 |
 |  identifier |  |  |  | 0..1 |  |  | この文書の文書ID。 |
 |  | system |  |  |  | "http://jpfhir.jp/fhir/core/IdSystem/documentInsta<BR>nce-identifier" |  | 文書IDの名前空間を表すURI。固定値。 |
-|  | value |  |  |  | "1234567890_20231205_LJCS-100D_20231205101112.94.1<BR>4239.1002_20231205112233_200_1" | /CD/SS-MIX2拡張ストレージのコンテンツフォルダ | SS-MIX2拡張ストレージのコンテンツフォルダ名を以下の形式で指定する。値は例示。
-<患者ID>_<診療日>_<データ種別>_<特定キー>_<発生日時>_<診療科コード>_<コンディションフラグ> |
+|  | value |  |  |  | "1234567890_20231205_LJCS-100D_20231205101112.94.1<BR>4239.1002_20231205112233_200_1" | /CD/SS-MIX2拡張ストレージのコンテンツフォルダ | SS-MIX2拡張ストレージのコンテンツフォルダ名を以下の形式で指定する。値は例示。<BR><患者ID>_<診療日>_<データ種別>_<特定キー>_<発生日時>_<診療科コード>_<コンディションフラグ> |
 |  type |  |  | 1..1 | code | "document" |  | BundleリソースがDocumentタイプであることを示す。 |
 |  timestamp |  |  | 1..1 | instant |  | /CD/Bundle生成日時 | Bundleリソースの生成日時。 |
 |  entry |  |  | 1..1 | BackboneElement |  |  |  |
@@ -17,19 +16,16 @@
 |  |  resource |  | 1..1 | Resource | Compositionリソース |  | 文書の目次情報およびテキスト情報。 |
 |  entry |  |  | 1..1 | BackboneElement |  |  |  |
 |  |  fullUrl |  | 1..1 | uri | "urn:uuid:77fbc1a7-8e7e-494c-9763-6545a73afcc4" |  | エントリリスト内のリソースを一意に識別するためのUUID。値は例示。 |
-|  |  resource |  | 1..1 | Resource | Patientリソース | /CD/recordTarget/patientRole/<BR>
-id, addr, telecom, patient | 対象患者の情報。 |
+|  |  resource |  | 1..1 | Resource | Patientリソース | /CD/recordTarget/patientRole/<BR>id, addr, telecom, patient | 対象患者の情報。 |
 |  entry |  |  | 0..* | BackboneElement |  |  |  |
 |  |  fullUrl |  | 1..1 | uri | "urn:uuid:86ca4d7f-f7d1-4185-8f51-10f40e95189c" |  | エントリリスト内のリソースを一意に識別するためのUUID。値は例示。 |
 |  |  resource |  | 1..1 | Resource | 所属科Organizationリソース | /CD/recordTarget/patientRole/providerOrganization | 対象患者の所属科の情報。 |
 |  entry |  |  | 0..1 | BackboneElement |  |  |  |
 |  |  fullUrl |  | 1..1 | uri | "urn:uuid:a78efb38-13d1-448a-ad68-5e28dfbdc306" |  | エントリリスト内のリソースを一意に識別するためのUUID。値は例示。 |
-|  |  resource |  | 1..1 | Resource | 作成者Practitionerリソース | /CD/author/assignedAuthor/<BR>
-id, addr, telecom, assignedPerson | 文書の作成者の情報。 |
+|  |  resource |  | 1..1 | Resource | 作成者Practitionerリソース | /CD/author/assignedAuthor/<BR>id, addr, telecom, assignedPerson | 文書の作成者の情報。 |
 |  entry |  |  | 0..1 | BackboneElement |  |  |  |
 |  |  fullUrl |  | 1..1 | uri | "urn:uuid:a78efb38-13d1-448a-ad68-5e28dfbdc306" |  | エントリリスト内のリソースを一意に識別するためのUUID。値は例示。 |
-|  |  resource |  | 1..1 | Resource | 作成システムDeviceリソース | /CD/author/assignedAuthor/<BR>
-id, assignedAuthoringDevice | 文書の作成システムの情報。 |
+|  |  resource |  | 1..1 | Resource | 作成システムDeviceリソース | /CD/author/assignedAuthor/<BR>id, assignedAuthoringDevice | 文書の作成システムの情報。 |
 |  entry |  |  | 0..1 | BackboneElement |  |  |  |
 |  |  fullUrl |  | 1..1 | uri | "urn:uuid:f2bd4ddc-c324-4bcd-8e7f-194e80c55086" |  | エントリリスト内のリソースを一意に識別するためのUUID。値は例示。 |
 |  |  resource |  | 1..1 | Resource | 作成医療機関Organizationリソース | /CD/author/assignedAuthor/representedOrganization | 文書の作成医療機関の情報。 |
@@ -50,12 +46,10 @@ id, assignedAuthoringDevice | 文書の作成システムの情報。 |
 |  |  resource |  | 1..1 | Resource | 検査実施者Practitionerリソース | /CD/documentationOf/serviceEvent/performer/<BR>assignedEntity | 文書の元になった検査の実施者の情報。 |
 |  entry |  |  | 0..* | BackboneElement |  |  |  |
 |  |  fullUrl |  | 1..1 | uri | "urn:uuid:58672cea-9be2-4095-84d1-711661f8e8b4" |  | エントリリスト内のリソースを一意に識別するためのUUID。値は例示。 |
-|  |  resource |  | 1..1 | Resource | 測定者Practitionerリソース | /CD/component/structuredBody/component/section/<BR>author/assignedAuthor/<BR>
-id, addr, telecom, assignedPerson | 測定値や解析結果の測定者の情報。 |
+|  |  resource |  | 1..1 | Resource | 測定者Practitionerリソース | /CD/component/structuredBody/component/section/<BR>author/assignedAuthor/<BR>id, addr, telecom, assignedPerson | 測定値や解析結果の測定者の情報。 |
 |  entry |  |  | 0..* | BackboneElement |  |  |  |
 |  |  fullUrl |  | 1..1 | uri | "urn:uuid:fa0a5511-9e07-4fe0-9505-ebf7c9067e57" |  | エントリリスト内のリソースを一意に識別するためのUUID。値は例示。 |
-|  |  resource |  | 1..1 | Resource | 測定システムDeviceリソース | /CD/component/structuredBody/component/section/<BR>author/assignedAuthor/
-id, assignedAuthoringDevice | 測定値や解析結果の測定システムの情報。 |
+|  |  resource |  | 1..1 | Resource | 測定システムDeviceリソース | /CD/component/structuredBody/component/section/<BR>author/assignedAuthor/<BR>id, assignedAuthoringDevice | 測定値や解析結果の測定システムの情報。 |
 |  entry |  |  | 0..* | BackboneElement |  |  |  |
 |  |  fullUrl |  | 1..1 | uri | "urn:uuid:0321ce31-8088-4ffc-a26c-a707c0b06f57" |  | エントリリスト内のリソースを一意に識別するためのUUID。値は例示。 |
 |  |  resource |  | 1..1 | Resource | 測定結果/解析結果Observationリソース | /CD/component/structuredBody/component/section/<BR>entry/observation | 年齢、バイタルサイン、測定値、解析結果などの情報。 |
@@ -94,8 +88,7 @@ id, assignedAuthoringDevice | 測定値や解析結果の測定システムの�
 |  |  | display |  | 0..1 | string | "EKG Report" | /CD/code/@displayName | コードの表示名 |
 |  subject |  |  |  | 1..1 | Reference(Patient) |  | /CD/recordTraget | 患者情報を表すPatientリソースへの参照。 |
 |  | reference |  |  | 1..1 | string | "urn:uuid:77fbc1a7-8e7e-494c-9763-6545a73afcc4" |  | PatientリソースのfullUrl要素に指定されるUUIDを指定。値は例示。 | |
-|  date |  |  |  | 1..1 | dateTime | "2019-03-26T00:43:30+09:00" | /CD/effectiveTime
-author/time | このリソースを作成または最後に編集した日時。ISO8601に準拠し、秒の精度まで記録し、タイムゾーンも付記する。午前0時を”24:00”と記録することはできないため”00:00”と記録すること。値は例示。 |
+|  date |  |  |  | 1..1 | dateTime | "2019-03-26T00:43:30+09:00" | /CD/effectiveTime<BR>author/time | このリソースを作成または最後に編集した日時。ISO8601に準拠し、秒の精度まで記録し、タイムゾーンも付記する。午前0時を”24:00”と記録することはできないため”00:00”と記録すること。値は例示。 |
 |  author |  |  |  | 1..2 | Reference(Practitioner \|  Device \| Organization) |  | /CD/author | 文書作成責任者を表すPractitionerリソースないし作成システムを表すDeviceリソースへの参照、および文書作成機関を表すOrganizationリソースへの参照の2つのReferenceを繰り返す。 |
 |  | reference |  |  | 0..1 | string | "urn:uuid:4b0210b8-9866-4509-9bd9-044120ff2349" |  | 作成者PractitionerリソースのfullUrl要素に指定されるUUIDを指定。値は例示。 |
 |  | reference |  |  | 0..1 | string | "urn:uuid:a78efb38-13d1-448a-ad68-5e28dfbdc306" |  | 作成システムDevicerリソースのfullUrl要素に指定されるUUIDを指定。値は例示。 |
@@ -147,8 +140,7 @@ author/time | このリソースを作成または最後に編集した日時。
 |  active |  |  | 1..1 | boolean | true |  | 患者レコードがアクティブかどうか。固定値。 |
 |  name |  |  | 0..1 | HumanName |  | /CD/recordTarget/patientRole/patient/name | 患者氏名　漢字表記 |
 |  | extension |  | 1..* |  |  |  | 氏名が漢字表記かカナ表記かを区別するための拡張「iso21090-EN-representation」。 |
-|  |  | url | 1..1 | uri | "http:// hl7.org/fhir/StructureDefinition
-/iso2109<BR>0-EN-representation" |  | 拡張を識別するURL。固定値。 |
+|  |  | url | 1..1 | uri | "http:// hl7.org/fhir/StructureDefinition/iso21090<BR>-EN-representation" |  | 拡張を識別するURL。固定値。 |
 |  |  | valueCode | 1..1 | code | "IDE" |  | 漢字表記であることを示す固定値。 |
 |  | use |  | 1..1 | code | "official" |  | 氏名が正式名称であることを明示するために、NameUseバリューセット（http:// hl7.org/fhir/ValueSet/name-use）より「official」を必須で設定する。 |
 |  | text |  | 1..1 | string | "東京 太郎" |  | 氏名全体の文字列をtext要素に入れる。氏名の姓と名が分離できない場合は本要素のみを使用する。姓と名の間には原則として半角空白を1個挿入する。 |
@@ -156,8 +148,7 @@ author/time | このリソースを作成または最後に編集した日時。
 |  | given |  | 0..* | string | "太郎" |  | 氏名の名。ミドルネームがある場合には、ミドルネーム、名の順で原則として半角空白をいれて連結する文字列とする。 |
 |  name |  |  | 0..1 | HumanName |  | /CD/recordTarget/patientRole/patient/name | よみ（カタカナ） |
 |  | extension |  | 1..* |  |  |  | 氏名が漢字表記かカナ表記かを区別するための拡張「iso21090-EN-representation」。 |
-|  |  | url | 1..1 | uri | "http:// hl7.org/fhir/StructureDefinition
-/iso2109<BR>0-EN-representation" |  | 拡張を識別するURL。固定値。 |
+|  |  | url | 1..1 | uri | "http://hl7.org/fhir/StructureDefinition/iso21090-<BR>EN-representation" |  | 拡張を識別するURL。固定値。 |
 |  |  | valueCode | 1..1 | code | "SYL" |  | カナ表記であることを示す固定値。 |
 |  | use |  | 1..1 | code | "official" |  | 氏名が正式名称であることを明示するために、NameUseバリューセット（http:// hl7.org/fhir/ValueSet/name-use）より「official」を必須で設定する。 |
 |  | text |  | 1..1 | string | "トウキョウ タロウ" |  | カナ氏名全体の文字列をtext要素に入れる。氏名の姓と名が分離できない場合は本要素のみを使用する。カタカナはJIS X 0208のカタカナ（全角カナ）みとし、JIS X 0201のカタカナ（半角カナ）は使用してはならない。姓と名の間には原則として半角空白を1個挿入する。 |
@@ -216,8 +207,7 @@ author/time | このリソースを作成または最後に編集した日時。
 |  active |  |  | 0..1 | boolean | true |  |  |
 |  name |  |  | 0..1 | HumanName |  | /CD/author/assignedAuthor/assignedPerson/name | 職員名　漢字表記 |
 |  | extension |  | 1..* |  |  |  | 氏名が漢字表記かカナ表記かを区別するための拡張「iso21090-EN-representation」。 |
-|  |  | url | 1..1 | uri | "http:// hl7.org/fhir/StructureDefinition
-/iso2109<BR>0-EN-representation" |  | 拡張を識別するURL。固定値。 |
+|  |  | url | 1..1 | uri | "http:// hl7.org/fhir/StructureDefinition/iso21090<BR>-EN-representation" |  | 拡張を識別するURL。固定値。 |
 |  |  | valueCode | 1..1 | code | "IDE" |  | 漢字表記であることを示す固定値。 |
 |  | use |  | 1..1 | code | "official" |  | 氏名が正式名称であることを明示するために、NameUseバリューセット（http:// hl7.org/fhir/ValueSet/name-use）より「official」を必須で設定する。 |
 |  | text |  | 1..1 | string | "職員 太郎" |  | 氏名全体の文字列をtext要素に入れる。氏名の姓と名が分離できない場合は本要素のみを使用する。姓と名の間には原則として半角空白を1個挿入する。 |
@@ -225,8 +215,7 @@ author/time | このリソースを作成または最後に編集した日時。
 |  | given |  | 0..* | string | "太郎" |  | 氏名の名。ミドルネームがある場合には、ミドルネーム、名の順で原則として半角空白をいれて連結する文字列とする。 |
 |  name |  |  | 0..1 | HumanName |  | /CD/author/assignedAuthor/assignedPerson/name | 職員名よみ（カタカナ） |
 |  | extension |  | 1..* |  |  |  | 氏名が漢字表記かカナ表記かを区別するための拡張「iso21090-EN-representation」。 |
-|  |  | url | 1..1 | uri | "http:// hl7.org/fhir/StructureDefinition
-/iso2109<BR>0-EN-representation" |  | 拡張を識別するURL。固定値。 |
+|  |  | url | 1..1 | uri | "http:// hl7.org/fhir/StructureDefinition/iso21090<BR>-EN-representation" |  | 拡張を識別するURL。固定値。 |
 |  |  | valueCode | 1..1 | code | "SYL" |  | カナ表記であることを示す固定値。 |
 |  | use |  | 1..1 | code | "official" |  | 氏名が正式名称であることを明示するために、NameUseバリューセット（http:// hl7.org/fhir/ValueSet/name-use）より「official」を必須で設定する。 |
 |  | text |  | 1..1 | string | "ショクイン タロウ" |  | カナ氏名全体の文字列をtext要素に入れる。氏名の姓と名が分離できない場合は本要素のみを使用する。カタカナはJIS X 0208のカタカナ（全角カナ）みとし、JIS X 0201のカタカナ（半角カナ）は使用してはならない。姓と名の間には原則として半角空白を1個挿入する。 |
@@ -244,7 +233,6 @@ author/time | このリソースを作成または最後に編集した日時。
 |  | state |  | 0..1 | string | "東京都" | /CD/recordTarget/patientRole/addr/state | 都道府県名で、都道府県の文字を含む。例：東京都　など（「東京」ではなく）。値は例示。 |
 |  | postalCode |  | 0..1 | string | "134-0085" | /CD/recordTarget/patientRole/addr/postalCode | 郵便番号。値は例示。 |
 |  | country |  | 0..1 | string | "JP" | /CD/recordTarget/patientRole/addr/country | 居住地が国内の場合「JP」固定。 | | | | | | | | | |
-
 
 ### 表6 作成システムDeviceリソースの仕様
 
@@ -268,7 +256,6 @@ author/time | このリソースを作成または最後に編集した日時。
 |  deviceName |  |  | 0..1 | BackboneElement |  |  |  |
 |  |  name |  | 1..1 | string | "ResultSender" | /CD/author/assignedAuthor/assignedAuthoringDevice/<BR>softwareName | 作成システムのソフトウェア名。値は例示。 |
 |  |  type |  | 1..1 | code | "other" |  | デバイス名の種類。バリューセット（"http://hl7.org/fhir/ValueSet/device-nametype"）からその他を表す"other"を固定で設定する。 | | | | | | | | | | | | | | | | | | | | | | |
-
 
 ### 表7 作成医療機関Organizationリソースの仕様
 
@@ -358,8 +345,7 @@ author/time | このリソースを作成または最後に編集した日時。
 |  active |  |  | 0..1 | boolean | true |  |  |
 |  name |  |  | 0..1 | HumanName |  | /CD/authenticator/assignedEntity/assignedPerson/<BR>name | 職員名　漢字表記 |
 |  | extension |  | 1..* |  |  |  | 氏名が漢字表記かカナ表記かを区別するための拡張「iso21090-EN-representation」。 |
-|  |  | url | 1..1 | uri | "http:// hl7.org/fhir/StructureDefinition
-/iso2109<BR>0-EN-representation" |  | 拡張を識別するURL。固定値。 |
+|  |  | url | 1..1 | uri | "http:// hl7.org/fhir/StructureDefinition/iso21090<BR>-EN-representation" |  | 拡張を識別するURL。固定値。 |
 |  |  | valueCode | 1..1 | code | "IDE" |  | 漢字表記であることを示す固定値。 |
 |  | use |  | 1..1 | code | "official" |  | 氏名が正式名称であることを明示するために、NameUseバリューセット（http:// hl7.org/fhir/ValueSet/name-use）より「official」を必須で設定する。 |
 |  | text |  | 1..1 | string | "職員 太郎" |  | 氏名全体の文字列をtext要素に入れる。氏名の姓と名が分離できない場合は本要素のみを使用する。姓と名の間には原則として半角空白を1個挿入する。 |
@@ -367,8 +353,7 @@ author/time | このリソースを作成または最後に編集した日時。
 |  | given |  | 0..* | string | "太郎" |  | 氏名の名。ミドルネームがある場合には、ミドルネーム、名の順で原則として半角空白をいれて連結する文字列とする。 |
 |  name |  |  | 0..1 | HumanName |  | /CD/authenticator/assignedEntity/assignedPerson/<BR>name | 職員名よみ（カタカナ） |
 |  | extension |  | 1..* |  |  |  | 氏名が漢字表記かカナ表記かを区別するための拡張「iso21090-EN-representation」。 |
-|  |  | url | 1..1 | uri | "http:// hl7.org/fhir/StructureDefinition
-/iso2109<BR>0-EN-representation" |  | 拡張を識別するURL。固定値。 |
+|  |  | url | 1..1 | uri | "http:// hl7.org/fhir/StructureDefinition/iso21090<BR>-EN-representation" |  | 拡張を識別するURL。固定値。 |
 |  |  | valueCode | 1..1 | code | "SYL" |  | カナ表記であることを示す固定値。 |
 |  | use |  | 1..1 | code | "official" |  | 氏名が正式名称であることを明示するために、NameUseバリューセット（http:// hl7.org/fhir/ValueSet/name-use）より「official」を必須で設定する。 |
 |  | text |  | 1..1 | string | "ショクイン タロウ" |  | カナ氏名全体の文字列をtext要素に入れる。氏名の姓と名が分離できない場合は本要素のみを使用する。カタカナはJIS X 0208のカタカナ（全角カナ）みとし、JIS X 0201のカタカナ（半角カナ）は使用してはならない。姓と名の間には原則として半角空白を1個挿入する。 |
@@ -420,14 +405,12 @@ author/time | このリソースを作成または最後に編集した日時。
 |  category |  |  |  | 1..1 | CodeableConcept |  |  |  |
 |  | coding |  |  | 1..1 | Coding |  |  |  |
 |  |  | system |  | 1..1 | uri | "http://jpfhir.jp/fhir/SEAMAT/CodeSystem/JP_Servic<BR>eRequest_Category_SEAMAT_DataType_CS" |  |  |
-|  |  | code |  | 1..1 | code | "LJCS-100D" |  | <データ種別コード><レポート/データフラグ>
-SEAMATで指定されたデータ種別コードとデータフラグを合成したテキストをセットする。値は例示。 |
+|  |  | code |  | 1..1 | code | "LJCS-100D" |  | <データ種別コード><レポート/データフラグ><BR>SEAMATで指定されたデータ種別コードとデータフラグを合成したテキストをセットする。値は例示。 |
 |  |  | display |  | 1..1 | string | "心電図検査データ" |  | データ種別コードとデータフラグの名称を合成したテキストをセットする。値は例示。 | |
 |  subject |  |  |  | 1..1 | Reference(Patient) |  |  | 患者情報を表すPatientリソースへの参照。 |
 |  | reference |  |  | 1..1 | string | "urn:uuid:77fbc1a7-8e7e-494c-9763-6545a73afcc4" |  | PatientリソースのfullUrl要素に指定されるUUIDを指定。値は例示。 | |
 |  performed[x] |  |  |  | 1..1 |  |  |  |  |
-|  |  performedDateTime |  |  | 1..1 | dateTime | "2023-12-05" |  | <検査日>
-心電図検査の検査日をYYYY-MM-DD形式で指定する。値は例示。 | | | | | | |
+|  |  performedDateTime |  |  | 1..1 | dateTime | "2023-12-05" |  | <検査日><BR>心電図検査の検査日をYYYY-MM-DD形式で指定する。値は例示。 | | | | | | |
 |  performer |  |  |  | 0..1 | BackboneElement |  |  |  | |
 |  |  actor |  |  | 1..1 | Reference(PractitionerRole) |  |  | 実施者役割PractitionerRoleリソースへの参照。 | | | | | | | | | | | | | | | | |
 |  |  | reference |  | 1..1 | string | "urn:uuid:58288829-7c0d-45ec-8a5a-99b4d3976a65" |  | PractitionerRoleリソースのfullUrl要素に指定されるUUIDを指定。値は例示。 |
@@ -472,8 +455,7 @@ SEAMATで指定されたデータ種別コードとデータフラグを合成�
 |  active |  |  | 0..1 | boolean | true |  |  |
 |  name |  |  | 0..1 | HumanName |  | /CD/documentationOf/serviceEvent/performer/<BR>assignedEntity/assignedPerson/name | 職員名　漢字表記 |
 |  | extension |  | 1..* |  |  |  | 氏名が漢字表記かカナ表記かを区別するための拡張「iso21090-EN-representation」。 |
-|  |  | url | 1..1 | uri | "http:// hl7.org/fhir/StructureDefinition
-/iso2109<BR>0-EN-representation" |  | 拡張を識別するURL。固定値。 |
+|  |  | url | 1..1 | uri | "http:// hl7.org/fhir/StructureDefinition/iso21090<BR>-EN-representation" |  | 拡張を識別するURL。固定値。 |
 |  |  | valueCode | 1..1 | code | "IDE" |  | 漢字表記であることを示す固定値。 |
 |  | use |  | 1..1 | code | "official" |  | 氏名が正式名称であることを明示するために、NameUseバリューセット（http:// hl7.org/fhir/ValueSet/name-use）より「official」を必須で設定する。 |
 |  | text |  | 1..1 | string | "職員 太郎" |  | 氏名全体の文字列をtext要素に入れる。氏名の姓と名が分離できない場合は本要素のみを使用する。姓と名の間には原則として半角空白を1個挿入する。 |
@@ -481,8 +463,7 @@ SEAMATで指定されたデータ種別コードとデータフラグを合成�
 |  | given |  | 0..* | string | "太郎" |  | 氏名の名。ミドルネームがある場合には、ミドルネーム、名の順で原則として半角空白をいれて連結する文字列とする。 |
 |  name |  |  | 0..1 | HumanName |  | /CD/documentationOf/serviceEvent/performer/<BR>assignedEntity/assignedPerson/name | 職員名よみ（カタカナ） |
 |  | extension |  | 1..* |  |  |  | 氏名が漢字表記かカナ表記かを区別するための拡張「iso21090-EN-representation」。 |
-|  |  | url | 1..1 | uri | "http:// hl7.org/fhir/StructureDefinition
-/iso2109<BR>0-EN-representation" |  | 拡張を識別するURL。固定値。 |
+|  |  | url | 1..1 | uri | "http:// hl7.org/fhir/StructureDefinition/iso21090<BR>-EN-representation" |  | 拡張を識別するURL。固定値。 |
 |  |  | valueCode | 1..1 | code | "SYL" |  | カナ表記であることを示す固定値。 |
 |  | use |  | 1..1 | code | "official" |  | 氏名が正式名称であることを明示するために、NameUseバリューセット（http:// hl7.org/fhir/ValueSet/name-use）より「official」を必須で設定する。 |
 |  | text |  | 1..1 | string | "ショクイン タロウ" |  | カナ氏名全体の文字列をtext要素に入れる。氏名の姓と名が分離できない場合は本要素のみを使用する。カタカナはJIS X 0208のカタカナ（全角カナ）みとし、JIS X 0201のカタカナ（半角カナ）は使用してはならない。姓と名の間には原則として半角空白を1個挿入する。 |
@@ -512,10 +493,10 @@ SEAMATで指定されたデータ種別コードとデータフラグを合成�
 |  |  |  | system | 1..1 | uri | "http://jpfhir.jp/fhir/SEAMAT/CodeSystem/JP_Compos<BR>ition_SEAMAT_SectionCode_CS" | /CD/component/structuredBody/component/section/code/<BR>@codeSystem | 文書のセクションコードシステムの固定値。<BR>検査項目セクションの場合は、JLAC10を表す"urn:oid:1.2.392.200119.4.1005"ないしJJ1017を表す"urn:oid:1.2.392.200119.4.1201"、それ以外の場合は、LOINCを表す"http://jpfhir.jp/fhir/SEAMAT/CodeSystem/JP_Composition_SEAMAT_SectionCode_CS"固定 |
 |  |  |  | code | 1..1 | code | "74728-7" | /CD/component/structuredBody/component/section/code/<BR>@code | セクションコードを設定する。値は例示。 |
 |  |  |  | display | 1..1 | string | "バイタルサインセクション" | /CD/component/structuredBody/component/section/code/<BR>@displayName | セクション名を設定する。値は例示。 |
-|  |  author |  |  | 0..1 | Reference(Practitioner |  Device) |  | /CD/component/structuredBody/component/section/<BR>author | 測定者Practitionerリソースないし測定システムDeviceリソースへの参照。 |
+|  |  author |  |  | 0..1 | Reference(Practitioner \|  Device) |  | /CD/component/structuredBody/component/section/<BR>author | 測定者Practitionerリソースないし測定システムDeviceリソースへの参照。 |
 |  |  | reference |  | 1..1 | string | "urn:uuid:fa0a5511-9e07-4fe0-9505-ebf7c9067e57" |  | PractitionerリソースないしDeviceリソースのfullUrl要素に指定されるUUIDを指定。値は例示。 |
 |  |  text |  |  | 0..1 | Narrative |  | /CD/component/structuredBody/component/section/text |  |
-|  |  entry |  |  | 0..* | Reference(Observation | DocumentReference | Binary) |  | /CD/component/structuredBody/component/section/<BR>entry | 測定値/解析結果Observationリソースないし外部参照DocumentReferenceリソースないし外部参照Binaryリソースへの参照。 |
+|  |  entry |  |  | 0..* | Reference(Observation \| DocumentReference \| Binary) |  | /CD/component/structuredBody/component/section/<BR>entry | 測定値/解析結果Observationリソースないし外部参照DocumentReferenceリソースないし外部参照Binaryリソースへの参照。 |
 |  |  | reference |  | 1..1 | string | "urn:uuid:d4d71934-e535-4029-a4c8-a4d098359e4d" |  | ObservationリソースないしDocumentReferenceリソースないしBinaryリソースのfullUrl要素に指定されるUUIDを指定。値は例示。 |
 
 ### 表14 測定者Practitionerリソースの仕様
@@ -535,8 +516,7 @@ SEAMATで指定されたデータ種別コードとデータフラグを合成�
 |  active |  |  | 0..1 | boolean | true |  |  |
 |  name |  |  | 0..1 | HumanName |  | /CD/component/structuredBody/component/section/<BR>author/assignedAuthor/assignedPerson/name | 職員名　漢字表記 |
 |  | extension |  | 1..* |  |  |  | 氏名が漢字表記かカナ表記かを区別するための拡張「iso21090-EN-representation」。 |
-|  |  | url | 1..1 | uri | "http:// hl7.org/fhir/StructureDefinition
-/iso2109<BR>0-EN-representation" |  | 拡張を識別するURL。固定値。 |
+|  |  | url | 1..1 | uri | "http://hl7.org/fhir/StructureDefinition/iso21090-<BR>EN-representation" |  | 拡張を識別するURL。固定値。 |
 |  |  | valueCode | 1..1 | code | "IDE" |  | 漢字表記であることを示す固定値。 |
 |  | use |  | 1..1 | code | "official" |  | 氏名が正式名称であることを明示するために、NameUseバリューセット（http:// hl7.org/fhir/ValueSet/name-use）より「official」を必須で設定する。 |
 |  | text |  | 1..1 | string | "職員 太郎" |  | 氏名全体の文字列をtext要素に入れる。氏名の姓と名が分離できない場合は本要素のみを使用する。姓と名の間には原則として半角空白を1個挿入する。 |
@@ -544,8 +524,7 @@ SEAMATで指定されたデータ種別コードとデータフラグを合成�
 |  | given |  | 0..* | string | "太郎" |  | 氏名の名。ミドルネームがある場合には、ミドルネーム、名の順で原則として半角空白をいれて連結する文字列とする。 |
 |  name |  |  | 0..1 | HumanName |  | /CD/component/structuredBody/component/section/<BR>author/assignedAuthor/assignedPerson/name | 職員名よみ（カタカナ） |
 |  | extension |  | 1..* |  |  |  | 氏名が漢字表記かカナ表記かを区別するための拡張「iso21090-EN-representation」。 |
-|  |  | url | 1..1 | uri | "http:// hl7.org/fhir/StructureDefinition
-/iso2109<BR>0-EN-representation" |  | 拡張を識別するURL。固定値。 |
+|  |  | url | 1..1 | uri | "http://hl7.org/fhir/StructureDefinition/iso21090-<BR>EN-representation" |  | 拡張を識別するURL。固定値。 |
 |  |  | valueCode | 1..1 | code | "SYL" |  | カナ表記であることを示す固定値。 |
 |  | use |  | 1..1 | code | "official" |  | 氏名が正式名称であることを明示するために、NameUseバリューセット（http:// hl7.org/fhir/ValueSet/name-use）より「official」を必須で設定する。 |
 |  | text |  | 1..1 | string | "ショクイン タロウ" |  | カナ氏名全体の文字列をtext要素に入れる。氏名の姓と名が分離できない場合は本要素のみを使用する。カタカナはJIS X 0208のカタカナ（全角カナ）みとし、JIS X 0201のカタカナ（半角カナ）は使用してはならない。姓と名の間には原則として半角空白を1個挿入する。 |
