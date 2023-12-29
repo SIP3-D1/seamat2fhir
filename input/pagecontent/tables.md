@@ -1,4 +1,3 @@
-<div class="resouce-table">
 ### 表1 Bundleリソースの仕様
 
 | 要素Lv1        | 要素Lv2       | 要素Lv3 | 多重度  | 型                              | 値                                                                                 | 生理検査レポートCDAとのマッピング                                                                                      | 説明                                                                                                      |
@@ -660,4 +659,3 @@
 |              | profile     |       | 1..1 | canonical(StructureDefinition) | "http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Binary_SEAMAT" |                                                                                                           | 本リソースのプロファイルを識別するURLを指定する。値は固定。            |
 |  contentType |             |       | 1..1 | code                           | "image/jpeg"                                                        | component/structuredBody/component/section/entry/observation/reference/externalDocument/text/@mediaType   | バイナリデータのMIMEタイプ。値は例示                       |
 |  data        |             |       | 0..1 | base64Binary                   | "JVBERi0xLjcKCjQgMCBvYmoKKElkZW50aXR5KQplb..."                      | component/structuredBody/component/section/entry/observationMedia/value/@representation                   | 実際のデータ。値は例示。                               |
-</div>

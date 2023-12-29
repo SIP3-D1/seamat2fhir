@@ -945,10 +945,10 @@ code[class*="language-"] {
 }
 
 /* リソーステーブル用CSS */
-.resource-table table, th, td {
+table, th, td {
   border:1px solid;
 }
 
-.resource-table table {
+table {
   width: 100%;
 }
