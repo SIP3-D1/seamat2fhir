@@ -6,14 +6,14 @@
 | meta |  |  | 1..1 | Meta |  |  |  |
 |  | lastUpdated |  | 1..1 | instant | "2023-12-25T20:21:32+09:00" |  | 最終更新日時。YYYY-MM-DDThh:mm:ss.sss+zz:zz。値は例示。 |
 |  | profile |  | 1..1 | canonical(StructureDefinition) | "http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/<BR>JP_Bundle_EKGReport" |  | 本リソースのプロファイルを識別するURLを指定する。値は固定。 |
-|  identifier |  |  |  | 0..1 |  |  | この文書の文書ID。 |
-|  | system |  |  |  | "http://jpfhir.jp/fhir/core/IdSystem/documentInsta<BR>nce-identifier" |  | 文書IDの名前空間を表すURI。固定値。 |
-|  | value |  |  |  | "1234567890_20231205_LJCS-100D_20231205101112.94.1<BR>4239.1002_20231205112233_200_1" | /CD/SS-MIX2拡張ストレージのコンテンツフォルダ | SS-MIX2拡張ストレージのコンテンツフォルダ名を以下の形式で指定する。値は例示。<BR><患者ID>_<診療日>_<データ種別>_<特定キー>_<発生日時>_<診療科コード>_<コンディションフラグ> |
+|  identifier |  |  | 1..1 | Identifier |  |  | この文書の文書ID。 |
+|  | system |  | 1..1 | uri | "http://jpfhir.jp/fhir/core/IdSystem/documentInsta<BR>nce-identifier" |  | 文書IDの名前空間を表すURI。固定値。 |
+|  | value |  | 1..1 | string | "1234567890_20231205_LJCS-100D_20231205101112.94.1<BR>4239.1002_20231205112233_200_1" |  | SS-MIX2拡張ストレージのコンテンツフォルダ名を以下の形式で指定する。値は例示。<BR><患者ID>_<診療日>_<データ種別>_<特定キー>_<発生日時>_<診療科コード>_<コンディションフラグ> |
 |  type |  |  | 1..1 | code | "document" |  | BundleリソースがDocumentタイプであることを示す。 |
-|  timestamp |  |  | 1..1 | instant |  | /CD/Bundle生成日時 | Bundleリソースの生成日時。 |
+|  timestamp |  |  | 1..1 | instant |  |  | Bundleリソースの生成日時。 |
 |  entry |  |  | 1..1 | BackboneElement |  |  |  |
 |  |  fullUrl |  | 1..1 | uri | "urn:uuid:36a8b456-c875-4582-b19d-2dbe07ea3802" |  | エントリリスト内のリソースを一意に識別するためのUUID。値は例示。 |
-|  |  resource |  | 1..1 | Resource | Compositionリソース |  | 文書の目次情報およびテキスト情報。 |
+|  |  resource |  | 1..1 | Resource | Compositionリソース |  | 文書の目次情報およびテキストコンテンツ。 |
 |  entry |  |  | 1..1 | BackboneElement |  |  |  |
 |  |  fullUrl |  | 1..1 | uri | "urn:uuid:77fbc1a7-8e7e-494c-9763-6545a73afcc4" |  | エントリリスト内のリソースを一意に識別するためのUUID。値は例示。 |
 |  |  resource |  | 1..1 | Resource | Patientリソース | /CD/recordTarget/patientRole/<BR>id, addr, telecom, patient | 対象患者の情報。 |
@@ -37,7 +37,7 @@
 |  |  resource |  | 1..1 | Resource | 文書内容責任者Practitionerリソース | /CD/authenticator/assignedEntity | 文書内容について責任を持つ職員の情報。 |
 |  entry |  |  | 0..1 | BackboneElement |  |  |  |
 |  |  fullUrl |  | 1..1 | uri | "urn:uuid:fa0c6541-aec6-483f-9b6d-175b5e838bf4" |  | エントリリスト内のリソースを一意に識別するためのUUID。値は例示。 |
-|  |  resource |  | 1..1 | Resource | 検査実施情報Procedureリソース | /CD/SS-MIX2拡張ストレージのコンテンツフォルダ | 文書の元になった検査の実施情報。 |
+|  |  resource |  | 1..1 | Resource | 検査実施情報Procedureリソース |  | 文書の元になった検査の実施情報。 |
 |  entry |  |  | 0..1 | BackboneElement |  |  |  |
 |  |  fullUrl |  | 1..1 | uri | "urn:uuid:91278474-489b-48b9-a81b-62a84529a1fe" |  | エントリリスト内のリソースを一意に識別するためのUUID。値は例示。 |
 |  |  resource |  | 1..1 | Resource | 検査実施者役割PractitionerRoleリソース | /CD/documentationOf/serviceEvent/performer/<BR>functionCode | 文書の元になった検査の実施者の役割の情報。 |
@@ -183,7 +183,7 @@
 |  | system |  | 1..1 | uri | "http://jpfhir.jp/fhir/core/IdSystem/documentInsta<BR>nce-identifier" |  | 文書IDに対する名前空間識別子。固定値。 |
 |  | value |  | 1..1 | string | "1234567890_20231205_LJCS-100D_20231205101112.94.1<BR>4239.1002_20231205112233_100_1" |  | 文書IDの文字列。値は例示。 |
 |  active |  |  | 0..1 | boolean | true |  |  |
-|  type |  |  | 0..* | CodeableConcept |  |  | 施設種別 |
+|  type |  |  | 1..1 | CodeableConcept |  |  | 施設種別 |
 |  | coding |  | 1..1 | Coding |  |  |  |
 |  |  | system | 1..1 | uri | "http://terminology.hl7.org/CodeSystem/organizatio<BR>n-type" |  | 施設種別を表すコード体系を識別するURI。固定値。 |
 |  |  | code | 1..1 | code | "dept" |  | バリューセットOrganizationType(http://hl7.org/fhir/ValueSet/organization-type) から、診療科を表すコードを指定。固定値。 |
@@ -236,26 +236,26 @@
 
 ### 表6 作成システムDeviceリソースの仕様
 
-| 要素Lv1 | 要素Lv2 | 要素Lv3 | 多重度 | 型 | 値 | 生理検査レポートCDAとのマッピング<BR>(CD=ClinicalDocument) | 説明 |
-|---|---|---|---|---|---|---|---|
-| resourceType |  |  |  |  | "Device" | /CD/author | Deviceリソースであることを示す。 |
-| meta |  |  | 1..1 | Meta |  |  |  |
-|  | lastUpdated |  | 1..1 | instant | "2023-12-25T20:21:32+09:00" |  | 最終更新日時。YYYY-MM-DDThh:mm:ss.sss+zz:zz。値は例示。 |
-|  | profile |  | 1..1 | canonical(StructureDefinition) | http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/J<BR>P_Device_SEAMAT_Author |  | 本リソースのプロファイルを識別するURLを指定する。値は固定。 |
-|  identifier |  |  | 0..1 | Identifier |  | /CD/author/assignedAuthor/id | 作成システムのID |
-|  | system |  | 1..1 | uri | "http://jpfhir.jp/fhir/core/IdSystem/resourceInsta<BR>nce-identifier" |  | 作成すステムIDに対する名前空間識別子。固定値。 |
-|  | value |  | 1..1 | string | "1234678" |  | 作成システムIDの文字列。値は例示。 |
-|  identifier |  |  | 1..1 | Identifier |  |  | この文書の文書ID。 |
-|  | system |  | 1..1 | uri | "http://jpfhir.jp/fhir/core/IdSystem/documentInsta<BR>nce-identifier" |  | 文書IDに対する名前空間識別子。固定値。 |
-|  | value |  | 1..1 | string | "1234567890_20231205_LJCS-100D_20231205101112.94.1<BR>4239.1002_20231205112233_100_1" |  | 文書IDの文字列。値は例示。 |
-|  status |  |  | 0..1 | code | active |  | 作成システムのレコードがアクティブかどうか。固定値。 |
-|  manufacturer |  |  | 0..1 | string | "FUKUDA DENSHI Corp." | /CD/author/assignedAuthor/representedOrganization/<BR>name | 作成システムの製造メーカーの名称。値は例示。 |
-|  deviceName |  |  | 0..1 | BackboneElement |  |  |  |
-|  |  name |  | 1..1 | string | "FCP-7541" | /CD/author/assignedAuthor/assignedAuthoringDevice/<BR>manufacturerModelName | 作成システムのモデル名。値は例示。 |
-|  |  type |  | 1..1 | code | "model-name" |  | デバイス名の種類。バリューセット（"http://hl7.org/fhir/ValueSet/device-nametype"）からモデル名を表す"model-name"を固定で設定する。 |
-|  deviceName |  |  | 0..1 | BackboneElement |  |  |  |
-|  |  name |  | 1..1 | string | "ResultSender" | /CD/author/assignedAuthor/assignedAuthoringDevice/<BR>softwareName | 作成システムのソフトウェア名。値は例示。 |
-|  |  type |  | 1..1 | code | "other" |  | デバイス名の種類。バリューセット（"http://hl7.org/fhir/ValueSet/device-nametype"）からその他を表す"other"を固定で設定する。 |
+| 要素Lv1 | 要素Lv2 | 多重度 | 型 | 値 | 生理検査レポートCDAとのマッピング<BR>(CD=ClinicalDocument) | 説明 |
+|---|---|---|---|---|---|---|
+| resourceType |  |  |  | "Device" | /CD/author | Deviceリソースであることを示す。 |
+| meta |  | 1..1 | Meta |  |  |  |
+|  | lastUpdated | 1..1 | instant | "2023-12-25T20:21:32+09:00" |  | 最終更新日時。YYYY-MM-DDThh:mm:ss.sss+zz:zz。値は例示。 |
+|  | profile | 1..1 | canonical(StructureDefinition) | http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/J<BR>P_Device_SEAMAT_Author |  | 本リソースのプロファイルを識別するURLを指定する。値は固定。 |
+|  identifier |  | 0..1 | Identifier |  | /CD/author/assignedAuthor/id | 作成システムのID |
+|  | system | 1..1 | uri | "http://jpfhir.jp/fhir/core/IdSystem/resourceInsta<BR>nce-identifier" |  | 作成すステムIDに対する名前空間識別子。固定値。 |
+|  | value | 1..1 | string | "1234678" |  | 作成システムIDの文字列。値は例示。 |
+|  identifier |  | 1..1 | Identifier |  |  | この文書の文書ID。 |
+|  | system | 1..1 | uri | "http://jpfhir.jp/fhir/core/IdSystem/documentInsta<BR>nce-identifier" |  | 文書IDに対する名前空間識別子。固定値。 |
+|  | value | 1..1 | string | "1234567890_20231205_LJCS-100D_20231205101112.94.1<BR>4239.1002_20231205112233_100_1" |  | 文書IDの文字列。値は例示。 |
+|  status |  | 0..1 | code | active |  | 作成システムのレコードがアクティブかどうか。固定値。 |
+|  manufacturer |  | 0..1 | string | "FUKUDA DENSHI Corp." | /CD/author/assignedAuthor/representedOrganization/<BR>name | 作成システムの製造メーカーの名称。値は例示。 |
+|  deviceName |  | 0..1 | BackboneElement |  |  |  |
+|  |  name | 1..1 | string | "FCP-7541" | /CD/author/assignedAuthor/assignedAuthoringDevice/<BR>manufacturerModelName | 作成システムのモデル名。値は例示。 |
+|  |  type | 1..1 | code | "model-name" |  | デバイス名の種類。バリューセット（"http://hl7.org/fhir/ValueSet/device-nametype"）からモデル名を表す"model-name"を固定で設定する。 |
+|  deviceName |  | 0..1 | BackboneElement |  |  |  |
+|  |  name | 1..1 | string | "ResultSender" | /CD/author/assignedAuthor/assignedAuthoringDevice/<BR>softwareName | 作成システムのソフトウェア名。値は例示。 |
+|  |  type | 1..1 | code | "other" |  | デバイス名の種類。バリューセット（"http://hl7.org/fhir/ValueSet/device-nametype"）からその他を表す"other"を固定で設定する。 |
 
 ### 表7 作成医療機関Organizationリソースの仕様
 
@@ -671,12 +671,12 @@
 
 ### 表18 外部参照Binaryリソースの仕様
 
-| 要素Lv1 | 要素Lv2 | 要素Lv3 | 多重度 | 型 | 値 | 生理検査レポートCDAとのマッピング<BR>(CD=ClinicalDocument) | 説明 |
-|---|---|---|---|---|---|---|---|
-| resourceType |  |  |  |  | "Binary" | /CD/component/structuredBody/component/section/<BR>entry/observation/reference/externalDocument | Binaryリソースであることを示す。 |
-| meta |  |  | 1..1 | Meta |  |  |  |
-|  | lastUpdated |  | 1..1 | instant | "2023-12-25T20:21:32+09:00" |  | 最終更新日時。YYYY-MM-DDThh:mm:ss.sss+zz:zz。値は例示。 |
-|  | profile |  | 1..1 | canonical(StructureDefinition) | "http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/<BR>JP_Binary_SEAMAT" |  | 本リソースのプロファイルを識別するURLを指定する。値は固定。 |
-|  contentType |  |  | 1..1 | code | "image/jpeg" | /CD/component/structuredBody/component/section/<BR>entry/observation/reference/externalDocument/text/<BR>@mediaType | バイナリデータのMIMEタイプ。値は例示 |
-|  data |  |  | 0..1 | base64Binary | "JVBERi0xLjcKCjQgMCBvYmoKKElkZW50aXR5KQplb..." | /CD/component/structuredBody/component/section/<BR>entry/observationMedia/value/@representation | 実際のデータ。値は例示。 |
+| 要素Lv1 | 要素Lv2 | 多重度 | 型 | 値 | 生理検査レポートCDAとのマッピング<BR>(CD=ClinicalDocument) | 説明 |
+|---|---|---|---|---|---|---|
+| resourceType |  |  |  | "Binary" | /CD/component/structuredBody/component/section/<BR>entry/observation/reference/externalDocument | Binaryリソースであることを示す。 |
+| meta |  | 1..1 | Meta |  |  |  |
+|  | lastUpdated | 1..1 | instant | "2023-12-25T20:21:32+09:00" |  | 最終更新日時。YYYY-MM-DDThh:mm:ss.sss+zz:zz。値は例示。 |
+|  | profile | 1..1 | canonical(StructureDefinition) | "http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/<BR>JP_Binary_SEAMAT" |  | 本リソースのプロファイルを識別するURLを指定する。値は固定。 |
+|  contentType |  | 1..1 | code | "image/jpeg" | /CD/component/structuredBody/component/section/<BR>entry/observation/reference/externalDocument/text/<BR>@mediaType | バイナリデータのMIMEタイプ。値は例示 |
+|  data |  | 0..1 | base64Binary | "JVBERi0xLjcKCjQgMCBvYmoKKElkZW50aXR5KQplb..." | /CD/component/structuredBody/component/section/<BR>entry/observationMedia/value/@representation | 実際のデータ。値は例示。 |
 

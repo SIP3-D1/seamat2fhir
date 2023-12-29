@@ -97,7 +97,7 @@ SEAMATでは、これらの要素に、以下のような項目を組み合わ�
 
 心電図レポート用FHIRドキュメントのBundleリソースの仕様を次の表に示す。
 
-[＜表1 Bundleリソースの仕様＞](tables.html#表1-Bundleリソースの仕様)
+[＜表1 Bundleリソースの仕様＞](tables.html#表1-bundleリソースの仕様)
 
 心電図レポート用FHIRドキュメントの全体像を下図に示す。
 
@@ -150,7 +150,7 @@ Compositionリソースは、心電図レポート用FHIRドキュメントにen
 
 また、対象患者の所属診療科のOrganizationリソースを、Patient.managingOrganization要素でそのOrganizationリソースのリソースIDである”urn:uuid:…..”　を記述することにより内部参照する。 任意要素である。 Organizationリソースの仕様は次の表で示す。
 
-[＜表4 診療科Organizationリソースの仕様＞](tables.html#表4-診療科organizationリソースの仕様)
+[＜表4 所属科Organizationリソースの仕様＞](tables.html#表4-所属科organizationリソースの仕様)
 
 #### Composition.author要素
 この心電図レポートの作成責任者を表すPractionerリソースないし作成システムを表すDeviceリソースを、そのPractionerリソースないしDeviceリソースのリソースIDである”urn:uuid:…..”　を記述することにより内部参照する。 さらに同じ要素に、続けて文書作成機関を表すOrganizationリソースを、そのOrganizationリソースのリソースIDである”urn:uuid:…..”　を記述することにより内部参照する。
@@ -193,7 +193,7 @@ Practionerリソース、Deviceリソース、Organizationリソースの仕様�
 #### Composition.section要素
 Composition.section共通の仕様を次の表で示す。
 
-[＜表13 Compositionリソースのsectionの仕様＞](tables.html#表2-compositionリソースのsectionの仕様)
+[＜表13 Compositionリソースのsectionの仕様＞](tables.html#表13-compositionリソースのsectionの仕様)
 
 セクションによっては、測定者や測定システムをそれぞれPractitionerリソースやDeviceリソースで記述し、section.author要素からはをそのリソースをソースIDである”urn:uuid: ….. “　を記述することにより内部参照する。これらは任意要素である。
 
@@ -211,7 +211,7 @@ Composition.section共通の仕様を次の表で示す。
 
 Observationリソースの仕様を次の表で示す。
 
-[＜表16 測定値／解析結果Observationリソースの仕様＞](tables.html#表16-測定値／解析結果observationリソースの仕様)
+[＜表16 測定値／解析結果Observationリソースの仕様＞](tables.html#表16-測定値解析結果observationリソースの仕様)
 
 #### バイタルサインセクション
 身長、体重、収縮期血圧、拡張期血圧の値をObservationリソースを使用して記述する。
@@ -220,7 +220,7 @@ Observationリソースの仕様を次の表で示す。
 
 Observationリソースの仕様を次の表で示す。
 
-[＜表16 測定値／解析結果Observationリソースの仕様＞](tables.html#表16-測定値／解析結果observationリソースの仕様)
+[＜表16 測定値／解析結果Observationリソースの仕様＞](tables.html#表16-測定値解析結果observationリソースの仕様)
 
 #### 検査項目セクション
 生理機能検査において実施される検査項目を記述する。JLAC、JJ1017、LOINCのいずれかを使用する。
@@ -259,7 +259,7 @@ Observationリソースの仕様を次の表で示す。
 
 Observationリソース、Deviceリソースの仕様をそれぞれ次の表で示す。
 
-[＜表16 測定値／解析結果Observationリソースの仕様＞](tables.html#表16-測定値／解析結果observationリソースの仕様)
+[＜表16 測定値／解析結果Observationリソースの仕様＞](tables.html#表16-測定値解析結果observationリソースの仕様)
 
 #### 解析結果セクション
 計測値や解析により得られた数値類ではなく自動解析コードなどのデータ分析結果の分類コードをObservationリソースを使用して記述する。
@@ -268,7 +268,7 @@ Observationリソース、Deviceリソースの仕様をそれぞれ次の表で
 
 Observationリソースの仕様を次の表で示す。
 
-[＜表16 測定値／解析結果Observationリソースの仕様＞](tables.html#表16-測定値／解析結果observationリソースの仕様)
+[＜表16 測定値／解析結果Observationリソースの仕様＞](tables.html#表16-測定値解析結果observationリソースの仕様)
 
 #### 検査所見セクション
 心電図検査における検査所見を記述するのに使用する。
