@@ -95,6 +95,10 @@ SEAMATでは、これらの要素に、以下のような項目を組み合わ�
 | 外部参照ドキュメントエントリ | DocumentReferenceリソース | 0..* |
 | 外部参照データエントリ | Binaryリソース | 0..* |
 
+心電図レポート用FHIRドキュメントのBundleリソースの仕様を次の表に示す。
+
+[＜表1 Bundleリソースの仕様＞](tables.html#表1-Bundleリソースの仕様)
+
 心電図レポート用FHIRドキュメントの全体像を下図に示す。
 
 <img src="ecgReportStructure.png" width="60%"><br clear="all">
@@ -102,7 +106,7 @@ SEAMATでは、これらの要素に、以下のような項目を組み合わ�
 ### Compositionリソース
 Compositionリソースは、心電図レポート用FHIRドキュメントにentryとして格納される複数のリソースのうちの最初に出現するもので、この文書全体の構成目次に相当する情報や、セクションの構成を記述したものである。 心電図レポート用FHIRドキュメントでのCompositionリソースの仕様を次の表に示す。
 
-[＜表1 Compositionリソースの仕様＞](tables.html#表1-compositionリソースの仕様)
+[＜表2 Compositionリソースの仕様＞](tables.html#表2-compositionリソースの仕様)
 
 心電図レポートは、あとで説明するように14つのセクションから構成されている。 Compositionリソースは患者や作成者など文書情報管理用の情報を記述するいわゆるヘッダ部、および診療情報提供書文書の本体内容を記述するボディー部から構成される。 ヘッダ部はCompositionリソースの要素により記述され、ボディー部の情報は複数のセクションから構成される。 なお、ヘッダ部、ボディー部という表現は、ここでCDA診療情報提供書規約（本仕様書ではCDA規約と略すこともある）との対比をわかりやすくするために便宜上用いているが、Compositionリソース内で明示的に区別されるわけではない。
 
@@ -136,10 +140,6 @@ Compositionリソースは、心電図レポート用FHIRドキュメントにen
 | 29308-4	| 医師所見セクション | 任意 | － |  － |
 | 78239-1	| 外部参照セクション | 任意 | Binary/DocumentReference | 0..* |	
 
-Composition.section共通の仕様を次の表で示す。
-
-[＜表2 Compositionリソースのsectionの仕様＞](tables.html#表2-Compositionリソースのsectionの仕様)
-
 ### Compositionリソースから各リソースへの参照
 以下では、内部の各FHIRリソースインスタンスを参照するCompositionの要素について概説する。
 
@@ -163,30 +163,46 @@ Practionerリソース、Deviceリソース、Organizationリソースの仕様�
 [＜表6 作成システムDeviceリソースの仕様＞](tables.html#表6-作成システムDeviceリソースの仕様)
 [＜表7 作成医療機関Organizationリソースの仕様＞](tables.html#表7-作成医療機関Organizationリソースの仕様)
 
-**TODO**
-
 #### Composition.custodian要素
 この心電図レポートの作成・修正を行い、文書の管理責任を持つ機関を表す。
 
 文書作成機関とは別のOrganizationリソースで記述し、custodian要素からはそのOrganizationリソースのリソースIDである”urn:uuid: ….. “　を記述することにより内部参照する。 必須要素である。
 
-Organizationリソースの仕様を次の表で示す。
+管理医療機関のOrganizationリソースの仕様を次の表で示す。
 
-**TODO**
+[＜表8 管理医療機関Organizationリソースの仕様＞](tables.html#表8-管理医療機関Organizationリソースの仕様)
+
+#### Composition.attester要素
+この心電図レポートの内容に関する責任を持つ職員の情報をPractitionerリソースで記述し、attester.party要素からはそのPractitionerリソースのリソースIDである”urn:uuid: ….. “　を記述することにより内部参照する。また、attester.mode要素には「公的責任」を表す "official"を固定で設定し、attester.timeには文書内容を承認した日時を設定する。 これらはすべて任意要素である。
+
+文書内容責任者のPractitionerリソースの仕様を次の表で示す。
+
+[＜表9 文書内容責任者Practitionerリソースの仕様＞](tables.html#表9-文書内容責任者Practitionerリソースの仕様)
 
 #### Composition.event要素
 この心電図レポートの元となった当該医療機関での心電図検査の実施日時を Composition.event.period で示すとともに、実施情報をProcedureリソースで記述し、event.detail要素からはProcedureリソースのリソースIDである”urn:uuid: ….. “　を記述することにより内部参照する。 必須要素である。
 
-Procedureリソースの仕様を次の表で示す。
+また、Procedureリソースのperformer.actor要素からは、検査実施者の役割を記述したPractitionerRoleリソース、更にPractitionerRoleリソースのpractitioner要素からは検査実施者の情報を記述したPractitionerリソースをソースIDである”urn:uuid: ….. “　を記述することにより内部参照する。これらは任意要素である。
 
-**TODO**
+検査実施情報のProcedureリソース、検査実施者役割のPractitionerRoleリソース、検査実施者のPractitionerリソースの仕様を、それぞれ次の表で示す。
+
+[＜表10 検査実施情報Procedureリソースの仕様＞](tables.html#表10-検査実施情報Procedureリソースの仕様)
+[＜表11 検査実施者役割PractitionerRoleリソースの仕様＞](tables.html#表11-検査実施者役割PractitionerRoleリソースの仕様)
+[＜表12 検査実施者Practitionerリソースの仕様＞](tables.html#表12-検査実施者Practitionerリソースの仕様)
 
 #### Composition.section要素
-すべてのComposition.section要素は、以下の構造をとる。
+Composition.section共通の仕様を次の表で示す。
 
-**TODO**
+[＜表13 Compositionリソースのsectionの仕様＞](tables.html#表2-Compositionリソースのsectionの仕様)
 
-Compositionの直下に、全てのセクションを配置する。以下では、各セクションの使い方について説明する。
+セクションによっては、測定者や測定システムをそれぞれPractitionerリソースやDeviceリソースで記述し、section.author要素からはをそのリソースをソースIDである”urn:uuid: ….. “　を記述することにより内部参照する。これらは任意要素である。
+
+測定者のPractitionerリソース、測定システムのDeviceリソースの仕様を、それぞれ次の表で示す。
+
+[＜表14 測定者Practitionerリソースの仕様＞](tables.html#表14-測定者Practitionerリソースの仕様)
+[＜表15 測定システムDeviceリソースの仕様＞](tables.html#表15-測定システムDeviceリソースの仕様)
+
+セクションはすべてCompositionの直下に配置し、セクションのネストは行わない。以下では、各セクションの使い方について説明する。
 
 #### 患者付帯情報セクション
 対象患者の検査時の年齢をObservationリソースを使用して記述する。
@@ -195,7 +211,7 @@ Compositionの直下に、全てのセクションを配置する。以下では
 
 Observationリソースの仕様を次の表で示す。
 
-**TODO**
+[＜表16 測定値／解析結果Observationリソースの仕様＞](tables.html#表16-測定値／解析結果Observationリソースの仕様)
 
 #### バイタルサインセクション
 身長、体重、収縮期血圧、拡張期血圧の値をObservationリソースを使用して記述する。
@@ -204,7 +220,7 @@ Observationリソースの仕様を次の表で示す。
 
 Observationリソースの仕様を次の表で示す。
 
-**TODO**
+[＜表16 測定値／解析結果Observationリソースの仕様＞](tables.html#表16-測定値／解析結果Observationリソースの仕様)
 
 #### 検査項目セクション
 生理機能検査において実施される検査項目を記述する。JLAC、JJ1017、LOINCのいずれかを使用する。
@@ -243,7 +259,7 @@ Observationリソースの仕様を次の表で示す。
 
 Observationリソース、Deviceリソースの仕様をそれぞれ次の表で示す。
 
-**TODO**
+[＜表16 測定値／解析結果Observationリソースの仕様＞](tables.html#表16-測定値／解析結果Observationリソースの仕様)
 
 #### 解析結果セクション
 計測値や解析により得られた数値類ではなく自動解析コードなどのデータ分析結果の分類コードをObservationリソースを使用して記述する。
@@ -252,7 +268,7 @@ Observationリソース、Deviceリソースの仕様をそれぞれ次の表で
 
 Observationリソースの仕様を次の表で示す。
 
-**TODO**
+[＜表16 測定値／解析結果Observationリソースの仕様＞](tables.html#表16-測定値／解析結果Observationリソースの仕様)
 
 #### 検査所見セクション
 心電図検査における検査所見を記述するのに使用する。
@@ -269,14 +285,11 @@ Observationリソースの仕様を次の表で示す。
 <br>セクションコード：78239-1
 <br>このセクションは任意である。
 
-Binaryリソース、DocumentReferenceリソースの仕様をそれぞれ次の表で示す。
+DocumentReferenceリソース、Binaryリソースの仕様をそれぞれ次の表で示す。
 
-**TODO**
+[＜表17 外部参照DocumentReferenceリソースの仕様＞](tables.html#表17-外部参照DocumentReferenceリソースの仕様)
+[＜表18 外部参照Binaryリソースの仕様＞](tables.html#表18-外部参照Binaryリソースの仕様)
 
 なお、FHIRサーバーへの登録のため、外部ファイルの内容をBinaryリソースないしDocumentReferenceリソース内に内包する。
-
-## FSHファイルの構成
-
-<img src="fsh_fileList.png" width="60%"><br clear="all">
 
 {% include markdown-link-references.md %}
