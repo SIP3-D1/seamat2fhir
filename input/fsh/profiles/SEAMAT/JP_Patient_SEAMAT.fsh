@@ -9,7 +9,7 @@ Expression: "meta.profile.where($this = 'http://jpfhir.jp/fhir/SEAMAT/StructureD
 Profile: JP_Patient_SEAMAT
 Parent: JP_Patient
 Id: jp-patient-seamat
-Title: "SEMAAT Common Patient Profile"
+Title: "SEAMAT Common Patient Profile"
 Description: "このプロファイルはPatientリソースに対して、SEAMAT共通の患者のデータを送受信するための基礎となる制約と拡張を定めたものである。"
 * ^url = $JP_Patient_SEAMAT
 * ^status = #active
