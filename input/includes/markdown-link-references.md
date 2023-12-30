@@ -11,8 +11,6 @@
 [JP_Observation_Common_Search]: StructureDefinition-jp-observation-common.html#search-parameter一覧
 [JP_Observation_Common_Operation]: StructureDefinition-jp-observation-common.html#operation一覧
 [JP_DiagnosticReport_Common_interaction]: StructureDefinition-jp-diagnosticreport-common.html#interaction一覧
-[JP_Composition_EKGReport_table] : tables.md#表1 Compositionリソースの仕様
-[JP_Composition_EKGReport_section] : tables.md#表2 Compositionリソースのsectionの仕様
 
 <!-- ImplementationGuide -->
 [SEAMAT2FHIR]: ImplementationGuide-jpfhir.jp.seamat2fhir.html

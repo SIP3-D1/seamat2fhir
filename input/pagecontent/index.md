@@ -17,6 +17,7 @@
 #### 参照する仕様等
 本実装ガイドは、以下の仕様等を参照して作成されている。
  - HL7 FHIR R4 ([http://hl7.org/fhir/R4/index.html](http://hl7.org/fhir/R4/index.html))　本仕様書ではFHIR基底仕様という。
+ - HL7 FHIR JP Core IG Ver.1.1.2 (一般社団法人 日本医療情報学会)<br>[https://jpfhir.jp/fhir/core/1.1.2/index.html](https://jpfhir.jp/fhir/core/1.1.2/index.html)
  - JCSデータ出力標準フォーマットガイドライン SEAMAT: Standard Export datA forMAT ～技術文書～ ver.1.1  (一般社団法人 日本循環器学会)<br>[https://www.j-circ.or.jp/itdata/guideline_v11.pdf](https://www.j-circ.or.jp/itdata/guideline_v11.pdf)
  - JAHIS 生理機能検査レポート構造化記述規約 Ver.1.0 (一般社団法人 日本保健医療福祉情報システム工業会)<br>[https://www.jahis.jp/files/user/04_JAHIS standard/15-004_JAHIS生理機能検査レポート構造化記述規約Ver.1.0.pdf](https://www.jahis.jp/files/user/04_JAHIS standard/15-004_JAHIS生理機能検査レポート構造化記述規約Ver.1.0.pdf)
  - JAHIS 診療文書構造化記述規約共通編 Ver.2.0 (一般社団法人 日本保健医療福祉情報システム工業会) <br>[https://www.jahis.jp/files/user/04_JAHIS standard/20-002_JAHIS診療文書構造化記述規約共通編Ver.2.0.pdf](https://www.jahis.jp/files/user/04_JAHIS standard/20-002_JAHIS診療文書構造化記述規約共通編Ver.2.0.pdf)
@@ -27,7 +28,7 @@
 ファイル形式は、JSON形式（JavaScriptObjectNotation：RFC8259、IETFSTD90、ECMA-4042ndedition）とする。 ファイル名を有するファイルを作成する場合には、特に送受信施設間で別の取り決めがない限り、.jsonの拡張子を末尾に付与するものとする。 
 
 #### 文字集合 
-文字集合はUnicode文字セットとする。これはISO/IEC10646：2017（JIS　X0221国際符号化文字集合）と同一である。 
+文字集合はUnicode文字セットとする。これはISO/IEC10646：2017（JIS X0221国際符号化文字集合）と同一である。 
 
 #### 符号化形式 
 文字符号化形式は、UTF-8（ISO/IEC10646　UCSTransformationFormat8）とする。ネットワーク上で直接データを送受信することを想定し、バイト順マーク（BOM：byteordermark：UTF-8では0xEF0xBB0xBF）を先頭に付与しないものとする。
@@ -65,7 +66,7 @@ SEAMATでは、これらの要素に、以下のような項目を組み合わ�
    - <オーダ番号> : 電子カルテが発番する、施設内でユニークなオーダ単位の値
    - <部門管理番号> : 検査部門が発番する検査毎にユニークな値
 
-本実装ガイドでは、上記の<検査日><データ種別コード><レポート/データフラグ><ファイル作成日時><データ管理番号><オーダ番号><部門管理番号>の計7項目を、SEAMATのキー情報と呼ぶ。
+本実装ガイドでは、Bundle.identifier要素に上記のコンテンツフォルダ名を持たせるとともに、その構成要素である<検査日><データ種別コード><レポート/データフラグ><ファイル作成日時><データ管理番号><オーダ番号><部門管理番号>の計7項目をSEAMATのキー情報と呼んで、次節で述べるように個別にマッピングする。
 
 ##### SS-MIX2拡張ストレージのコンテンツフォルダ名からSEAMATのキー情報を抽出して、Procedureリソースに個別にマッピングする
 本実装ガイドでは、SEAMATのキー情報のうち、<検査日><データ種別コード><レポート/データフラグ><データ管理番号><オーダ番号><部門管理番号>の6項目をProcedureリソースを使用して個別にマッピングする。マッピング先の要素は以下の通り。
@@ -109,7 +110,7 @@ SEAMATでは画像データや波形データ、PDFデータ等は別ファイ�
 <img src="ecgReportStructure.png" width="80%"><br clear="all">
 
 ### Compositionリソース
-Compositionリソースは、心電図レポート用FHIRドキュメントにentryとして格納される複数のリソースのうちの最初に出現するもので、この文書全体の構成目次に相当する情報や、セクションの構成を記述したものである。 心電図レポート用FHIRドキュメントでのCompositionリソースの仕様を次の表に示す。
+Compositionリソースは、心電図レポート用FHIRドキュメントにentryとして格納される複数のリソースのうちの最初に出現するもので、この文書のセクションの構成やテキストで表されるコンテンツを記述したものである。 心電図レポート用FHIRドキュメントでのCompositionリソースの仕様を次の表に示す。
 
 [＜表2 Compositionリソースの仕様＞](tables.html#表2-compositionリソースの仕様)
 
@@ -295,6 +296,6 @@ DocumentReferenceリソース、Binaryリソースの仕様をそれぞれ次の
 [＜表17 外部参照DocumentReferenceリソースの仕様＞](tables.html#表17-外部参照documentreferenceリソースの仕様)
 [＜表18 外部参照Binaryリソースの仕様＞](tables.html#表18-外部参照binaryリソースの仕様)
 
-なお、FHIRサーバーへの登録のため、外部ファイルの内容をBinaryリソースないしDocumentReferenceリソース内に内包する。
+なお、FHIRサーバーへの登録のため、外部ファイルの内容をBinaryリソースないしDocumentReferenceリソース内に内包する。ただし、HTML形式のファイルについては、CDA文書から直接参照されているファイルはDocumentReferenceリソースに内包されるものの、そこからさらに参照されているファイルについては内包の対象外となることに注意すること。
 
 {% include markdown-link-references.md %}
