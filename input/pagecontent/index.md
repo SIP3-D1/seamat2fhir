@@ -4,20 +4,23 @@
 <br>
 
 #### このImplementationガイド(IG)の目的：
-
 本実装ガイドは、SEAMATに準拠したデータフォーマットとフォルダ構成でSS-MIX2拡張ストレージに出力された心電図レポートのCDA文書を、FHIRドキュメントに変換する際の各種制約を記述する。
 
 本実装ガイドは、FHIR R4.0.1に従い、JP-Core V1.1.xからの派生プロファイルの実装ガイドとして作成されている。従って、本IGに記述されていないことについては、JP-Core V1.1.xを参照していただきたい。
 
 #### 想定する運用形態
+本実装ガイドで想定する運用形態は、以下の通りである。
+ - 医療機関において患者に対して心電図検査を実施し、心電図データを取得してファイリングする
+ - 心電図データに対応したファイリングシステムや生理検査部門システム等で、取得した心電図データから心電図レポートを生成し、CDA文書に変換してSS-MIX2拡張ストレージに出力する
+ - ファサード型のFHIRサーバーやFHIR変換プログラムで、SS-MIX2拡張ストレージからCDA文書を取り出してFHIRドキュメントに変換し、FHIRのRESTful APIを利用してFHIRクライアントに返したり、FHIRリポジトリに登録したり、などして利用する
 
 #### 参照する仕様等
 本実装ガイドは、以下の仕様等を参照して作成されている。
  - HL7 FHIR R4 ([http://hl7.org/fhir/R4/index.html](http://hl7.org/fhir/R4/index.html))　本仕様書ではFHIR基底仕様という。
- - JCSデータ出力標準フォーマットガイドライン SEAMAT: Standard Export datA forMAT ～技術文書～ ver.1.1  (一般社団法人 日本循環器学会)<br>([https://www.j-circ.or.jp/itdata/guideline_v11.pdf](https://www.j-circ.or.jp/itdata/guideline_v11.pdf))
- - JAHIS 生理機能検査レポート構造化記述規約 Ver.1.0 (一般社団法人 日本保健医療福祉情報システム工業会)<br>([https://www.jahis.jp/files/user/04_JAHIS standard/15-004_JAHIS生理機能検査レポート構造化記述規約Ver.1.0.pdf](https://www.jahis.jp/files/user/04_JAHIS standard/15-004_JAHIS生理機能検査レポート構造化記述規約Ver.1.0.pdf)) 
- - JAHIS 診療文書構造化記述規約共通編 Ver.2.0 (一般社団法人 日本保健医療福祉情報システム工業会) <br>([https://www.jahis.jp/files/user/04_JAHIS standard/20-002_JAHIS診療文書構造化記述規約共通編Ver.2.0.pdf](https://www.jahis.jp/files/user/04_JAHIS standard/20-002_JAHIS診療文書構造化記述規約共通編Ver.2.0.pdf)) 
- - SS-MIX2 拡張ストレージ 構成の説明と構築ガイドライン Ver.1.2h (一般社団法人 日本医療情報学会)<br>([https://www.jami.jp/wp-content/uploads/2023/11/SS-MIX2_kakuchoStrgGuidelinesVer.1.2h.pdf](https://www.jami.jp/wp-content/uploads/2023/11/SS-MIX2_kakuchoStrgGuidelinesVer.1.2h.pdf)) 
+ - JCSデータ出力標準フォーマットガイドライン SEAMAT: Standard Export datA forMAT ～技術文書～ ver.1.1  (一般社団法人 日本循環器学会)<br>[https://www.j-circ.or.jp/itdata/guideline_v11.pdf](https://www.j-circ.or.jp/itdata/guideline_v11.pdf)
+ - JAHIS 生理機能検査レポート構造化記述規約 Ver.1.0 (一般社団法人 日本保健医療福祉情報システム工業会)<br>[https://www.jahis.jp/files/user/04_JAHIS standard/15-004_JAHIS生理機能検査レポート構造化記述規約Ver.1.0.pdf](https://www.jahis.jp/files/user/04_JAHIS standard/15-004_JAHIS生理機能検査レポート構造化記述規約Ver.1.0.pdf)
+ - JAHIS 診療文書構造化記述規約共通編 Ver.2.0 (一般社団法人 日本保健医療福祉情報システム工業会) <br>[https://www.jahis.jp/files/user/04_JAHIS standard/20-002_JAHIS診療文書構造化記述規約共通編Ver.2.0.pdf](https://www.jahis.jp/files/user/04_JAHIS standard/20-002_JAHIS診療文書構造化記述規約共通編Ver.2.0.pdf)
+ - SS-MIX2 拡張ストレージ 構成の説明と構築ガイドライン Ver.1.2h (一般社団法人 日本医療情報学会)<br>[https://www.jami.jp/wp-content/uploads/2023/11/SS-MIX2_kakuchoStrgGuidelinesVer.1.2h.pdf](https://www.jami.jp/wp-content/uploads/2023/11/SS-MIX2_kakuchoStrgGuidelinesVer.1.2h.pdf)
 
 ### 文書データの表現形式
 #### ファイル形式
@@ -32,7 +35,7 @@
 ### 心電図レポート用FHIRドキュメントの全体構造
 #### 全体構造
 本実装ガイドでは、SS-MIX2拡張ストレージにSEAMATに準拠したフォルダ構成で保存されたHL7 CDA形式の心電図レポートをレポートごとに「FHIRドキュメント」という形式のFHIRリソースに変換して記述する。
-FHIRドキュメントは、複数のFHIRリソースをまとめるためのBundleリソースのtype要素の値を”document”としたもので、先頭に内包しているCompositionリソースで文書の構造とテキストコンテンツを記述し、その後に内包しているPatient, Organization, Practitioner等のリソースで構造化されたコンテンツを記述することができる。
+FHIRドキュメントは、複数のFHIRリソースをまとめるためのBundleリソースのtype要素の値を”document”としたもので、先頭に内包しているCompositionリソースで文書の構造とテキストコンテンツを記述し、その後に内包しているPatient, Organization, Practitioner, Observation等のリソースで構造化されたコンテンツを記述することができる。
 ([http://hl7.org/fhir/documents.html](http://hl7.org/fhir/documents.html))
 
 #### 心電図レポート用FHIRドキュメントのトピック
@@ -45,7 +48,6 @@ FHIRドキュメントは、複数のFHIRリソースをまとめるためのBun
     http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_<リソース名>_EKGReport（心電図固有）
 
 ##### Bundle.identifierにSS-MIX2拡張ストレージのコンテンツフォルダ名を持たせる
-
 SS-MIX2では、拡張ストレージのコンテンツフォルダ名は、以下のような書式で記載することが求められている。
 
   「<患者ID>_<診療日>_<データ種別>_<特定キー>_<発生日時>_<診療科コード>_<コンディションフラグ>」
@@ -73,12 +75,15 @@ SEAMATでは、これらの要素に、以下のような項目を組み合わ�
   - <オーダ番号> : identifier要素
   - <部門管理番号> : identifier要素
 
+##### 外部参照の画像データや波形データ、PDFデータはDocumentReferenceリソースやBinaryリソースに内包化する
+SEAMATでは画像データや波形データ、PDFデータ等は別ファイルに保存してCDA文書から外部参照されているが、本実装ガイドでは、それらのデータをFHIRリソースとして利用できるよう、DocumentReferenceリソースやBinaryリソースの内部にデータを持つ形式とする。
+
 ### FHIRドキュメントのリソースの構成
 心電図レポート用のFHIRドキュメントでは、以下のようなリソースの構成を想定している。
 
 | エントリ(entry)で表現する情報  | 使用されるFHIRリソース | リソースの多重度 |
 |-------------------------------|----------------------|----------------|
-| 文書校正情報エントリ | Compositionリソース | 1..1 |
+| 文書構成情報エントリ | Compositionリソース | 1..1 |
 | 患者情報エントリ | Patientリソース | 1..1 |
 | 所属科エントリ | Organizationリソース | 0..1 |
 | 作成者エントリ | Practitionerリソース | 0..1 |
