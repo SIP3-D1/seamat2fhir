@@ -13,7 +13,7 @@
 |  | system |  | 1..1 | uri | "http://jpfhir.jp/fhir/core/IdSystem/documentInsta<BR>nce-identifier" |  | 文書IDに対する名前空間識別子。固定値。 |
 |  | value |  | 1..1 | string | "1234567890_20231205_LJCS-100D_20231205101112.94.1<BR>4239.1002_20231205112233_100_1" |  | 文書IDの文字列。値は例示。 |
 | active |  |  | 0..1 | boolean | true |  |  |
-| name |  |  | 0..1 | HumanName |  | /CD/authenticator/assignedEntity/assignedPerson/<BR>name | 職員名　漢字表記 |
+| name |  |  | 0..1 | HumanName |  | /CD/authenticator/assignedEntity/<BR>assignedPerson/name | 職員名　漢字表記 |
 |  | extension |  | 1..* |  |  |  | 氏名が漢字表記かカナ表記かを区別するための拡張「iso21090-EN-representation」。 |
 |  |  | url | 1..1 | uri | "http:// hl7.org/fhir/StructureDefinition/iso21090<BR>-EN-representation" |  | 拡張を識別するURL。固定値。 |
 |  |  | valueCode | 1..1 | code | "IDE" |  | 漢字表記であることを示す固定値。 |
@@ -21,7 +21,7 @@
 |  | text |  | 1..1 | string | "職員 太郎" |  | 氏名全体の文字列をtext要素に入れる。氏名の姓と名が分離できない場合は本要素のみを使用する。姓と名の間には原則として半角空白を1個挿入する。 |
 |  | family |  | 0..1 | string | "職員" |  | 氏名の姓。 |
 |  | given |  | 0..* | string | "太郎" |  | 氏名の名。ミドルネームがある場合には、ミドルネーム、名の順で原則として半角空白をいれて連結する文字列とする。 |
-| name |  |  | 0..1 | HumanName |  | /CD/authenticator/assignedEntity/assignedPerson/<BR>name | 職員名よみ（カタカナ） |
+| name |  |  | 0..1 | HumanName |  | /CD/authenticator/assignedEntity/<BR>assignedPerson/name | 職員名よみ（カタカナ） |
 |  | extension |  | 1..* |  |  |  | 氏名が漢字表記かカナ表記かを区別するための拡張「iso21090-EN-representation」。 |
 |  |  | url | 1..1 | uri | "http:// hl7.org/fhir/StructureDefinition/iso21090<BR>-EN-representation" |  | 拡張を識別するURL。固定値。 |
 |  |  | valueCode | 1..1 | code | "SYL" |  | カナ表記であることを示す固定値。 |
@@ -30,14 +30,14 @@
 |  | family |  | 0..1 | string | "ショクイン" |  | カナ氏名の姓。 |
 |  | given |  | 0..* | string | "タロウ" |  | カナ氏名の名。ミミドルネームがある場合には、ミドルネーム、名の順で原則として半角空白をいれて連結する文字列とする。 |
 | telecom |  |  | 0..* | ContactPoint |  | /CD/authenticator/assignedEntity/telecom | 職員の連絡先。 |
-|  | system |  | 1..1 | code | "phone" | /CD/authenticator/assignedEntity/telecom/@value<BR>"tel:xxxxx" → "phone"<BR>"fax:xxxxxx" → "fax" | 連絡手段 phone \| fax \| email \| pager \| url \| sms \| other。値は例示。 |
-|  | value |  | 1..1 | string | "03-1234-5678" | /CD/authenticator/assignedEntity/telecom/@value | 電話番号。値は例示。 |
-|  | use |  | 1..1 | code | "home" | /CD/authenticator/assignedEntity/telecom/@use | 用途　home \| work \| temp \| old \| mobile。値は例示。 |
+|  | system |  | 1..1 | code | "phone" | /CD/authenticator/assignedEntity/telecom/<BR>@value<BR>"tel:xxxxx" → "phone"<BR>"fax:xxxxxx" → "fax" | 連絡手段 phone \| fax \| email \| pager \| url \| sms \| other。値は例示。 |
+|  | value |  | 1..1 | string | "03-1234-5678" | /CD/authenticator/assignedEntity/telecom/<BR>@value | 電話番号。値は例示。 |
+|  | use |  | 1..1 | code | "home" | /CD/authenticator/assignedEntity/telecom/<BR>@use | 用途　home \| work \| temp \| old \| mobile。値は例示。 |
 | address |  |  | 0..* | Address |  | /CD/authenticator/assignedEntity/addr | 職員の住所。 |
-|  | use |  | 1..1 | code | "home" | /CD/authenticator/assignedEntity/addr/@use | 用途　home \| work \| temp \| old \| billing |
-|  | text |  | 0..1 | string | "東京都江戸川区南葛西３－１－２" | /CD/authenticator/assignedEntity/addr/text() | 住所文字列。値は例示。郵便番号は含めない。 |
+|  | use |  | 1..1 | code | "home" | /CD/authenticator/assignedEntity/addr/<BR>@use | 用途　home \| work \| temp \| old \| billing |
+|  | text |  | 0..1 | string | "東京都江戸川区南葛西３－１－２" | /CD/authenticator/assignedEntity/addr/<BR>text() | 住所文字列。値は例示。郵便番号は含めない。 |
 |  | line |  | 0..1 | string | "南葛西１－２－３" | /CD/authenticator/assignedEntity/addr/<BR>streetAddressLine | 番地・通り名他。丁目、番地、通り名、マンション名、部屋番号、そのほか住所を構成するcityまでの部分以外のすべての文字列。値は例示。 |
-|  | city |  | 0..1 | string | "江戸川区" | /CD/authenticator/assignedEntity/addr/city | 市町村郡名、区名、大字名など。丁目や番地などを除く。値は例示。 |
-|  | state |  | 0..1 | string | "東京都" | /CD/authenticator/assignedEntity/addr/state | 都道府県名で、都道府県の文字を含む。例：東京都　など（「東京」ではなく）。値は例示。 |
-|  | postalCode |  | 0..1 | string | "134-0085" | /CD/authenticator/assignedEntity/addr/postalCode | 郵便番号。値は例示。 |
-|  | country |  | 0..1 | string | "JP" | /CD/authenticator/assignedEntity/addr/country | 居住地が国内の場合「JP」固定。 |
+|  | city |  | 0..1 | string | "江戸川区" | /CD/authenticator/assignedEntity/addr/<BR>city | 市町村郡名、区名、大字名など。丁目や番地などを除く。値は例示。 |
+|  | state |  | 0..1 | string | "東京都" | /CD/authenticator/assignedEntity/addr/<BR>state | 都道府県名で、都道府県の文字を含む。例：東京都　など（「東京」ではなく）。値は例示。 |
+|  | postalCode |  | 0..1 | string | "134-0085" | /CD/authenticator/assignedEntity/addr/<BR>postalCode | 郵便番号。値は例示。 |
+|  | country |  | 0..1 | string | "JP" | /CD/authenticator/assignedEntity/addr/<BR>country | 居住地が国内の場合「JP」固定。 |

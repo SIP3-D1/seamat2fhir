@@ -8,7 +8,7 @@
 |  | profile |  | 1..1 | canonical(StructureDefinition) | "http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/<BR>JP_Patient_SEAMAT" |  | 本リソースのプロファイルを識別するURLを指定する。値は固定。 |
 | identifier |  |  | 0..1 | Identifier |  | /CD/recordTarget/patientRole/id | 医療機関における患者番号。 |
 |  | system |  | 1..1 | uri | "http://jpfhir.jp/fhir/core/IdSystem/resourceInsta<BR>nce-identifier" | /CD/recordTarget/patientRole/id/@root | 医療機関における患者IDに対する名前空間識別子。固定値。 |
-|  | value |  | 1..1 | string | "1234567890" | /CD/recordTarget/patientRole/id/@extension | 患者番号の文字列。値は例示。 |
+|  | value |  | 1..1 | string | "1234567890" | /CD/recordTarget/patientRole/id/<BR>@extension | 患者番号の文字列。値は例示。 |
 | identifier |  |  | 1..1 | Identifier |  |  | この文書の文書ID。 |
 |  | system |  | 1..1 | uri | "http://jpfhir.jp/fhir/core/IdSystem/documentInsta<BR>nce-identifier" |  | 文書IDに対する名前空間識別子。固定値。 |
 |  | value |  | 1..1 | string | "1234567890_20231205_LJCS-100D_20231205101112.94.1<BR>4239.1002_20231205112233_100_1" |  | 文書IDの文字列。値は例示。 |
@@ -30,18 +30,18 @@
 |  | family |  | 0..1 | string | "トウキョウ" |  | カナ氏名の姓。 |
 |  | given |  | 0..* | string | "タロウ" |  | カナ氏名の名。ミミドルネームがある場合には、ミドルネーム、名の順で原則として半角空白をいれて連結する文字列とする。 |
 | telecom |  |  | 0..1 | ContactPoint |  | /CD/recordTarget/patientRole/telecom | 患者連絡先電話番号。 |
-|  | system |  | 1..1 | code | "phone" | /CD/recordTarget/patientRole/telecom/@value<BR>"tel:xxxxx" → "phone"<BR>"fax:xxxxxx" → "fax" | 連絡手段 phone \| fax \| email \| pager \| url \| sms \| other |
-|  | value |  | 1..1 | string | "03-1234-5678" | /CD/recordTarget/patientRole/telecom/@value | 電話番号 |
+|  | system |  | 1..1 | code | "phone" | /CD/recordTarget/patientRole/telecom/<BR>@value<BR>"tel:xxxxx" → "phone"<BR>"fax:xxxxxx" → "fax" | 連絡手段 phone \| fax \| email \| pager \| url \| sms \| other |
+|  | value |  | 1..1 | string | "03-1234-5678" | /CD/recordTarget/patientRole/telecom/<BR>@value | 電話番号 |
 |  | use |  | 1..1 | code | "home" | /CD/recordTarget/patientRole/telecom/@use | 用途　home \| work \| temp \| old \| mobile |
 | gender |  |  | 0..1 | code | "male" | /CD/recordTarget/patientRole/patient/<BR>administrativeGenderCode | 患者の性別。”male”または”female”。値は例示。 |
-| birthDate |  |  | 0..1 | date | "1965-04-15" | /CD/recordTarget/patientRole/patient/birthTime | 患者の生年月日。ISO8601に準拠して”yyyy-mm-dd”形式。値は例示。 |
+| birthDate |  |  | 0..1 | date | "1965-04-15" | /CD/recordTarget/patientRole/patient/<BR>birthTime | 患者の生年月日。ISO8601に準拠して”yyyy-mm-dd”形式。値は例示。 |
 | address |  |  | 0..1 | Address |  | /CD/recordTarget/patientRole/addr | 患者の住所。 |
 |  | use |  | 1..1 | code | "home" | /CD/recordTarget/patientRole/addr/@use | 用途　home \| work \| temp \| old \| \billing |
 |  | text |  | 0..1 | string | "東京都江戸川区南葛西３－１－２" | /CD/recordTarget/patientRole/addr/text() | 住所文字列。値は例示。郵便番号は含めない。 |
-|  | line |  | 0..1 | string | "南葛西１－２－３" | /CD/recordTarget/patientRole/addr/streetAddressLine | 番地・通り名他。丁目、番地、通り名、マンション名、部屋番号、そのほか住所を構成するcityまでの部分以外のすべての文字列。値は例示。 |
+|  | line |  | 0..1 | string | "南葛西１－２－３" | /CD/recordTarget/patientRole/addr/<BR>streetAddressLine | 番地・通り名他。丁目、番地、通り名、マンション名、部屋番号、そのほか住所を構成するcityまでの部分以外のすべての文字列。値は例示。 |
 |  | city |  | 0..1 | string | "江戸川区" | /CD/recordTarget/patientRole/addr/city | 市町村郡名、区名、大字名など。丁目や番地などを除く。値は例示。 |
 |  | state |  | 0..1 | string | "東京都" | /CD/recordTarget/patientRole/addr/state | 都道府県名で、都道府県の文字を含む。例：東京都　など（「東京」ではなく）。値は例示。 |
-|  | postalCode |  | 0..1 | string | "134-0085" | /CD/recordTarget/patientRole/addr/postalCode | 郵便番号。値は例示。 |
+|  | postalCode |  | 0..1 | string | "134-0085" | /CD/recordTarget/patientRole/addr/<BR>postalCode | 郵便番号。値は例示。 |
 |  | country |  | 0..1 | string | "JP" | /CD/recordTarget/patientRole/addr/country | 居住地が国内の場合「JP」固定。 |
-| managingOrganization |  |  | 0..1 | Reference(Organization) |  | /CD/recordTarget/patientRole/providerOrganization | 所属科Organizationリソースへの参照。 |
+| managingOrganization |  |  | 0..1 | Reference(Organization) |  | /CD/recordTarget/patientRole/<BR>providerOrganization | 所属科Organizationリソースへの参照。 |
 |  | reference |  | 1..1 | string | "urn:uuid:d4d71934-e535-4029-a4c8-a4d098359e4d" |  | OrganizationリソースのfullUrl要素に指定されるUUIDを指定。値は例示。 |
