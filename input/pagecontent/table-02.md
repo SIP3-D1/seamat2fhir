@@ -16,12 +16,12 @@
 | status |  |  |  | 1..1 | code | "final" |  | この文書のステータス。最終版が登録される段階では、”final” でなければならない。 |
 | type |  |  |  | 1..1 | CodeableConcept |  | /CD/code | 文書区分コード |
 |  | coding |  |  | 1..1 | Coding |  |  |  |
-|  |  | system |  | 1..1 | uri | "http://loinc.org" | /CD/code/@codeSystem | 文書区分コードのコード体系を識別するUR（LOINCコードベース）。固定値 |
+|  |  | system |  | 1..1 | uri | "http://jpfhir.jp/fhir/SEAMAT/CodeSystem/JP_Compos<BR>ition_SEAMAT_DocumentType_CS" | /CD/code/@codeSystem | 文書区分コードのコード体系を識別するUR（LOINCコードベース）。固定値 |
 |  |  | code |  | 1..1 | code | "28010-7" | /CD/code/@code | 文書区分コード。固定値 |
 |  |  | display |  | 0..1 | string | "EKG Report" | /CD/code/@displayName | 文書区分コードの表示名。 |
 | category |  |  |  | 1..* | CodeableConcept |  | /CD/code | 文書クラス（カテゴリー） |
 |  | coding |  |  | 1..1 |  |  |  |  |
-|  |  | system |  | 1..1 | uri | "http://loinc.org" | /CD/code/@codeSystem | 文書クラスのコード体系を識別するURI。固定値。 |
+|  |  | system |  | 1..1 | uri | "http://jpfhir.jp/fhir/SEAMAT/CodeSystem/JP_Compos<BR>ition_SEAMAT_DocumentType_CS" | /CD/code/@codeSystem | 文書クラスのコード体系を識別するURI。固定値。 |
 |  |  | code |  | 1..1 | code | "28010-7" | /CD/code/@code | 文書カテゴリコード。固定値 |
 |  |  | display |  | 0..1 | string | "EKG Report" | /CD/code/@displayName | コードの表示名 |
 | subject |  |  |  | 1..1 | Reference(Patient) |  | /CD/recordTraget | 患者情報を表すPatientリソースへの参照。 |

@@ -124,7 +124,7 @@ Compositionリソースは、心電図レポート用FHIRドキュメントにen
 | 2  | 作成・編集日時 |	date |	必須 | ― |
 | 3	 | 文書作成責任者/文書作成システム |	author |	必須 | Practitioner/Device |
 | 4	 | 文書作成機関	| author |	任意 |	Organization |
-| 5	 | 文書法的責任者 | attester(.mode=legal) | 任意 |Practitioner |
+| 5	 | 文書内容責任者 | attester(.mode=official) | 任意 |Practitioner |
 | 6	 | 文書管理責任機関 | custodian | 必須 | Organization |
 | 7  | 検査実施情報 | event |	必須 | Procedure |
 
@@ -172,23 +172,23 @@ Practionerリソース、Deviceリソース、Organizationリソースの仕様�
 #### Composition.custodian要素
 この心電図レポートの作成・修正を行い、文書の管理責任を持つ機関を表す。
 
-文書作成機関とは別のOrganizationリソースで記述し、custodian要素からはそのOrganizationリソースのリソースIDである”urn:uuid: ….. “　を記述することにより内部参照する。 必須要素である。
+文書作成機関とは別のOrganizationリソースで記述し、custodian要素からはそのOrganizationリソースのリソースIDである “urn:uuid: …” 　を記述することにより内部参照する。 必須要素である。
 
 管理医療機関のOrganizationリソースの仕様を次の表で示す。
 
 [＜表8 管理医療機関Organizationリソースの仕様＞](tables.html#表8-管理医療機関organizationリソースの仕様)
 
 #### Composition.attester要素
-この心電図レポートの内容に関する責任を持つ職員の情報をPractitionerリソースで記述し、attester.party要素からはそのPractitionerリソースのリソースIDである”urn:uuid: ….. “　を記述することにより内部参照する。また、attester.mode要素には「公的責任」を表す "official"を固定で設定し、attester.timeには文書内容を承認した日時を設定する。 これらはすべて任意要素である。
+この心電図レポートの内容に関する責任を持つ職員の情報をPractitionerリソースで記述し、attester.party要素からはそのPractitionerリソースのリソースIDである “urn:uuid: …” 　を記述することにより内部参照する。また、attester.mode要素には「公的責任」を表す "official"を固定で設定し、attester.timeには文書内容を承認した日時を設定する。 これらはすべて任意要素である。
 
 文書内容責任者のPractitionerリソースの仕様を次の表で示す。
 
 [＜表9 文書内容責任者Practitionerリソースの仕様＞](tables.html#表9-文書内容責任者practitionerリソースの仕様)
 
 #### Composition.event要素
-この心電図レポートの元となった当該医療機関での心電図検査の実施日時を Composition.event.period で示すとともに、実施情報をProcedureリソースで記述し、event.detail要素からはProcedureリソースのリソースIDである”urn:uuid: ….. “　を記述することにより内部参照する。 必須要素である。
+この心電図レポートの元となった当該医療機関での心電図検査の実施日時を Composition.event.period で示すとともに、実施情報をProcedureリソースで記述し、event.detail要素からはProcedureリソースのリソースIDである “urn:uuid: …” 　を記述することにより内部参照する。 必須要素である。
 
-また、Procedureリソースのperformer.actor要素からは、検査実施者の役割を記述したPractitionerRoleリソース、更にPractitionerRoleリソースのpractitioner要素からは検査実施者の情報を記述したPractitionerリソースをソースIDである”urn:uuid: ….. “　を記述することにより内部参照する。これらは任意要素である。
+また、Procedureリソースのperformer.actor要素からは、検査実施者の役割を記述したPractitionerRoleリソース、更にPractitionerRoleリソースのpractitioner要素からは検査実施者の情報を記述したPractitionerリソースをソースIDである “urn:uuid: …” 　を記述することにより内部参照する。これらは任意要素である。
 
 検査実施情報のProcedureリソース、検査実施者役割のPractitionerRoleリソース、検査実施者のPractitionerリソースの仕様を、それぞれ次の表で示す。
 
@@ -197,21 +197,22 @@ Practionerリソース、Deviceリソース、Organizationリソースの仕様�
 [＜表12 検査実施者Practitionerリソースの仕様＞](tables.html#表12-検査実施者practitionerリソースの仕様)
 
 #### Composition.section要素
+セクションはすべてCompositionの直下に配置し、セクションのネストは行わない。
 Composition.section共通の仕様を次の表で示す。
 
 [＜表13 Compositionリソースのsectionの仕様＞](tables.html#表13-compositionリソースのsectionの仕様)
 
-セクションによっては、測定者や測定システムをそれぞれPractitionerリソースやDeviceリソースで記述し、section.author要素からはをそのリソースをソースIDである”urn:uuid: ….. “　を記述することにより内部参照する。これらは任意要素である。
+セクションによっては、測定者や測定システムをそれぞれPractitionerリソースやDeviceリソースで記述し、section.author要素からはをそのリソースをリソースIDである “urn:uuid: …” を記述することにより内部参照する。これらは任意要素である。
 
 測定者のPractitionerリソース、測定システムのDeviceリソースの仕様を、それぞれ次の表で示す。
 
 [＜表14 測定者Practitionerリソースの仕様＞](tables.html#表14-測定者practitionerリソースの仕様)
 [＜表15 測定システムDeviceリソースの仕様＞](tables.html#表15-測定システムdeviceリソースの仕様)
 
-セクションはすべてCompositionの直下に配置し、セクションのネストは行わない。以下では、各セクションの使い方について説明する。
+以下では、各セクションの使い方について説明する。
 
 #### 患者付帯情報セクション
-対象患者の検査時の年齢をObservationリソースを使用して記述する。
+対象患者の検査時の年齢をObservationリソースを使用して記述し、section.entry要素からはをそのリソースをリソースIDである “urn:uuid: …” を記述することにより内部参照する。
 <br>セクションコード：52460-3
 <br>このセクションは任意である。
 
@@ -220,7 +221,7 @@ Observationリソースの仕様を次の表で示す。
 [＜表16 測定値／解析結果Observationリソースの仕様＞](tables.html#表16-測定値解析結果observationリソースの仕様)
 
 #### バイタルサインセクション
-身長、体重、収縮期血圧、拡張期血圧の値をObservationリソースを使用して記述する。
+身長、体重、収縮期血圧、拡張期血圧の値をObservationリソースを使用して記述し、section.entry要素からはをそのリソースをリソースIDである “urn:uuid: …” を記述することにより内部参照する。
 <br>セクションコード：74728-7
 <br>このセクションは任意である。
 
@@ -259,7 +260,8 @@ Observationリソースの仕様を次の表で示す。
 <br>このセクションは任意である。
 
 #### 計測値セクション
-検査時に計測した情報や解析結果などをObservationリソースを使用して記述する。多くの場合、計測はモダリティで行われるため、Deviceリソースを使用してモダリティ情報を記述し、section.author要素からはDeviceリソースのリソースIDである”urn:uuid: ….. “　を記述することにより内部参照する。
+検査時に計測した情報や解析結果などをObservationリソースを使用して記述し、section.entry要素からはをそのリソースをリソースIDである “urn:uuid: …” を記述することにより内部参照する。
+また、多くの場合、計測はモダリティで行われるため、Deviceリソースを使用してモダリティ情報を記述し、section.author要素からはDeviceリソースのリソースIDである “urn:uuid: …” 　を記述することにより内部参照する。
 <br>セクションコード：29273-0
 <br>このセクションは任意である。
 
@@ -268,7 +270,7 @@ Observationリソースの仕様を次の表で示す。
 [＜表16 測定値／解析結果Observationリソースの仕様＞](tables.html#表16-測定値解析結果observationリソースの仕様)
 
 #### 解析結果セクション
-計測値や解析により得られた数値類ではなく自動解析コードなどのデータ分析結果をObservationリソースを使用して記述する。
+計測値や解析により得られた数値類ではなく自動解析コードなどのデータ分析結果をObservationリソースを使用して記述し、section.entry要素からはをそのリソースをリソースIDである “urn:uuid: …” を記述することにより内部参照する。
 <br>セクションコード：64110-0
 <br>このセクションは任意である。
 
@@ -287,7 +289,7 @@ Observationリソースの仕様を次の表で示す。
 <br>このセクションは任意である。
 
 #### 外部参照セクション
-心電図レポートに付加される検査データ（波形、画像、結果PDFなど）、レポート（HTML形式など）、添付ファイル（シェーマや描画ファイル）への外部参照情報を記述する。画像データについてはBinaryリソースを使用して記述し、それ以外の文書データについてはDocumentResourceリソースを使用して記述する。
+心電図レポートに付加される検査データ（波形、画像、結果PDFなど）、レポート（HTML形式など）、添付ファイル（シェーマや描画ファイル）への外部参照情報を記述する。画像データについてはBinaryリソースを使用して記述し、それ以外の文書データについてはDocumentResourceリソースを使用して記述し、section.entry要素からはをそのリソースをリソースIDである “urn:uuid: …” を記述することにより内部参照する。
 <br>セクションコード：78239-1
 <br>このセクションは任意である。
 
