@@ -39,7 +39,9 @@ pages:
   index.md:
     title: SEAMAT2FHIR仕様  　JP-SEAMAT2FHIR
   tables.md:
-    title: 表一覧
+    title: リソース表 各表一覧
+  namespaces.md:
+    title: 名前空間一覧
   history.md:
     title: 改訂履歴
   

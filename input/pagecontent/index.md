@@ -6,22 +6,22 @@
 #### このImplementationガイド(IG)の目的：
 本実装ガイドは、SEAMATに準拠したデータフォーマットとフォルダ構成でSS-MIX2拡張ストレージに出力された心電図レポートのCDA文書を、FHIRドキュメントに変換する際の各種制約を記述する。
 
-本実装ガイドは、FHIR R4.0.1に従い、JP-Core V1.1.xからの派生プロファイルの実装ガイドとして作成されている。従って、本IGに記述されていないことについては、JP-Core V1.1.xを参照していただきたい。
+本実装ガイドは、FHIR R4.0.1に従い、JP-Core V1.1.2からの派生プロファイルの実装ガイドとして作成されている。従って、本IGに記述されていないことについては、JP-Core V1.1.2を参照していただきたい。
 
 #### 想定する運用形態
 本実装ガイドで想定する運用形態は、以下の通りである。
  - 医療機関において患者に対して心電図検査を実施し、心電図データを取得してファイリングする
  - 心電図データに対応したファイリングシステムや生理検査部門システム等で、取得した心電図データから心電図レポートを生成し、CDA文書に変換してSS-MIX2拡張ストレージに出力する
- - ファサード型のFHIRサーバーやFHIR変換プログラムで、SS-MIX2拡張ストレージからCDA文書を取り出してFHIRドキュメントに変換し、FHIRのRESTful APIを利用してFHIRクライアントに返したり、FHIRリポジトリに登録したり、などして利用する
+ - ファサード型のFHIRサーバーやFHIR変換プログラムで、SS-MIX2拡張ストレージからCDA文書を取り出してFHIRドキュメントに変換し、FHIRのRESTful APIを利用してFHIRクライアントに返したり、FHIRリポジトリに登録したりして利用する
 
 #### 参照する仕様等
 本実装ガイドは、以下の仕様等を参照して作成されている。
- - HL7 FHIR R4 ([http://hl7.org/fhir/R4/index.html](http://hl7.org/fhir/R4/index.html))　本仕様書ではFHIR基底仕様という。
- - HL7 FHIR JP Core IG Ver.1.1.2 (一般社団法人 日本医療情報学会)<br>[https://jpfhir.jp/fhir/core/1.1.2/index.html](https://jpfhir.jp/fhir/core/1.1.2/index.html)
  - JCSデータ出力標準フォーマットガイドライン SEAMAT: Standard Export datA forMAT ～技術文書～ ver.1.1  (一般社団法人 日本循環器学会)<br>[https://www.j-circ.or.jp/itdata/guideline_v11.pdf](https://www.j-circ.or.jp/itdata/guideline_v11.pdf)
  - JAHIS 生理機能検査レポート構造化記述規約 Ver.1.0 (一般社団法人 日本保健医療福祉情報システム工業会)<br>[https://www.jahis.jp/files/user/04_JAHIS standard/15-004_JAHIS生理機能検査レポート構造化記述規約Ver.1.0.pdf](https://www.jahis.jp/files/user/04_JAHIS standard/15-004_JAHIS生理機能検査レポート構造化記述規約Ver.1.0.pdf)
  - JAHIS 診療文書構造化記述規約共通編 Ver.2.0 (一般社団法人 日本保健医療福祉情報システム工業会) <br>[https://www.jahis.jp/files/user/04_JAHIS standard/20-002_JAHIS診療文書構造化記述規約共通編Ver.2.0.pdf](https://www.jahis.jp/files/user/04_JAHIS standard/20-002_JAHIS診療文書構造化記述規約共通編Ver.2.0.pdf)
  - SS-MIX2 拡張ストレージ 構成の説明と構築ガイドライン Ver.1.2h (一般社団法人 日本医療情報学会)<br>[https://www.jami.jp/wp-content/uploads/2023/11/SS-MIX2_kakuchoStrgGuidelinesVer.1.2h.pdf](https://www.jami.jp/wp-content/uploads/2023/11/SS-MIX2_kakuchoStrgGuidelinesVer.1.2h.pdf)
+ - HL7 FHIR JP Core IG V1.1.2 (一般社団法人 日本医療情報学会)<br>[https://jpfhir.jp/fhir/core/1.1.2/index.html](https://jpfhir.jp/fhir/core/1.1.2/index.html)
+ - HL7 FHIR R4 ([http://hl7.org/fhir/R4/index.html](http://hl7.org/fhir/R4/index.html))　<br>本仕様書ではFHIR基底仕様という。
 
 ### 文書データの表現形式
 #### ファイル形式
@@ -36,7 +36,7 @@
 ### 心電図レポート用FHIRドキュメントの全体構造
 #### 全体構造
 本実装ガイドでは、SS-MIX2拡張ストレージにSEAMATに準拠したフォルダ構成で保存されたHL7 CDA形式の心電図レポートをレポートごとに「FHIRドキュメント」という形式のFHIRリソースに変換して記述する。
-FHIRドキュメントは、複数のFHIRリソースをまとめるためのBundleリソースのtype要素の値を”document”としたもので、先頭に内包しているCompositionリソースで文書の構造とテキストコンテンツを記述し、その後に内包しているPatient, Organization, Practitioner, Observation等のリソースで構造化されたコンテンツを記述することができる。
+FHIRドキュメントは、複数のFHIRリソースをまとめるためのBundleリソースのtype要素の値を”document”としたもので、先頭に内包しているCompositionリソースで文書のセクション構造とテキストコンテンツを記述し、その後に内包しているPatient, Organization, Practitioner, Observation等のリソースでセクションに紐づけられた形で構造化されたコンテンツを記述することができる。
 ([http://hl7.org/fhir/documents.html](http://hl7.org/fhir/documents.html))
 
 #### 心電図レポート用FHIRドキュメントのトピック
@@ -109,12 +109,14 @@ SEAMATでは画像データや波形データ、PDFデータ等は別ファイ�
 
 <img src="ecgReportStructure.png" width="80%"><br clear="all">
 
+type要素が"document"のBundleリソースの中にCompositionをはじめとする各種リソースが内包されており、Compositionリソースのsubject, author, custodian などの固定要素や、各セクションのsection.entry要素などから、構造化されたリソースが各Bundle.entry.fullUrlに記述されたUUIDの値を使用して内部参照されている。一部のリソースは更にそこから参照されている。
+
 ### Compositionリソース
 Compositionリソースは、心電図レポート用FHIRドキュメントにentryとして格納される複数のリソースのうちの最初に出現するもので、この文書のセクションの構成やテキストで表されるコンテンツを記述したものである。 心電図レポート用FHIRドキュメントでのCompositionリソースの仕様を次の表に示す。
 
 [＜表2 Compositionリソースの仕様＞](tables.html#表2-compositionリソースの仕様)
 
-心電図レポートは、あとで説明するように13種類のセクションから構成されている。 Compositionリソースは患者や作成者など文書情報管理用の情報を記述するいわゆるヘッダ部、および心電図検査レポートの本体内容を記述するボディー部から構成される。 ヘッダ部はCompositionリソースの要素により記述され、ボディー部の情報は複数のセクションから構成される。 なお、ヘッダ部、ボディー部という表現は、ここで生理機能検査レポート構造化記述規約（本仕様書ではCDA規約と略すこともある）との対比をわかりやすくするために便宜上用いているが、Compositionリソース内で明示的に区別されるわけではない。
+心電図レポートは、あとで説明するように13種類のセクションから構成されている。 Compositionリソースは患者や作成者など文書情報管理用の情報を記述するいわゆるヘッダ部、および心電図検査レポートの本体内容を記述するボディ部から構成される。 ヘッダ部はCompositionリソースの要素により記述され、ボディ部の情報は複数のセクションから構成される。 なお、ヘッダ部、ボディ部という表現は、ここで生理機能検査レポート構造化記述規約（本仕様書ではCDA規約と略すこともある）との対比をわかりやすくするために便宜上用いているが、Compositionリソース内で明示的に区別されるわけではない。
 
 **文書管理情報（ヘッダ部）**
 
@@ -128,7 +130,7 @@ Compositionリソースは、心電図レポート用FHIRドキュメントにen
 | 6	 | 文書管理責任機関 | custodian | 必須 | Organization |
 | 7  | 検査実施情報 | event |	必須 | Procedure |
 
-**心電図検査レポート本体（ボディー部）でのセクション構成（構造情報セクションの下のセクション）**
+**心電図検査レポート本体（ボディ部）でのセクション構成**
 
 | セクション<br>コード | セクション名 | 必須/任意	| section.entry<br>参照先のFHIR<br>リソース種別 | section.<br>entryの<br>多重度 |
 |------------------|-------------|-----------|-----------------------------------------|--------------------------|
@@ -197,12 +199,14 @@ Practionerリソース、Deviceリソース、Organizationリソースの仕様�
 [＜表12 検査実施者Practitionerリソースの仕様＞](tables.html#表12-検査実施者practitionerリソースの仕様)
 
 #### Composition.section要素
-セクションはすべてCompositionの直下に配置し、セクションのネストは行わない。
+Compositionリソースのsection要素は文書の章、節、項などのセクション構造を表現するためのもので、FHIR基底仕様では階層的に配置することが可能であるが、心電図レポート用のFHIRドキュメントでは、すべてCompositionの直下に配置し、セクションのネストは行わない。
 Composition.section共通の仕様を次の表で示す。
 
 [＜表13 Compositionリソースのsectionの仕様＞](tables.html#表13-compositionリソースのsectionの仕様)
 
-セクションによっては、測定者や測定システムをそれぞれPractitionerリソースやDeviceリソースで記述し、section.author要素からはをそのリソースをリソースIDである “urn:uuid: …” を記述することにより内部参照する。これらは任意要素である。
+section.code要素でセクションの識別を行い、section.title要素でそのタイトルを、section.text要素でテキストコンテンツをXHTML形式で記述できる。
+
+また、セクションによっては構造化された情報を複数のObservation, DocumentReference, Binaryなどのリソースで記述し、section.entry要素から内部参照できるほか、測定者や測定システムをそれぞれPractitionerリソースやDeviceリソースで記述し、section.author要素から内部参照できる。これらは任意要素である。
 
 測定者のPractitionerリソース、測定システムのDeviceリソースの仕様を、それぞれ次の表で示す。
 
@@ -299,5 +303,10 @@ DocumentReferenceリソース、Binaryリソースの仕様をそれぞれ次の
 [＜表18 外部参照Binaryリソースの仕様＞](tables.html#表18-外部参照binaryリソースの仕様)
 
 なお、FHIRサーバーへの登録のため、外部ファイルの内容をBinaryリソースないしDocumentReferenceリソース内に内包する。ただし、HTML形式のファイルについては、CDA文書から直接参照されているファイルはDocumentReferenceリソースに内包されるものの、そこからさらに参照されているファイルについては内包の対象外となることに注意すること。
+
+### 名前空間と識別子
+本実装ガイドで定義された名前空間とその識別子の一覧を次の表で示す。
+
+[＜表1 名前空間一覧＞](namespace.html)
 
 {% include markdown-link-references.md %}

@@ -1,4 +1,4 @@
-### 表11 検査実施者役割PractitionerRoleリソースの仕様
+#### 表11 検査実施者役割PractitionerRoleリソースの仕様
 
 | 要素Lv1 | 要素Lv2 | 要素Lv3 | 多重度 | 型 | 値 | 生理検査レポートCDAとのマッピング<BR>(CD=ClinicalDocument) | 説明 |
 |---|---|---|---|---|---|---|---|
