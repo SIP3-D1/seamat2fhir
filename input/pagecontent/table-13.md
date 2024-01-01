@@ -1,4 +1,4 @@
-#### 表13 Compositionリソースのsectionの仕様
+### 表13 Compositionリソースのsectionの仕様
 
 | 要素Lv1 | 要素Lv2 | 要素Lv3 | 要素Lv4 | 多重度 | 型 | 値 | 生理検査レポートCDAとのマッピング<BR>(CD=ClinicalDocument) | 説明 |
 |---|---|---|---|---|---|---|---|---|

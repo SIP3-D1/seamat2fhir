@@ -52,7 +52,7 @@ menu:
   Home:
     本文: index.html
     リソース表 各表一覧: tables.html
-    名前空間一覧: namespace.md
+    名前空間一覧: namespace.html
     改訂履歴: history.html
   Artifacts: 
     Artifacts: artifacts.html
