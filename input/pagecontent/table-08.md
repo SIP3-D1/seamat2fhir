@@ -2,7 +2,7 @@
 
 | 要素Lv1 | 要素Lv2 | 要素Lv3 | 多重度 | 型 | 値 | 生理検査レポートCDAとのマッピング<BR>(CD=ClinicalDocument) | 説明 |
 |---|---|---|---|---|---|---|---|
-| resourceType |  |  |  | DomainResource | "Organization" | /CD//ClinicalDocument/custodian | Organizationリソースであることを示す。 |
+| resourceType |  |  |  | DomainResource | "Organization" | /CD/custodian | Organizationリソースであることを示す。 |
 | meta |  |  | 1..1 | Meta |  |  |  |
 |  | lastUpdated |  | 1..1 | instant | "2023-12-25T20:21:32+09:00" |  | 最終更新日時。YYYY-MM-DDThh:mm:ss.sss+zz:zz。値は例示。 |
 |  | profile |  | 1..1 | canonical(StructureDefinition) | http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/J<BR>P_Organization_SEAMAT_Custodian |  | 本リソースのプロファイルを識別するURLを指定する。値は固定。 |
