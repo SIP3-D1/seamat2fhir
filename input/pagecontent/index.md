@@ -3,7 +3,7 @@
   <span style="color: black; font-size: 120%;"><<本実装ガイドは、内閣府SIP第3期「統合型ヘルスケアシステムの構築」サブテーマD1の研究開発のひとつとして作成されています。>></span>
 <br>
 
-#### このImplementationガイド(IG)の目的：
+#### 本実装ガイド(IG)の目的
 本実装ガイドは、SEAMATに準拠したデータフォーマットとフォルダ構成でSS-MIX2拡張ストレージに出力された心電図レポートのCDA文書を、FHIRドキュメントに変換する際の各種制約を記述する。
 
 本実装ガイドは、FHIR R4.0.1に従い、JP-Core V1.1.2からの派生プロファイルの実装ガイドとして作成されている。従って、本IGに記述されていないことについては、JP-Core V1.1.2を参照していただきたい。
@@ -107,7 +107,7 @@ SEAMATでは画像データや波形データ、PDFデータ等は別ファイ�
 
 心電図レポート用FHIRドキュメントの全体像を下図に示す。
 
-<img src="ecgReportStructure.png" width="80%"><br clear="all">
+<img src="EKGReportStructure.svg" width="80%"><br clear="all">
 
 type要素が"document"のBundleリソースの中にCompositionをはじめとする各種リソースが内包されており、Compositionリソースのsubject, author, custodian などの固定要素や、各セクションのsection.entry要素などから、構造化されたリソースが各Bundle.entry.fullUrlに記述されたUUIDの値を使用して内部参照されている。一部のリソースは更にそこから参照されている。
 
