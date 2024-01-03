@@ -142,8 +142,8 @@ Compositionリソースは、心電図レポート用FHIRドキュメントにen
 | 15334-6	| 検査時使用薬セクション | 任意 | － |  － |
 | 70004-7	| 検査記述セクション | 任意 | － |  － | 
 | 11524-6	| 心電図コメントセクション | 任意 | － |  － |
-| 29273-0	| 計測値セクション	| 任意 | Observation | 0..* |
-| 64110-0	| 解析結果セクション | 任意 |	Observation | 0..* |
+| 29273-0	| 計測値（生理検査）セクション	| 任意 | Observation | 0..* |
+| 64110-0	| 解析結果（生理検査）セクション | 任意 |	Observation | 0..* |
 | 47045-0	| 検査所見セクション | 任意 | － |  － |
 | 29308-4	| 医師所見セクション | 任意 | － |  － |
 | 78239-1	| 外部参照セクション | 任意 | Binary/DocumentReference | 0..* |	
@@ -190,7 +190,7 @@ Practionerリソース、Deviceリソース、Organizationリソースの仕様�
 #### Composition.event要素
 この心電図レポートの元となった当該医療機関での心電図検査の実施日時を Composition.event.period で示すとともに、実施情報をProcedureリソースで記述し、event.detail要素からはProcedureリソースのリソースIDである “urn:uuid: …” 　を記述することにより内部参照する。 必須要素である。
 
-また、Procedureリソースのperformer.actor要素からは、検査実施者の役割を記述したPractitionerRoleリソース、更にPractitionerRoleリソースのpractitioner要素からは検査実施者の情報を記述したPractitionerリソースをソースIDである “urn:uuid: …” 　を記述することにより内部参照する。これらは任意要素である。
+また、Procedureリソースのperformer.actor要素からは、検査実施者の役割を記述したPractitionerRoleリソース、更にPractitionerRoleリソースのpractitioner要素からは検査実施者の情報を記述したPractitionerリソースをリソースIDである “urn:uuid: …” 　を記述することにより内部参照する。これらは任意要素である。
 
 検査実施情報のProcedureリソース、検査実施者役割のPractitionerRoleリソース、検査実施者のPractitionerリソースの仕様を、それぞれ次の表で示す。
 
@@ -231,7 +231,7 @@ Observationリソースの仕様を次の表で示す。
 
 Observationリソースの仕様を次の表で示す。
 
-[＜表16 測定値／解析結果Observationリソースの仕様＞](tables.html#表16-測定値解析結果observationリソースの仕様)
+[＜表16 測定値／解析結果Observationリソースの仕様＞](tables.html#表16-測定値解析結果observationリソースの仕様)（再掲）
 
 #### 検査項目セクション
 生理機能検査において実施される検査項目を記述する。JLAC、JJ1017、LOINCのいずれかを使用する。
@@ -263,7 +263,7 @@ Observationリソースの仕様を次の表で示す。
 <br>セクションコード：11524-6
 <br>このセクションは任意である。
 
-#### 計測値セクション
+#### 計測値（生理検査）セクション
 検査時に計測した情報や解析結果などをObservationリソースを使用して記述し、section.entry要素からはをそのリソースをリソースIDである “urn:uuid: …” を記述することにより内部参照する。
 また、多くの場合、計測はモダリティで行われるため、Deviceリソースを使用してモダリティ情報を記述し、section.author要素からはDeviceリソースのリソースIDである “urn:uuid: …” 　を記述することにより内部参照する。
 <br>セクションコード：29273-0
@@ -271,16 +271,16 @@ Observationリソースの仕様を次の表で示す。
 
 Observationリソースの仕様を次の表で示す。
 
-[＜表16 測定値／解析結果Observationリソースの仕様＞](tables.html#表16-測定値解析結果observationリソースの仕様)
+[＜表16 測定値／解析結果Observationリソースの仕様＞](tables.html#表16-測定値解析結果observationリソースの仕様)（再掲）
 
-#### 解析結果セクション
+#### 解析結果（生理検査）セクション
 計測値や解析により得られた数値類ではなく自動解析コードなどのデータ分析結果をObservationリソースを使用して記述し、section.entry要素からはをそのリソースをリソースIDである “urn:uuid: …” を記述することにより内部参照する。
 <br>セクションコード：64110-0
 <br>このセクションは任意である。
 
 Observationリソースの仕様を次の表で示す。
 
-[＜表16 測定値／解析結果Observationリソースの仕様＞](tables.html#表16-測定値解析結果observationリソースの仕様)
+[＜表16 測定値／解析結果Observationリソースの仕様＞](tables.html#表16-測定値解析結果observationリソースの仕様)（再掲）
 
 #### 検査所見セクション
 心電図検査における検査所見を記述するのに使用する。
@@ -304,9 +304,9 @@ DocumentReferenceリソース、Binaryリソースの仕様をそれぞれ次の
 
 なお、FHIRサーバーへの登録のため、外部ファイルの内容をBinaryリソースないしDocumentReferenceリソース内に内包する。ただし、HTML形式のファイルについては、CDA文書から直接参照されているファイルはDocumentReferenceリソースに内包されるものの、そこからさらに参照されているファイルについては内包の対象外となることに注意すること。
 
-### 名前空間と識別子
-本実装ガイドで定義された名前空間とその識別子の一覧を次の表で示す。
+### 名前空間、コードシステム、値リストと識別子
+本実装ガイドで定義された名前空間、コードシステム、値リストとその識別子の一覧を次の表で示す。
 
-[＜表1 名前空間一覧＞](namespace.html)
+[＜表19 名前空間一覧＞](namespace.html)
 
 {% include markdown-link-references.md %}
