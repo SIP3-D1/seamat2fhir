@@ -1,4 +1,6 @@
 
+{% include table-legend.md %}
+
 {% include table-01.md %}
 
 {% include table-02.md %}
