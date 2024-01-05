@@ -160,193 +160,240 @@ and authoringOrganization 0..1 MS
 * section.author ..1 MS
 * section.author only Reference(JP_Practitioner_SEAMAT_Measurer or JP_Device_SEAMAT_Measurer)
 
-* section ^slicing.discriminator.type = #value
-* section ^slicing.discriminator.path = "code.coding.code"
+* section ^slicing.discriminator[+].type = #value
+* section ^slicing.discriminator[=].path = "code.coding.system"
+* section ^slicing.discriminator[+].type = #value
+* section ^slicing.discriminator[=].path = "code.coding.code"
 * section ^slicing.rules = #open
 * section contains
-        additional 0..1 MS    // 患者付帯情報
-    and history 0..1 MS // 既往歴
-    and subjective 0..1 MS // 自覚症状
-	and usedDrug 0..1 MS  // 検査時使用薬
-    and examDescription 0..1 MS  //  検査記述
-    and ekgComment 0..1    MS  //  心電図コメント
-    and measurement 0..1 MS // 計測値（生理検査）
-    and analysis 0..1 MS // 解析結果（生理検査）
-    and ekgFinding 0..1 MS // 超音波所見
-    and examFinding 0..1 MS // 検査所見
-    and doctorFinding 0..1 MS // 医師所見
-    and external 0..1 MS // 外部参照
+        loinc 0..* MS // LOINC
+    and loinc/additional 0..1 MS    // 患者付帯情報
+    and loinc/history 0..1 MS // 既往歴
+    and loinc/subjective 0..1 MS // 自覚症状
+	and loinc/usedDrug 0..1 MS  // 検査時使用薬
+    and loinc/examDescription 0..1 MS  //  検査記述
+    and loinc/ekgComment 0..1    MS  //  心電図コメント
+    and loinc/measurement 0..1 MS // 計測値（生理検査）
+    and loinc/analysis 0..1 MS // 解析結果（生理検査）
+    and loinc/ekgFinding 0..1 MS // 超音波所見
+    and loinc/examFinding 0..1 MS // 検査所見
+    and loinc/doctorFinding 0..1 MS // 医師所見
+    and loinc/external 0..1 MS // 外部参照
+    and jlac10 0..* MS // JLAC10
+    and jj1017 0..* MS // JJ1017
 
-* section.title ^short = "セクションタイトル"
-* section.title ^definition = "セクションタイトル。固定値。"
-* section.code 1.. MS
-* section.code ^short = "セクション区分コード"
-* section.code ^definition = "セクション区分コード"
-* section.code.coding 1..1 MS
-* section.code.coding.system ^short = "セクション区分コードのコード体系"
-* section.code.coding.system ^definition = "セクション区分コードのコード体系を識別するURI。固定値。"
-* section.code.coding.code 1.. MS
-* section.code.coding.code ^short = "セクション区分のコード値"
-* section.code.coding.code ^definition = "セクション区分のコード値。\r\n固定値。"
-* section.code.coding.display ^short = "セクション区分コードの表示名"
-* section.code.coding.display ^definition = "セクション区分コードの表示名。"
-* section.code.coding.display MS
-* section.code.coding.userSelected ..0
-* section.text ^short = "このセクションに含められるすべてのテキスト（叙述的記述）表現"
-* section.text ^definition = "本セクションの内容をテキストで表現した文字列。内容を省略しても構わない。 このデータは人がこのセクションの内容の概略をひと目で把握するためだけに使われるものであり、データ処理対象としてはならない。"
-* section.text MS
-* section.text.status MS
-* section.text.status ^short = "セクションの内容作成状態コード"
-* section.text.status ^definition = "generated | extensions | additional | empty　から　\"additional\" の固定値。このセクションに含められるすべてのentry要素による情報に加えて、それらで表現し尽くせていない情報も含めた完全な叙述表現であることを示す。"
-* section.text.div ^short = "xhtml簡略形式に従った叙述記述データ"
-* section.text.div ^definition = "本セクションの内容を xhtml 形式のテキストで表現した文字列。内容を省略しても構わない。 \r\nこのデータは人がこのセクションの内容の概略をひと目で把握するためだけに使われるものであり、データ処理対象としてはならない。\r\nテキストは構造化された情報から自動的にシステムが生成したものとし、それ以上に情報を追加してはならない。"
-* section.mode ..0
-* section.orderedBy ..0
+* section[loinc].title 1.. MS
+* section[loinc].title ^short = "セクションタイトル"
+* section[loinc].title ^definition = "セクションタイトル。固定値。"
+* section[loinc].code 1.. MS
+* section[loinc].code ^short = "セクション区分コード"
+* section[loinc].code ^definition = "セクション区分コード"
+* section[loinc].code.coding 1..1 MS
+* section[loinc].code.coding from $JP_Composition_EKGReport_SectionCode_VS (required)
+* section[loinc].code.coding.system 1.. MS
+* section[loinc].code.coding.system = $JP_Composition_SEAMAT_SectionCode_CS (exactly)
+* section[loinc].code.coding.system ^short = "セクション区分コードのコード体系"
+* section[loinc].code.coding.system ^definition = "セクション区分コードのコード体系を識別するURI。固定値。"
+* section[loinc].code.coding.code 1.. MS
+* section[loinc].code.coding.code ^short = "セクション区分のコード値"
+* section[loinc].code.coding.code ^definition = "セクション区分のコード値。\r\n固定値。"
+* section[loinc].code.coding.display ^short = "セクション区分コードの表示名"
+* section[loinc].code.coding.display ^definition = "セクション区分コードの表示名。"
+* section[loinc].code.coding.display MS
+* section[loinc].code.coding.userSelected ..0
+* section[loinc].text ^short = "このセクションに含められるすべてのテキスト（叙述的記述）表現"
+* section[loinc].text ^definition = "本セクションの内容をテキストで表現した文字列。内容を省略しても構わない。 このデータは人がこのセクションの内容の概略をひと目で把握するためだけに使われるものであり、データ処理対象としてはならない。"
+* section[loinc].text MS
+* section[loinc].text.status MS
+* section[loinc].text.status = #additional (exactly)
+* section[loinc].text.status ^short = "セクションの内容作成状態コード"
+* section[loinc].text.status ^definition = "generated | extensions | additional | empty　から　\"additional\" の固定値。このセクションに含められるすべてのentry要素による情報に加えて、それらで表現し尽くせていない情報も含めた完全な叙述表現であることを示す。"
+* section[loinc].text.div ^short = "xhtml簡略形式に従った叙述記述データ"
+* section[loinc].text.div ^definition = "本セクションの内容を xhtml 形式のテキストで表現した文字列。内容を省略しても構わない。 \r\nこのデータは人がこのセクションの内容の概略をひと目で把握するためだけに使われるものであり、データ処理対象としてはならない。\r\nテキストは構造化された情報から自動的にシステムが生成したものとし、それ以上に情報を追加してはならない。"
+* section[loinc].mode ..0
+* section[loinc].orderedBy ..0
 
 // 患者付帯情報
-* section[additional] ^short = "患者付帯情報セクション"
-* section[additional] ^definition = "患者付帯情報セクション"
-* section[additional].title = "患者付帯情報" (exactly)
-* section[additional].code.coding from $JP_Composition_EKGReport_SectionCode_VS (required)
-* section[additional].code.coding.system = $JP_Composition_SEAMAT_SectionCode_CS (exactly)
-* section[additional].code.coding.code = #52460-3 (exactly)
-* section[additional].code.coding.display = "患者付帯情報セクション"
-* section[additional].entry 1..
-* section[additional].entry only Reference(JP_Observation_SEAMAT)
-* section[additional].entry ^short = "患者付帯情報の構造化情報"
-* section[additional].entry ^definition = "患者付帯情報の構造化情報"
-* section[additional].text.status = #additional (exactly)
-* section[additional].emptyReason ..1
+* section[loinc/additional] ^short = "患者付帯情報セクション"
+* section[loinc/additional] ^definition = "患者付帯情報セクション"
+* section[loinc/additional].title = "患者付帯情報" (exactly)
+* section[loinc/additional].code.coding.code = #52460-3 (exactly)
+* section[loinc/additional].code.coding.display = "患者付帯情報セクション"
+* section[loinc/additional].entry 1..
+* section[loinc/additional].entry only Reference(JP_Observation_SEAMAT)
+* section[loinc/additional].entry ^short = "患者付帯情報の構造化情報"
+* section[loinc/additional].entry ^definition = "患者付帯情報の構造化情報"
+* section[loinc/additional].emptyReason ..1
+//　検査項目(JLAC10)
+* section[jlac10] ^short = "検査項目セクション(JLAC10)"
+* section[jlac10] ^definition = "検査項目セクション(JLAC10)"
+* section[jlac10].title 1.. MS
+* section[jlac10].title = "検査項目" (exactly)
+* section[jlac10].title ^short = "セクションタイトル"
+* section[jlac10].title ^definition = "セクションタイトル。固定値。"
+* section[jlac10].code 1.. MS
+* section[jlac10].code ^short = "セクション区分コード"
+* section[jlac10].code ^definition = "セクション区分コード"
+* section[jlac10].code.coding 1..1 MS
+* section[jlac10].code.coding.system 1.. MS
+* section[jlac10].code.coding.system = $JLAC10 (exactly)
+* section[jlac10].code.coding.system ^short = "セクション区分コードのコード体系"
+* section[jlac10].code.coding.system ^definition = "セクション区分コードのコード体系を識別するURI。固定値。"
+* section[jlac10].code.coding.code 1.. MS
+* section[jlac10].code.coding.code ^short = "セクション区分のコード値"
+* section[jlac10].code.coding.code ^definition = "セクション区分のコード値。\r\n固定値。"
+* section[jlac10].code.coding.display = "検査項目セクション"
+* section[jlac10].code.coding.display ^short = "セクション区分コードの表示名"
+* section[jlac10].code.coding.display ^definition = "セクション区分コードの表示名。"
+* section[jlac10].code.coding.display MS
+* section[jlac10].code.coding.userSelected ..0
+* section[jlac10].code.text ..0
+* section[jlac10].text ^short = "このセクションに含められるすべてのテキスト（叙述的記述）表現"
+* section[jlac10].text ^definition = "本セクションの内容をテキストで表現した文字列。内容を省略しても構わない。 このデータは人がこのセクションの内容の概略をひと目で把握するためだけに使われるものであり、データ処理対象としてはならない。"
+* section[jlac10].text MS
+* section[jlac10].text.status MS
+* section[jlac10].text.status = #additional (exactly)
+* section[jlac10].text.status ^short = "セクションの内容作成状態コード"
+* section[jlac10].text.status ^definition = "generated | extensions | additional | empty　から　\"additional\" の固定値。このセクションに含められるすべてのentry要素による情報に加えて、それらで表現し尽くせていない情報も含めた完全な叙述表現であることを示す。"
+* section[jlac10].text.div ^short = "xhtml簡略形式に従った叙述記述データ"
+* section[jlac10].text.div ^definition = "本セクションの内容を xhtml 形式のテキストで表現した文字列。内容を省略しても構わない。 \r\nこのデータは人がこのセクションの内容の概略をひと目で把握するためだけに使われるものであり、データ処理対象としてはならない。\r\nテキストは構造化された情報から自動的にシステムが生成したものとし、それ以上に情報を追加してはならない。"
+* section[jlac10].mode ..0
+* section[jlac10].orderedBy ..0
+* section[jlac10].entry ..0
+
+//　検査項目(JJ1017)
+* section[jj1017] ^short = "検査項目セクション(JJ1017)"
+* section[jj1017] ^definition = "検査項目セクション(JJ1017)"
+* section[jj1017].title 1.. MS
+* section[jj1017].title = "検査項目" (exactly)
+* section[jj1017].title ^short = "セクションタイトル"
+* section[jj1017].title ^definition = "セクションタイトル。固定値。"
+* section[jj1017].code 1.. MS
+* section[jj1017].code ^short = "セクション区分コード"
+* section[jj1017].code ^definition = "セクション区分コード"
+* section[jj1017].code.coding 1..1 MS
+* section[jj1017].code.coding.system 1.. MS
+* section[jj1017].code.coding.system = $JJ1017 (exactly)
+* section[jj1017].code.coding.system ^short = "セクション区分コードのコード体系"
+* section[jj1017].code.coding.system ^definition = "セクション区分コードのコード体系を識別するURI。固定値。"
+* section[jj1017].code.coding.code 1.. MS
+* section[jj1017].code.coding.code ^short = "セクション区分のコード値"
+* section[jj1017].code.coding.code ^definition = "セクション区分のコード値。\r\n固定値。"
+* section[jj1017].code.coding.display = "検査項目セクション"
+* section[jj1017].code.coding.display ^short = "セクション区分コードの表示名"
+* section[jj1017].code.coding.display ^definition = "セクション区分コードの表示名。"
+* section[jj1017].code.coding.display MS
+* section[jj1017].code.coding.userSelected ..0
+* section[jj1017].code.text ..0
+* section[jj1017].text ^short = "このセクションに含められるすべてのテキスト（叙述的記述）表現"
+* section[jj1017].text ^definition = "本セクションの内容をテキストで表現した文字列。内容を省略しても構わない。 このデータは人がこのセクションの内容の概略をひと目で把握するためだけに使われるものであり、データ処理対象としてはならない。"
+* section[jj1017].text MS
+* section[jj1017].text.status MS
+* section[jj1017].text.status = #additional (exactly)
+* section[jj1017].text.status ^short = "セクションの内容作成状態コード"
+* section[jj1017].text.status ^definition = "generated | extensions | additional | empty　から　\"additional\" の固定値。このセクションに含められるすべてのentry要素による情報に加えて、それらで表現し尽くせていない情報も含めた完全な叙述表現であることを示す。"
+* section[jj1017].text.div ^short = "xhtml簡略形式に従った叙述記述データ"
+* section[jj1017].text.div ^definition = "本セクションの内容を xhtml 形式のテキストで表現した文字列。内容を省略しても構わない。 \r\nこのデータは人がこのセクションの内容の概略をひと目で把握するためだけに使われるものであり、データ処理対象としてはならない。\r\nテキストは構造化された情報から自動的にシステムが生成したものとし、それ以上に情報を追加してはならない。"
+* section[jj1017].mode ..0
+* section[jj1017].orderedBy ..0
+* section[jj1017].entry ..0
 
 //　既往歴
-* section[history] ^short = "既往歴セクション"
-* section[history] ^definition = "既往歴セクション"
-* section[history].title = "既往歴" (exactly)
-* section[history].code.coding from $JP_Composition_EKGReport_SectionCode_VS (required)
-* section[history].code.coding.system = $JP_Composition_SEAMAT_SectionCode_CS (exactly)
-* section[history].code.coding.code = #11348-0 (exactly)
-* section[history].code.coding.display = "既往歴セクション"
-* section[history].text.status = #additional (exactly)
-* section[history].entry ..0
+* section[loinc/history] ^short = "既往歴セクション"
+* section[loinc/history] ^definition = "既往歴セクション"
+* section[loinc/history].title = "既往歴" (exactly)
+* section[loinc/history].code.coding.code = #11348-0 (exactly)
+* section[loinc/history].code.coding.display = "既往歴セクション"
+* section[loinc/history].entry ..0
 
 //　自覚症状
-* section[subjective] ^short = "自覚症状セクション"
-* section[subjective] ^definition = "自覚症状セクション"
-* section[subjective].title = "自覚症状" (exactly)
-* section[subjective].code.coding from $JP_Composition_EKGReport_SectionCode_VS (required)
-* section[subjective].code.coding.system = $JP_Composition_SEAMAT_SectionCode_CS (exactly)
-* section[subjective].code.coding.code = #61150-9 (exactly)
-* section[subjective].code.coding.display = "自覚症状セクション"
-* section[subjective].text.status = #additional (exactly)
-* section[subjective].entry ..0
+* section[loinc/subjective] ^short = "自覚症状セクション"
+* section[loinc/subjective] ^definition = "自覚症状セクション"
+* section[loinc/subjective].title = "自覚症状" (exactly)
+* section[loinc/subjective].code.coding.code = #61150-9 (exactly)
+* section[loinc/subjective].code.coding.display = "自覚症状セクション"
+* section[loinc/subjective].entry ..0
 
 //　検査時使用薬
-* section[usedDrug] ^short = "検査時使用薬セクション"
-* section[usedDrug] ^definition = "検査時使用薬セクション"
-* section[usedDrug].code.coding from $JP_Composition_EKGReport_SectionCode_VS (required)
-* section[usedDrug].code.coding.system = $JP_Composition_SEAMAT_SectionCode_CS (exactly)
-* section[usedDrug].title = "検査時使用薬" (exactly)
-* section[usedDrug].code.coding.code = #15334-6 (exactly)
-* section[usedDrug].code.coding.display = "検査時使用薬セクション"
-* section[usedDrug].text.status = #additional (exactly)
-* section[usedDrug].entry ..0
+* section[loinc/usedDrug] ^short = "検査時使用薬セクション"
+* section[loinc/usedDrug] ^definition = "検査時使用薬セクション"
+* section[loinc/usedDrug].title = "検査時使用薬" (exactly)
+* section[loinc/usedDrug].code.coding.code = #15334-6 (exactly)
+* section[loinc/usedDrug].code.coding.display = "検査時使用薬セクション"
+* section[loinc/usedDrug].entry ..0
 
 //　検査記述
-* section[examDescription] ^short = "検査記述セクション"
-* section[examDescription] ^definition = "検査記述セクション"
-* section[examDescription].title = "検査記述" (exactly)
-* section[examDescription].code.coding from $JP_Composition_EKGReport_SectionCode_VS (required)
-* section[examDescription].code.coding.system = $JP_Composition_SEAMAT_SectionCode_CS (exactly)
-* section[examDescription].code.coding.code = #70004-7 (exactly)
-* section[examDescription].code.coding.display = "検査記述セクション"
-* section[examDescription].text.status = #additional (exactly)
-//* section[examDescription].entry ..0
+* section[loinc/examDescription] ^short = "検査記述セクション"
+* section[loinc/examDescription] ^definition = "検査記述セクション"
+* section[loinc/examDescription].title = "検査記述" (exactly)
+* section[loinc/examDescription].code.coding.code = #70004-7 (exactly)
+* section[loinc/examDescription].code.coding.display = "検査記述セクション"
+//* section[loinc/examDescription].entry ..0
 
 //　心電図コメント
-* section[ekgComment] ^short = "心電図コメントセクション"
-* section[ekgComment] ^definition = "心電図コメントセクション"
-* section[ekgComment].title = "心電図コメント" (exactly)
-* section[ekgComment].code.coding from $JP_Composition_EKGReport_SectionCode_VS (required)
-* section[ekgComment].code.coding.system = $JP_Composition_SEAMAT_SectionCode_CS (exactly)
-* section[ekgComment].code.coding.code = #11524-6 (exactly)
-* section[ekgComment].code.coding.display = "心電図コメントセクション"
-* section[ekgComment].text.status = #additional (exactly)
-* section[ekgComment].entry ..0
+* section[loinc/ekgComment] ^short = "心電図コメントセクション"
+* section[loinc/ekgComment] ^definition = "心電図コメントセクション"
+* section[loinc/ekgComment].title = "心電図コメント" (exactly)
+* section[loinc/ekgComment].code.coding.code = #11524-6 (exactly)
+* section[loinc/ekgComment].code.coding.display = "心電図コメントセクション"
+* section[loinc/ekgComment].entry ..0
 
 // 計測値（生理検査）
-* section[measurement] ^short = "計測値（生理検査）セクション"
-* section[measurement] ^definition = "計測値（生理検査）セクション"
-* section[measurement].title = "計測値" (exactly)
-* section[measurement].code.coding from $JP_Composition_EKGReport_SectionCode_VS (required)
-* section[measurement].code.coding.system = $JP_Composition_SEAMAT_SectionCode_CS (exactly)
-* section[measurement].code.coding.code = #29273-0 (exactly)
-* section[measurement].code.coding.display = "計測値セクション"
-* section[measurement].text.status = #additional (exactly)
-* section[measurement].entry 1..
-* section[measurement].entry ^short = "計測値（生理検査）の構造化情報"
-* section[measurement].entry ^definition = "計測値（生理検査）の構造化情報"
-* section[measurement].entry only Reference(JP_Observation_SEAMAT)
-* section[measurement].emptyReason ..1
+* section[loinc/measurement] ^short = "計測値（生理検査）セクション"
+* section[loinc/measurement] ^definition = "計測値（生理検査）セクション"
+* section[loinc/measurement].title = "計測値" (exactly)
+* section[loinc/measurement].code.coding.code = #29273-0 (exactly)
+* section[loinc/measurement].code.coding.display = "計測値セクション"
+* section[loinc/measurement].entry 1..
+* section[loinc/measurement].entry ^short = "計測値（生理検査）の構造化情報"
+* section[loinc/measurement].entry ^definition = "計測値（生理検査）の構造化情報"
+* section[loinc/measurement].entry only Reference(JP_Observation_SEAMAT)
+* section[loinc/measurement].emptyReason ..1
 
 // 解析結果（生理検査）
-* section[analysis] ^short = "解析結果（生理検査）セクション"
-* section[analysis] ^definition = "解析結果（生理検査）セクション"
-* section[analysis].title = "解析結果" (exactly)
-* section[analysis].code.coding from $JP_Composition_EKGReport_SectionCode_VS (required)
-* section[analysis].code.coding.system = $JP_Composition_SEAMAT_SectionCode_CS (exactly)
-* section[analysis].code.coding.code = #64110-0 (exactly)
-* section[analysis].code.coding.display = "解析結果セクション"
-* section[analysis].text.status = #additional (exactly)
-* section[analysis].entry 1..
-* section[analysis].entry ^short = "解析結果（生理検査）の構造化情報"
-* section[analysis].entry ^definition = "解析結果（生理検査）の構造化情報"
-* section[analysis].entry only Reference(JP_Observation_SEAMAT)
-* section[analysis].emptyReason ..1
+* section[loinc/analysis] ^short = "解析結果（生理検査）セクション"
+* section[loinc/analysis] ^definition = "解析結果（生理検査）セクション"
+* section[loinc/analysis].title = "解析結果" (exactly)
+* section[loinc/analysis].code.coding.code = #64110-0 (exactly)
+* section[loinc/analysis].code.coding.display = "解析結果セクション"
+* section[loinc/analysis].entry 1..
+* section[loinc/analysis].entry ^short = "解析結果（生理検査）の構造化情報"
+* section[loinc/analysis].entry ^definition = "解析結果（生理検査）の構造化情報"
+* section[loinc/analysis].entry only Reference(JP_Observation_SEAMAT)
+* section[loinc/analysis].emptyReason ..1
 
 //　超音波所見
-* section[ekgFinding] ^short = "超音波所見セクション"
-* section[ekgFinding] ^definition = "超音波所見セクション"
-* section[ekgFinding].title = "超音波所見" (exactly)
-* section[ekgFinding].code.coding from $JP_Composition_EKGReport_SectionCode_VS (required)
-* section[ekgFinding].code.coding.system = $JP_Composition_SEAMAT_SectionCode_CS (exactly)
-* section[ekgFinding].code.coding.code = #12131-9 (exactly)
-* section[ekgFinding].code.coding.display = "超音波所見セクション"
-* section[ekgFinding].text.status = #additional (exactly)
-* section[ekgFinding].entry ..0
+* section[loinc/ekgFinding] ^short = "超音波所見セクション"
+* section[loinc/ekgFinding] ^definition = "超音波所見セクション"
+* section[loinc/ekgFinding].title = "超音波所見" (exactly)
+* section[loinc/ekgFinding].code.coding.code = #12131-9 (exactly)
+* section[loinc/ekgFinding].code.coding.display = "超音波所見セクション"
+* section[loinc/ekgFinding].entry ..0
 
 //　検査所見
-* section[examFinding] ^short = "検査所見セクション"
-* section[examFinding] ^definition = "検査所見セクション"
-* section[examFinding].title = "検査所見" (exactly)
-* section[examFinding].code.coding from $JP_Composition_EKGReport_SectionCode_VS (required)
-* section[examFinding].code.coding.system = $JP_Composition_SEAMAT_SectionCode_CS (exactly)
-* section[examFinding].code.coding.code = #47045-0 (exactly)
-* section[examFinding].code.coding.display = "検査所見セクション"
-* section[examFinding].text.status = #additional (exactly)
-* section[examFinding].entry ..0
+* section[loinc/examFinding] ^short = "検査所見セクション"
+* section[loinc/examFinding] ^definition = "検査所見セクション"
+* section[loinc/examFinding].title = "検査所見" (exactly)
+* section[loinc/examFinding].code.coding.code = #47045-0 (exactly)
+* section[loinc/examFinding].code.coding.display = "検査所見セクション"
+* section[loinc/examFinding].entry ..0
 
 //　医師所見
-* section[doctorFinding] ^short = "医師所見セクション"
-* section[doctorFinding] ^definition = "医師所見セクション"
-* section[doctorFinding].title = "医師所見" (exactly)
-* section[doctorFinding].code.coding from $JP_Composition_EKGReport_SectionCode_VS (required)
-* section[doctorFinding].code.coding.system = $JP_Composition_SEAMAT_SectionCode_CS (exactly)
-* section[doctorFinding].code.coding.code = #29308-4 (exactly)
-* section[doctorFinding].code.coding.display = "医師所見セクション"
-* section[doctorFinding].text.status = #additional (exactly)
-* section[doctorFinding].entry ..0
+* section[loinc/doctorFinding] ^short = "医師所見セクション"
+* section[loinc/doctorFinding] ^definition = "医師所見セクション"
+* section[loinc/doctorFinding].title = "医師所見" (exactly)
+* section[loinc/doctorFinding].code.coding.code = #29308-4 (exactly)
+* section[loinc/doctorFinding].code.coding.display = "医師所見セクション"
+* section[loinc/doctorFinding].entry ..0
 
 // 外部参照
-* section[external] ^short = "外部参照セクション"
-* section[external] ^definition = "外部参照セクション"
-//* section[external].title = "外部参照" (exactly)
-* section[external].code.coding from $JP_Composition_EKGReport_SectionCode_VS (required)
-* section[external].code.coding.system = $JP_Composition_SEAMAT_SectionCode_CS (exactly)
-* section[external].code.coding.code = #78239-1 (exactly)
-* section[external].code.coding.display = "外部参照セクション"
-* section[external].text.status = #additional (exactly)
-* section[external].entry 1..
-* section[external].entry ^short = "外部参照の構造化情報"
-* section[external].entry ^definition = "外部参照の構造化情報"
-* section[external].entry only Reference(JP_DocumentReference_SEAMAT or JP_Binary_SEAMAT)
-* section[external].emptyReason ..1
+* section[loinc/external] ^short = "外部参照セクション"
+* section[loinc/external] ^definition = "外部参照セクション"
+//* section[loinc/external].title = "外部参照" (exactly)
+* section[loinc/external].code.coding.code = #78239-1 (exactly)
+* section[loinc/external].code.coding.display = "外部参照セクション"
+* section[loinc/external].entry 1..
+* section[loinc/external].entry ^short = "外部参照の構造化情報"
+* section[loinc/external].entry ^definition = "外部参照の構造化情報"
+* section[loinc/external].entry only Reference(JP_DocumentReference_SEAMAT or JP_Binary_SEAMAT)
+* section[loinc/external].emptyReason ..1
