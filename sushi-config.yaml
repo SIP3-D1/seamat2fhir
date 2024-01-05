@@ -117,6 +117,7 @@ parameters:  # see https://confluence.hl7.org/display/FHIR/Implementation+Guide+
     - http://jpfhir.jp/fhir/SEAMAT/CodeSystem/JP_Composition_SEAMAT_SectionCode_CS
     - http://jpfhir.jp/fhir/SEAMAT/CodeSystem/JP_Composition_EKGReport_DocumentType_CS
     - http://jpfhir.jp/fhir/SEAMAT/CodeSystem/JP_Procedure_SEAMAT_Category_CS
+    - http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Composition_EKGReport_DocumentType_VS
     - http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Composition_EKGReport_SectionCode_VS
     - http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Procedure_EKGReport_Category_VS
   
