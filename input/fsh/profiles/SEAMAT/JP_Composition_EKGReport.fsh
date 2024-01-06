@@ -154,7 +154,7 @@ and authoringOrganization 0..1 MS
 * event.period.end ^definition = "心電図検査を終了した日時。"
 * event.detail 1.. MS
 * event.detail ^short = "心電図検査実施情報"
-* event.detail ^definition = "心電図レポートの対象の検査の実施情報。SS-MIX2拡張ストレージのコンテンツフォルダ名に含まれるキー情報を記述する。"
+* event.detail ^definition = "心電図検査レポートの対象の検査の実施情報。SS-MIX2拡張ストレージのコンテンツフォルダ名に含まれるキー情報を記述する。"
 * event.detail only Reference(JP_Procedure_SEAMAT)
 
 * section.author ..1 MS

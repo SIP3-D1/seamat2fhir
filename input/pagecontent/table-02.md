@@ -40,7 +40,7 @@
 |  |  | reference |  | 0..1 | string | "urn:uuid:e6597c74-c7e0-46ba-85fd-826eab41b01f" |  | 文書内容責任者PractitionerリソースのfullUrl要素に指定されるUUIDを指定。値は例示。 |
 | custodian |  |  |  | 0..1 | Reference(Organization) |  | /CD/custodian | 文書の作成・修正を行い、文書の管理責任を持つ機関（Organizationリソース）への参照。 |
 |  | reference |  |  | 0..1 | string | "urn:uuid:6cd03543-6a5b-4396-ab12-cd3b78171e0c" |  | custodianに対応するOrganizationリソースのfullUrl要素に指定されるUUIDを指定。値は例示。 |
-| event |  |  |  | 0..* | BackboneElement |  | /CD/documentationOf | 心電図レポートの元になった心電図検査の実施情報 |
+| event |  |  |  | 0..* | BackboneElement |  | /CD/documentationOf | 心電図検査レポートの元になった心電図検査の実施情報 |
 |  | code |  |  | 0..* | CodeableConcept |  | /CD/documentationOf/serviceEvent/code |  |
 |  | period |  |  | 0..1 | Period |  | /CD/documentationOf/serviceEvent/<BR>effectiveTime | 心電図検査の実施期間 |
 |  |  | start |  | 0..1 |  | "2023-12-05T13:49:04+09:00" | /CD/documentationOf/serviceEvent/<BR>effectiveTime/@low | 心電図検査の開始日時 |
@@ -59,4 +59,4 @@
 | section |  |  |  | 0..1 | Observation | 解析結果セクション |  | 計測値や解析により得られた数値類ではなく自動解析コードなどのデータ分析結果の分類コードをObservationリソースを使用して記述する。 |
 | section |  |  |  | 0..1 | － | 検査所見セクション |  | 心電図検査における検査所見を記述するのに使用する。 |
 | section |  |  |  | 0..1 | － | 医師所見セクション |  | 医師所見を記述するのに使用する。各検査データの判読結果として記述を想定している。 |
-| section |  |  |  | 0..1 | DocumentReference \| Binary | 外部参照セクション |  | 心電図レポートに付加される検査データ（波形、画像、結果PDFなど）、レポート（HTML形式など）、添付ファイル（シェーマや描画ファイル）への外部参照情報を記述する。画像データについてはBinaryリソースを使用して記述し、それ以外の文書データについてはDocumentResourceリソースを使用して記述する。 |
+| section |  |  |  | 0..1 | DocumentReference \| Binary | 外部参照セクション |  | 心電図検査レポートに付加される検査データ（波形、画像、結果PDFなど）、レポート（HTML形式など）、添付ファイル（シェーマや描画ファイル）への外部参照情報を記述する。画像データについてはBinaryリソースを使用して記述し、それ以外の文書データについてはDocumentResourceリソースを使用して記述する。 |

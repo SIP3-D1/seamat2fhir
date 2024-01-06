@@ -16,9 +16,9 @@
 | category |  |  |  |  | 0..* | CodeableConcept |  |  |  |
 | code |  |  |  |  | 1..1 | CodeableConcept |  | /CD/component/structuredBody/component/<BR>section/entry/observation/code | 検査・観察の項目コード。 |
 |  | coding |  |  |  | 1..1 | Coding |  |  |  |
-|  |  | system |  |  | 1..1 | uri | "http://loinc.org" |  |  |
-|  |  | code |  |  | 1..1 | code | "30525-0" |  |  |
-|  |  | display |  |  | 0..1 | string | "年齢" |  |  |
+|  |  | system |  |  | 1..1 | uri | "http://loinc.org" |  | 値は例示。 |
+|  |  | code |  |  | 1..1 | code | "30525-0" |  | 値は例示。 |
+|  |  | display |  |  | 0..1 | string | "年齢" |  | 値は例示。 |
 | subject |  |  |  |  | 0..1 | Reference(Patient) |  |  |  |
 |  | reference |  |  |  | 1..1 | string | "urn:uuid:77fbc1a7-8e7e-494c-9763-6545a73afcc4" |  | PatientリソースのfullUrl要素に指定されるUUIDを指定。値は例示。 |
 | value[x] |  |  |  |  | 0..1 |  |  | /CD/component/structuredBody/component/<BR>section/entry/observation/value | 検査結果や観察結果。11通りのいずれかの子要素のひとつを選択して、それにより記述する。複数を選択はできない。value要素は記述しないで、直接valueQuantity要素などのレベルを記述する。 |

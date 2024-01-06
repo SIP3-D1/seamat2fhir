@@ -18,7 +18,7 @@
 | content |  |  | 1..* | BackboneElement |  |  | 参照されるドキュメントとフォーマット。 |
 |  | attachment |  | 1..1 | Attachment |  |  | ドキュメントまたはドキュメントの URL と、コンテンツの整合性を証明する重要なメタデータ。 |
 |  |  | contentType | 0..1 | code | "application/pdf" | /CD/component/structuredBody/component/<BR>section/entry/observation/reference/<BR>externalDocument/text/@mediaType | コンテンツのMIMEタイプ。値は例示。 |
-|  |  | data | 0..1 | base64Binary | "JVBERi0xLjcKCjQgMCBvYmoKKElkZW50aXR5KQplb..." | /CD/<リンク先の外部データ本体> | 内包されたデータ。値は例示。 |
+|  |  | data | 0..1 | base64Binary | "JVBERi0xLjcKCjQgMCBvYmoKKElkZW50aXR5KQplb..." |  | 内包されたデータ。値は例示。 |
 |  |  | url | 0..1 | url | "99999999134904_PDF\99999999134904.PDF" | /CD/component/structuredBody/component/<BR>section/entry/observation/reference/<BR>externalDocument/reference/@value | データの格納先のURL。 |
 |  |  | hash | 0..1 | base64Binary | "dEZg98P5t76fcYjcVa9JK3Fo0jg=" | /CD/component/structuredBody/component/<BR>section/entry/observation/reference/<BR>externalDocument/text/@integrityCheck | データのSHA-1ハッシュ値。値は例示。 |
 |  | format |  | 0..1 | Coding |  | /CD/component/structuredBody/component/<BR>section/entry/observation/reference/<BR>externalDocument/code | ドキュメントのフォーマット。 |
