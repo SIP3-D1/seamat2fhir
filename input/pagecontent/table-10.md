@@ -28,6 +28,7 @@
 | identifier |  |  |  | 1..1 | Identifier |  |  | この文書の文書ID。 |
 |  | system |  |  | 1..1 | uri | "http://jpfhir.jp/fhir/core/IdSystem/documentInsta<BR>nce-identifier" |  | 文書IDに対する名前空間識別子。固定値。 |
 |  | value |  |  | 1..1 | string | "1234567890_20231205_LJCS-100D_20231205101112.94.1<BR>4239.1002_20231205112233_100_1" |  | 文書IDの文字列。値は例示。 |
+| status |  |  |  | 1..1 | code | "completed" |  | 検査のステータスを表すコード。固定値。 |
 | category |  |  |  | 1..1 | CodeableConcept |  |  |  |
 |  | coding |  |  | 1..1 | Coding |  |  |  |
 |  |  | system |  | 1..1 | uri | "http://jpfhir.jp/fhir/SEAMAT/CodeSystem/JP_Servic<BR>eRequest_Category_SEAMAT_DataType_CS" |  |  |
