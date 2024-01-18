@@ -24,7 +24,7 @@ Description: "このプロファイルはBinaryリソースに対して、外部
 * contentType ^definition = "MimeType of the binary content represented as a standard MimeType (BCP 13).\r\n
 【CDA項目】/ClinicalDocument/component/structuredBody/component/section/entry/observationMedia/value/@mediaType"
 
-* securityContext ..0
+//* securityContext ..0
 
 * data 1..1 MS
 * data ^definition = "The actual content, base64 encoded.\r\n

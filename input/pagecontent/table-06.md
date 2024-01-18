@@ -9,9 +9,6 @@
 | identifier |  | 0..1 | Identifier |  | /CD/author/assignedAuthor/id | 作成システムのID |
 |  | system | 1..1 | uri | "http://jpfhir.jp/fhir/core/IdSystem/resourceInsta<BR>nce-identifier" |  | 作成すステムIDに対する名前空間識別子。固定値。 |
 |  | value | 1..1 | string | "1234678" |  | 作成システムIDの文字列。値は例示。 |
-| identifier |  | 1..1 | Identifier |  |  | この文書の文書ID。 |
-|  | system | 1..1 | uri | "http://jpfhir.jp/fhir/core/IdSystem/documentInsta<BR>nce-identifier" |  | 文書IDに対する名前空間識別子。固定値。 |
-|  | value | 1..1 | string | "1234567890_20231205_LJCS-100D_20231205101112.94.1<BR>4239.1002_20231205112233_100_1" |  | 文書IDの文字列。値は例示。 |
 | status |  | 0..1 | code | active |  | 作成システムのレコードがアクティブかどうか。固定値。 |
 | manufacturer |  | 0..1 | string | "FUKUDA DENSHI Corp." | /CD/author/assignedAuthor/<BR>representedOrganization/name | 作成システムの製造メーカーの名称。値は例示。 |
 | deviceName |  | 0..1 | BackboneElement |  |  |  |
@@ -20,4 +17,3 @@
 | deviceName |  | 0..1 | BackboneElement |  |  |  |
 |  | name | 1..1 | string | "ResultSender" | /CD/author/assignedAuthor/<BR>assignedAuthoringDevice/softwareName | 作成システムのソフトウェア名。値は例示。 |
 |  | type | 1..1 | code | "other" |  | デバイス名の種類。バリューセット（"http://hl7.org/fhir/ValueSet/device-nametype"）からその他を表す"other"を固定で設定する。 |
-

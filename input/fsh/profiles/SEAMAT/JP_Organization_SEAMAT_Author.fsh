@@ -27,17 +27,17 @@ Description: "このプロファイルはOrganizationリソースに対して、
 * identifier ^slicing.rules = #open
 * identifier contains 
      resourceId 0..1 MS
- and bundleId 1..1 MS
+// and bundleId 0..1 MS
 
 * identifier[resourceId] ^definition = "Identifier for the organization that is used to identify the organization across multiple disparate systems.\r\n\r\n複数の異種システムにまたがって組織を識別するための識別子\r\n
 【CDA項目】/ClinicalDocument/author/assignedAuthor/representedOrganization/id"
 * identifier[resourceId].system = $resource_identifier (exactly)
 * identifier[resourceId].value 1..1 MS
 
-* identifier[bundleId] ^short = "文書Bundleの固定識別番号。"
-* identifier[bundleId] ^definition = "文書Bundleの固定識別番号。Bundle.identifier と同じ値を指定する。"
-* identifier[bundleId].system = $document_identifier (exactly)
-* identifier[bundleId].value 1..1 MS
+// * identifier[bundleId] ^short = "文書Bundleの固定識別番号。"
+// * identifier[bundleId] ^definition = "文書Bundleの固定識別番号。Bundle.identifier と同じ値を指定する。"
+// * identifier[bundleId].system = $document_identifier (exactly)
+// * identifier[bundleId].value 1..1 MS
 
 * active = true (exactly)
 
@@ -48,7 +48,7 @@ Description: "このプロファイルはOrganizationリソースに対して、
 * name ^definition = "A name associated with the organization.\r\n\r\n組織に関連付けられた名前。\r\n
 【CDA項目】/ClinicalDocument/author/assignedAuthor/representedOrganization/name"
 
-* alias ..0
+//* alias ..0
 
 * telecom 0..1 MS
 * telecom ^definition = "A contact detail for the organization.\r\n\r\n組織の連絡先詳細\r\n
@@ -62,4 +62,4 @@ Description: "このプロファイルはOrganizationリソースに対して、
 * partOf ^definition = "The organization of which this organization forms a part.\r\nこの組織が一部を構成する組織\r\n
 【CDA項目】/ClinicalDocument/author/assignedAuthor/representedOrganization/asOrganizationPartOf/id"
 
-* endpoint ..0
+//* endpoint ..0

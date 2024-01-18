@@ -20,23 +20,23 @@ Description: "このプロファイルはPractitionerRoleリソースに対し�
 
 * obeys practitionerrole-metaprofile
 
-* identifier 1.. MS
-* identifier ^slicing.discriminator.type = #value
-* identifier ^slicing.discriminator.path = "system"
-* identifier ^slicing.rules = #open
-* identifier contains 
-     resourceId 0..1 MS
- and bundleId 1..1 MS
+// * identifier 1.. MS
+// * identifier ^slicing.discriminator.type = #value
+// * identifier ^slicing.discriminator.path = "system"
+// * identifier ^slicing.rules = #open
+// * identifier contains 
+//      resourceId 0..1 MS
+// // and bundleId 1..1 MS
 
-* identifier[resourceId] ^short = "役割/場所に固有のビジネス識別子" 
-* identifier[resourceId] ^definition = "役割/場所に固有のビジネス識別子。"
-* identifier[resourceId].system = $resource_identifier (exactly)
-* identifier[resourceId].value 1..1 MS
+// * identifier[resourceId] ^short = "役割/場所に固有のビジネス識別子" 
+// * identifier[resourceId] ^definition = "役割/場所に固有のビジネス識別子。"
+// * identifier[resourceId].system = $resource_identifier (exactly)
+// * identifier[resourceId].value 1..1 MS
 
-* identifier[bundleId] ^short = "文書Bundleの固定識別番号。"
-* identifier[bundleId] ^definition = "文書Bundleの固定識別番号。Bundle.identifier と同じ値を指定する。"
-* identifier[bundleId].system = $document_identifier (exactly)
-* identifier[bundleId].value 1..1 MS
+// * identifier[bundleId] ^short = "文書Bundleの固定識別番号。"
+// * identifier[bundleId] ^definition = "文書Bundleの固定識別番号。Bundle.identifier と同じ値を指定する。"
+// * identifier[bundleId].system = $document_identifier (exactly)
+// * identifier[bundleId].value 1..1 MS
 
 * active = true (exactly)
 
@@ -49,18 +49,18 @@ Description: "このプロファイルはPractitionerRoleリソースに対し�
 * practitioner ^definition = "Practitioner that is able to provide the defined services for the organization.\r\n\r\n組織に定義されたサービスを提供できる医療従事者。\r\n
 【CDA項目】/ClinicalDocument/documentationOf/serviceEvent/performer/assignedEntity"
 
-* organization ..0
+//* organization ..0
 
 * code ..1 MS
 * code from $participation-function (required)
 * code ^definition = "Roles which this practitioner is authorized to perform for the organization.\r\n\r\nこの医療従事者が組織のために実行することを許可されている役割。\r\n
 【CDA項目】/ClinicalDocument/documentationOf/serviceEvent/performer/functionCode"
 
-* specialty ..0
-* location ..0
-* healthcareService ..0
-* telecom ..0
-* availableTime ..0
-* notAvailable ..0
-* availabilityExceptions ..0
-* endpoint ..0
+//* specialty ..0
+//* location ..0
+//* healthcareService ..0
+//* telecom ..0
+//* availableTime ..0
+//* notAvailable ..0
+//* availabilityExceptions ..0
+//* endpoint ..0

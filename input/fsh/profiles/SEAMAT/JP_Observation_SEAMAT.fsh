@@ -39,10 +39,10 @@ Description: "このプロファイルはObservationリソースに対して、S
 * identifier[bundleId].system = $document_identifier (exactly)
 * identifier[bundleId].value 1..1 MS
 
-* basedOn ..0
-* partOf ..0
+//* basedOn ..0
+//* partOf ..0
 * status = #final (exactly)
-* category ..0
+//* category ..0
 
 * code ^definition = "Describes what was observed. Sometimes this is called the observation \"name\".\r\n\r\n検査の内容の説明。検査名称。\r\n
 【CDA項目】/ClinicalDocument/component/structuredBody/component/section/entry/observation/code"
@@ -50,11 +50,11 @@ Description: "このプロファイルはObservationリソースに対して、S
 * subject 1..
 * subject only Reference(JP_Patient_SEAMAT)
 
-* focus ..0
-* encounter ..0
-* effective[x] ..0
-* issued ..0
-* performer ..0
+//* focus ..0
+//* encounter ..0
+//* effective[x] ..0
+//* issued ..0
+//* performer ..0
 
 * value[x] 0..1 MS
 * value[x] ^definition = "The information determined as a result of making the observation, if the information has a simple value.\r\n\r\n検体検査の結果として決定された情報。\r\n
@@ -63,15 +63,15 @@ Description: "このプロファイルはObservationリソースに対して、S
 * dataAbsentReason ^definition = "Provides a reason why the expected value in the element Observation.value[x] is missing.\r\n\r\n検査結果値が欠落している理由。\r\n
 【CDA項目】/ClinicalDocument/component/structuredBody/component/section/entry/observation/value/@nullFlavor"
 
-* interpretation ..0
-* note ..0
-* bodySite ..0
-* method ..0
-* specimen ..0
-* device ..0
-* referenceRange ..0
-* hasMember ..0
-* derivedFrom ..0
+//* interpretation ..0
+//* note ..0
+//* bodySite ..0
+//* method ..0
+//* specimen ..0
+//* device ..0
+//* referenceRange ..0
+//* hasMember ..0
+//* derivedFrom ..0
 
 * component.code ^definition = "Describes what was observed. Sometimes this is called the observation \"code\".\r\n
 【CDA項目】/ClinicalDocument/component/structuredBody/component/section/entry/observation/value/entryRelationship/observation/code"
@@ -80,5 +80,5 @@ Description: "このプロファイルはObservationリソースに対して、S
 * component.dataAbsentReason ^definition = "Provides a reason why the expected value in the element Observation.component.value[x] is missing.\r\n
 【CDA項目】/ClinicalDocument/component/structuredBody/component/section/entry/observation/value/entryRelationship/observation/value/@nullFlavor"
 
-* component.interpretation ..0
-* component.referenceRange ..0
+//* component.interpretation ..0
+//* component.referenceRange ..0

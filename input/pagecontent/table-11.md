@@ -6,10 +6,7 @@
 | meta |  |  | 1..1 | Meta |  |  |  |
 |  | lastUpdated |  | 1..1 | instant | "2023-12-25T20:21:32+09:00" |  | 最終更新日時。YYYY-MM-DDThh:mm:ss.sss+zz:zz。値は例示。 |
 |  | profile |  | 1..1 | canonical(StructureDefinition) | "http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/<BR>JP_PractitionerRole_SEAMAT_Performer" |  | 本リソースのプロファイルを識別するURLを指定する。値は固定。 |
-| identifier |  |  | 1..1 | Identifier |  |  | この文書の文書ID。 |
-|  | system |  | 1..1 | uri | "http://jpfhir.jp/fhir/core/IdSystem/documentInsta<BR>nce-identifier" |  | 文書IDに対する名前空間識別子。固定値。 |
-|  | value |  | 1..1 | string | "1234567890_20231205_LJCS-100D_20231205101112.94.1<BR>4239.1002_20231205112233_100_1" |  | 文書IDの文字列。値は例示。 |
-| active |  |  | 0..1 | boolean | true |  | このPractitionerRoleリソースのレコードがアクティブかどうか。固定値。 |
+| active |  |  | 0..1 | boolean | true |  | アクティブなレコードであることを示す固定値。 |
 | period |  |  | 0..1 | Period |  | /CD/documentationOf/serviceEvent/<BR>effectiveTime | この役割の有効期間 |
 |  | start |  | 0..1 | dateTime | "2023-12-21" | /CD/documentationOf/serviceEvent/<BR>effectiveTime/low | 有効期間の開始日。値は例示。 |
 |  | end |  | 0..1 | dateTime | "2023-12-31" | /CD/documentationOf/serviceEvent/<BR>effectiveTime/high | 有効期間の終了日。値は例示。 |

@@ -13,7 +13,7 @@
 |  |  |  | code | 1..1 | code | "PLAC" |  |  |
 |  |  |  | display | 0..1 | string | "Placer Identifier" |  |  |
 |  | system |  |  | 1..1 | uri | "http://jpfhir.jp/fhir/SEAMAT/IdSystem/placer-orde<BR>r-no" |  |  |
-|  | value |  |  | 0..1 | string |  |  |  |
+|  | value |  |  | 0..1 | string | "14239" |  | 値は例示。 |
 | identifier |  |  |  | 0..1 | Identifier |  |  | <部門管理番号> |
 |  | type |  |  | 1..1 | CodeableConcept |  |  |  |
 |  |  | coding |  | 1..1 | Coding |  |  |  |
@@ -21,17 +21,14 @@
 |  |  |  | code | 1..1 | code | "FILL" |  |  |
 |  |  |  | display | 1..1 | string | "Filler Identifier" |  |  |
 |  | system |  |  | 1..1 | uri | "http://jpfhir.jp/fhir/SEAMAT/IdSystem/filler-orde<BR>r-no" |  |  |
-|  | value |  |  | 0..1 | string |  |  |  |
-| identifier |  |  |  | 0..1 | Identifier |  |  | <データ管理番号> |
-|  | system |  |  | 1..1 | uri | "http://jpfhir.jp/fhir/SEAMAT/IdSystem/filler-data<BR>-no/<部門管理番号>" |  |  |
-|  | value |  |  | 0..1 | string |  |  |  |
-| identifier |  |  |  | 1..1 | Identifier |  |  | この文書の文書ID。 |
-|  | system |  |  | 1..1 | uri | "http://jpfhir.jp/fhir/core/IdSystem/documentInsta<BR>nce-identifier" |  | 文書IDに対する名前空間識別子。固定値。 |
-|  | value |  |  | 1..1 | string | "1234567890_20231205_LJCS-100D_20231205101112.94.1<BR>4239.1002_20231205112233_100_1" |  | 文書IDの文字列。値は例示。 |
+|  | value |  |  | 0..1 | string | "1002" |  | 値は例示。 |
+| identifier |  |  |  | 0..1 | Identifier |  |  | <データ管理番号><BR><部門管理番号> |
+|  | system |  |  | 1..1 | uri | "http://jpfhir.jp/fhir/SEAMAT/IdSystem/filler-data<BR>-no" |  |  |
+|  | value |  |  | 0..1 | string | "1002^94" |  | 「<データ管理番号>^<部門管理番号>」の形式で指定する。値は例示。 |
 | status |  |  |  | 1..1 | code | "completed" |  | 検査のステータスを表すコード。固定値。 |
 | category |  |  |  | 1..1 | CodeableConcept |  |  |  |
 |  | coding |  |  | 1..1 | Coding |  |  |  |
-|  |  | system |  | 1..1 | uri | "http://jpfhir.jp/fhir/SEAMAT/CodeSystem/JP_Servic<BR>eRequest_Category_SEAMAT_DataType_CS" |  |  |
+|  |  | system |  | 1..1 | uri | "http://jpfhir.jp/fhir/SEAMAT/CodeSystem/JP_Servic<BR>eRequest_Category_SEAMAT_DataType_CS" |  | SEAMATで指定されたデータ種別コードとデータフラグを合成したタイプを示す名前識別子。固定値。 |
 |  |  | code |  | 1..1 | code | "LJCS-100D" |  | <データ種別コード><レポート/データフラグ><BR>SEAMATで指定されたデータ種別コードとデータフラグを合成したテキストをセットする。値は例示。 |
 |  |  | display |  | 1..1 | string | "心電図検査データ" |  | データ種別コードとデータフラグの名称を合成したテキストをセットする。値は例示。 |
 | subject |  |  |  | 1..1 | Reference(Patient) |  |  | 患者情報を表すPatientリソースへの参照。 |

@@ -9,9 +9,6 @@
 | identifier |  |  | 0..1 | Identifier |  | /CD/custodian/assignedCustodian/<BR>representedCustodianOrganization/id | この医療機関のID。 |
 |  | system |  | 1..1 | uri | "http://jpfhir.jp/fhir/core/IdSystem/resourceInsta<BR>nce-identifier" |  | 医療機関IDに対する名前空間識別子。固定値。 |
 |  | value |  | 1..1 | string | "1311234567" | /CD/custodian/assignedCustodian/<BR>representedCustodianOrganization/id/<BR>@extension | 医療機関IDの文字列。値は例示。 |
-| identifier |  |  | 1..1 | Identifier |  |  | この文書の文書ID。 |
-|  | system |  | 1..1 | uri | "http://jpfhir.jp/fhir/core/IdSystem/documentInsta<BR>nce-identifier" |  | 文書IDに対する名前空間識別子。固定値。 |
-|  | value |  | 1..1 | string | "1234567890_20231205_LJCS-100D_20231205101112.94.1<BR>4239.1002_20231205112233_100_1" |  | 文書IDの文字列。値は例示。 |
 | active |  |  | 0..1 | boolean | true |  |  |
 | type |  |  | 0..* | CodeableConcept |  |  | 施設種別 |
 |  | coding |  | 1..1 | Coding |  |  |  |
@@ -25,7 +22,7 @@
 |  | use |  | 1..1 | code | "home" | /CD/custodian/assignedCustodian/<BR>representedCustodianOrganization/telecom/<BR>@use | 用途　home \| work \| temp \| old \| mobile。値は例示。 |
 | address |  |  | 0..* | Address |  | /CD/custodian/assignedCustodian/<BR>representedCustodianOrganization/addr | 医療機関の住所。 |
 |  | use |  | 1..1 | code | "home" | /CD/custodian/assignedCustodian/<BR>representedCustodianOrganization/addr/<BR>@use | 用途　home \| work \| temp \| old \| billing |
-|  | text |  | 0..1 | string | "東京都江戸川区南葛西３－１－２" | /CD/custodian/assignedCustodian/<BR>representedCustodianOrganization/addr/<BR>text() | 住所文字列。値は例示。郵便番号は含めない。 |
+|  | text |  | 0..1 | string | "東京都江戸川区南葛西１－２－３" | /CD/custodian/assignedCustodian/<BR>representedCustodianOrganization/addr/<BR>text() | 住所文字列。値は例示。郵便番号は含めない。 |
 |  | line |  | 0..1 | string | "南葛西１－２－３" | /CD/custodian/assignedCustodian/<BR>representedCustodianOrganization/addr/<BR>streetAddressLine | 番地・通り名他。丁目、番地、通り名、マンション名、部屋番号、そのほか住所を構成するcityまでの部分以外のすべての文字列。値は例示。 |
 |  | city |  | 0..1 | string | "江戸川区" | /CD/custodian/assignedCustodian/<BR>representedCustodianOrganization/addr/<BR>city | 市町村郡名、区名、大字名など。丁目や番地などを除く。値は例示。 |
 |  | state |  | 0..1 | string | "東京都" | /CD/custodian/assignedCustodian/<BR>representedCustodianOrganization/addr/<BR>state | 都道府県名で、都道府県の文字を含む。例：東京都　など（「東京」ではなく）。値は例示。 |
