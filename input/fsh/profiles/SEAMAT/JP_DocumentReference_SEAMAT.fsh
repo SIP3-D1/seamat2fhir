@@ -21,7 +21,7 @@ Description: "このプロファイルはDocumentReferenceリソースに対し�
 * obeys documentreference-metaprofile
 
 * masterIdentifier ..0
-* identifier 1.. MS
+* identifier 0.. MS
 * identifier ^slicing.discriminator.type = #value
 * identifier ^slicing.discriminator.path = "system"
 * identifier ^slicing.rules = #open

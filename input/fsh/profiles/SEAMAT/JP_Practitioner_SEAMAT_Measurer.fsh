@@ -20,7 +20,7 @@ Description: "このプロファイルはPractitionerリソースに対して、
 
 * obeys practitioner-measurer-metaprofile
 
-* identifier 1.. MS
+* identifier 0.. MS
 * identifier ^slicing.discriminator.type = #value
 * identifier ^slicing.discriminator.path = "system"
 * identifier ^slicing.rules = #open

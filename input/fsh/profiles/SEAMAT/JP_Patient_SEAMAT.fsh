@@ -20,7 +20,7 @@ Description: "このプロファイルはPatientリソースに対して、SEAMA
 
 * obeys patient-metaprofile
 
-* identifier 2.. MS
+* identifier 1.. MS
 * identifier ^slicing.discriminator.type = #value
 * identifier ^slicing.discriminator.path = "system"
 * identifier ^slicing.rules = #open

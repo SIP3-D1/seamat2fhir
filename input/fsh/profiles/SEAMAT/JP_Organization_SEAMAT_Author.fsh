@@ -21,7 +21,7 @@ Description: "このプロファイルはOrganizationリソースに対して、
 * obeys organization-author-metaprofile
 
 //* identifier ^short = "Identifies this organization  across multiple systems/複数のシステムでこの組織を識別【詳細参照】"
-* identifier 1.. MS
+* identifier 0.. MS
 * identifier ^slicing.discriminator.type = #value
 * identifier ^slicing.discriminator.path = "system"
 * identifier ^slicing.rules = #open

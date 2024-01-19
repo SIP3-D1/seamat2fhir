@@ -25,9 +25,9 @@ Description: "このプロファイルはProcedureリソースに対して、検
 * identifier ^slicing.rules = #open
 * identifier contains
         resourceId 0..1 MS
-    and placerOrderNo 1..1 MS    // オーダ番号
-    and fillerOrderNo 1..1 MS    // 部門管理番号
-    and fillerDataNo 1..1 MS     // データ管理番号
+    and placerOrderNo 0..1 MS    // オーダ番号
+    and fillerOrderNo 0..1 MS    // 部門管理番号
+    and fillerDataNo 0..1 MS     // データ管理番号
 //    and bundleId 1..1 MS
 
 * identifier[resourceId] ^short = "External Identifiers for this procedure" 
