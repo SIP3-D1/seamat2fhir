@@ -45,12 +45,6 @@
 |  | fullUrl | 1..1 | uri | "urn:uuid:4a59093e-b1c3-4c1d-a70c-0b968fac0747" |  | エントリリスト内のリソースを一意に識別するためのUUID。値は例示。 |
 |  | resource | 1..1 | Practitioner |  | documentationOf/serviceEvent/performer/assignedEntity | 文書の元になった検査の実施者の情報。 |
 | entry |  | 0..* | BackboneElement |  |  |  |
-|  | fullUrl | 1..1 | uri | "urn:uuid:58672cea-9be2-4095-84d1-711661f8e8b4" |  | エントリリスト内のリソースを一意に識別するためのUUID。値は例示。 |
-|  | resource | 1..1 | Practitioner |  | component/structuredBody/component/section/author/assignedAuthor/<BR>id, addr, telecom, assignedPerson | 測定値や解析結果の測定者の情報。 |
-| entry |  | 0..* | BackboneElement |  |  |  |
-|  | fullUrl | 1..1 | uri | "urn:uuid:fa0a5511-9e07-4fe0-9505-ebf7c9067e57" |  | エントリリスト内のリソースを一意に識別するためのUUID。値は例示。 |
-|  | resource | 1..1 | Device |  | component/structuredBody/component/section/author/assignedAuthor/<BR>id, assignedAuthoringDevice | 測定値や解析結果の測定システムの情報。 |
-| entry |  | 0..* | BackboneElement |  |  |  |
 |  | fullUrl | 1..1 | uri | "urn:uuid:0321ce31-8088-4ffc-a26c-a707c0b06f57" |  | エントリリスト内のリソースを一意に識別するためのUUID。値は例示。 |
 |  | resource | 1..1 | Observation |  | component/structuredBody/component/section/entry/observation | 年齢、過去の血行再建、術前情報、検査情報などの情報。 |
 | entry |  | 0..* | BackboneElement |  |  |  |

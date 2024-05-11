@@ -107,7 +107,7 @@ parameters:  # see https://confluence.hl7.org/display/FHIR/Implementation+Guide+
     - http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Composition_CCSReport
     - http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Composition_EKGReport
     - http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Binary_SEAMAT
-    - http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Condition_PCI
+    - http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Condition_CCS
     - http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Device_PCI
     - http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Device_SEAMAT_Author
     - http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Device_SEAMAT_Measurer

@@ -1,23 +1,23 @@
-Invariant: condition-pci-metaprofile
+Invariant: condition-ccs-metaprofile
 Description: "meta.profileには、指定したプロファイルのURLの記述が存在しなければならない。"
 Severity: #error
-Expression: "meta.profile.where($this = 'http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Condition_PCI').exists()"
+Expression: "meta.profile.where($this = 'http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Condition_CCS').exists()"
 
 // ==============================
 //   Profile 定義
 // ==============================
-Profile: JP_Condition_PCI
+Profile: JP_Condition_CCS
 Parent: Condition
-Id: jp-condition-pci
+Id: jp-condition-ccs
 Title: "SEAMAT PCI Condiiton Profile"
 Description: "このプロファイルはConditionリソースに対して、心カテレポートのPCI合併症、併存疾患情報、冠危険因子、循環器疾患既往歴を送受信するための基礎となる制約と拡張を定めたものである。"
-* ^url = $JP_Device_PCI
+* ^url = $JP_Device_CCS
 * ^status = #active
 * ^date = "2024-05-08"
 * meta.lastUpdated 1.. MS
 * meta.profile 1.. MS
 
-* obeys condition-pci-metaprofile
+* obeys condition-ccs-metaprofile
 
 * identifier 0.. MS
 * identifier ^slicing.discriminator.type = #value

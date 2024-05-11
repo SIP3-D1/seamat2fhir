@@ -8,7 +8,7 @@ Alias: $condition-clinical = http://terminology.hl7.org/CodeSystem/condition-cli
 Alias: $JP_Binary_SEAMAT = http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Binary_SEAMAT
 Alias: $JP_Bundle_CCSReport = http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Bundle_CCSReport
 Alias: $JP_Bundle_EKGReport = http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Bundle_EKGReport
-Alias: $JP_Condition_PCI = http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Condition_PCI
+Alias: $JP_Condition_CCS = http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Condition_CCS
 Alias: $JP_Composition_CCSReport = http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Composition_CCSReport
 Alias: $JP_Composition_EKGReport = http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Composition_EKGReport
 Alias: $JP_Device_PCI = http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Device_PCI
@@ -42,6 +42,8 @@ Alias: $JP_Procedure_SEAMAT_Category_CS = http://jpfhir.jp/fhir/SEAMAT/CodeSyste
 Alias: $JP_SimpleObservationCategory_CS = http://jpfhir.jp/fhir/core/CodeSystem/JP_SimpleObservationCategory_CS
 
 // ValueSet
+Alias: $JP_Composition_CCSReport_DocumentType_VS = http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Composition_CCSReport_DocumentType_VS
+Alias: $JP_Composition_CCSReport_SectionCode_VS = http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Composition_CCSReport_SectionCode_VS
 Alias: $JP_Composition_EKGReport_DocumentType_VS = http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Composition_EKGReport_DocumentType_VS
 Alias: $JP_Composition_EKGReport_SectionCode_VS = http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Composition_EKGReport_SectionCode_VS
 Alias: $JP_Condition_CCSComorbidityType_VS = http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Condition_CCSComorbidityType_VS
