@@ -37,8 +37,10 @@ dependencies:
 #----------------------------------------
 pages:
   index.md:
+    title: SEAMAT2FHIR仕様  　JP-SEAMAT2FHIR
+  ekg.md:
     title: SEAMAT2FHIR仕様  　JP-SEAMAT2FHIR（心電図検査レポート）
-  index-ccs.md:
+  ccs.md:
     title: SEAMAT2FHIR仕様  　JP-SEAMAT2FHIR（心臓カテーテル検査レポート）
   tables.md:
     title: リソース表 各表一覧
@@ -53,7 +55,8 @@ pages:
 menu:
   Home:
     本文: index.html
-    心臓カテーテル検査レポート: index-ccs.html
+    心電図検査レポート: ekg.html
+    心臓カテーテル検査レポート: ccs.html
     リソース表 各表一覧: tables.html
     名前空間一覧: namespace.html
     改訂履歴: history.html
