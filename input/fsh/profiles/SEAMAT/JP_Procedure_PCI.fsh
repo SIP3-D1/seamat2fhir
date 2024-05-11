@@ -64,8 +64,8 @@ Description: "このプロファイルはProcedureリソースに対して、PCI
 // * followUp ..0
 // * note ..0
 // * focalDevice ..0
-* focalDevice.manupilated ^definition = "PCI処置の使用機器\r\n【CDA項目】PCI処置の81002-8<使用機器>を記述したDeviceリソースを参照する"
-* focalDefice.manupilated only Reference(JP_Device_PCI)
+* focalDevice.manipulated ^definition = "PCI処置の使用機器\r\n【CDA項目】PCI処置の81002-8<使用機器>を記述したDeviceリソースを参照する"
+* focalDefice.manipulated only Reference(JP_Device_PCI)
 // * usedReference ..0
 // * usedCode ..0
 
@@ -87,6 +87,6 @@ Description: "PCI処置のアウトカム詳細情報を記述するための拡
 * . ^short = "PCI処置アウトカム詳細"
 * . ^definition = "PCI処置のアウトカム詳細情報を記述するための拡張。\r\n<Stenosis_Post>,<TimiGrade_Post>を記述したObservationリソースへの参照をReference型で記述する。"
 * url = $JP_Procedure_PCIOutcomeDetail (exactly)
-* value[x] only Reference(JP_Observation_SEAMATtion)
+* value[x] only Reference(JP_Observation_SEAMAT)
 * value[x] ^short = "Observationリソースへの参照"
 
