@@ -28,7 +28,7 @@ Description: "このプロファイルはProcedureリソースに対して、PCI
 
 * code 1..1 MS
 * code.coding.system = $loinc (exactly)
-* code.coding.code = "76642-8" (exactly)
+* code.coding.code = #76642-8 (exactly)
 * code.coding.display = "Percutaneous coronary intervention study" (exactly)
 
 * subject only Reference(JP_Patient_SEAMAT)
@@ -65,7 +65,7 @@ Description: "このプロファイルはProcedureリソースに対して、PCI
 // * note ..0
 // * focalDevice ..0
 * focalDevice.manipulated ^definition = "PCI処置の使用機器\r\n【CDA項目】PCI処置の81002-8<使用機器>を記述したDeviceリソースを参照する"
-* focalDefice.manipulated only Reference(JP_Device_PCI)
+* focalDevice.manipulated only Reference(JP_Device_PCI)
 // * usedReference ..0
 // * usedCode ..0
 
