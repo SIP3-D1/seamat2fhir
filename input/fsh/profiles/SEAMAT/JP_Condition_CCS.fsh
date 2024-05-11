@@ -11,7 +11,7 @@ Parent: Condition
 Id: jp-condition-ccs
 Title: "SEAMAT PCI Condiiton Profile"
 Description: "このプロファイルはConditionリソースに対して、心カテレポートのPCI合併症、併存疾患情報、冠危険因子、循環器疾患既往歴を送受信するための基礎となる制約と拡張を定めたものである。"
-* ^url = $JP_Device_CCS
+* ^url = $JP_Condition_CCS
 * ^status = #active
 * ^date = "2024-05-08"
 * meta.lastUpdated 1.. MS
