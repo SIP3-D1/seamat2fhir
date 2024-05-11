@@ -37,7 +37,9 @@ dependencies:
 #----------------------------------------
 pages:
   index.md:
-    title: SEAMAT2FHIR仕様  　JP-SEAMAT2FHIR
+    title: SEAMAT2FHIR仕様  　JP-SEAMAT2FHIR（心電図検査レポート）
+  index-ccs.md:
+    title: SEAMAT2FHIR仕様  　JP-SEAMAT2FHIR（心臓カテーテル検査レポート）
   tables.md:
     title: リソース表 各表一覧
   namespace.md:
@@ -51,6 +53,7 @@ pages:
 menu:
   Home:
     本文: index.html
+    心臓カテーテル検査レポート: index-ccs.html
     リソース表 各表一覧: tables.html
     名前空間一覧: namespace.html
     改訂履歴: history.html
@@ -96,9 +99,13 @@ parameters:  # see https://confluence.hl7.org/display/FHIR/Implementation+Guide+
   no-validate:
     - '*/hl7.fhir.jp.core'
   special-url:
+    - http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Bundle_CCSReport
     - http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Bundle_EKGReport
+    - http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Composition_CCSReport
     - http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Composition_EKGReport
     - http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Binary_SEAMAT
+    - http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Condition_PCI
+    - http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Device_PCI
     - http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Device_SEAMAT_Author
     - http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Device_SEAMAT_Measurer
     - http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_DocumentReference_SEAMAT
@@ -112,6 +119,8 @@ parameters:  # see https://confluence.hl7.org/display/FHIR/Implementation+Guide+
     - http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Practitioner_SEAMAT_Measurer
     - http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Practitioner_SEAMAT_Performer
     - http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_PractitionerRole_SEAMAT_Performer
+    - http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Procedure_PCI
+    - http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Procedure_PCIOutcomeDetail
     - http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Procedure_SEAMAT
     - http://jpfhir.jp/fhir/SEAMAT/CodeSystem/JP_Composition_SEAMAT_DocumentType_CS
     - http://jpfhir.jp/fhir/SEAMAT/CodeSystem/JP_Composition_SEAMAT_SectionCode_CS
@@ -119,5 +128,11 @@ parameters:  # see https://confluence.hl7.org/display/FHIR/Implementation+Guide+
     - http://jpfhir.jp/fhir/SEAMAT/CodeSystem/JP_Procedure_SEAMAT_Category_CS
     - http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Composition_EKGReport_DocumentType_VS
     - http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Composition_EKGReport_SectionCode_VS
+    - http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Condition_CCSComorbidityType_VS
+    - http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Condition_PCIClinicalStatus_VS
+    - http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Condition_PCIComplicationType_VS
+    - http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Condition_PCICoronaryRiskFactorType_VS
     - http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Procedure_EKGReport_Category_VS
-  
+    - http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Procedure_PCIOutcome_VS
+    - http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Device_PCIDeviceType_VS
+
