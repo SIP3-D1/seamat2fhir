@@ -77,7 +77,7 @@ Description: "このプロファイルはConditionリソースに対して、心
 * code.coding[riskFactor] ^definition = "冠危険因子種別コード。"
 * code.coding[riskFactor] ^comment = "JP_Condition_PCICoronaryRiskFactorType_VSの中から適切なコードを指定する。"
 
-* code.coding[history] from $JP_Condition_PCICoronaryRiskFactorType_VS (required)
+* code.coding[history] from $JP_Condition_CCSCoronaryRiskFactorType_VS (required)
 * code.coding[history].system = $LOINC (exactly)
 * code.coding[history].code 1..
 * code.coding[history] ^short = "循環器疾患既往歴種別コード。【詳細参照】"

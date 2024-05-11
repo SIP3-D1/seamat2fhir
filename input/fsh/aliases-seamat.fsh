@@ -2,6 +2,7 @@ Alias: $composition-clinicaldocument-versionNumber = http://hl7.org/fhir/Structu
 Alias: $organization-type = http://terminology.hl7.org/CodeSystem/organization-type
 Alias: $participation-function = http://terminology.hl7.org/ValueSet/v3-ParticipationFunction
 Alias: $v2-0203 = http://terminology.hl7.org/CodeSystem/v2-0203
+Alias: $condition-clinical = http://terminology.hl7.org/CodeSystem/condition-clinical
 
 // StructureDefinition: Profile, DataType
 Alias: $JP_Binary_SEAMAT = http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Binary_SEAMAT
@@ -45,11 +46,14 @@ Alias: $JP_Composition_EKGReport_DocumentType_VS = http://jpfhir.jp/fhir/SEAMAT/
 Alias: $JP_Composition_EKGReport_SectionCode_VS = http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Composition_EKGReport_SectionCode_VS
 Alias: $JP_Condition_CCSComorbidityType_VS = http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Condition_CCSComorbidityType_VS
 Alias: $JP_Condition_CCSCoronaryRiskFactorType_VS = http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Condition_CCSCoronaryRiskFactorType_VS
-Alias: $JP_Condition_PCIClincalStatus_VS = http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Condition_PCIClinicalStatus_VS
+Alias: $JP_Condition_CCSCadiovascularIllnessHistory_VS = http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Condition_CCSCadiovascularIllnessHistory_VS
+Alias: $JP_Condition_PCIClinicalStatus_VS = http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Condition_PCIClinicalStatus_VS
 Alias: $JP_Condition_PCIComplicationType_VS = http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Condition_PCIComplicationType_VS
 Alias: $JP_Device_PCIDeviceType_VS = http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Procedure_PCIDeviceType_VS
 Alias: $JP_Procedure_EKGReport_Category_VS = http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Procedure_EKGReport_Category_VS
+Alias: $JP_Procedure_PCIBodySite_VS = http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Procedure_PCIBodySite_VS
 Alias: $JP_Procedure_PCIOutcome_VS = http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Procedure_PCIOutcome_VS
+Alias: $JP_Observation_PCIStenosis_VS = http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Observation_PCIStenosis_VS
 Alias: $JP_Observation_PCITimiGrade_VS = http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Observation_PCITimiGrade_VS
 
 // IdSystem

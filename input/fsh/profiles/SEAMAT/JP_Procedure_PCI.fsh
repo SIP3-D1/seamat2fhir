@@ -1,4 +1,4 @@
-Invariant: procedure-metaprofile
+Invariant: procedure-pci-metaprofile
 Description: "meta.profileには、指定したプロファイルのURLの記述が存在しなければならない。"
 Severity: #error
 Expression: "meta.profile.where($this = 'http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Procedure_PCI').exists()"
@@ -17,7 +17,7 @@ Description: "このプロファイルはProcedureリソースに対して、PCI
 * meta.lastUpdated 1.. MS
 * meta.profile 1.. MS
 
-* obeys procedure-metaprofile
+* obeys procedure-pci-metaprofile
 
 //* instantiatesUri ..0
 //* basedOn ..0
