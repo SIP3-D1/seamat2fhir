@@ -4,7 +4,7 @@
 <br>
 
 #### 本実装ガイド(IG)の目的
-本実装ガイドは、SEAMATに準拠したデータフォーマットとフォルダ構成でSS-MIX2拡張ストレージに出力された心電図検査レポートのCDA文書を、FHIRドキュメントに変換する際の各種制約を記述する。
+本実装ガイドは、SEAMATに準拠したデータフォーマットとフォルダ構成でSS-MIX2拡張ストレージに出力された心臓カテーテル検査レポートのCDA文書を、FHIRドキュメントに変換する際の各種制約を記述する。
 
 本実装ガイドは、FHIR R4.0.1に従い、JP-Core V1.1.2からの派生プロファイルの実装ガイドとして作成されている。従って、本実装ガイドに記述されていないことについては、JP-Core V1.1.2を参照していただきたい。
 
@@ -246,7 +246,7 @@ Observationリソースの仕様を次の表で示す。
 
 Conditionリソースの仕様を次の表で示す。
 
-[＜表22 Conditionリソースの仕様（心臓カテーテル検査疾患情報）＞](tables-css.html#表22-conditionリソースの仕様（心臓カテーテル検査疾患情報）)
+[＜表22 Conditionリソースの仕様（心臓カテーテル検査疾患情報）＞](tables.html#表22-conditionリソースの仕様（心臓カテーテル検査疾患情報）)
 
 #### 冠危険因子セクション
 冠動脈に関する危険因子をConditionリソースを使用して記述し、section.entry要素からはをそのリソースをリソースIDである “urn:uuid: …” を記述することにより内部参照する。
@@ -255,7 +255,7 @@ Conditionリソースの仕様を次の表で示す。
 
 Conditionリソースの仕様を次の表で示す。
 
-[＜表22 Conditionリソースの仕様（心臓カテーテル検査疾患情報）＞](tables-css.html#表22-conditionリソースの仕様（心臓カテーテル検査疾患情報）)（再掲）
+[＜表22 Conditionリソースの仕様（心臓カテーテル検査疾患情報）＞](tables.html#表22-conditionリソースの仕様（心臓カテーテル検査疾患情報）)（再掲）
 
 #### 循環器疾患既往歴セクション
 過去の病歴、プロブレム、診断の経歴をConditionリソースを使用して記述し、section.entry要素からはをそのリソースをリソースIDである “urn:uuid: …” を記述することにより内部参照する。
@@ -264,7 +264,7 @@ Conditionリソースの仕様を次の表で示す。
 
 Conditionリソースの仕様を次の表で示す。
 
-[＜表22 Conditionリソースの仕様（心臓カテーテル検査疾患情報）＞](tables-css.html#表22-conditionリソースの仕様（心臓カテーテル検査疾患情報）)（再掲）
+[＜表22 Conditionリソースの仕様（心臓カテーテル検査疾患情報）＞](tables.html#表22-conditionリソースの仕様（心臓カテーテル検査疾患情報）)（再掲）
 
 #### 過去の血行再建セクション
 患者の医療リスクに影響を与える可能性に関する患者の遺伝関係のある親族の情報をObservationリソースを使用して記述し、section.entry要素からはをそのリソースをリソースIDである “urn:uuid: …” を記述することにより内部参照する。
@@ -372,7 +372,7 @@ PCI時に発生した合併症に関する情報をConditionリソースを使�
 
 Conditionリソースの仕様を次の表で示す。
 
-[＜表22 Conditionリソースの仕様（心臓カテーテル検査疾患情報）＞](tables-css.html#表22-conditionリソースの仕様（心臓カテーテル検査疾患情報）)（再掲）
+[＜表22 Conditionリソースの仕様（心臓カテーテル検査疾患情報）＞](tables.html#表22-conditionリソースの仕様（心臓カテーテル検査疾患情報）)（再掲）
 
 #### PCI処置セクション
 PCIで行った処置に関する情報をProcedureリソースを使用して記述し、section.entry要素からはをそのリソースをリソースIDである “urn:uuid: …” を記述することにより内部参照する。
@@ -389,16 +389,16 @@ CDAで構造化されて記述されている各項目ごとの、Procedureリ�
 
 Procedureリソースの仕様を次の表で示す。
 
-[＜表21 Procedureリソースの仕様（PCI処置情報）＞](tables-css.html#表21-procedureリソースの仕様（PCI処置情報）)
+[＜表21 Procedureリソースの仕様（PCI処置情報）＞](tables.html#表21-procedureリソースの仕様（PCI処置情報）)
 
 Procedureリソースから参照されているObservationリソース、Deviceリソースの仕様を次の表で示す。
 
 [＜表16 測定値／解析結果Observationリソースの仕様＞](tables.html#表16-測定値解析結果observationリソースの仕様)（再掲）
-[＜表23 PCI使用機器Deviceリソースの仕様＞](tables-css.html#表23-pci使用機器deviceリソースの仕様)
+[＜表23 PCI使用機器Deviceリソースの仕様＞](tables.html#表23-pci使用機器deviceリソースの仕様)
 
 outcome要素下に対して定義されているJP_Procedure_PCIOutcomeDetail拡張の仕様を次の表で示す。
 
-[＜表24 JP_Procedure_PCIOutcomeDetail拡張の仕様＞](tables-css.html#表24-jp_procedure_pcioutcomedetail拡張の仕様)
+[＜表24 JP_Procedure_PCIOutcomeDetail拡張の仕様＞](tables.html#表24-jp_procedure_pcioutcomedetail拡張の仕様)
 
 #### PCI処置［拡張項目］セクション
 心カテ情報システムの、PCIで行った処置に関する拡張項目情報をObservationリソースを使用して記述し、section.entry要素からはをそのリソースをリソースIDである “urn:uuid: …” を記述することにより内部参照する。
