@@ -1,23 +1,23 @@
-Invariant: bundle-ccsreport-metaprofile
+Invariant: bundle-cathreport-metaprofile
 Description: "meta.profileには、指定したプロファイルのURLの記述が存在しなければならない。"
 Severity: #error
-Expression: "meta.profile.where($this = 'http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Bundle_CCSReport').exists()"
+Expression: "meta.profile.where($this = 'http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Bundle_CATHReport').exists()"
 
 // ==============================
 //   Profile 定義
 // ==============================
-Profile: JP_Bundle_CCSReport
+Profile: JP_Bundle_CATHReport
 Parent: Bundle
-Id: JP-Bundle-ccsreport
-Title: "SEAMAT CCS Report Bundle Profile"
+Id: JP-Bundle-cathreport
+Title: "SEAMAT CATH Report Bundle Profile"
 Description: "SEAMAT心臓カテーテル検査レポートのための文書 Bundleリソース"
-* ^url = $JP_Bundle_CCSReport
+* ^url = $JP_Bundle_CATHReport
 * ^status = #active
 * ^date = "2024-05-11"
 * . ^short = "SEAMAT心臓カテーテル検査レポートのための文書 Bundleリソース"
 * . ^definition = "SEAMAT心臓カテーテル検査レポートのための文書 Bundleリソース"
 
-* obeys bundle-ccsreport-metaprofile
+* obeys bundle-cathreport-metaprofile
 
 * meta.lastUpdated 1.. MS
 * meta.profile 1.. MS
@@ -242,7 +242,7 @@ and pcidevice 0.. MS // PCI使用機器
 * entry[condition].fullUrl ^short = "埋め込まれているConditionリソースを一意に識別するためのUUID"
 * entry[condition].fullUrl ^definition = "埋め込まれているConditionリソースを一意に識別するためのUUID。"
 * entry[condition].resource 1.. MS
-* entry[condition].resource only JP_Condition_CCS
+* entry[condition].resource only JP_Condition_CATH
 * entry[condition].resource ^short = "Conditionリソースのインスタンス本体"
 * entry[condition].resource ^definition = "Conditionリソースのインスタンス本体。"
 * entry[condition].search ..0

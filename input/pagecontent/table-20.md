@@ -5,7 +5,7 @@
 | resourceType |  |  |  |  | "Composition" |  | Compositionリソースであることを示す |
 | meta |  |  | 1..1 | Meta |  |  |  |
 |  | lastUpdated |  | 1..1 | instant | "2023-12-25T20:21:32+09:00" |  | 最終更新日時。YYYY-MM-DDThh:mm:ss.sss+zz:zz。値は例示。 |
-|  | profile |  | 1..1 | canonical(StructureDefinition) | "http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/<BR>JP_Composition_CCSReport" | templateId | 本リソースのプロファイルを識別するURLを指定する。値は固定。 |
+|  | profile |  | 1..1 | canonical(StructureDefinition) | "http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/<BR>JP_Composition_CATHReport" | templateId | 本リソースのプロファイルを識別するURLを指定する。値は固定。 |
 | extension |  |  | 0..1 | Extension |  |  | 文書バージョンを表す拡張「composition-clinicaldocument-versionNumber」。 |
 |  | url |  | 1..1 | uri | "http://hl7.org/fhir/StructureDefinition/compositi<BR>on-clinicaldocument-versionNumber" |  | 拡張を識別するURL。固定値。 |
 |  | valueString |  | 1..1 | string | “1” | versionNumber | 文書のバージョン番号を表す文字列。値は例示。 |

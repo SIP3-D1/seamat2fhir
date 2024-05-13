@@ -1,23 +1,23 @@
-Invariant: composition-ccsreport-metaprofile
+Invariant: composition-cathreport-metaprofile
 Description: "meta.profileには、指定したプロファイルのURLの記述が存在しなければならない。"
 Severity: #error
-Expression: "meta.profile.where($this = 'http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Composition_CCSReport').exists()"
+Expression: "meta.profile.where($this = 'http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Composition_CATHReport').exists()"
 
 // ==============================
 //   Profile 定義
 // ==============================
-Profile: JP_Composition_CCSReport
+Profile: JP_Composition_CATHReport
 Parent: Composition
-Id: JP-Composition-ccsreport
-Title: "SEAMAT CCS Report Composition Profile"
+Id: JP-Composition-cathreport
+Title: "SEAMAT CATH Report Composition Profile"
 Description:  "心臓カテーテル検査レポート情報のリソース構成情報と文書日付に関するCompositionの派生プロファイル"
-* ^url = $JP_Composition_CCSReport
+* ^url = $JP_Composition_CATHReport
 * ^status = #active
 * ^date = "2024-05-11"
 * meta.lastUpdated 1.. MS
 * meta.profile 1.. MS
 
-* obeys composition-ccsreport-metaprofile
+* obeys composition-cathreport-metaprofile
 
 * extension ^slicing.discriminator.type = #value
 * extension ^slicing.discriminator.path = "url"
@@ -52,7 +52,7 @@ Description:  "心臓カテーテル検査レポート情報のリソース構�
 * type ^definition = "documentタイプのうち文書種別"
 * type MS
 * type.coding 1..1 MS
-* type from $JP_Composition_CCSReport_DocumentType_VS (required)
+* type from $JP_Composition_CATHReport_DocumentType_VS (required)
 * type.coding.system = $JP_Composition_SEAMAT_DocumentType_CS (exactly)
 * type.coding.system ^definition = "文書区分コードのコード体系を識別するURI。固定値"
 * type.coding.system MS
@@ -69,7 +69,7 @@ Description:  "心臓カテーテル検査レポート情報のリソース構�
 * category ^short = "文書カテゴリーコード"
 * category ^definition = "文書カテゴリーコード。　心電図検査レポートではtype.coding.codeに記述される文書区分コードと同一。"
 * category.coding 1..1 MS
-* category from $JP_Composition_CCSReport_DocumentType_VS (required)
+* category from $JP_Composition_CATHReport_DocumentType_VS (required)
 * category.coding.system 1.. MS
 * category.coding.system = $JP_Composition_SEAMAT_DocumentType_CS (exactly)
 * category.coding.system ^short = "文書カテゴリコードのコード体系"
@@ -193,7 +193,7 @@ and authoringOrganization 0..1 MS
 * section.code ^short = "セクション区分コード"
 * section.code ^definition = "セクション区分コード"
 * section.code.coding 1..1 MS
-* section.code.coding from $JP_Composition_CCSReport_SectionCode_VS (required)
+* section.code.coding from $JP_Composition_CATHReport_SectionCode_VS (required)
 * section.code.coding.system 1.. MS
 * section.code.coding.system = $JP_Composition_SEAMAT_SectionCode_CS (exactly)
 * section.code.coding.system ^short = "セクション区分コードのコード体系"
@@ -236,7 +236,7 @@ and authoringOrganization 0..1 MS
 * section[comorbidity].code.coding.code = #78923-0 (exactly)
 * section[comorbidity].code.coding.display = "併存疾患情報セクション"
 * section[comorbidity].entry 1..
-* section[comorbidity].entry only Reference(JP_Condition_CCS)
+* section[comorbidity].entry only Reference(JP_Condition_CATH)
 * section[comorbidity].entry ^short = "併存疾患情報の構造化情報"
 * section[comorbidity].entry ^definition = "併存疾患情報の構造化情報"
 * section[comorbidity].emptyReason ..1
@@ -248,7 +248,7 @@ and authoringOrganization 0..1 MS
 * section[riskFactors].code.coding.code = #78940-4 (exactly)
 * section[riskFactors].code.coding.display = "冠危険因子セクション"
 * section[riskFactors].entry 1..
-* section[riskFactors].entry only Reference(JP_Condition_CCS)
+* section[riskFactors].entry only Reference(JP_Condition_CATH)
 * section[riskFactors].entry ^short = "冠危険因子の構造化情報"
 * section[riskFactors].entry ^definition = "冠危険因子の構造化情報"
 * section[riskFactors].emptyReason ..1
@@ -260,7 +260,7 @@ and authoringOrganization 0..1 MS
 * section[history].code.coding.code = #78941-2 (exactly)
 * section[history].code.coding.display = "循環器疾患既往歴セクション"
 * section[history].entry 1..
-* section[history].entry only Reference(JP_Condition_CCS)
+* section[history].entry only Reference(JP_Condition_CATH)
 * section[history].entry ^short = "循環器疾患既往歴の構造化情報"
 * section[history].entry ^definition = "循環器疾患既往歴の構造化情報"
 * section[history].emptyReason ..1
@@ -404,7 +404,7 @@ and authoringOrganization 0..1 MS
 * section[complication].code.coding.code = #78943-8 (exactly)
 * section[complication].code.coding.display = "PCI合併症セクション"
 * section[complication].entry 1..
-* section[complication].entry only Reference(JP_Condition_CCS)
+* section[complication].entry only Reference(JP_Condition_CATH)
 * section[complication].entry ^short = "PCI合併症の構造化情報"
 * section[complication].entry ^definition = "PCI合併症の構造化情報"
 * section[complication].emptyReason ..1
@@ -434,25 +434,25 @@ and authoringOrganization 0..1 MS
 * section[procedureEx].emptyReason ..1
 
 //  PCI処置詳細［拡張項目］
-* section[procDetailEx] ^short = " PCI処置詳細［拡張項目］セクション"
-* section[procDetailEx] ^definition = " PCI処置詳細［拡張項目］セクション"
-* section[procDetailEx].title = " PCI処置詳細［拡張項目］" (exactly)
+* section[procDetailEx] ^short = "PCI処置詳細［拡張項目］セクション"
+* section[procDetailEx] ^definition = "PCI処置詳細［拡張項目］セクション"
+* section[procDetailEx].title = "PCI処置詳細［拡張項目］" (exactly)
 * section[procDetailEx].code.coding.code = #80731-3 (exactly)
-* section[procDetailEx].code.coding.display = " PCI処置詳細［拡張項目］セクション"
+* section[procDetailEx].code.coding.display = "PCI処置詳細［拡張項目］セクション"
 * section[procDetailEx].entry 1..
 * section[procDetailEx].entry only Reference(JP_Observation_SEAMAT)
-* section[procDetailEx].entry ^short = " PCI処置詳細［拡張項目］の構造化情報"
+* section[procDetailEx].entry ^short = "PCI処置詳細［拡張項目］の構造化情報"
 * section[procDetailEx].entry ^definition = "PCI処置詳細［拡張項目］の構造化情報"
 * section[procDetailEx].emptyReason ..1
 
 // PCI処置詳細ステント基本情報［拡張項目］
-* section[procDetailStentEx] ^short = " PCI処置詳細ステント基本情報［拡張項目］セクション"
-* section[procDetailStentEx] ^definition = " PCI処置詳細ステント基本情報［拡張項目］セクション"
-* section[procDetailStentEx].title = " PCI処置詳細ステント基本情報［拡張項目］" (exactly)
+* section[procDetailStentEx] ^short = "PCI処置詳細ステント基本情報［拡張項目］セクション"
+* section[procDetailStentEx] ^definition = "PCI処置詳細ステント基本情報［拡張項目］セクション"
+* section[procDetailStentEx].title = "PCI処置詳細ステント基本情報［拡張項目］" (exactly)
 * section[procDetailStentEx].code.coding.code = #78939-6 (exactly)
-* section[procDetailStentEx].code.coding.display = " PCI処置詳細ステント基本情報［拡張項目］セクション"
+* section[procDetailStentEx].code.coding.display = "PCI処置詳細ステント基本情報［拡張項目］セクション"
 * section[procDetailStentEx].entry 1..
 * section[procDetailStentEx].entry only Reference(JP_Observation_SEAMAT)
-* section[procDetailStentEx].entry ^short = " PCI処置詳細ステント基本情報［拡張項目］の構造化情報"
+* section[procDetailStentEx].entry ^short = "PCI処置詳細ステント基本情報［拡張項目］の構造化情報"
 * section[procDetailStentEx].entry ^definition = "PCI処置詳細ステント基本情報［拡張項目］の構造化情報"
 * section[procDetailStentEx].emptyReason ..1

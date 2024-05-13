@@ -1,23 +1,23 @@
-Invariant: condition-ccs-metaprofile
+Invariant: condition-cath-metaprofile
 Description: "meta.profileには、指定したプロファイルのURLの記述が存在しなければならない。"
 Severity: #error
-Expression: "meta.profile.where($this = 'http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Condition_CCS').exists()"
+Expression: "meta.profile.where($this = 'http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Condition_CATH').exists()"
 
 // ==============================
 //   Profile 定義
 // ==============================
-Profile: JP_Condition_CCS
+Profile: JP_Condition_CATH
 Parent: Condition
-Id: jp-condition-ccs
+Id: jp-condition-cath
 Title: "SEAMAT PCI Condiiton Profile"
 Description: "このプロファイルはConditionリソースに対して、心カテレポートのPCI合併症、併存疾患情報、冠危険因子、循環器疾患既往歴を送受信するための基礎となる制約と拡張を定めたものである。"
-* ^url = $JP_Condition_CCS
+* ^url = $JP_Condition_CATH
 * ^status = #active
 * ^date = "2024-05-08"
 * meta.lastUpdated 1.. MS
 * meta.profile 1.. MS
 
-* obeys condition-ccs-metaprofile
+* obeys condition-cath-metaprofile
 
 * identifier 0.. MS
 * identifier ^slicing.discriminator.type = #value
@@ -63,21 +63,21 @@ Description: "このプロファイルはConditionリソースに対して、心
 * code.coding[complication] ^definition = "PCI合併症種別コード。\r\n【CDA項目】PCI合併症の場合、78937-0<PCI合併症>の値を使用する。"
 * code.coding[complication] ^comment = "JP_Condition_PCIComplicationType_VSの中から適切なコードを指定する。"
 
-* code.coding[comorbidity] from $JP_Condition_CCSComorbidityType_VS (required)
+* code.coding[comorbidity] from $JP_Condition_CATHComorbidityType_VS (required)
 * code.coding[comorbidity].system = $LOINC (exactly)
 * code.coding[comorbidity].code 1..
 * code.coding[comorbidity] ^short = "並存疾患種別コード。【詳細参照】"
 * code.coding[comorbidity] ^definition = "並存疾患種別コード。"
-* code.coding[comorbidity] ^comment = "JP_Condition_CCSComorbidityType_VSの中から適切なコードを指定する。"
+* code.coding[comorbidity] ^comment = "JP_Condition_CATHComorbidityType_VSの中から適切なコードを指定する。"
 
-* code.coding[riskFactor] from $JP_Condition_CCSCoronaryRiskFactorType_VS (required)
+* code.coding[riskFactor] from $JP_Condition_CATHCoronaryRiskFactorType_VS (required)
 * code.coding[riskFactor].system = $LOINC (exactly)
 * code.coding[riskFactor].code 1..
 * code.coding[riskFactor] ^short = "冠危険因子種別コード。【詳細参照】"
 * code.coding[riskFactor] ^definition = "冠危険因子種別コード。"
 * code.coding[riskFactor] ^comment = "JP_Condition_PCICoronaryRiskFactorType_VSの中から適切なコードを指定する。"
 
-* code.coding[history] from $JP_Condition_CCSCoronaryRiskFactorType_VS (required)
+* code.coding[history] from $JP_Condition_CATHCoronaryRiskFactorType_VS (required)
 * code.coding[history].system = $LOINC (exactly)
 * code.coding[history].code 1..
 * code.coding[history] ^short = "循環器疾患既往歴種別コード。【詳細参照】"
