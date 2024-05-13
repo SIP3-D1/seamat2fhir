@@ -1,8 +1,8 @@
-ValueSet: JP_Composition_CCSReport_SectionCode_VS
-Id: jp-composition-ccsreport-sectioncode-vs
-Title: "SEAMAT CCS Report Section Code ValueSet"
+ValueSet: JP_Composition_CATHReport_SectionCode_VS
+Id: jp-composition-cathreport-sectioncode-vs
+Title: "SEAMAT CATH Report Section Code ValueSet"
 Description: "SEAMAT心臓カテーテル検査レポートセクションコード値セット"
-* ^url = $JP_Composition_CCSReport_SectionCode_VS
+* ^url = $JP_Composition_CATHReport_SectionCode_VS
 * ^status = #active
 * ^experimental = false
 * ^date = "2024-05-11"

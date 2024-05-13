@@ -1,16 +1,25 @@
-### 表19 本仕様書で定義された名前空間、コードシステム、バリューセットと識別子の一覧
-
-
-| No | 出現リソース      | 出現要素              | データ型            | 項目名     | 識別子の値                                                                                      | 説明                                        |
-|----|-------------|-------------------|-----------------|---------|--------------------------------------------------------------------------------------------|-------------------------------------------|
-| 1  | 共通          | identifier        | Identifier      | 名前空間    | http://jpfhir.jp/fhir/core/IdSystem/documentInstance-identifier                            | 文書を識別するID                                 |
-| 2  |             | identifier        | Identifier      | 名前空間    | http://jpfhir.jp/fhir/core/IdSystem/resourceInstance-identifier                            | リソースを識別するID                               |
-| 3  | Composition | type<br/>category | CodeableConcept | コードシステム | http://jpfhir.jp/fhir/SEAMAT/CodeSystem/<br/>JP_Composition_SEAMAT_DocumentType_CS         | 文書種別を識別するコードシステム                          |
-| 4  |             |                   |                 | バリューセット | http://jpfhir.jp/fhir/SEAMAT/ValueSet/<br/>JP_Composition_EKGReport_DocumentType_VS        | 心電図レポートで使用する文書種別のバリューセット                  |
-| 5  |             | section.code      | CodeableConcept | コードシステム | http://jpfhir.jp/fhir/SEAMAT/CodeSystem/<br/>JP_Composition_SEAMAT_SectionCode_CS          | セクションを識別するコードシステム                         |
-| 6  |             |                   |                 | バリューセット | http://jpfhir.jp/fhir/SEAMAT/ValueSet/<br/>JP_Composition_EKGReport_SectionCode_VS         | 心電図レポートで使用するセクションコードのバリューセット              |
-| 7  | Procedure   | identifier        | Identifier      | 名前空間    | http://jpfhir.jp/fhir/SEAMAT/IdSystem/placer-order-no                                      | <オーダ番号> : 電子カルテが発番する、施設内でユニークなオーダ単位の値     |
-| 8  |             | identifier        | Identifier      | 名前空間    | http://jpfhir.jp/fhir/SEAMAT/IdSystem/filler-order-no                                      | <部門管理番号> : 検査部門が発番する検査毎にユニークな値            |
-| 9  |             | identifier        | Identifier      | 名前空間    | http://jpfhir.jp/fhir/SEAMAT/IdSystem/filler-data-no/<br/><部門管理番号>                         | <データ管理番号> : データやレポートを識別する同一部門管理番号内でユニークな値 |
-| 10 |             | category          | CodeableConcept | コードシステム | http://jpfhir.jp/fhir/SEAMAT/CodeSystem/<br/>JP_ServiceRequest_Category_SEAMAT_DataType_CS | SEAMATにおいてデータ種別を識別するコードシステム               |
-| 11 |             |                   |                 | バリューセット | http://jpfhir.jp/fhir/SEAMAT/ValueSet/<br/>JP_Procedure_EKGReport_Category_VS              | 心電図レポートで使用するデータ種別のバリューセット                 |
+| No | 出現リソース      | 出現要素                 | データ型            | 項目名     | 識別子の値                                                                                      | 説明                                           |
+|----|-------------|----------------------|-----------------|---------|--------------------------------------------------------------------------------------------|----------------------------------------------|
+| 1  | 共通          | identifier           | Identifier      | 名前空間    | http://jpfhir.jp/fhir/core/IdSystem/documentInstance-identifier                            | 文書を識別するID                                    |
+| 2  |             | identifier           | Identifier      | 名前空間    | http://jpfhir.jp/fhir/core/IdSystem/resourceInstance-identifier                            | リソースを識別するID                                  |
+| 3  | Composition | type<br/>category    | CodeableConcept | コードシステム | http://jpfhir.jp/fhir/SEAMAT/CodeSystem/<br/>JP_Composition_SEAMAT_DocumentType_CS         | 文書種別を識別するコードシステム                             |
+| 4  |             |                      |                 | バリューセット | http://jpfhir.jp/fhir/SEAMAT/ValueSet/<br/>JP_Composition_EKGReport_DocumentType_VS        | 心電図レポートで使用する文書種別のバリューセット                     |
+| 5  |             |                      |                 | バリューセット | http://jpfhir.jp/fhir/SEAMAT/ValueSet/<br/>JP_Composition_CATHReport_DocumentType_VS        | 心臓カテーテル検査レポートで使用する文書種別のバリューセット               |
+| 6  |             | section.code         | CodeableConcept | コードシステム | http://jpfhir.jp/fhir/SEAMAT/CodeSystem/<br/>JP_Composition_SEAMAT_SectionCode_CS          | セクションを識別するコードシステム                            |
+| 7  |             |                      |                 | バリューセット | http://jpfhir.jp/fhir/SEAMAT/ValueSet/<br/>JP_Composition_EKGReport_SectionCode_VS         | 心電図レポートで使用するセクションコードのバリューセット                 |
+| 8  |             |                      |                 | バリューセット | http://jpfhir.jp/fhir/SEAMAT/ValueSet/<br/>JP_Composition_CATHReport_SectionCode_VS         | 心臓カテーテル検査レポートで使用するセクションコードのバリューセット           |
+| 9  | Procedure   | identifier           | Identifier      | 名前空間    | http://jpfhir.jp/fhir/SEAMAT/IdSystem/placer-order-no                                      | <オーダ番号> : 電子カルテが発番する、施設内でユニークなオーダ単位の値        |
+| 10 |             | identifier           | Identifier      | 名前空間    | http://jpfhir.jp/fhir/SEAMAT/IdSystem/filler-order-no                                      | <部門管理番号> : 検査部門が発番する検査毎にユニークな値               |
+| 11 |             | identifier           | Identifier      | 名前空間    | http://jpfhir.jp/fhir/SEAMAT/IdSystem/filler-data-no/<br/><部門管理番号>                         | <データ管理番号> : データやレポートを識別する同一部門管理番号内でユニークな値    |
+| 12 |             | category             | CodeableConcept | コードシステム | http://jpfhir.jp/fhir/SEAMAT/CodeSystem/<br/>JP_ServiceRequest_Category_SEAMAT_DataType_CS | SEAMATにおいてデータ種別を識別するコードシステム                  |
+| 13 |             |                      |                 | バリューセット | http://jpfhir.jp/fhir/SEAMAT/ValueSet/<br/>JP_Procedure_EKGReport_Category_VS              | 心電図レポートで使用するデータ種別のバリューセット                    |
+| 14 |             | bodySite             | CodeableConcept | バリューセット | http://jpfhir.jp/fhir/SEAMAT/ValueSet/<br/>JP_Procedure_PCIBodySite_VS                     | 心臓カテーテル検査レポートで使用するPCI処置部位値セット                |
+| 15 |             | outcome              | CodeableConcept | バリューセット | http://jpfhir.jp/fhir/SEAMAT/ValueSet/<br/>JP_Procedure_PCIOutcome_VS                      | 心臓カテーテル検査レポートで使用するPCI処置成否値セット                |
+| 16 | Condition   | code                 | CodeableConcept | バリューセット | http://jpfhir.jp/fhir/SEAMAT/ValueSet/<br/>JP_Condition_CATHCadiovascularIllnessHistory_VS  | 心臓カテーテル検査レポートで使用する循環器疾患既往歴値セット               |
+| 17 |             |                      |                 | バリューセット | http://jpfhir.jp/fhir/SEAMAT/ValueSet/<br/>JP_Condition_CATHComorbidityType_VS              | 心臓カテーテル検査レポートで使用する並存疾患種別値セット                 |
+| 18 |             |                      |                 | バリューセット | http://jpfhir.jp/fhir/SEAMAT/ValueSet/<br/>JP_Condition_CATHCoronaryRiskFactorType_VS       | 心臓カテーテル検査レポートで使用する冠危険因子値セット                  |
+| 19 |             |                      |                 | バリューセット | http://jpfhir.jp/fhir/SEAMAT/ValueSet/<br/>JP_Condition_PCIComplicationType_VS             | 心臓カテーテル検査レポートで使用するPCI合併症値セット                 |
+| 20 |             | clinicalStatus       | CodeableConcept | バリューセット | http://jpfhir.jp/fhir/SEAMAT/ValueSet/<br/>JP_Condition_PCIClinicalStatus_VS               | 心臓カテーテル検査レポートで使用する併存疾患情報、冠危険因子、PCIへ依存症有無値セット |
+| 21 | Observation | valueCodeableConcept | CodeableConcept | バリューセット | http://jpfhir.jp/fhir/SEAMAT/ValueSet/<br/>JP_Observation_PCIStenosis_VS                   | 心臓カテーテル検査レポートで使用するPCI Stenosis値セット           |
+| 22 |             |                      |                 | バリューセット | http://jpfhir.jp/fhir/SEAMAT/ValueSet/<br/>JP_Observation_PCITimiGrade_VS                  | 心臓カテーテル検査レポートで使用するPCI Timi Grade値セット         |
+| 23 | Device      | type                 | CodeableConcept | バリューセット | http://jpfhir.jp/fhir/SEAMAT/ValueSet/<br/>JP_Device_PCIDeviceType_VS                      | 心臓カテーテル検査レポートで使用するPCI処置使用機器値セット              |

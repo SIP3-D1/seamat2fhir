@@ -8,7 +8,7 @@ Description: "SEAMAT心カテレポート併存疾患情報、冠危険因子、
 * ^date = "2024-05-08"
 * ^copyright = "Copyright Copyright SIP D1 SEAMAT2FHIR-WG"
 
-* $LOINC#LA32-8	"無"
-* $LOINC#LA33-6	"有"
-* $LOINC#LA1-0	"空欄もしくは不明"
-* $LOINC#LA4489-6	"Unknown"
+* $loinc#LA32-8	"無"
+* $loinc#LA33-6	"有"
+* $loinc#LA1-0	"空欄もしくは不明"
+* $loinc#LA4489-6	"Unknown"

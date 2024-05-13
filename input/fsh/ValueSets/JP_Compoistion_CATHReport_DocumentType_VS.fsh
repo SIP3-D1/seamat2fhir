@@ -1,8 +1,8 @@
-ValueSet: JP_Composition_CCSReport_DocumentType_VS
-Id: jp-composition-ccsreport-documenttype-vs
-Title: "SEAMAT CCS Report Document Type ValueSet"
+ValueSet: JP_Composition_CATHReport_DocumentType_VS
+Id: jp-composition-cathreport-documenttype-vs
+Title: "SEAMAT CATH Report Document Type ValueSet"
 Description: "SEAMAT心臓カテーテル検査レポート文書タイプ値セット"
-* ^url = $JP_Composition_CCSReport_DocumentType_VS
+* ^url = $JP_Composition_CATHReport_DocumentType_VS
 * ^status = #active
 * ^experimental = false
 * ^date = "2024-05-11"

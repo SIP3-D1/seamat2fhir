@@ -1,10 +1,10 @@
 Instance: GOFSH-GENERATED-ID-2
 InstanceOf: Bundle
-Title: "SEAMATS‘ŸƒJƒe[ƒeƒ‹ŒŸ¸ƒŒƒ|[ƒg‚P"
-Description: "SEAMATS‘ŸƒJƒe[ƒeƒ‹ŒŸ¸ƒŒƒ|[ƒg‚Ì—á‚P"
+Title: "SEAMATï¿½Sï¿½ï¿½ï¿½Jï¿½eï¿½[ï¿½eï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½|ï¿½[ï¿½gï¿½P"
+Description: "SEAMATï¿½Sï¿½ï¿½ï¿½Jï¿½eï¿½[ï¿½eï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½|ï¿½[ï¿½gï¿½Ì—ï¿½P"
 Usage: #example
 * meta.lastUpdated = "2024-01-17T18:59:21+09:00"
-* meta.profile = "http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Bundle_CCSReport"
+* meta.profile = "http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Bundle_CATHReport"
 * identifier.system = "http://jpfhir.jp/fhir/core/IdSystem/documentInstance-identifier"
 * identifier.value = "1234567890_20240115_LJCS-300R_20240117185921.0227990001.2024011417332568.2024011417332568_20240117185921000_-_1"
 * type = #document

@@ -15,7 +15,9 @@ FHIRドキュメントは、複数のFHIRリソースをまとめるためのBun
 
     http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_<リソース名>_SEAMAT_<用途>（SEAMAT共通）
   
-    http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_<リソース名>_CCSReport（心臓カテーテル検査固有）
+    http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_<リソース名>_CATHReport（心臓カテーテル検査固有）
+
+    http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_<リソース名>_PCI（PCI検査固有）
 
 ##### Bundle.identifierにSS-MIX2拡張ストレージのコンテンツフォルダ名を持たせる
 SS-MIX2では、拡張ストレージのコンテンツフォルダ名は、以下のような書式で記載することが求められている。
@@ -85,14 +87,14 @@ SEAMATでは、これらの要素に、以下のような項目を組み合わ�
 
 心臓カテーテル検査レポート用FHIRドキュメントの全体像を下図に示す。
 
-<img src="CCSReportStructure.svg" width="80%"><br clear="all">
+<img src="CATHReportStructure.svg" width="80%"><br clear="all">
 
 type要素が"document"のBundleリソースの中にCompositionをはじめとする各種リソースが内包されており、Compositionリソースのsubject, author, custodian などの固定要素や、各セクションのsection.entry要素などから、構造化されたリソースが各Bundle.entry.fullUrlに記述されたUUIDの値を使用して内部参照されている。PractitionerRoleなど一部のリソースは構造化されたリソースから参照され、Compositionリソースからは直接参照されていない。
 
 ### Compositionリソース
 Compositionリソースは、心臓カテーテル検査レポート用FHIRドキュメントにentryとして格納される複数のリソースのうちの最初に出現するもので、この文書のセクションの構成や叙述的なテキストコンテンツを記述したものである。 心臓カテーテル検査レポート用FHIRドキュメントでのCompositionリソースの仕様を次の表に示す。
 
-[＜表20 Compositionリソースの仕様（心臓カテーテル検査レポート）＞](tables-ccs.html#表20-compositionリソースの仕様（心臓カテーテル検査レポート）)
+[＜表20 Compositionリソースの仕様（心臓カテーテル検査レポート）＞](tables.html#表20-compositionリソースの仕様（心臓カテーテル検査レポート）)
 
 心臓カテーテル検査レポートは、あとで説明するように19種類のセクションから構成されている。 Compositionリソースは患者や作成者など文書情報管理用の情報を記述するいわゆるヘッダ部、およびレポートの本体内容を記述するボディ部から構成される。 ヘッダ部はCompositionリソースの要素により記述され、ボディ部の情報は複数のセクションから構成される。 なお、ヘッダ部、ボディ部という表現は、ここで心臓カテーテル検査レポート構造化記述規約（本仕様書ではCDA規約と略すこともある）との対比をわかりやすくするために便宜上用いているが、Compositionリソース内で明示的に区別されるわけではない。
 

@@ -5,7 +5,7 @@
 | resourceType |  |  |  | "Bundle" |  | Bundleリソースであることを示す。 |
 | meta |  | 1..1 | Meta |  |  |  |
 |  | lastUpdated | 1..1 | instant | "2023-12-25T20:21:32+09:00" |  | 最終更新日時。YYYY-MM-DDThh:mm:ss.sss+zz:zz。値は例示。 |
-|  | profile | 1..1 | canonical(StructureDefinition) | "http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/<BR>JP_Bundle_CCSReport" |  | 本リソースのプロファイルを識別するURLを指定する。値は固定。 |
+|  | profile | 1..1 | canonical(StructureDefinition) | "http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/<BR>JP_Bundle_CATHReport" |  | 本リソースのプロファイルを識別するURLを指定する。値は固定。 |
 | identifier |  | 1..1 | Identifier |  |  | この文書の文書ID。 |
 |  | system | 1..1 | uri | "http://jpfhir.jp/fhir/core/IdSystem/documentInsta<BR>nce-identifier" |  | 文書IDの名前空間を表すURI。固定値。 |
 |  | value | 1..1 | string | "1234567890_20231205_LJCS-300R_20231205101112.94.1<BR>4239.1002_20231205112233_200_1" |  | SS-MIX2拡張ストレージのコンテンツフォルダ名を以下の形式で指定する。値は例示。<BR><患者ID>_<診療日>_<データ種別>_<特定キー>_<発生日時>_<診療科コード>_<コンディションフラグ> |
