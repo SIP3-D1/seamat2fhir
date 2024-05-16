@@ -1,12 +1,9 @@
 Instance: Inline-Instance-for-GOFSH-GENERATED-ID-2-6
-InstanceOf: Organization
+InstanceOf: PractitionerRole
 Usage: #inline
-* meta.lastUpdated = "2024-04-12T11:07:58+09:00"
-* meta.profile = "http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Organization_SEAMAT_Custodian"
+* meta.lastUpdated = "2024-05-15T16:56:52+09:00"
+* meta.profile = "http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_PractitionerRole_SEAMAT_Performer"
 * active = true
-* type = $organization-type#prov "Healthcare Provider"
-* name = "ABC大学病院"
-* telecom.value = "000-000-0000"
-* address.text = "\n          京都市南区仮町1-1-1\n          Japan\n        "
-* address.line = "京都市南区仮町1-1-1"
-* address.country = "JP"
+* period.start = "2024-01-15T11:30:00+09:00"
+* period.end = "2024-01-15T14:00:00+09:00"
+* practitioner = Reference(urn:uuid:2397d865-746d-48ff-8c7b-b12addc98caa)

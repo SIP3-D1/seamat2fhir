@@ -1,14 +1,14 @@
-### 表19 Bundleリソースの仕様（心臓カテーテル検査レポート）
+### 表25 Bundleリソースの仕様（心エコー検査レポート）
 
-| 要素Lv1 | 要素Lv2 | 多重度 | 型 | 値 | 心カテレポートCDAとのマッピング<BR>(CD=ClinicalDocument) | 説明 |
+| 要素Lv1 | 要素Lv2 | 多重度 | 型 | 値 | 生理検査レポートCDAとのマッピング<BR>(CD=ClinicalDocument) | 説明 |
 |---|---|---|---|---|---|---|
 | resourceType |  |  |  | "Bundle" |  | Bundleリソースであることを示す。 |
 | meta |  | 1..1 | Meta |  |  |  |
 |  | lastUpdated | 1..1 | instant | "2023-12-25T20:21:32+09:00" |  | 最終更新日時。YYYY-MM-DDThh:mm:ss.sss+zz:zz。値は例示。 |
-|  | profile | 1..1 | canonical(StructureDefinition) | "http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/<BR>JP_Bundle_CATHReport" |  | 本リソースのプロファイルを識別するURLを指定する。値は固定。 |
+|  | profile | 1..1 | canonical(StructureDefinition) | "http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/<BR>JP_Bundle_EKGReport" |  | 本リソースのプロファイルを識別するURLを指定する。値は固定。 |
 | identifier |  | 1..1 | Identifier |  |  | この文書の文書ID。 |
 |  | system | 1..1 | uri | "http://jpfhir.jp/fhir/core/IdSystem/documentInsta<BR>nce-identifier" |  | 文書IDの名前空間を表すURI。固定値。 |
-|  | value | 1..1 | string | "1234567890_20231205_LJCS-300R_20231205101112.94.1<BR>4239.1002_20231205112233_200_1" |  | SS-MIX2拡張ストレージのコンテンツフォルダ名を以下の形式で指定する。値は例示。<BR><患者ID>_<診療日>_<データ種別>_<特定キー>_<発生日時>_<診療科コード>_<コンディションフラグ> |
+|  | value | 1..1 | string | "1234567890_20231205_LJCS-200D_20231205101112.94.1<BR>4239.1002_20231205112233_200_1" |  | SS-MIX2拡張ストレージのコンテンツフォルダ名を以下の形式で指定する。値は例示。<BR><患者ID>_<診療日>_<データ種別>_<特定キー>_<発生日時>_<診療科コード>_<コンディションフラグ> |
 | type |  | 1..1 | code | "document" |  | BundleリソースがDocumentタイプであることを示す。 |
 | timestamp |  | 1..1 | instant |  |  | Bundleリソースの生成日時。 |
 | entry |  | 1..1 | BackboneElement |  |  |  |
@@ -45,14 +45,17 @@
 |  | fullUrl | 1..1 | uri | "urn:uuid:4a59093e-b1c3-4c1d-a70c-0b968fac0747" |  | エントリリスト内のリソースを一意に識別するためのUUID。値は例示。 |
 |  | resource | 1..1 | Practitioner |  | /CD/documentationOf/serviceEvent/<BR>performer/assignedEntity | 文書の元になった検査の実施者の情報。 |
 | entry |  | 0..* | BackboneElement |  |  |  |
+|  | fullUrl | 1..1 | uri | "urn:uuid:58672cea-9be2-4095-84d1-711661f8e8b4" |  | エントリリスト内のリソースを一意に識別するためのUUID。値は例示。 |
+|  | resource | 1..1 | Practitioner |  | /CD/component/structuredBody/component/<BR>section/author/assignedAuthor/<BR>id, addr, telecom, assignedPerson | 測定値や解析結果の測定者の情報。 |
+| entry |  | 0..* | BackboneElement |  |  |  |
+|  | fullUrl | 1..1 | uri | "urn:uuid:fa0a5511-9e07-4fe0-9505-ebf7c9067e57" |  | エントリリスト内のリソースを一意に識別するためのUUID。値は例示。 |
+|  | resource | 1..1 | Device |  | /CD/component/structuredBody/component/<BR>section/author/assignedAuthor/<BR>id, assignedAuthoringDevice | 測定値や解析結果の測定システムの情報。 |
+| entry |  | 0..* | BackboneElement |  |  |  |
 |  | fullUrl | 1..1 | uri | "urn:uuid:0321ce31-8088-4ffc-a26c-a707c0b06f57" |  | エントリリスト内のリソースを一意に識別するためのUUID。値は例示。 |
-|  | resource | 1..1 | Observation |  | /CD/component/structuredBody/component/<BR>section/entry/observation | 年齢、過去の血行再建、術前情報、検査情報などの情報。 |
+|  | resource | 1..1 | Observation |  | /CD/component/structuredBody/component/<BR>section/entry/observation | 年齢、バイタルサイン、測定値、解析結果などの情報。 |
 | entry |  | 0..* | BackboneElement |  |  |  |
 |  | fullUrl | 1..1 | uri | "urn:uuid:d4d71934-e535-4029-a4c8-a4d098359e4d" |  | エントリリスト内のリソースを一意に識別するためのUUID。値は例示。 |
-|  | resource | 1..1 | Condiiton |  | /CD/component/structuredBody/component/<BR>section/entry/observation | 併存疾患情報、冠危険因子、循環器疾患既往歴、PCI合併症の情報。 |
-| entry |  | 0..* | BackboneElement |  |  |  |
-|  | fullUrl | 1..1 | uri | "urn:uuid:48d9a025-d288-4359-be48-ec7f8617c587" |  | エントリリスト内のリソースを一意に識別するためのUUID。値は例示。 |
-|  | resource | 1..1 | Procedure |  | /CD/component/structuredBody/component/<BR>section/entry/observation | PCI処置の情報。 |
+|  | resource | 1..1 | DocumentReference |  | /CD/component/structuredBody/component/<BR>section/entry/observation/reference/<BR>externalDocument | 外部参照ドキュメントの情報。 |
 | entry |  | 0..* | BackboneElement |  |  |  |
 |  | fullUrl | 1..1 | uri | "urn:uuid:b98bd02e-fda9-4879-80cf-496c996fcb02" |  | エントリリスト内のリソースを一意に識別するためのUUID。値は例示。 |
-|  | resource | 1..1 | Device |  | /CD/component/structuredBody/component/<BR>section/entry/observation | PCI使用機器の情報。 |
+|  | resource | 1..1 | Binary |  | /CD/component/structuredBody/component/<BR>section/entry/observationMedia | 外部参照のバイナリデータの情報。 |

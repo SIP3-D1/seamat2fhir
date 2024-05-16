@@ -1,9 +1,10 @@
 Instance: Inline-Instance-for-GOFSH-GENERATED-ID-2-10
-InstanceOf: PractitionerRole
+InstanceOf: Practitioner
 Usage: #inline
-* meta.lastUpdated = "2024-04-12T11:07:58+09:00"
-* meta.profile = "http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_PractitionerRole_SEAMAT_Performer"
+* meta.lastUpdated = "2024-05-15T16:56:52+09:00"
+* meta.profile = "http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Practitioner_SEAMAT_Performer"
 * active = true
-* period.start = "2024-01-15T11:30:00+09:00"
-* period.end = "2024-01-15T14:00:00+09:00"
-* practitioner = Reference(urn:uuid:381a67a4-8cea-4105-8ca0-e7c71198d0eb)
+* name.extension.url = "http://hl7.org/fhir/StructureDefinition/iso21090-EN-representation"
+* name.extension.valueCode = #IDE
+* name.text = "検査技師名B"
+* name.family = "検査技師名B"

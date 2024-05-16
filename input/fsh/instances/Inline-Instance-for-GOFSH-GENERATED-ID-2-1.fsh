@@ -1,98 +1,97 @@
 Instance: Inline-Instance-for-GOFSH-GENERATED-ID-2-1
 InstanceOf: Composition
 Usage: #inline
-* meta.lastUpdated = "2024-04-12T11:07:58+09:00"
-* meta.profile = "http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Composition_CATHReport"
+* meta.lastUpdated = "2024-05-15T16:56:52+09:00"
+* meta.profile = "http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Composition_CCSReport"
 * language = #ja
 * identifier.system = "http://jpfhir.jp/fhir/core/IdSystem/resourceInstance-identifier"
 * identifier.value = "1234567890_20240115_20240117185921__1"
 * status = #final
 * type = $JP_Composition_SEAMAT_DocumentType_CS#18745-0 "Cardiac catheterization study"
 * category = $JP_Composition_SEAMAT_DocumentType_CS#18745-0 "Cardiac catheterization study"
-* subject = Reference(urn:uuid:86dc9b33-d9ab-4fa8-8bef-9df157efe574)
+* subject = Reference(urn:uuid:1eded11c-b3f3-4613-b94d-73095c366204)
 * date = "2024-01-17T18:59:21+09:00"
-* author[0] = Reference(urn:uuid:0a89ee35-837f-4fff-ba89-7e848f46dff9)
-* author[+] = Reference(urn:uuid:35f8f99c-1bda-4efe-af02-6e29c9f65326)
+* author = Reference(urn:uuid:1cc6ff0b-8e8d-43e4-821d-885b4725bdec)
 * title = "心臓カテーテル検査レポート"
 * confidentiality = #N
-* custodian = Reference(urn:uuid:d555030b-0c0b-4e54-a696-2adfeb924462)
+* custodian = Reference(urn:uuid:d324b588-eb39-4438-b264-6ee10257ea92)
 * event.period.start = "2024-01-15T11:30:00+09:00"
 * event.period.end = "2024-01-15T14:00:00+09:00"
-* event.detail = Reference(urn:uuid:41896296-1f65-4c76-80fc-dd15c24d17b5)
+* event.detail = Reference(urn:uuid:1fe1e6d1-e96f-488c-800e-0aefedefe4c5)
 * section[0].code = $JP_Composition_SEAMAT_SectionCode_CS#52460-3 "Patient Informationセクション"
-* section[=].entry = Reference(urn:uuid:0f9b1f16-dac0-46c4-9311-0d3e980de56f)
+* section[=].entry = Reference(urn:uuid:5bc8b2c2-a646-4820-bebd-6e393ab2fb62)
 * section[+].title = "併存疾患情報"
 * section[=].code = $JP_Composition_SEAMAT_SectionCode_CS#78923-0 "Comorbid condition panelセクション"
-* section[=].entry[0] = Reference(urn:uuid:f7f304c3-c9dc-4944-a35f-9414eef7b928)
-* section[=].entry[+] = Reference(urn:uuid:061d0ee6-029b-4965-a52f-978113ef86f3)
-* section[=].entry[+] = Reference(urn:uuid:c39e53b2-17a3-4bf4-a1e7-014c1ab8be3f)
-* section[=].entry[+] = Reference(urn:uuid:f51c81e8-234f-4af3-afc2-6823c663203c)
-* section[=].entry[+] = Reference(urn:uuid:6a8486ab-9571-4aa8-b2e6-3033f41af6ee)
+* section[=].entry[0] = Reference(urn:uuid:14ddd5ff-353b-4472-9f71-c9ee11e075d2)
+* section[=].entry[+] = Reference(urn:uuid:182d42e8-d040-434d-be6a-659102ca85b6)
+* section[=].entry[+] = Reference(urn:uuid:91acde4d-f984-4391-8377-7a54d53d240c)
+* section[=].entry[+] = Reference(urn:uuid:c39a4a15-2814-4377-a514-bf3d378ff02e)
+* section[=].entry[+] = Reference(urn:uuid:9d98c3f4-e460-44e6-adbd-41d5c15a917e)
 * section[+].title = "冠危険因子"
 * section[=].code = $JP_Composition_SEAMAT_SectionCode_CS#78940-4 "Coronary artery disease risk factor panelセクション"
-* section[=].entry[0] = Reference(urn:uuid:895dae46-c1d9-4194-85ae-ec510b928649)
-* section[=].entry[+] = Reference(urn:uuid:742b2fce-aa54-43f0-ad88-3ed01a1d3f02)
-* section[=].entry[+] = Reference(urn:uuid:d616f9c9-49fc-4c3c-b321-56314408d789)
-* section[=].entry[+] = Reference(urn:uuid:ce8eeea5-3c72-457e-83fc-c22ef9c82264)
+* section[=].entry[0] = Reference(urn:uuid:65e3b87e-2205-4529-858c-9f2bf31cfa4f)
+* section[=].entry[+] = Reference(urn:uuid:39d88a1f-a23d-44b1-b3f4-f1ec36bd7805)
+* section[=].entry[+] = Reference(urn:uuid:ed1d30a0-cfb1-45b3-a0e6-76675a39e659)
+* section[=].entry[+] = Reference(urn:uuid:0965a8e5-dbca-46b2-aaf1-315123d06446)
 * section[+].title = "循環器疾患既往歴"
 * section[=].code = $JP_Composition_SEAMAT_SectionCode_CS#78941-2 "Cardiovascular disease history panelセクション"
-* section[=].entry[0] = Reference(urn:uuid:f5a86ca0-b6a9-4363-acb4-88b6283d6af6)
-* section[=].entry[+] = Reference(urn:uuid:274b6561-6516-4001-bbba-68241fefdf3a)
-* section[=].entry[+] = Reference(urn:uuid:505d1ef3-e8ee-41af-81a1-f57b43585de9)
+* section[=].entry[0] = Reference(urn:uuid:106297ff-c834-41f5-b293-d3fb85c82f88)
+* section[=].entry[+] = Reference(urn:uuid:cef318d1-b3bf-4eb6-9eb7-b0d3ad5a7654)
+* section[=].entry[+] = Reference(urn:uuid:77128692-e105-479f-a20c-9b2eb99dd18a)
 * section[+].title = "過去の血行再建"
 * section[=].code = $JP_Composition_SEAMAT_SectionCode_CS#80286-8 "History of Surgical procedures of cardiovascular systemセクション"
-* section[=].entry[0] = Reference(urn:uuid:851e9e47-c6f8-47f5-ab8f-9f768182ae8d)
-* section[=].entry[+] = Reference(urn:uuid:1a482c91-6228-4782-9ef7-627ebc4fa45c)
+* section[=].entry[0] = Reference(urn:uuid:94ade903-a187-4593-a7dc-03f58464cf76)
+* section[=].entry[+] = Reference(urn:uuid:8a4608e5-3219-497e-b987-ca1e0007deeb)
 * section[+].title = "術前情報"
 * section[=].code = $JP_Composition_SEAMAT_SectionCode_CS#80528-3 "Catheterization and angiography preoperative information panelセクション"
-* section[=].entry[0] = Reference(urn:uuid:17ebe577-09dd-40e3-9e63-785617c1e518)
-* section[=].entry[+] = Reference(urn:uuid:5ef79476-5ab7-4f30-acb8-af04dd6a2022)
-* section[=].entry[+] = Reference(urn:uuid:1b8c4c34-4724-49bd-86f9-7c84c7a38fdd)
-* section[=].entry[+] = Reference(urn:uuid:a69880cd-6266-420e-a378-c95de875c1cb)
-* section[=].entry[+] = Reference(urn:uuid:3b5f5a35-b0c7-4b2a-8ddb-7bbf8b9e5c43)
-* section[=].entry[+] = Reference(urn:uuid:6db8b889-9396-4502-b366-f476a32d43ef)
-* section[=].entry[+] = Reference(urn:uuid:0680299f-918b-4bce-9110-e7f9f6c8b0b4)
-* section[=].entry[+] = Reference(urn:uuid:3914c69b-878f-4078-be38-76262d3e2e7a)
-* section[=].entry[+] = Reference(urn:uuid:f5c18616-112c-41e5-8097-bee79d017a64)
-* section[=].entry[+] = Reference(urn:uuid:404cd707-753c-4f78-b0e8-1ebce47f549f)
-* section[=].entry[+] = Reference(urn:uuid:f813a523-c4d2-49d8-b576-928a9a9665cf)
+* section[=].entry[0] = Reference(urn:uuid:43d4e34a-4eee-4b0a-aa7b-af12203dfbde)
+* section[=].entry[+] = Reference(urn:uuid:c7e4593e-d4db-4000-bf3c-de540ece82a5)
+* section[=].entry[+] = Reference(urn:uuid:2e6b8828-fd96-4e4e-90cf-e3f2698ae321)
+* section[=].entry[+] = Reference(urn:uuid:d09d82b7-cb55-4552-b106-a26037e41fde)
+* section[=].entry[+] = Reference(urn:uuid:cab0ebb2-7267-483b-b90d-426a73086d25)
+* section[=].entry[+] = Reference(urn:uuid:992d2926-3b70-4d94-85f0-61785a4ef384)
+* section[=].entry[+] = Reference(urn:uuid:c8476fc8-5cb0-4a5a-b698-cf9cf87f550a)
+* section[=].entry[+] = Reference(urn:uuid:ecbc0c33-90d5-4aef-80d7-8ca133b3580f)
+* section[=].entry[+] = Reference(urn:uuid:a3fccf6a-8bd5-40f0-82cf-8a009a2eebac)
+* section[=].entry[+] = Reference(urn:uuid:0e7899a2-bb19-4c8c-a8df-112114d3c83e)
+* section[=].entry[+] = Reference(urn:uuid:c79d8491-e300-484f-ba40-73f9cc77572b)
 * section[+].title = "検査情報"
 * section[=].code = $JP_Composition_SEAMAT_SectionCode_CS#80190-2 "Catheterization and angiography procedure details panelセクション"
-* section[=].entry[0] = Reference(urn:uuid:21ed6e8f-39c4-43c6-addc-dc6a0b9ce992)
-* section[=].entry[+] = Reference(urn:uuid:e68de9f1-ca68-48c5-850a-13e1fd0cb400)
-* section[=].entry[+] = Reference(urn:uuid:1cb3ffe4-1eaf-46ba-a8ce-55550d9cf8ee)
-* section[=].entry[+] = Reference(urn:uuid:76003fd4-35ec-4e15-96c2-74f594913571)
-* section[=].entry[+] = Reference(urn:uuid:ea19d98d-d79c-45ea-abf8-ea3766ba4089)
-* section[=].entry[+] = Reference(urn:uuid:5023a20a-ec18-45a5-8dd0-8446fbbeec72)
-* section[=].entry[+] = Reference(urn:uuid:e859d321-c30d-4a55-aeac-d3abc49e8844)
-* section[=].entry[+] = Reference(urn:uuid:f8585bf0-e47b-414c-8603-ee6a08bfab8c)
-* section[=].entry[+] = Reference(urn:uuid:45e69992-d118-4ca9-8d53-83ca6ecc70ff)
-* section[=].entry[+] = Reference(urn:uuid:680f6bf5-90ee-4a84-a8b3-9e392bc2f71a)
-* section[=].entry[+] = Reference(urn:uuid:c01508e5-285f-40f4-b444-c76bf8c66865)
-* section[=].entry[+] = Reference(urn:uuid:187ecdfb-41f3-4637-9db9-25d2caa2e023)
+* section[=].entry[0] = Reference(urn:uuid:888fea40-9c5c-492e-9ecd-c0e5bfbfe67c)
+* section[=].entry[+] = Reference(urn:uuid:fe28bb09-e6b4-4734-a717-ea209954d8a7)
+* section[=].entry[+] = Reference(urn:uuid:5e7f18bc-780f-43a9-bf4e-2c6abaead76c)
+* section[=].entry[+] = Reference(urn:uuid:ade99907-d045-4cd4-b9b5-6a87be107fa0)
+* section[=].entry[+] = Reference(urn:uuid:2d4433d2-ebdb-4b1d-9bd5-9895f56aa6f2)
+* section[=].entry[+] = Reference(urn:uuid:d972f71b-d331-46dd-bd14-456cc657d47d)
+* section[=].entry[+] = Reference(urn:uuid:3f04dc21-da31-46bf-8f9d-9a749161b514)
+* section[=].entry[+] = Reference(urn:uuid:2cbd8ab1-2d86-4717-9615-eb629fa6058e)
+* section[=].entry[+] = Reference(urn:uuid:3f984b7f-4dd0-416a-b4e7-bf35e93525a4)
+* section[=].entry[+] = Reference(urn:uuid:df4ede72-a0a3-45f9-a1cc-a6b2d5289be6)
+* section[=].entry[+] = Reference(urn:uuid:6ad3931a-461b-4c18-8d65-16cab78fccd7)
+* section[=].entry[+] = Reference(urn:uuid:56bee6c3-b08a-4b75-a803-bfe9579521d4)
 * section[+].title = "検査内容"
 * section[=].code = $JP_Composition_SEAMAT_SectionCode_CS#78949-5 "Catheterization and angiography procedures performed panelセクション"
-* section[=].entry[0] = Reference(urn:uuid:9ebcf4b9-4ffc-4916-8ad7-34b77ec625a7)
-* section[=].entry[+] = Reference(urn:uuid:d701b4e2-4307-4166-95ec-7be8fb189b3c)
-* section[=].entry[+] = Reference(urn:uuid:063c738e-592e-4262-a655-2fb6d3c0e471)
-* section[=].entry[+] = Reference(urn:uuid:ab84493b-a2c0-4771-ab5e-e5f6ba4cc724)
-* section[=].entry[+] = Reference(urn:uuid:f4aaccc1-9c1a-4019-a355-5b722111174b)
-* section[=].entry[+] = Reference(urn:uuid:8ad7d2fa-a09d-4edd-be3c-488852d07515)
-* section[=].entry[+] = Reference(urn:uuid:6d1f0ebf-3715-4a57-9cc8-179ea6ae1e97)
-* section[=].entry[+] = Reference(urn:uuid:e500b26a-810a-4596-a05a-f718698c54ed)
-* section[=].entry[+] = Reference(urn:uuid:b8540794-c972-4e55-9fb0-4edba4c17075)
+* section[=].entry[0] = Reference(urn:uuid:4a1c97fe-96bb-4a21-aad2-d1f954a48396)
+* section[=].entry[+] = Reference(urn:uuid:974998b1-970d-437b-83ca-4645db5d88f2)
+* section[=].entry[+] = Reference(urn:uuid:f2afd3e5-e3a8-4196-b84a-c525823f7733)
+* section[=].entry[+] = Reference(urn:uuid:185736da-7e08-4d2f-8c8e-63c1b2d47ddc)
+* section[=].entry[+] = Reference(urn:uuid:6198f9ec-5c71-4593-8919-155c36b1ebd1)
+* section[=].entry[+] = Reference(urn:uuid:4553d7c2-3546-4649-b801-c12e82d9019c)
+* section[=].entry[+] = Reference(urn:uuid:ca2399ae-f65c-4f34-a62f-8d2dea5a72f9)
+* section[=].entry[+] = Reference(urn:uuid:84e8619a-67e5-4ad6-ac27-55e869fbd2fe)
+* section[=].entry[+] = Reference(urn:uuid:3cbe46fc-4d10-42b1-8f79-42c7a62df1fc)
 * section[+].title = "補助循環治療"
 * section[=].code = $JP_Composition_SEAMAT_SectionCode_CS#78933-9 "Assisted circulation procedures performed panelセクション"
-* section[=].entry[0] = Reference(urn:uuid:81bdc1ad-df08-4add-ab7c-c7a21131cb8c)
-* section[=].entry[+] = Reference(urn:uuid:eda42a66-2dc5-4ed9-8039-0bbe4c8f625e)
-* section[=].entry[+] = Reference(urn:uuid:f029c09a-fee0-4c45-94eb-3238d3865765)
-* section[=].entry[+] = Reference(urn:uuid:aa568520-904c-4373-8201-58ab3e099bbf)
+* section[=].entry[0] = Reference(urn:uuid:08827bae-ead2-4571-a550-60c15c1ff075)
+* section[=].entry[+] = Reference(urn:uuid:8d3684d2-dd0f-49ba-91d8-636f070892b0)
+* section[=].entry[+] = Reference(urn:uuid:9385a187-6040-404f-858a-c72aa4784cc7)
+* section[=].entry[+] = Reference(urn:uuid:af2d8240-4d12-4c76-a189-93458b89b374)
 * section[+].title = "冠動脈病変"
 * section[=].code = $JP_Composition_SEAMAT_SectionCode_CS#78896-8 "Coronary angiography panelセクション"
-* section[=].entry = Reference(urn:uuid:25bed949-350f-47b1-9cb2-d51bfe2b10da)
+* section[=].entry = Reference(urn:uuid:ceb68b36-9288-4bfa-87cd-496ca7736ee1)
 * section[+].title = "PCI処置"
 * section[=].code = $JP_Composition_SEAMAT_SectionCode_CS#78914-9 "Percutaneous coronary intervention panelセクション"
-* section[=].entry = Reference(urn:uuid:2bcbc9ab-9b98-4d2e-97e4-ad6cd009d7e9)
+* section[=].entry = Reference(urn:uuid:33ed594c-4992-48a4-918a-1e38612e4a78)
 * section[+].title = "PCI処置"
 * section[=].code = $JP_Composition_SEAMAT_SectionCode_CS#78914-9 "Percutaneous coronary intervention panelセクション"
-* section[=].entry = Reference(urn:uuid:18ccfd18-63bb-4deb-b9b8-f640dc4dca34)
+* section[=].entry = Reference(urn:uuid:d8ffd530-8ab5-4acc-aeea-30a70ab1f41f)

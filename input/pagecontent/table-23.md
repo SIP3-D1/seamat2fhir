@@ -1,6 +1,6 @@
 ### 表23 PCI使用機器Deviceリソースの仕様
 
-| 要素Lv1 | 要素Lv2 | 要素Lv3 | 多重度 | 型 | 値 | 心カテレポートCDAとのマッピング | 説明 |
+| 要素Lv1 | 要素Lv2 | 要素Lv3 | 多重度 | 型 | 値 | 心カテレポートCDAとのマッピング<BR>(CD=ClinicalDocument) | 説明 |
 |---|---|---|---|---|---|---|---|
 | resourceType |  |  |  |  | "Device" |  | Deviceリソースであることを示す。 |
 | meta |  |  | 1..1 | Meta |  |  |  |
@@ -17,4 +17,3 @@
 |  |  | display | 1..1 | string | "バルーン" |  | 使用機器のLOINCコードに対する名称。値は例示。 |
 | patient |  |  | 0..1 | Reference(JP_Patient_SEAMAT) |  |  |  |
 |  | reference |  | 1..1 | string | "urn:uuid:77fbc1a7-8e7e-494c-9763-6545a73afcc4" |  | PatientリソースのfullUrl要素に指定されるUUIDを指定。値は例示。 |
-
