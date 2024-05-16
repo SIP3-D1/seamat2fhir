@@ -1,7 +1,7 @@
 Instance: GOFSH-GENERATED-ID-2
 InstanceOf: Bundle
-Title: "SEAMATS‘ŸƒJƒe[ƒeƒ‹ŒŸ¸ƒŒƒ|[ƒg‚P"
-Description: "SEAMATS‘ŸƒJƒe[ƒeƒ‹ŒŸ¸‚Ì—á‚P"
+Title: "SEAMATå¿ƒè‡“ã‚«ãƒ†ãƒ¼ãƒ†ãƒ«æ¤œæŸ»ãƒ¬ãƒãƒ¼ãƒˆä¾‹ï¼‘"
+Description: "SEAMATå¿ƒè‡“ã‚«ãƒ†ãƒ¼ãƒ†ãƒ«æ¤œæŸ»ãƒ¬ãƒãƒ¼ãƒˆã®ä¾‹ï¼‘"
 Usage: #example
 * meta.lastUpdated = "2024-01-17T18:59:21+09:00"
 * meta.profile = "http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Bundle_CATHReport"

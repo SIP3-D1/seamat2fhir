@@ -9,11 +9,11 @@ Expression: "meta.profile.where($this = 'http://jpfhir.jp/fhir/SEAMAT/StructureD
 Profile: JP_Procedure_PCI
 Parent: JP_Procedure
 Id: jp-procedure-pci
-Title: "SEAMAT Common Procedure Profile"
+Title: "SEAMAT PCI procedure Procedure Profile"
 Description: "このプロファイルはProcedureリソースに対して、PCI処置の実施データを送受信するための共通の制約と拡張を定めたものである。"
 * ^url = $JP_Procedure_PCI
 * ^status = #active
-* ^date = "2023-11-13"
+* ^date = "2024-05-16"
 * meta.lastUpdated 1.. MS
 * meta.profile 1.. MS
 

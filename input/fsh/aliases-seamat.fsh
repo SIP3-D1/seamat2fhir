@@ -26,7 +26,7 @@ Alias: $JP_Practitioner_SEAMAT_Measurer = http://jpfhir.jp/fhir/SEAMAT/Structure
 Alias: $JP_Practitioner_SEAMAT_Performer = http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Practitioner_SEAMAT_Performer
 Alias: $JP_PractitionerRole_SEAMAT_Performer = http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_PractitionerRole_SEAMAT_Performer
 Alias: $JP_Procedure_PCI = http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Procedure_PCI
-Alias: $JP_Procedure_PCIOutcomeDetail = http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/Extension/JP_Procedure_PCIOutcomeDetail
+Alias: $JP_Procedure_PCIOutcomeDetail = http://jpfhir.jp/fhir/SEAMAT/Extension/StructureDefinition/JP_Procedure_PCIOutcomeDetail
 Alias: $JP_Procedure_SEAMAT = http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Procedure_SEAMAT
 
 // StructureDefinition: Extension
