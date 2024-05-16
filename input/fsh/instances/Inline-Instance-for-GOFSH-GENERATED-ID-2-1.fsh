@@ -87,7 +87,7 @@ Usage: #inline
 * section[=].entry[+] = Reference(urn:uuid:9385a187-6040-404f-858a-c72aa4784cc7)
 * section[=].entry[+] = Reference(urn:uuid:af2d8240-4d12-4c76-a189-93458b89b374)
 * section[+].title = "冠動脈病変"
-* section[=].code = $JP_Composition_SEAMAT_SectionCode_CS#78896-8 "冠動脈病変セクション"
+* section[=].code = $JP_Composition_SEAMAT_SectionCode_CS#78895-0 "冠動脈病変セクション"
 * section[=].entry = Reference(urn:uuid:ceb68b36-9288-4bfa-87cd-496ca7736ee1)
 * section[+].title = "PCI処置"
 * section[=].code = $JP_Composition_SEAMAT_SectionCode_CS#78914-9 "PCI処置セクション"

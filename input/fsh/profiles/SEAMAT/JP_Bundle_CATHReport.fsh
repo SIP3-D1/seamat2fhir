@@ -51,8 +51,8 @@ and authoringOrganization 0..1 MS // 作成機関
 and custodian 1..1 MS // 管理医療機関
 and authenticator 0..1 MS // 文書内容責任者
 and procedure 1..1 MS // 検査実施情報
-and performerRole 0..1 MS // 検査実施者役割
-and performingPractitioner 0..1 MS // 検査実施者
+and performerRole 0.. MS // 検査実施者役割
+and performingPractitioner 0.. MS // 検査実施者
 and observation 0.. MS // 測定結果/解析結果
 and condition 0.. MS // PCI合併症など
 and pciproc 0.. MS // PCI処置

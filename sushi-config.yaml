@@ -154,3 +154,5 @@ parameters:  # see https://confluence.hl7.org/display/FHIR/Implementation+Guide+
     - http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Procedure_SEAMAT_Category_VS
     - http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Observation_PCIStenosis_VS
     - http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Observation_PCITimiGrade_VS
+    - http://jpfhir.jp/fhir/seamat2fhir
+    
