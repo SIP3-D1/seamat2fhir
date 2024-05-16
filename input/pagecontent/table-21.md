@@ -1,6 +1,6 @@
 ### 表21 Procedureリソースの仕様（PCI処置情報）
 
-| 要素Lv1 | 要素Lv2 | 要素Lv3 | 要素Lv4 | 多重度 | 型 | 値 | 心カテレポートCDAとのマッピング | 説明 |
+| 要素Lv1 | 要素Lv2 | 要素Lv3 | 要素Lv4 | 多重度 | 型 | 値 | 心カテレポートCDAとのマッピング<BR>(CD=ClinicalDocument) | 説明 |
 |---|---|---|---|---|---|---|---|---|
 | resourceType |  |  |  |  |  | "Procedure" |  | Procedureリソースであることを示す。 |
 | meta |  |  |  | 1..1 | Meta |  |  |  |

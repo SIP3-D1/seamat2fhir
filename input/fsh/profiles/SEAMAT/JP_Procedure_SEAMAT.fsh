@@ -84,7 +84,7 @@ Description: "このプロファイルはProcedureリソースに対して、検
 //* category[dataSubType].coding.code ^definition = "SS-MIX2拡張ストレージのコンテンツフォルダ名のデータ種別に含まれる<レポート/データフラグ>をセットする。"
 
 * category 1..1 MS
-* category from $JP_Procedure_EKGReport_Category_VS
+* category from $JP_Procedure_SEAMAT_Category_VS
 * category.coding.system = $JP_Procedure_SEAMAT_Category_CS (exactly)
 * category.coding.code ^short = "<データ種別コード><レポート/データフラグ>"
 * category.coding.code ^definition = "SS-MIX2拡張ストレージのコンテンツフォルダ名のデータ種別に含まれる<データ種別コード><レポート/データフラグ>をセットする。\r\n例：LJCS-100D"

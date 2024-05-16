@@ -11,7 +11,7 @@ Description: "SEAMAT共通セクションコードコードシステム"
 * ^copyright = "Copyright SIP D1 SEAMAT2FHIR-WG   
 This material contains content from LOINC (http://loinc.org). LOINC is copyright © 1995-2020, Regenstrief Institute, Inc. and the Logical Observation Identifiers Names and Codes (LOINC) Committee and is available at no cost under the license at http://loinc.org/license. LOINC® is a registered United States trademark of Regenstrief Institute, Inc"
 
-// 心電図検査レポート
+// 心電図検査レポート、心エコーレポート
 * #52460-3 "患者付帯情報セクション"
 * #74728-7 "バイタルサインセクション"
 * #11348-0 "既往歴セクション"

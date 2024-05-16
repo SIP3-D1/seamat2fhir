@@ -37,9 +37,11 @@ dependencies:
 pages:
   index.md:
     title: SEAMAT2FHIR仕様  　JP-SEAMAT2FHIR
-  ekg.md:
+  index-ekg.md:
     title: SEAMAT2FHIR仕様  　JP-SEAMAT2FHIR（心電図検査レポート）
-  cath.md:
+  index-ucg.md:
+    title: SEAMAT2FHIR仕様  　JP-SEAMAT2FHIR（心エコー検査レポート）
+  index-cath.md:
     title: SEAMAT2FHIR仕様  　JP-SEAMAT2FHIR（心臓カテーテル検査レポート）
   tables.md:
     title: リソース表 各表一覧
@@ -54,8 +56,9 @@ pages:
 menu:
   Home:
     本文: index.html
-    心電図検査レポート: ekg.html
-    心臓カテーテル検査レポート: cath.html
+    心電図検査レポート: index-ekg.html
+    心エコー検査レポート: index-ucg.html
+    心臓カテーテル検査レポート: index-cath.html
     リソース表 各表一覧: tables.html
     名前空間一覧: namespace.html
     改訂履歴: history.html
@@ -103,8 +106,10 @@ parameters:  # see https://confluence.hl7.org/display/FHIR/Implementation+Guide+
   special-url:
     - http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Bundle_CATHReport
     - http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Bundle_EKGReport
+    - http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Bundle_UCGReport
     - http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Composition_CATHReport
     - http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Composition_EKGReport
+    - http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Composition_UCGReport
     - http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Binary_SEAMAT
     - http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Condition_CATH
     - http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Device_PCI
@@ -130,8 +135,10 @@ parameters:  # see https://confluence.hl7.org/display/FHIR/Implementation+Guide+
     - http://jpfhir.jp/fhir/SEAMAT/CodeSystem/JP_Procedure_SEAMAT_Category_CS
     - http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Composition_CATHReport_DocumentType_VS
     - http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Composition_EKGReport_DocumentType_VS
+    - http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Composition_UCGReport_DocumentType_VS
     - http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Composition_CATHReport_SectionCode_VS
     - http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Composition_EKGReport_SectionCode_VS
+    - http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Composition_UCGReport_SectionCode_VS
     - http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Condition_CATHCadiovascularIllnessHistory_VS
     - http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Condition_CATHComorbidityType_VS
     - http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Condition_CATHCoronaryRiskFactorType_VS
