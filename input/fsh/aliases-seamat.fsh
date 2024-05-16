@@ -26,7 +26,7 @@ Alias: $JP_Practitioner_SEAMAT_Measurer = http://jpfhir.jp/fhir/SEAMAT/Structure
 Alias: $JP_Practitioner_SEAMAT_Performer = http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Practitioner_SEAMAT_Performer
 Alias: $JP_PractitionerRole_SEAMAT_Performer = http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_PractitionerRole_SEAMAT_Performer
 Alias: $JP_Procedure_PCI = http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Procedure_PCI
-Alias: $JP_Procedure_PCIOutcomeDetail = http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Procedure_PCIOutcomeDetail
+Alias: $JP_Procedure_PCIOutcomeDetail = http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/Extension/JP_Procedure_PCIOutcomeDetail
 Alias: $JP_Procedure_SEAMAT = http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Procedure_SEAMAT
 
 // StructureDefinition: Extension
@@ -46,15 +46,17 @@ Alias: $JP_Composition_CATHReport_DocumentType_VS = http://jpfhir.jp/fhir/SEAMAT
 Alias: $JP_Composition_CATHReport_SectionCode_VS = http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Composition_CATHReport_SectionCode_VS
 Alias: $JP_Composition_EKGReport_DocumentType_VS = http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Composition_EKGReport_DocumentType_VS
 Alias: $JP_Composition_EKGReport_SectionCode_VS = http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Composition_EKGReport_SectionCode_VS
+Alias: $JP_Composition_UCGReport_DocumentType_VS = http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Composition_UCGReport_DocumentType_VS
+Alias: $JP_Composition_UCGHReport_SectionCode_VS = http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Composition_UCGHReport_SectionCode_VS
 Alias: $JP_Condition_CATHComorbidityType_VS = http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Condition_CATHComorbidityType_VS
 Alias: $JP_Condition_CATHCoronaryRiskFactorType_VS = http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Condition_CATHCoronaryRiskFactorType_VS
 Alias: $JP_Condition_CATHCadiovascularIllnessHistory_VS = http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Condition_CATHCadiovascularIllnessHistory_VS
 Alias: $JP_Condition_PCIClinicalStatus_VS = http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Condition_PCIClinicalStatus_VS
 Alias: $JP_Condition_PCIComplicationType_VS = http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Condition_PCIComplicationType_VS
 Alias: $JP_Device_PCIDeviceType_VS = http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Procedure_PCIDeviceType_VS
-Alias: $JP_Procedure_EKGReport_Category_VS = http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Procedure_EKGReport_Category_VS
 Alias: $JP_Procedure_PCIBodySite_VS = http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Procedure_PCIBodySite_VS
 Alias: $JP_Procedure_PCIOutcome_VS = http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Procedure_PCIOutcome_VS
+Alias: $JP_Procedure_SEAMAT_Category_VS = http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Procedure_SEAMAT_Category_VS
 Alias: $JP_Observation_PCIStenosis_VS = http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Observation_PCIStenosis_VS
 Alias: $JP_Observation_PCITimiGrade_VS = http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Observation_PCITimiGrade_VS
 

@@ -10,5 +10,7 @@ Description: "SEAMAT共通検査実施情報カテゴリー値セット"
 
 * $JP_Procedure_SEAMAT_Category_CS#LJCS-100D "心電図検査データ"
 * $JP_Procedure_SEAMAT_Category_CS#LJCS-100R "心電図検査レポート"
+* $JP_Procedure_SEAMAT_Category_CS#LJCS-200D "超音波検査データ"
+* $JP_Procedure_SEAMAT_Category_CS#LJCS-200R "超音波検査レポート"
 * $JP_Procedure_SEAMAT_Category_CS#LJCS-300D "心臓カテーテル検査データ"
 * $JP_Procedure_SEAMAT_Category_CS#LJCS-300R "心臓カテーテル検査レポート"
