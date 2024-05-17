@@ -18,7 +18,8 @@ Usage: #inline
 * event.period.start = "2024-01-15T11:30:00+09:00"
 * event.period.end = "2024-01-15T14:00:00+09:00"
 * event.detail = Reference(urn:uuid:1fe1e6d1-e96f-488c-800e-0aefedefe4c5)
-* section[0].code = $JP_Composition_SEAMAT_SectionCode_CS#52460-3 "患者付帯情報セクション"
+* section[0].title = "患者付帯情報"
+* section[=].code = $JP_Composition_SEAMAT_SectionCode_CS#52460-3 "患者付帯情報セクション"
 * section[=].entry = Reference(urn:uuid:5bc8b2c2-a646-4820-bebd-6e393ab2fb62)
 * section[+].title = "併存疾患情報"
 * section[=].code = $JP_Composition_SEAMAT_SectionCode_CS#78923-0 "併存疾患情報セクション"
