@@ -19,7 +19,7 @@ This material contains content from LOINC (http://loinc.org). LOINC is copyright
 // * $JP_Composition_SEAMAT_SectionCode_CS#11524-6 "心電図コメントセクション"
 * $JP_Composition_SEAMAT_SectionCode_CS#29273-0 "計測値セクション"
 * $JP_Composition_SEAMAT_SectionCode_CS#64110-0 "解析結果セクション"
-// * $JP_Composition_SEAMAT_SectionCode_CS#12131-9 "超音波所見セクション"
+* $JP_Composition_SEAMAT_SectionCode_CS#12131-9 "超音波所見セクション"
 * $JP_Composition_SEAMAT_SectionCode_CS#47045-0 "検査所見セクション"
 * $JP_Composition_SEAMAT_SectionCode_CS#29308-4 "医師所見セクション"
 * $JP_Composition_SEAMAT_SectionCode_CS#78239-1 "外部参照セクション"

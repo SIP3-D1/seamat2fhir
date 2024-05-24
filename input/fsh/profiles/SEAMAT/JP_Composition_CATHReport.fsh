@@ -67,7 +67,7 @@ Description:  "心臓カテーテル検査レポート情報のリソース構�
 
 * category 1..1 MS
 * category ^short = "文書カテゴリーコード"
-* category ^definition = "文書カテゴリーコード。　心電図検査レポートではtype.coding.codeに記述される文書区分コードと同一。"
+* category ^definition = "文書カテゴリーコード。　心カテ検査レポートではtype.coding.codeに記述される文書区分コードと同一。"
 * category.coding 1..1 MS
 * category from $JP_Composition_CATHReport_DocumentType_VS (required)
 * category.coding.system 1.. MS
@@ -136,24 +136,24 @@ and authoringOrganization 0..1 MS
 
 * event 1..1 MS
 * event ^short = "検査実施日時"
-* event ^definition = "心電図検査レポートの対象の検査を実施した日時の情報"
+* event ^definition = "心カテ検査レポートの対象の検査を実施した日時の情報"
 * event.code 0..1 MS
 * event.code ^definition = "【CDA項目】/ClinicalDocument/documentationOf/serviceEvent/code"
 * event.code.coding ..0
 * event.code.text 1.. MS
-* event.code.text = "心電図検査実施日時" (exactly)
+* event.code.text = "心カテ検査実施日時" (exactly)
 * event.period 1.. MS
-* event.period ^short = "心電図検査実施日時"
-* event.period ^definition = "心電図検査レポートの対象の検査を実施した日時。ISO8601に準拠yyyy-mm-dd形式で記述する。\r\n
+* event.period ^short = "心カテ検査実施日時"
+* event.period ^definition = "心カテ検査レポートの対象の検査を実施した日時。ISO8601に準拠yyyy-mm-dd形式で記述する。\r\n
 【CDA項目】/ClinicalDocument/documentationOf/serviceEvent/effectiveTime"
 * event.period.start 1.. MS
 * event.period.start ^short = "検査開始日時"
-* event.period.start ^definition = "心電図検査を開始した日時。ISO8601に準拠yyyy-mm-ddTHH:MM:SS+09:00形式で記述する。"
+* event.period.start ^definition = "心カテ検査を開始した日時。ISO8601に準拠yyyy-mm-ddTHH:MM:SS+09:00形式で記述する。"
 * event.period.end ^short = "検査終了日時"
-* event.period.end ^definition = "心電図検査を終了した日時。"
+* event.period.end ^definition = "心カテ検査を終了した日時。"
 * event.detail 1.. MS
-* event.detail ^short = "心電図検査実施情報"
-* event.detail ^definition = "心電図検査レポートの対象の検査の実施情報。SS-MIX2拡張ストレージのコンテンツフォルダ名に含まれるキー情報を記述する。"
+* event.detail ^short = "心カテ検査実施情報"
+* event.detail ^definition = "心カテ検査レポートの対象の検査の実施情報。SS-MIX2拡張ストレージのコンテンツフォルダ名に含まれるキー情報を記述する。"
 * event.detail only Reference(JP_Procedure_SEAMAT)
 
 * section.author ..1 MS
