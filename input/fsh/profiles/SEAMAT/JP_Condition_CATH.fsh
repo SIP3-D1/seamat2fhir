@@ -47,7 +47,7 @@ Description: "このプロファイルはConditionリソースに対して、心
 * code ^definition = "PCI合併症、併存疾患情報、循環器疾患既往歴等の識別コード。"
 * code ^comment = "JP_Condition_PCIConditionCode_VSの中から適切な識別コードを指定する"
 * code.coding ^slicing.discriminator.type = #value
-* code.coding ^slicing.discriminator.path = "system"
+* code.coding ^slicing.discriminator.path = "code"
 * code.coding ^slicing.rules = #open
 * code.coding ^slicing.ordered = false
 * code.coding contains
