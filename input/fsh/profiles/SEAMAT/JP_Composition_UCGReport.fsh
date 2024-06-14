@@ -25,7 +25,7 @@ Description:  "心エコー検査レポート情報のリソース構成情報�
 * extension ^slicing.rules = #open
 * extension contains 
     $composition-clinicaldocument-versionNumber named version 0..1 and
-    $order-extension named order 0..1
+    order 0..1
 * extension[version] ^short = "文書バージョンを表す拡張"
 * extension[version] 0..1 MS
 * extension[version].url 1..1 MS
@@ -36,6 +36,7 @@ Description:  "心エコー検査レポート情報のリソース構成情報�
 * extension[order] ^short = "オーダーのServiceRequestリソースを参照する拡張"
 * extension[order] 0..1 MS
 * extension[order].url 1..1 MS
+* extension[order].url = $order-extension (exactly)
 * extension[order].value[x] ^short = "オーダーのServiceRequestを参照するReference型の値。"
 * extension[order].value[x] ^definition = "オーダーのServiceRequestを参照するReference型の値。"
 * extension[order].value[x] 1..1 MS
