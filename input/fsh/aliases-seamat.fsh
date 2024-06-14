@@ -3,6 +3,7 @@ Alias: $organization-type = http://terminology.hl7.org/CodeSystem/organization-t
 Alias: $participation-function = http://terminology.hl7.org/ValueSet/v3-ParticipationFunction
 Alias: $v2-0203 = http://terminology.hl7.org/CodeSystem/v2-0203
 Alias: $condition-clinical = http://terminology.hl7.org/CodeSystem/condition-clinical
+Alias: $order-extension = http://hl7.org/fhir/us/ccda/StructureDefinition/OrderExtension
 
 // StructureDefinition: Profile, DataType
 Alias: $JP_Binary_SEAMAT = http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Binary_SEAMAT
