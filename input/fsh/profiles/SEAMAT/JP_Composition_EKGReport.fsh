@@ -24,12 +24,11 @@ Description:  "心電図検査レポート情報のリソース構成情報と�
 * extension ^slicing.discriminator.path = "url"
 * extension ^slicing.rules = #open
 * extension contains 
-        version 0..1
-    and order 0..1
+    $composition-clinicaldocument-versionNumber named version 0..1 and
+    $order-extension named order 0..1
 * extension[version] ^short = "文書バージョンを表す拡張"
 * extension[version] 0..1 MS
 * extension[version].url 1..1 MS
-* extension[version].url = $composition-clinicaldocument-versionNumber (exactly)
 * extension[version].value[x] ^short = "文書のバージョン番号を表す文字列。"
 * extension[version].value[x] ^definition = "文書のバージョン番号を表す文字列。\r\n例 : 第１版は  \"1\" とする。"
 * extension[version].value[x] 1..1 MS
@@ -37,7 +36,6 @@ Description:  "心電図検査レポート情報のリソース構成情報と�
 * extension[order] ^short = "オーダーのServiceRequestリソースを参照する拡張"
 * extension[order] 0..1 MS
 * extension[order].url 1..1 MS
-* extension[order].url = $order-extension (exactly)
 * extension[order].value[x] ^short = "オーダーのServiceRequestを参照するReference型の値。"
 * extension[order].value[x] ^definition = "オーダーのServiceRequestを参照するReference型の値。"
 * extension[order].value[x] 1..1 MS
