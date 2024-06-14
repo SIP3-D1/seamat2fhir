@@ -46,40 +46,41 @@ Description: "このプロファイルはConditionリソースに対して、心
 * code ^short = "PCI合併症、併存疾患情報、冠危険因子、循環器疾患既往歴等の識別コード。【詳細参照】"
 * code ^definition = "PCI合併症、併存疾患情報、循環器疾患既往歴等の識別コード。"
 * code ^comment = "JP_Condition_PCIConditionCode_VSの中から適切な識別コードを指定する"
-* code.coding ^slicing.discriminator.type = #value
-* code.coding ^slicing.discriminator.path = "code"
-* code.coding ^slicing.rules = #open
-* code.coding ^slicing.ordered = false
-* code.coding contains
-    complication 0..1 and
-    comorbidity 0..1 and
-    riskFactor 0..1 and
-    history 0..1
+* code from $JP_Condition_CATHCode_VS
+// * code.coding ^slicing.discriminator.type = #value
+// * code.coding ^slicing.discriminator.path = "code"
+// * code.coding ^slicing.rules = #open
+// * code.coding ^slicing.ordered = false
+// * code.coding contains
+//     complication 0..1 and
+//     comorbidity 0..1 and
+//     riskFactor 0..1 and
+//     history 0..1
 
-* code.coding[complication] from $JP_Condition_PCIComplicationType_VS (required)
-* code.coding[complication].system = $loinc (exactly)
-* code.coding[complication].code 1..
-* code.coding[complication] ^short = "PCI合併症種別コード。【詳細参照】"
-* code.coding[complication] ^definition = "PCI合併症種別コード。\r\n【CDA項目】PCI合併症の場合、78937-0<PCI合併症>の値を使用する。"
-* code.coding[complication] ^comment = "JP_Condition_PCIComplicationType_VSの中から適切なコードを指定する。"
+// * code.coding[complication] from $JP_Condition_PCIComplicationType_VS (required)
+// * code.coding[complication].system = $loinc (exactly)
+// * code.coding[complication].code 1..
+// * code.coding[complication] ^short = "PCI合併症種別コード。【詳細参照】"
+// * code.coding[complication] ^definition = "PCI合併症種別コード。\r\n【CDA項目】PCI合併症の場合、78937-0<PCI合併症>の値を使用する。"
+// * code.coding[complication] ^comment = "JP_Condition_PCIComplicationType_VSの中から適切なコードを指定する。"
 
-* code.coding[comorbidity] from $JP_Condition_CATHComorbidityType_VS (required)
-* code.coding[comorbidity].system = $loinc (exactly)
-* code.coding[comorbidity].code 1..
-* code.coding[comorbidity] ^short = "並存疾患種別コード。【詳細参照】"
-* code.coding[comorbidity] ^definition = "並存疾患種別コード。"
-* code.coding[comorbidity] ^comment = "JP_Condition_CATHComorbidityType_VSの中から適切なコードを指定する。"
+// * code.coding[comorbidity] from $JP_Condition_CATHComorbidityType_VS (required)
+// * code.coding[comorbidity].system = $loinc (exactly)
+// * code.coding[comorbidity].code 1..
+// * code.coding[comorbidity] ^short = "並存疾患種別コード。【詳細参照】"
+// * code.coding[comorbidity] ^definition = "並存疾患種別コード。"
+// * code.coding[comorbidity] ^comment = "JP_Condition_CATHComorbidityType_VSの中から適切なコードを指定する。"
 
-* code.coding[riskFactor] from $JP_Condition_CATHCoronaryRiskFactorType_VS (required)
-* code.coding[riskFactor].system = $loinc (exactly)
-* code.coding[riskFactor].code 1..
-* code.coding[riskFactor] ^short = "冠危険因子種別コード。【詳細参照】"
-* code.coding[riskFactor] ^definition = "冠危険因子種別コード。"
-* code.coding[riskFactor] ^comment = "JP_Condition_PCICoronaryRiskFactorType_VSの中から適切なコードを指定する。"
+// * code.coding[riskFactor] from $JP_Condition_CATHCoronaryRiskFactorType_VS (required)
+// * code.coding[riskFactor].system = $loinc (exactly)
+// * code.coding[riskFactor].code 1..
+// * code.coding[riskFactor] ^short = "冠危険因子種別コード。【詳細参照】"
+// * code.coding[riskFactor] ^definition = "冠危険因子種別コード。"
+// * code.coding[riskFactor] ^comment = "JP_Condition_PCICoronaryRiskFactorType_VSの中から適切なコードを指定する。"
 
-* code.coding[history] from $JP_Condition_CATHCoronaryRiskFactorType_VS (required)
-* code.coding[history].system = $loinc (exactly)
-* code.coding[history].code 1..
-* code.coding[history] ^short = "循環器疾患既往歴種別コード。【詳細参照】"
-* code.coding[history] ^definition = "循環器疾患既往歴種別コード。"
-* code.coding[history] ^comment = "JP_Condition_PCICoronaryRiskFactorType_VSの中から適切なコードを指定する。"
+// * code.coding[history] from $JP_Condition_CATHCoronaryRiskFactorType_VS (required)
+// * code.coding[history].system = $loinc (exactly)
+// * code.coding[history].code 1..
+// * code.coding[history] ^short = "循環器疾患既往歴種別コード。【詳細参照】"
+// * code.coding[history] ^definition = "循環器疾患既往歴種別コード。"
+// * code.coding[history] ^comment = "JP_Condition_PCICoronaryRiskFactorType_VSの中から適切なコードを指定する。"

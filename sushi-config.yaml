@@ -140,6 +140,7 @@ parameters:  # see https://confluence.hl7.org/display/FHIR/Implementation+Guide+
     - http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Composition_EKGReport_SectionCode_VS
     - http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Composition_UCGReport_DocumentType_VS
     - http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Composition_UCGReport_SectionCode_VS
+    - http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Condition_CATHCode_VS
     - http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Condition_CATHCadiovascularIllnessHistory_VS
     - http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Condition_CATHComorbidityType_VS
     - http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Condition_CATHCoronaryRiskFactorType_VS
@@ -154,5 +155,5 @@ parameters:  # see https://confluence.hl7.org/display/FHIR/Implementation+Guide+
     - http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Procedure_SEAMAT_Category_VS
     - http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Observation_PCIStenosis_VS
     - http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Observation_PCITimiGrade_VS
-    - http://jpfhir.jp/fhir/seamat2fhir
+    - http://hl7.org/fhir/us/ccda/StructureDefinition/OrderExtension
     
