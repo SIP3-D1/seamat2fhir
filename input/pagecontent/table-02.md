@@ -11,7 +11,7 @@
 |  | valueString |  | 1..1 | string | “1” | /CD/versionNumber | 文書のバージョン番号を表す文字列。値は例示。 |
 | extension |  |  | 0..1 | Extension |  |  | オーダーのServiceRequestリソースを参照する拡張「order-extension」。定義のみで現バージョンでは未使用。 |
 |  | url |  | 1..1 | uri | "http://hl7.org/fhir/us/ccda/StructureDefinition/O<BR>rderExtension" |  | 拡張を識別するURL。固定値。 |
-|  | valueReference |  | 1..1 | Reference | http://hl7.org/fhir/us/ccda/StructureDefinition/Or<BR>derExtension" |  | 拡張を識別するURL。固定値。 |
+|  | valueReference |  | 1..1 | Reference |  |  |  |
 |  |  | reference | 1..1 | uri | "urn:uuid:4b0210b8-9866-4509-9bd9-044120ff2349" |  | オーダーのServiceRequestリソースのfullUrl要素に指定されるUUIDを指定。値は例示。 |
 | language |  |  | 0..1 | code | "ja" | /CD/languageCode | この文書の記述言語。値は例示。 |
 | identifier |  |  | 0..1 | Identifier |  | /CD/id | この文書の文書ID。 |
