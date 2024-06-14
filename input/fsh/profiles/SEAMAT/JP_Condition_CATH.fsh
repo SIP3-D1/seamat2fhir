@@ -46,12 +46,18 @@ Description: "このプロファイルはConditionリソースに対して、心
 * code ^short = "PCI合併症、併存疾患情報、冠危険因子、循環器疾患既往歴等の識別コード。【詳細参照】"
 * code ^definition = "PCI合併症、併存疾患情報、循環器疾患既往歴等の識別コード。"
 * code ^comment = "JP_Condition_PCIConditionCode_VSの中から適切な識別コードを指定する"
-* code from $JP_Condition_CATHCode_VS
-// * code.coding ^slicing.discriminator.type = #value
-// * code.coding ^slicing.discriminator.path = "code"
-// * code.coding ^slicing.rules = #open
-// * code.coding ^slicing.ordered = false
-// * code.coding contains
+* code.coding ^slicing.discriminator.type = #value
+* code.coding ^slicing.discriminator.path = "system"
+* code.coding ^slicing.rules = #open
+* code.coding ^slicing.ordered = false
+* code.coding contains loinc 0..1
+* code.coding[loinc] from $JP_Condition_CATHCode_VS (required)
+* code.coding[loinc].system = $loinc (exactly)
+* code.coding[loinc].code 1..
+* code.coding[loinc] ^short = "LOINCコード。【詳細参照】"
+* code.coding[loinc] ^definition = "LOINCコード。\r\n【CDA項目】PCI合併症、併存疾患情報、冠危険因子、循環器疾患既往歴等の識別コード。"
+* code.coding[loinc] ^comment = "JP_Condition_CATHCodee_VSの中から適切なコードを指定する。"
+
 //     complication 0..1 and
 //     comorbidity 0..1 and
 //     riskFactor 0..1 and
