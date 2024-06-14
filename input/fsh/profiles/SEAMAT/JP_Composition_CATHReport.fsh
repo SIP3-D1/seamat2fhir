@@ -23,11 +23,12 @@ Description:  "心臓カテーテル検査レポート情報のリソース構�
 * extension ^slicing.discriminator.path = "url"
 * extension ^slicing.rules = #open
 * extension contains 
-    $composition-clinicaldocument-versionNumber named version 0..1 and
-    order 0..1
+        version 0..1
+    and order 0..1
 * extension[version] ^short = "文書バージョンを表す拡張"
 * extension[version] 0..1 MS
 * extension[version].url 1..1 MS
+* extension[version].url = $composition-clinicaldocument-versionNumber (exactly)
 * extension[version].value[x] ^short = "文書のバージョン番号を表す文字列。"
 * extension[version].value[x] ^definition = "文書のバージョン番号を表す文字列。\r\n例 : 第１版は  \"1\" とする。"
 * extension[version].value[x] 1..1 MS
