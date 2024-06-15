@@ -11,6 +11,12 @@ Description: "SEAMATで使用するLOINCアンサーコードのコードシス�
 * ^copyright = "Copyright SIP D1 SEAMAT2FHIR-WG   
 This material contains content from LOINC (http://loinc.org). LOINC is copyright © 1995-2020, Regenstrief Institute, Inc. and the Logical Observation Identifiers Names and Codes (LOINC) Committee and is available at no cost under the license at http://loinc.org/license. LOINC® is a registered United States trademark of Regenstrief Institute, Inc"
 
+// Condition.clinicalStatus
+//* #LA32-8	"無"
+//* #LA33-6	"有"
+* #LA1-0	"空欄もしくは不明"
+* #LA4489-6	"Unknown"
+
 // Condition.code
 // SEAMAT心カテレポートPCI合併症値セット
 * #LA20591-6	"Died/Expired"
