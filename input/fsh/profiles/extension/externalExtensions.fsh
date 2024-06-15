@@ -11,6 +11,7 @@ Description: "The Order Extension represents orders that are fulfilled by this d
 * ^url = $order-extension
 * ^status = #active
 * ^date = "2024-03-12"
+* ^publisher = "HL7 International / Cross-Group Projects"
 * ^context.type = #element
 * ^context.expression = "Composition"
 * url = $order-extension (exactly)

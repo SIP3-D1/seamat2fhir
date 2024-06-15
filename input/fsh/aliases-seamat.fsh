@@ -43,7 +43,7 @@ Alias: $JP_Composition_SEAMAT_DocumentType_CS = http://jpfhir.jp/fhir/SEAMAT/Cod
 Alias: $JP_Composition_SEAMAT_SectionCode_CS = http://jpfhir.jp/fhir/SEAMAT/CodeSystem/JP_Composition_SEAMAT_SectionCode_CS
 Alias: $JP_Procedure_SEAMAT_Category_CS = http://jpfhir.jp/fhir/SEAMAT/CodeSystem/JP_Procedure_SEAMAT_Category_CS
 Alias: $JP_SimpleObservationCategory_CS = http://jpfhir.jp/fhir/core/CodeSystem/JP_SimpleObservationCategory_CS
-Alias: $loinc-answer-code = http://jpfhir.jp/fhir/core/CodeSystem/JP_LOINC_AnswerCode_CS
+Alias: $loinc-answer-code = http://jpfhir.jp/fhir/SEAMAT/CodeSystem/JP_LOINC_AnswerCode_CS
 
 // ValueSet
 Alias: $JP_Composition_CATHReport_DocumentType_VS = http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Composition_CATHReport_DocumentType_VS
