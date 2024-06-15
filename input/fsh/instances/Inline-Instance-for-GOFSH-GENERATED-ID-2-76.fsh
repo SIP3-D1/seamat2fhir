@@ -10,4 +10,4 @@ Usage: #inline
 * status = #final
 * code = $loinc#80729-7 "de novo or restenosis"
 * subject = Reference(urn:uuid:1eded11c-b3f3-4613-b94d-73095c366204)
-* valueCodeableConcept = $loinc#LA24479-0 "De novo stenosis"
+* valueCodeableConcept = $loinc-answer-code#LA24479-0 "De novo stenosis"

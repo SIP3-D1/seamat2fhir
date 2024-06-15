@@ -12,12 +12,12 @@ Usage: #inline
 * reasonReference[+] = Reference(urn:uuid:97f74617-192d-4158-8171-1a1eee7524aa)
 * reasonReference[+] = Reference(urn:uuid:6574a417-22ba-48b7-9d0c-0d6d16700f42)
 * reasonReference[+] = Reference(urn:uuid:b0d865a7-90be-4237-ae18-f4dad9ac7f53)
-* bodySite = $loinc#LA24463-4 "5-6"
+* bodySite = $loinc-answer-code#LA24463-4 "5-6"
 * outcome.extension[0].url = "http://jpfhir.jp/fhir/SEAMAT/Extension/StructureDefinition/JP_Procedure_PCIOutcomeDetail"
 * outcome.extension[=].valueReference = Reference(urn:uuid:4a1bd7ce-2768-4b8d-b4ec-5fc20f09f99c)
 * outcome.extension[+].url = "http://jpfhir.jp/fhir/SEAMAT/Extension/StructureDefinition/JP_Procedure_PCIOutcomeDetail"
 * outcome.extension[=].valueReference = Reference(urn:uuid:f1a47063-0ea1-4f33-bf55-be8196b39a27)
-* outcome = $loinc#LA33-6 "成功"
+* outcome = $loinc-answer-code#LA33-6 "成功"
 * focalDevice[0].manipulated = Reference(urn:uuid:e54cc48a-2030-4715-b175-5811aeab3deb)
 * focalDevice[+].manipulated = Reference(urn:uuid:e627b834-5e15-4d90-9c70-54ffa1b07295)
 * focalDevice[+].manipulated = Reference(urn:uuid:98bfd349-1a4a-48b9-a972-cc2fc54393f8)
