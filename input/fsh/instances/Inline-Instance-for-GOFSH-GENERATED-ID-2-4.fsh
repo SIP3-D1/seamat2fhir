@@ -6,6 +6,7 @@ Usage: #inline
 * active = true
 * type = $organization-type#prov "Healthcare Provider"
 * name = "ABC大学病院"
+* telecom.system = #phone
 * telecom.value = "000-000-0000"
 * address.line = "京都市南区仮町1-1-1"
 * address.country = "JP"

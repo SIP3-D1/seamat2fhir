@@ -1,23 +1,23 @@
-Invariant: bundle-ekgreport-metaprofile
+Invariant: bundle-ucgreport-metaprofile
 Description: "meta.profileには、指定したプロファイルのURLの記述が存在しなければならない。"
 Severity: #error
-Expression: "meta.profile.where($this = 'http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Bundle_EKGReport').exists()"
+Expression: "meta.profile.where($this = 'http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Bundle_UCGReport').exists()"
 
 // ==============================
 //   Profile 定義
 // ==============================
-Profile: JP_Bundle_EKGReport
+Profile: JP_Bundle_UCGReport
 Parent: Bundle
-Id: JP-Bundle-ekgreport
-Title: "SEAMAT EKG Report Bundle Profile"
-Description: "SEAMAT心電図検査レポートのための文書 Bundleリソース"
-* ^url = $JP_Bundle_EKGReport
+Id: JP-Bundle-ucgreport
+Title: "SEAMAT UCG Report Bundle Profile"
+Description: "SEAMAT心エコー検査レポートのための文書 Bundleリソース"
+* ^url = $JP_Bundle_UCGReport
 * ^status = #active
-* ^date = "2023-11-12"
-* . ^short = "SEAMAT心電図検査レポートのための文書 Bundleリソース"
-* . ^definition = "SEAMAT心電図検査レポートのための文書 Bundleリソース"
+* ^date = "2024-05-24"
+* . ^short = "SEAMAT心エコー検査レポートのための文書 Bundleリソース"
+* . ^definition = "SEAMAT心エコー検査レポートのための文書 Bundleリソース"
 
-* obeys bundle-ekgreport-metaprofile
+* obeys bundle-ucgreport-metaprofile
 
 * meta.lastUpdated 1.. MS
 * meta.profile 1.. MS

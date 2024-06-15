@@ -5,4 +5,4 @@ Usage: #inline
 * meta.profile = "http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Device_PCI"
 * identifier.system = "http://jpfhir.jp/fhir/core/IdSystem/resourceInstance-identifier"
 * identifier.value = "1234567890_20240115_LJCS-300R_20240117185921.0227990001.2024011417332568.2024011417332568_20240117185921000_-_1.71"
-* type = $loinc#LA26041-6 "バルーン"
+* type = $loinc-answer-code#LA26041-6 "バルーン"

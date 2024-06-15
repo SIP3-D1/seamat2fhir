@@ -21,12 +21,12 @@ FHIRドキュメントは、複数のFHIRリソースをまとめるためのBun
 
 ##### PCI処置の情報をProcedureリソースに個別にマッピングする
 本実装ガイドでは、PCI検査の場合のみPCI処置セクションで記述されているPCI処置の情報をProcedureリソースを使用して個別にマッピングする。マッピング先の要素は以下の通り。
-  - <実施有無> : status要素
-  - <Stenosis_Pre>,<TimiGrade_Pre>、<病変正常>、<病変分類> : reasonReference要素（Observationリソースを参照）
-  - <部位> : bodySite要素
-  - <実施成否> : outcome要素
-  - <Stenosis_Post>,<TimiGrade_Post > : outcome要素下のJP_Procedure_PCIOutcomeDetail拡張（Observationリソースを参照）
-  - <使用機器> : focalDevice.manipulated要素（Device要素を参照）
+  - \<実施有無\> : status要素
+  - \<Stenosis_Pre\>、\<TimiGrade_Pre\>、\<病変正常>、\<病変分類> : reasonReference要素（Observationリソースを参照）
+  - \<部位\> : bodySite要素
+  - \<実施成否\> : outcome要素
+  - \<Stenosis_Post\>,\<TimiGrade_Post\> : outcome要素下のJP_Procedure_PCIOutcomeDetail拡張（Observationリソースを参照）
+  - \<使用機器\> : focalDevice.manipulated要素（Device要素を参照）
 
 ### FHIRドキュメントのリソースの構成
 心臓カテーテル検査レポート用のFHIRドキュメントでは、以下のようなリソースの構成を想定している。
@@ -55,7 +55,7 @@ FHIRドキュメントは、複数のFHIRリソースをまとめるためのBun
 
 心臓カテーテル検査レポート用FHIRドキュメントのBundleリソースの仕様を次の表に示す。
 
-[＜表19 Bundleリソースの仕様（心臓カテーテル検査レポート）＞](tables-ccs.html#表19-bundleリソースの仕様（心臓カテーテル検査レポート）)
+[＜表19 Bundleリソースの仕様（心臓カテーテル検査レポート）＞](tables.html#表19-bundleリソースの仕様心臓カテーテル検査レポート)
 
 心臓カテーテル検査レポート用FHIRドキュメントの全体像を下図に示す。
 
@@ -319,12 +319,12 @@ PCIで行った処置に関する情報をProcedureリソースを使用して�
 <br>このセクションは任意であり、処置を行った部位の数だけ繰り返す。
 
 CDAで構造化されて記述されている各項目ごとの、Procedureリソースのマッピング先の要素は以下の通り。
-  - <実施有無> : status要素
-  - <Stenosis_Pre>,<TimiGrade_Pre>、<病変正常>、<病変分類> : reasonReference要素（Observationリソースを参照）
-  - <部位> : bodySite要素
-  - <実施成否> : outcome要素
-  - <Stenosis_Post>,<TimiGrade_Post > : outcome要素下のJP_Procedure_PCIOutcomeDetail拡張（Observationリソースを参照）
-  - <使用機器> : focalDevice.manipulated要素（Device要素を参照）
+  - \<実施有無\> : status要素
+  - \<Stenosis_Pre\>、\<TimiGrade_Pre\>、\<病変正常\>、\<病変分類\> : reasonReference要素（Observationリソースを参照）
+  - \<部位\> : bodySite要素
+  - \<実施成否\> : outcome要素
+  - \<Stenosis_Post\>,\<TimiGrade_Post\> : outcome要素下のJP_Procedure_PCIOutcomeDetail拡張（Observationリソースを参照）
+  - \<使用機器\> : focalDevice.manipulated要素（Device要素を参照）
 
 Procedureリソースの仕様を次の表で示す。
 

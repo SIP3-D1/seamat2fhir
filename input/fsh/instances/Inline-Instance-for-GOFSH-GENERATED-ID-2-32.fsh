@@ -8,6 +8,6 @@ Usage: #inline
 * identifier[+].system = "http://jpfhir.jp/fhir/core/IdSystem/documentInstance-identifier"
 * identifier[=].value = "1234567890_20240115_LJCS-300R_20240117185921.0227990001.2024011417332568.2024011417332568_20240117185921000_-_1"
 * status = #final
-* code = $loinc#30525-0 "Age"
+* code = $loinc-answer-code#30525-0 "Age"
 * subject = Reference(urn:uuid:1eded11c-b3f3-4613-b94d-73095c366204)
 * valueQuantity.value = 75

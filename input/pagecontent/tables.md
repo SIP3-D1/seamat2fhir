@@ -48,3 +48,7 @@
 {% include table-23.md %}
 
 {% include table-24.md %}
+
+{% include table-25.md %}
+
+{% include table-26.md %}

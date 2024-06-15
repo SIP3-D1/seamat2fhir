@@ -10,4 +10,4 @@ Usage: #inline
 * status = #final
 * code = $loinc#80730-5 "Stenosis classification ACC/AHA"
 * subject = Reference(urn:uuid:1eded11c-b3f3-4613-b94d-73095c366204)
-* valueCodeableConcept = $loinc#LA24482-4 "Type B1"
+* valueCodeableConcept = $loinc-answer-code#LA24482-4 "Type B1"

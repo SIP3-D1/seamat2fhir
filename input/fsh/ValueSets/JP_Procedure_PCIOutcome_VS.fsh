@@ -8,5 +8,5 @@ Description: "SEAMAT心カテレポートPCI処置成否値セット"
 * ^date = "2024-05-08"
 * ^copyright = "Copyright Copyright SIP D1 SEAMAT2FHIR-WG"
 
-* $loinc#LA32-8	"失敗"
-* $loinc#LA33-6	"成功"
+* $loinc-answer-code#LA32-8	"失敗"
+* $loinc-answer-code#LA33-6	"成功"

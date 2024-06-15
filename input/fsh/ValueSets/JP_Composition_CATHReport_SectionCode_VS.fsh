@@ -10,6 +10,7 @@ Description: "SEAMAT心臓カテーテル検査レポートセクションコー
 This material contains content from LOINC (http://loinc.org). LOINC is copyright © 1995-2020, Regenstrief Institute, Inc. and the Logical Observation Identifiers Names and Codes (LOINC) Committee and is available at no cost under the license at http://loinc.org/license. LOINC® is a registered United States trademark of Regenstrief Institute, Inc"
 
 // 心臓カテーテル検査レポート
+* $JP_Composition_SEAMAT_SectionCode_CS#52460-3 "患者付帯情報セクション"
 * $JP_Composition_SEAMAT_SectionCode_CS#78923-0	"併存疾患情報セクション"
 * $JP_Composition_SEAMAT_SectionCode_CS#78940-4	"冠危険因子セクション"
 * $JP_Composition_SEAMAT_SectionCode_CS#78941-2	"循環器疾患既往歴セクション"

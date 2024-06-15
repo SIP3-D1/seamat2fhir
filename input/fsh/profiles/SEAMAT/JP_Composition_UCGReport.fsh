@@ -1,24 +1,24 @@
-Invariant: composition-ekgreport-metaprofile
+Invariant: composition-ucgreport-metaprofile
 Description: "meta.profileには、指定したプロファイルのURLの記述が存在しなければならない。"
 Severity: #error
-Expression: "meta.profile.where($this = 'http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Composition_EKGReport').exists()"
+Expression: "meta.profile.where($this = 'http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Composition_UCGReport').exists()"
 
 // ==============================
 //   Profile 定義
 // ==============================
-Profile: JP_Composition_EKGReport
+Profile: JP_Composition_UCGReport
 Parent: Composition
-Id: JP-Composition-ekgreport
-Title: "SEAMAT EKG Report Composition Profile"
-Description:  "心電図検査レポート情報のリソース構成情報と文書日付に関するCompositionの派生プロファイル"
-* ^url = $JP_Composition_EKGReport
+Id: JP-Composition-ucgreport
+Title: "SEAMAT UCG Report Composition Profile"
+Description:  "心エコー検査レポート情報のリソース構成情報と文書日付に関するCompositionの派生プロファイル"
+* ^url = $JP_Composition_UCGReport
 * ^status = #active
-* ^date = "2023-11-12"
+* ^date = "2024-05-24"
 * meta.lastUpdated 1.. MS
 * meta.profile 1.. MS
 //* meta.profile = $JP_Composition_EKGReport
 
-* obeys composition-ekgreport-metaprofile
+* obeys composition-ucgreport-metaprofile
 
 * extension ^slicing.discriminator.type = #value
 * extension ^slicing.discriminator.path = "url"
@@ -78,7 +78,7 @@ Description:  "心電図検査レポート情報のリソース構成情報と�
 
 * category 1..1 MS
 * category ^short = "文書カテゴリーコード"
-* category ^definition = "文書カテゴリーコード。　心電図検査レポートではtype.coding.codeに記述される文書区分コードと同一。"
+* category ^definition = "文書カテゴリーコード。　心エコー検査レポートではtype.coding.codeに記述される文書区分コードと同一。"
 * category.coding 1..1 MS
 * category from $JP_Composition_EKGReport_DocumentType_VS (required)
 * category.coding.system 1.. MS
@@ -147,24 +147,24 @@ and authoringOrganization 0..1 MS
 
 * event 1..1 MS
 * event ^short = "検査実施日時"
-* event ^definition = "心電図検査レポートの対象の検査を実施した日時の情報"
+* event ^definition = "心エコー検査レポートの対象の検査を実施した日時の情報"
 * event.code 0..1 MS
 * event.code ^definition = "【CDA項目】/ClinicalDocument/documentationOf/serviceEvent/code"
 * event.code.coding ..0
 * event.code.text 1.. MS
-* event.code.text = "心電図検査実施日時" (exactly)
+* event.code.text = "心エコー検査実施日時" (exactly)
 * event.period 1.. MS
-* event.period ^short = "心電図検査実施日時"
-* event.period ^definition = "心電図検査レポートの対象の検査を実施した日時。ISO8601に準拠yyyy-mm-dd形式で記述する。\r\n
+* event.period ^short = "心エコー検査実施日時"
+* event.period ^definition = "心エコー検査レポートの対象の検査を実施した日時。ISO8601に準拠yyyy-mm-dd形式で記述する。\r\n
 【CDA項目】/ClinicalDocument/documentationOf/serviceEvent/effectiveTime"
 * event.period.start 1.. MS
 * event.period.start ^short = "検査開始日時"
-* event.period.start ^definition = "心電図検査を開始した日時。ISO8601に準拠yyyy-mm-ddTHH:MM:SS+09:00形式で記述する。"
+* event.period.start ^definition = "心エコー検査を開始した日時。ISO8601に準拠yyyy-mm-ddTHH:MM:SS+09:00形式で記述する。"
 * event.period.end ^short = "検査終了日時"
-* event.period.end ^definition = "心電図検査を終了した日時。"
+* event.period.end ^definition = "心エコー検査を終了した日時。"
 * event.detail 1.. MS
-* event.detail ^short = "心電図検査実施情報"
-* event.detail ^definition = "心電図検査レポートの対象の検査の実施情報。SS-MIX2拡張ストレージのコンテンツフォルダ名に含まれるキー情報を記述する。"
+* event.detail ^short = "心エコー検査実施情報"
+* event.detail ^definition = "心エコー検査レポートの対象の検査の実施情報。SS-MIX2拡張ストレージのコンテンツフォルダ名に含まれるキー情報を記述する。"
 * event.detail only Reference(JP_Procedure_SEAMAT)
 
 * section.author ..1 MS
@@ -182,10 +182,10 @@ and authoringOrganization 0..1 MS
     and loinc/subjective 0..1 MS // 自覚症状
 	and loinc/usedDrug 0..1 MS  // 検査時使用薬
     and loinc/examDescription 0..1 MS  //  検査記述
-    and loinc/ekgComment 0..1    MS  //  心電図コメント
+//    and loinc/ekgComment 0..1    MS  //  心電図コメント
     and loinc/measurement 0..1 MS // 計測値（生理検査）
     and loinc/analysis 0..1 MS // 解析結果（生理検査）
-//    and loinc/ucgFInding 0..1 MS // 超音波所見
+    and loinc/ucgFInding 0..1 MS // 超音波所見
     and loinc/examFinding 0..1 MS // 検査所見
     and loinc/doctorFinding 0..1 MS // 医師所見
     and loinc/external 0..1 MS // 外部参照
@@ -341,12 +341,12 @@ and authoringOrganization 0..1 MS
 //* section[loinc/examDescription].entry ..0
 
 //　心電図コメント
-* section[loinc/ekgComment] ^short = "心電図コメントセクション"
-* section[loinc/ekgComment] ^definition = "心電図コメントセクション"
-* section[loinc/ekgComment].title = "心電図コメント" (exactly)
-* section[loinc/ekgComment].code.coding.code = #11524-6 (exactly)
-* section[loinc/ekgComment].code.coding.display = "心電図コメントセクション"
-* section[loinc/ekgComment].entry ..0
+// * section[loinc/ekgComment] ^short = "心電図コメントセクション"
+// * section[loinc/ekgComment] ^definition = "心電図コメントセクション"
+// * section[loinc/ekgComment].title = "心電図コメント" (exactly)
+// * section[loinc/ekgComment].code.coding.code = #11524-6 (exactly)
+// * section[loinc/ekgComment].code.coding.display = "心電図コメントセクション"
+// * section[loinc/ekgComment].entry ..0
 
 // 計測値（生理検査）
 * section[loinc/measurement] ^short = "計測値（生理検査）セクション"
@@ -373,12 +373,12 @@ and authoringOrganization 0..1 MS
 * section[loinc/analysis].emptyReason ..1
 
 //　超音波所見
-// * section[loinc/ucgFInding] ^short = "超音波所見セクション"
-// * section[loinc/ucgFInding] ^definition = "超音波所見セクション"
-// * section[loinc/ucgFInding].title = "超音波所見" (exactly)
-// * section[loinc/ucgFInding].code.coding.code = #12131-9 (exactly)
-// * section[loinc/ucgFInding].code.coding.display = "超音波所見セクション"
-// * section[loinc/ucgFInding].entry ..0
+* section[loinc/ucgFInding] ^short = "超音波所見セクション"
+* section[loinc/ucgFInding] ^definition = "超音波所見セクション"
+* section[loinc/ucgFInding].title = "超音波所見" (exactly)
+* section[loinc/ucgFInding].code.coding.code = #12131-9 (exactly)
+* section[loinc/ucgFInding].code.coding.display = "超音波所見セクション"
+* section[loinc/ucgFInding].entry ..0
 
 //　検査所見
 * section[loinc/examFinding] ^short = "検査所見セクション"

@@ -10,4 +10,4 @@ Usage: #inline
 * status = #final
 * code = $loinc#81001-0 "TIMI Grade post"
 * subject = Reference(urn:uuid:1eded11c-b3f3-4613-b94d-73095c366204)
-* valueCodeableConcept = $loinc#LA26050-7 "TIMI 3"
+* valueCodeableConcept = $loinc-answer-code#LA26050-7 "TIMI 3"

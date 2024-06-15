@@ -128,17 +128,19 @@ parameters:  # see https://confluence.hl7.org/display/FHIR/Implementation+Guide+
     - http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_PractitionerRole_SEAMAT_Performer
     - http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Procedure_PCI
     - http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/JP_Procedure_SEAMAT
-    - http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/Extension/JP_Procedure_PCIOutcomeDetail
+    - http://jpfhir.jp/fhir/SEAMAT/Extension/StructureDefinition/JP_Procedure_PCIOutcomeDetail
     - http://jpfhir.jp/fhir/SEAMAT/CodeSystem/JP_Composition_SEAMAT_DocumentType_CS
     - http://jpfhir.jp/fhir/SEAMAT/CodeSystem/JP_Composition_SEAMAT_SectionCode_CS
     - http://jpfhir.jp/fhir/SEAMAT/CodeSystem/JP_Composition_EKGReport_DocumentType_CS
     - http://jpfhir.jp/fhir/SEAMAT/CodeSystem/JP_Procedure_SEAMAT_Category_CS
+    - http://jpfhir.jp/fhir/SEAMAT/CodeSystem/JP_LOINC_AnswerCode_CS
     - http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Composition_CATHReport_DocumentType_VS
     - http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Composition_CATHReport_SectionCode_VS
     - http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Composition_EKGReport_DocumentType_VS
     - http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Composition_EKGReport_SectionCode_VS
     - http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Composition_UCGReport_DocumentType_VS
     - http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Composition_UCGReport_SectionCode_VS
+    - http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Condition_CATHCode_VS
     - http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Condition_CATHCadiovascularIllnessHistory_VS
     - http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Condition_CATHComorbidityType_VS
     - http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Condition_CATHCoronaryRiskFactorType_VS
@@ -150,6 +152,8 @@ parameters:  # see https://confluence.hl7.org/display/FHIR/Implementation+Guide+
     - http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Procedure_EKGReport_Category_VS
     - http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Procedure_PCIBodySite_VS
     - http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Procedure_PCIOutcome_VS
+    - http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Procedure_SEAMAT_Category_VS
     - http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Observation_PCIStenosis_VS
     - http://jpfhir.jp/fhir/SEAMAT/ValueSet/JP_Observation_PCITimiGrade_VS
-
+    - http://hl7.org/fhir/us/ccda/StructureDefinition/OrderExtension
+    

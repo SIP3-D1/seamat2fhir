@@ -10,4 +10,4 @@ Usage: #inline
 * status = #final
 * code = $loinc#80728-9 "Stenosis pre"
 * subject = Reference(urn:uuid:1eded11c-b3f3-4613-b94d-73095c366204)
-* valueCodeableConcept = $loinc#LA24351-1 "90%"
+* valueCodeableConcept = $loinc-answer-code#LA24351-1 "90%"

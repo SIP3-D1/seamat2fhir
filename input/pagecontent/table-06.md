@@ -5,7 +5,7 @@
 | resourceType |  |  |  | "Device" | /CD/author | Deviceリソースであることを示す。 |
 | meta |  | 1..1 | Meta |  |  |  |
 |  | lastUpdated | 1..1 | instant | "2023-12-25T20:21:32+09:00" |  | 最終更新日時。YYYY-MM-DDThh:mm:ss.sss+zz:zz。値は例示。 |
-|  | profile | 1..1 | canonical(StructureDefinition) | http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/J<BR>P_Device_SEAMAT_Author |  | 本リソースのプロファイルを識別するURLを指定する。値は固定。 |
+|  | profile | 1..1 | canonical(StructureDefinition) | "http://jpfhir.jp/fhir/SEAMAT/StructureDefinition/J<BR>P_Device_SEAMAT_Author" |  | 本リソースのプロファイルを識別するURLを指定する。値は固定。 |
 | identifier |  | 0..1 | Identifier |  | /CD/author/assignedAuthor/id | 作成システムのID |
 |  | system | 1..1 | uri | "http://jpfhir.jp/fhir/core/IdSystem/resourceInsta<BR>nce-identifier" |  | 作成すステムIDに対する名前空間識別子。固定値。 |
 |  | value | 1..1 | string | "1234678" |  | 作成システムIDの文字列。値は例示。 |
